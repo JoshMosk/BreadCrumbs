@@ -64,7 +64,7 @@ namespace MajorVRProj
             }
 
             //Rotate about
-            if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Mouse1))
+            if (Input.GetKey(KeyCode.Mouse1))
             {
                 var mxInput = Input.GetAxis("Mouse X");
                 // var myInput = Input.GetAxis("Mouse Y");
