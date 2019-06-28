@@ -1666,7 +1666,7 @@ PrefabInstance:
     - target: {fileID: 5904433047108827928, guid: 8b40f0b2c984e0c46b89d7bcc7ead100,
         type: 3}
       propertyPath: m_IgnoreFromBuild
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b40f0b2c984e0c46b89d7bcc7ead100, type: 3}
@@ -3975,7 +3975,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 2359
+    m_Bits: 4294967295
   m_UseGeometry: 0
   m_DefaultArea: 0
   m_IgnoreNavMeshAgent: 1
@@ -8183,7 +8183,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1886379441}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.71, y: -9.9, z: -136.94}
+  m_LocalPosition: {x: -17.71, y: -9.7, z: -136.94}
   m_LocalScale: {x: 21.760128, y: 17.436, z: 42.369484}
   m_Children: []
   m_Father: {fileID: 1332817563}
@@ -8792,6 +8792,7 @@ MonoBehaviour:
   transitionLight: {fileID: 1122572854}
   lightSettings: {fileID: 11400000, guid: 04a597a0e86693642a97d42d778ef42b, type: 2}
   darkSettings: {fileID: 11400000, guid: 3b0328ceab77e2e47a1aefe6e957356f, type: 2}
+  navmesh: {fileID: 1000794287}
   OnCorrupted:
     m_PersistentCalls:
       m_Calls:
@@ -9321,6 +9322,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shack - Corrupt
       objectReference: {fileID: 0}
+    - target: {fileID: 841554938022711791, guid: 4be2725d6b57e38489182ca8824aa54e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 841554938023005647, guid: 4be2725d6b57e38489182ca8824aa54e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9375,6 +9381,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1812453479093038851, guid: 4be2725d6b57e38489182ca8824aa54e,
+        type: 3}
+      propertyPath: m_Carve
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1812453479093038851, guid: 4be2725d6b57e38489182ca8824aa54e,
+        type: 3}
+      propertyPath: m_CarveOnlyStationary
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4be2725d6b57e38489182ca8824aa54e, type: 3}
@@ -9582,6 +9598,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8551218895676451654, guid: e5571b1a6e649ca449703fef5d03897a,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 1.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 8551218895676451655, guid: e5571b1a6e649ca449703fef5d03897a,
+        type: 3}
+      propertyPath: displayLightIntensity
+      value: 1.64
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5571b1a6e649ca449703fef5d03897a, type: 3}

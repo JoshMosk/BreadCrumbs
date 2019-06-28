@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Rendering;
 using UnityEngine.Events;
 namespace MajorVRProj
@@ -14,10 +15,11 @@ namespace MajorVRProj
         [SerializeField] List<LightSettings> dbLightSettings;
         int currentLSIdx = 0;   //Current light setting index
 
-        [Header("Light and Dark")]
+        [Header("The Corrupt")]
         [SerializeField] TransitionLight transitionLight;
         [SerializeField] LightSettings lightSettings;
         [SerializeField] LightSettings darkSettings;
+        [SerializeField] NavMeshSurface navmesh;
         bool isCorrupted = false;
 
         [SerializeField] UnityEvent OnCorrupted, OnNormal;
@@ -41,6 +43,9 @@ namespace MajorVRProj
 
             //Init light with first light settings
             transitionLight.Transition(dbLightSettings[0]);
+
+            OnCorrupted.AddListener(RebakeNavMesh);
+            OnNormal.AddListener(RebakeNavMesh);
         }
 
         void Update()
@@ -54,6 +59,11 @@ namespace MajorVRProj
                 ToggleCorruption();
                 HandleLightTransitions();
             }
+        }
+
+        void RebakeNavMesh()
+        {
+            navmesh.BuildNavMesh();
         }
 
         void ToggleCorruption()
