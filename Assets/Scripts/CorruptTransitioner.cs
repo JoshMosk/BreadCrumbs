@@ -2,16 +2,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Events;
 namespace MajorVRProj
 {
     //Handles transitioning between light and dark mode
     public class CorruptTransitioner : MonoBehaviour
-    { 
-        [SerializeField] TransitionLight transitionLight;
-
-        [SerializeField] List<LightSettings> lightSettings = new List<LightSettings>();
+    {
+        [Header("Debug")]
+        [SerializeField] bool debug = false;
+        [SerializeField] List<LightSettings> dbLightSettings;
         int currentLSIdx = 0;   //Current light setting index
 
+        [Header("Light and Dark")]
+        [SerializeField] TransitionLight transitionLight;
+        [SerializeField] LightSettings lightSettings;
+        [SerializeField] LightSettings darkSettings;
+        bool isCorrupted = false;
+
+        [SerializeField] UnityEvent OnCorrupted, OnNormal;
 
         IInput input;
 
@@ -20,32 +29,55 @@ namespace MajorVRProj
             input = GetComponent<IInput>();
 
             //Make sure there is atleast one light setting
-            if (lightSettings.Count <= 0)
+            if (dbLightSettings.Count <= 0)
                 throw new System.NotImplementedException();
         }
 
         void Start()
         {
+            //Linear intensity must be active if you're modifying light color temps
+            // GraphicsSettings.lightsUseLinearIntensity = true;
+            // GraphicsSettings.lightsUseColorTemperature = true;
+
             //Init light with first light settings
-            transitionLight.Transition(lightSettings[0]);
+            transitionLight.Transition(dbLightSettings[0]);
         }
 
         void Update()
         {
-            HandleTransition();
-        }
-
-        void HandleTransition()      
-        {
             if (input.useDown)
             {
-                currentLSIdx++;
-                if (currentLSIdx >= lightSettings.Count)
-                {
-                    currentLSIdx = 0;
-                }
-                transitionLight.Transition(lightSettings[currentLSIdx]);
+                if (debug) {
+                    RunDebug(); 
+                    return; }
+
+                ToggleCorruption();
+                HandleLightTransitions();
             }
+        }
+
+        void ToggleCorruption()
+        {
+            isCorrupted = !isCorrupted;
+            if (isCorrupted)
+                OnCorrupted.Invoke();
+            else
+                OnNormal.Invoke();
+        }
+
+        void HandleLightTransitions()
+        {
+            if (isCorrupted)
+                transitionLight.Transition(darkSettings);
+            else
+                transitionLight.Transition(lightSettings);
+        }
+
+        //-------------- DEBUG --------------------
+        void RunDebug()
+        {
+            currentLSIdx = (currentLSIdx < dbLightSettings.Count - 1) ? ++currentLSIdx : currentLSIdx = 0;    //i++ is different from ++i!!!
+            transitionLight.Transition(dbLightSettings[currentLSIdx]);
         }
     }
 }

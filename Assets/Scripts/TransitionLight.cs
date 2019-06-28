@@ -5,7 +5,7 @@ namespace MajorVRProj
 {
     public class TransitionLight : MonoBehaviour
     {
-        [SerializeField] float lerpTime = 2f;
+        [SerializeField] float transitionTime = 2f;
 
         new Light light;
         void Awake()
@@ -20,11 +20,11 @@ namespace MajorVRProj
 
         IEnumerator TransitionRoutine(LightSettings newSettings)
         {
-            for (float t = 0f; t < lerpTime; t += Time.deltaTime)
+            for (float t = 0f; t < transitionTime; t += Time.deltaTime)
             {
-                light.colorTemperature = Mathf.Lerp(light.colorTemperature, newSettings.colorTemperature, t / lerpTime);
-                //light.color = Color.Lerp(light.color, newSettings.color, t / lerpTime);
-                light.intensity = Mathf.Lerp(light.intensity, newSettings.intensity, t / lerpTime);
+                //light.colorTemperature = Mathf.Lerp(light.colorTemperature, newSettings.colorTemperature, t / lerpTime);
+                light.color = Color.Lerp(light.color, newSettings.color, t / transitionTime);
+                light.intensity = Mathf.Lerp(light.intensity, newSettings.intensity, t / transitionTime);
                 yield return null;
             }
         }
