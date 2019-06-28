@@ -5,6 +5,9 @@ public interface IInput
 {
     Vector2 axis { get; }
 
-    bool click { get; }
-    bool clicked { get; }
+    bool fire { get; }
+    bool fireDown { get; }
+
+    bool use { get; }
+    bool useDown { get; }
 }
