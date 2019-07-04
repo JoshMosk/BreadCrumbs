@@ -20,7 +20,7 @@ namespace MajorVRProj
         [SerializeField] LightSettings lightSettings;
         [SerializeField] LightSettings darkSettings;
         [SerializeField] NavMeshSurface navmesh;
-        bool isCorrupted = false;
+        [SerializeField] bool isCorrupted = false;
 
         [SerializeField] UnityEvent OnCorrupted, OnNormal;
 

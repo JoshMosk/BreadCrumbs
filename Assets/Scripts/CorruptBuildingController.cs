@@ -5,6 +5,7 @@ namespace MajorVRProj
 {
     public class CorruptBuildingController : MonoBehaviour
     {
+        [SerializeField]
         CorruptBuilding[] corruptBuildings;
 
         void Awake()

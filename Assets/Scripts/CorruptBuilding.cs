@@ -12,33 +12,36 @@ namespace MajorVRProj
         [SerializeField] float transitionTime = 0.5f;
 
         Material[] materials;
+        [SerializeField]
+        Renderer[] renderers;
         MeshRenderer[] mr;
         Collider col;   //Should only need one collider
         void Awake()
         {
-            // materials = GetComponentsInChildren<Material>();
+            //materials = GetComponentsInChildren<Material>();
+            renderers = GetComponentsInChildren<Renderer>();
             mr = GetComponentsInChildren<MeshRenderer>();
             col = GetComponentInChildren<Collider>();
         }
 
-        public void TransitionIn()
+        public void TransitionIn()      //transition into corrupt
         {
-            // StartCoroutine(TransitionRoutine(true));
-            foreach (var o in mr)
-            {
-                o.enabled = false;
-            }
-            col.enabled = false;
+            StartCoroutine(TransitionRoutine(true));
+            //foreach (var o in mr)
+            //{
+            //    o.enabled = false;
+            //}
+            //col.enabled = false;
         }
 
-        public void TransitionOut()
+        public void TransitionOut()     //transition into normal
         {
-            // StartCoroutine(TransitionRoutine(false));
-            foreach (var o in mr)
-            {
-                o.enabled = true;
-            }
-            col.enabled = true;
+            StartCoroutine(TransitionRoutine(false));
+            //foreach (var o in mr)
+            //{
+            //    o.enabled = true;
+            //}
+            //col.enabled = true;
         }
 
         //Transition coroutine
@@ -48,16 +51,28 @@ namespace MajorVRProj
             //Modify the alphas
             for (float t = 0f; t < transitionTime; t += Time.deltaTime)
             {
+                Debug.Log(t);
                 if (direction)
                 {
-                    // materials.SetFloat("")
-                    // //light.colorTemperature = Mathf.Lerp(light.colorTemperature, newSettings.colorTemperature, t / lerpTime);
-                    // light.color = Color.Lerp(light.color, newSettings.color, t / transitionTime);
-                    // light.intensity = Mathf.Lerp(light.intensity, newSettings.intensity, t / transitionTime);
+                    foreach(Renderer r in renderers)
+                    {
+                        r.material.SetFloat("_DissolveSlider",t);
+                    }
+
+                    //foreach (Material m in materials)
+                    //{
+                    //    m.SetFloat("_DissolveSlider", t);
+                    //}
+                    //light.colorTemperature = Mathf.Lerp(light.colorTemperature, newSettings.colorTemperature, t / lerpTime);
+                    //light.color = Color.Lerp(light.color, newSettings.color, t / transitionTime);
+                    //light.intensity = Mathf.Lerp(light.intensity, newSettings.intensity, t / transitionTime);
                 }
                 else
                 {
-
+                    foreach(Renderer r in renderers)
+                    {
+                        r.material.SetFloat("_DissolveSlider", transitionTime - t);
+                    }
                 }
                 yield return null;
             }
