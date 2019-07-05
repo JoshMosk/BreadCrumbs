@@ -26,6 +26,8 @@ namespace MajorVRProj
 
         IInput input;
 
+        [SerializeField] ParticleSystem cityCorruptParticle;
+
         void Awake()
         {
             input = GetComponent<IInput>();
@@ -46,6 +48,9 @@ namespace MajorVRProj
 
             OnCorrupted.AddListener(RebakeNavMesh);
             OnNormal.AddListener(RebakeNavMesh);
+
+            HandleLightTransitions();
+            HandleParticleEffects();
         }
 
         void Update()
@@ -58,6 +63,7 @@ namespace MajorVRProj
 
                 ToggleCorruption();
                 HandleLightTransitions();
+                HandleParticleEffects();
             }
         }
 
@@ -70,17 +76,38 @@ namespace MajorVRProj
         {
             isCorrupted = !isCorrupted;
             if (isCorrupted)
+            {
                 OnCorrupted.Invoke();
+            }
             else
+            {
                 OnNormal.Invoke();
+            }
         }
 
         void HandleLightTransitions()
         {
             if (isCorrupted)
+            {
                 transitionLight.Transition(darkSettings);
+            }
             else
+            {
                 transitionLight.Transition(lightSettings);
+            }
+        }
+
+        void HandleParticleEffects()
+        {
+            if (isCorrupted)
+            {
+                cityCorruptParticle.Play();
+            }
+            else
+            {
+                cityCorruptParticle.Stop();
+                cityCorruptParticle.Clear();
+            }
         }
 
         //-------------- DEBUG --------------------

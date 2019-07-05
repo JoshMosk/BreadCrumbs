@@ -51,12 +51,12 @@ namespace MajorVRProj
             //Modify the alphas
             for (float t = 0f; t < transitionTime; t += Time.deltaTime)
             {
-                Debug.Log(t);
+                
                 if (direction)
                 {
                     foreach(Renderer r in renderers)
                     {
-                        r.material.SetFloat("_DissolveSlider",t);
+                        r.material.SetFloat("_DissolveSlider", transitionTime - t * 2.1f);
                     }
 
                     //foreach (Material m in materials)
@@ -71,7 +71,7 @@ namespace MajorVRProj
                 {
                     foreach(Renderer r in renderers)
                     {
-                        r.material.SetFloat("_DissolveSlider", transitionTime - t);
+                        r.material.SetFloat("_DissolveSlider", t * 2.1f);
                     }
                 }
                 yield return null;

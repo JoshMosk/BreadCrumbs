@@ -17,6 +17,7 @@ MonoBehaviour:
   - {fileID: 114895797164154850}
   - {fileID: 114926529047624142}
   - {fileID: 114766690986127606}
+  - {fileID: 114442108888774086}
 --- !u!114 &114015055215414410
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -69,29 +70,29 @@ MonoBehaviour:
     overrideState: 0
     value: 1
   temperature:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: -1.9
   tint:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 7.7
   colorFilter:
     overrideState: 0
     value: {r: 1, g: 1, b: 1, a: 1}
   hueShift:
-    overrideState: 0
+    overrideState: 1
     value: 0
   saturation:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: -17.3
   brightness:
     overrideState: 0
     value: 0
   postExposure:
-    overrideState: 0
+    overrideState: 1
     value: 0
   contrast:
     overrideState: 1
-    value: 8
+    value: 6.1
   mixerRedOutRedIn:
     overrideState: 0
     value: 100
@@ -1328,6 +1329,43 @@ MonoBehaviour:
       - 0.5
       - 0.5
       - 0.5
+--- !u!114 &114442108888774086
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a34fa72bd4185749832024e9c8010bf, type: 3}
+  m_Name: ScreenSpaceReflections
+  m_EditorClassIdentifier: 
+  active: 0
+  enabled:
+    overrideState: 1
+    value: 1
+  preset:
+    overrideState: 0
+    value: 2
+  maximumIterationCount:
+    overrideState: 0
+    value: 16
+  resolution:
+    overrideState: 0
+    value: 0
+  thickness:
+    overrideState: 0
+    value: 8
+  maximumMarchDistance:
+    overrideState: 0
+    value: 100
+  distanceFade:
+    overrideState: 0
+    value: 0.5
+  vignette:
+    overrideState: 0
+    value: 0.5
 --- !u!114 &114766690986127606
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1340,7 +1378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1cb7e9e120078f43bce4f0b1be547a7, type: 3}
   m_Name: AmbientOcclusion
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
@@ -1349,7 +1387,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 0.5
+    value: 1.17
   color:
     overrideState: 1
     value: {r: 0, g: 0, b: 0, a: 1}
@@ -1395,10 +1433,10 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 1.25
+    value: 5.42
   threshold:
     overrideState: 1
-    value: 0.9
+    value: 0.91
   softKnee:
     overrideState: 0
     value: 0.5
@@ -1451,7 +1489,7 @@ MonoBehaviour:
     value: {x: 0.5, y: 0.5}
   intensity:
     overrideState: 1
-    value: 0.25
+    value: 0.194
   smoothness:
     overrideState: 1
     value: 0.25

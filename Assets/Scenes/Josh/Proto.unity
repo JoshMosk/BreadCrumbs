@@ -2414,6 +2414,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 538759252}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &543223138 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7602499309503219434, guid: bcdcbbfcbf3d899498e05e45f1f31074,
+    type: 3}
+  m_PrefabInstance: {fileID: 782426302}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &563188777
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9136,8 +9142,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bf4b868678487964a95ab3069af4e939, type: 2}
   - {fileID: 11400000, guid: 60d9d86b91b61e648b957e9e76ce6f10, type: 2}
   transitionLight: {fileID: 1122572854}
-  lightSettings: {fileID: 11400000, guid: 04a597a0e86693642a97d42d778ef42b, type: 2}
-  darkSettings: {fileID: 11400000, guid: 3b0328ceab77e2e47a1aefe6e957356f, type: 2}
+  lightSettings: {fileID: 11400000, guid: 3b0328ceab77e2e47a1aefe6e957356f, type: 2}
+  darkSettings: {fileID: 11400000, guid: 04a597a0e86693642a97d42d778ef42b, type: 2}
   navmesh: {fileID: 1000794287}
   isCorrupted: 0
   OnCorrupted:
@@ -9172,6 +9178,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  cityCorruptParticle: {fileID: 543223138}
 --- !u!114 &2110836421
 MonoBehaviour:
   m_ObjectHideFlags: 0
