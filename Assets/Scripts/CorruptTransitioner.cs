@@ -57,9 +57,11 @@ namespace MajorVRProj
         {
             if (input.swapDimensionDown)
             {
-                if (debug) {
-                    RunDebug(); 
-                    return; }
+                if (debug)
+                {
+                    RunDebug();
+                    return;
+                }
 
                 ToggleCorruption();
                 HandleLightTransitions();
