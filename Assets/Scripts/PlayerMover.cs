@@ -26,7 +26,7 @@ namespace MajorVRProj
         void RayCastMove()
         {
             //Move player to clicked position
-            if (input.fireDown)
+            if (input.pointAndClickDown)
             {
                 Ray ray = cam.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(ray, out RaycastHit hit))

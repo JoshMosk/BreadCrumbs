@@ -55,7 +55,7 @@ namespace MajorVRProj
 
         void Update()
         {
-            if (input.useDown)
+            if (input.swapDimensionDown)
             {
                 if (debug) {
                     RunDebug(); 

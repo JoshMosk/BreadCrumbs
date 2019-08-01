@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 public interface IInput
 {
-    Vector2 axis { get; }
+    
 
-    bool fire { get; }
-    bool fireDown { get; }
+    bool pointAndClick { get; }
+    bool pointAndClickDown { get; }
 
-    bool use { get; }
-    bool useDown { get; }
+    bool swapDimension { get; }
+    bool swapDimensionDown { get; }
 }
