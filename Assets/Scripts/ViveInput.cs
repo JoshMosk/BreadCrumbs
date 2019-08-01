@@ -43,11 +43,13 @@ namespace MajorVRProj
         //}
 
         public bool pointAndClickDown => SteamVR_Actions._default.PointAndClick.GetLastStateDown(SteamVR_Input_Sources.Any);
+        public bool pointAndClick => SteamVR_Actions._default.PointAndClick.GetLastState(SteamVR_Input_Sources.Any);
+        public bool pointAndClickUp => SteamVR_Actions._default.PointAndClick.GetLastStateUp(SteamVR_Input_Sources.Any);
+
+
 
         public bool swapDimensionDown => SteamVR_Actions._default.SwapDimension.GetLastStateDown(SteamVR_Input_Sources.Any);
-
-        public bool pointAndClick => SteamVR_Actions._default.PointAndClick.GetLastStateDown(SteamVR_Input_Sources.Any);
-
-        public bool swapDimension => SteamVR_Actions._default.SwapDimension.GetLastStateDown(SteamVR_Input_Sources.Any);
+        public bool swapDimension => SteamVR_Actions._default.SwapDimension.GetLastState(SteamVR_Input_Sources.Any);
+        public bool swapDimensionUp => SteamVR_Actions._default.SwapDimension.GetLastStateUp(SteamVR_Input_Sources.Any);
     }
 }

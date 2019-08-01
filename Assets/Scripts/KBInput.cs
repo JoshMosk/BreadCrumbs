@@ -24,10 +24,12 @@ namespace MajorVRProj
         public bool pointAndClick => Input.GetKey(fireKey);
         public bool pointAndClickDown => Input.GetKeyDown(fireKey);
 
+        public bool pointAndClickUp => Input.GetKeyUp(fireKey);
+
 
         [SerializeField] KeyCode useKey = KeyCode.Space;
         public bool swapDimension => Input.GetKey(useKey);
         public bool swapDimensionDown => Input.GetKeyDown(useKey);
-
+        public bool swapDimensionUp => Input.GetKeyDown(useKey);
     }
 }
