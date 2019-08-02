@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Mat_WallofFog
+  m_Shader: {fileID: 4800000, guid: 5d52f50a40340c947a7350c8e67e7b31, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_41F9E8FA:
+        m_Texture: {fileID: 2800000, guid: 47745d4b45e00b14ba8d031f6aa446b7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Albedo:
+        m_Texture: {fileID: 2800000, guid: c88d72251217f0743b6e69d698034eae, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_657183B8_Out:
+        m_Texture: {fileID: 2800000, guid: c173b3ec5b7c8904fa1811df75863262, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_4250FD56: 0.526
+    - Vector1_869F694C: 0.11
+    - _WarpAmount: 0.03
+    m_Colors:
+    - Vector2_44787DD3: {r: -0.09, g: -0.25, b: 0, a: 0}
+    - Vector2_55A1ACAD: {r: 5, g: 0.58, b: 0, a: 0}
+    - Vector2_938D24DE: {r: -1, g: -1, b: 0, a: 0}
+    - Vector2_9A4AC62: {r: 16.24, g: 0.58, b: 0, a: 0}
+    - Vector2_CE449081: {r: 1, g: 1, b: 0, a: 0}
+    - _Color: {r: 0, g: 0, b: 0, a: 0}
+    - _PanningAlbedo: {r: 0.09, g: 0.25, b: 0, a: 0}
+    - _PanningWarp: {r: 0, g: 0, b: 0, a: 0}
