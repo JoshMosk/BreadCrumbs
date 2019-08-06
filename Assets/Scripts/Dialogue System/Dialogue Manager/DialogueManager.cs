@@ -35,7 +35,7 @@ public class DialogueManager : MonoBehaviour
 
     // Loaded Dialogue Data
     private JSONList currentJSONList;
-    private JSONDictionary currentDictionary;
+    private Node currentDictionary;
 
     // Multiple Choice
     public bool isMultipleChoice;
@@ -57,7 +57,7 @@ public class DialogueManager : MonoBehaviour
 
 
     #region Setup
-
+    /*
     private void Start()
     {
         multipleChoiceOne.onClick.AddListener(PressOne);
@@ -365,6 +365,7 @@ public class DialogueManager : MonoBehaviour
 
         
     }
+    */
 
     #endregion
 }
