@@ -3,11 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 public interface IInput
 {
+    //point and click character movement
     bool pointAndClick { get; }
     bool pointAndClickDown { get; }
     bool pointAndClickUp { get; }
 
-    bool swapDimension { get; }
+    //swap dimension
     bool swapDimensionDown { get; }
+    bool swapDimension { get; }
     bool swapDimensionUp { get; }
+
+    //player drag movement
+    bool dragMovementDown { get; }
+    bool dragMovement { get; }
+    bool dragMovementUp { get; }
 }

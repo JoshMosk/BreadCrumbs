@@ -9,7 +9,7 @@ public class DialogueTrigger : MonoBehaviour
 
     public void OnTriggerEnter(Collider other) {
         if (other.gameObject.GetComponent<DialogueCharacter>()) {
-            DialogueManager.instance.StartConversation(conversationID);
+           // DialogueManager.instance.StartConversation(conversationID);
         }
     }
 
