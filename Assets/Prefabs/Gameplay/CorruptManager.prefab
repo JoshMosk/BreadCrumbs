@@ -1,0 +1,120 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4867614250175023453
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4867614250175023452}
+  - component: {fileID: 4867614250175023451}
+  - component: {fileID: 4867614250175023449}
+  - component: {fileID: 4867614250175023448}
+  m_Layer: 0
+  m_Name: CorruptManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4867614250175023452
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4867614250175023453}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4867614250175023451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4867614250175023453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6090b7451efedd040a493ffda671fad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debug: 0
+  dbLightSettings:
+  - {fileID: 11400000, guid: 3b0328ceab77e2e47a1aefe6e957356f, type: 2}
+  - {fileID: 11400000, guid: 04a597a0e86693642a97d42d778ef42b, type: 2}
+  - {fileID: 11400000, guid: b520127e2ce5dba42ae1a289c38483d4, type: 2}
+  - {fileID: 11400000, guid: 7d721ab0853f4b74baf08c05ce66114d, type: 2}
+  - {fileID: 11400000, guid: bf4b868678487964a95ab3069af4e939, type: 2}
+  - {fileID: 11400000, guid: 60d9d86b91b61e648b957e9e76ce6f10, type: 2}
+  transitionLight: {fileID: 0}
+  lightSettings: {fileID: 11400000, guid: 3b0328ceab77e2e47a1aefe6e957356f, type: 2}
+  darkSettings: {fileID: 11400000, guid: 04a597a0e86693642a97d42d778ef42b, type: 2}
+  navmesh: {fileID: 0}
+  isCorrupted: 0
+  OnCorrupted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4867614250175023449}
+        m_MethodName: Corrupt
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnNormal:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4867614250175023449}
+        m_MethodName: UnCorrupt
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  cityCorruptParticle: {fileID: 0}
+--- !u!114 &4867614250175023449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4867614250175023453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0994f26d08532f349b951d7943266070, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  corruptBuildings: []
+--- !u!114 &4867614250175023448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4867614250175023453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b68ac5edf9e827449bdd8cd7410ebc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_actionSet:
+    actionSetPath: /actions/default
