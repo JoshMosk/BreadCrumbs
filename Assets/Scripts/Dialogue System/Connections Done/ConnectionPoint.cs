@@ -2,51 +2,49 @@
 using UnityEditor;
 using UnityEngine;
 
-public enum ConnectionPointType {In, Out}
+public enum ConnectionPointType { In, Out }
 
 public class ConnectionPoint {
 
     public Rect rect;
     public Node node;
     public bool boolType;
+    public GUIStyle style;
     public int optionNumber;
-    public Node.NodeType typeNode;
+    public string typeString = "";
     public ConnectionPointType type;
-    public Action<ConnectionPoint, ConnectionPointType> OnClickConnectionPoint;
+    public Action<ConnectionPoint> OnClickConnectionPoint;
 
-    public ConnectionPoint(Node node, ConnectionPointType type, Action<ConnectionPoint, ConnectionPointType> OnClickConnectionPoint, Node.NodeType typeNode, bool boolType, int optionNumber) {
-
+    public ConnectionPoint(Node node, ConnectionPointType type, GUIStyle style, Action<ConnectionPoint> OnClickConnectionPoint, string typeString, bool boolType, int optionNumber) {
         this.node = node;
         this.type = type;
+        this.style = style;
         this.boolType = boolType;
-        this.typeNode = typeNode;
+        this.typeString = typeString;
         this.optionNumber = optionNumber;
         this.OnClickConnectionPoint = OnClickConnectionPoint;
-
+        rect = new Rect(0, 0, 10f, 20f);
     }
 
     public void Draw() {
 
-         rect = new Rect(0, 0, 10f, 25f);
+        // Y Position of the connection points.
+        // If the node is of Boolean type, then create two connections and offset them.
+        if (type == ConnectionPointType.Out) {
+            if (typeString == "Boolean") {
+                if (boolType) rect.y = (node.rect.y + (node.rect.height * 0.5f) - rect.height * 0.5f) - 20;
+                else rect.y = (node.rect.y + (node.rect.height * 0.5f) - rect.height * 0.5f) + 20;
 
-        // Find Y Position of the connection points and if they need to be offset
-        float defaultPosition = node.rect.y + (node.rect.height * 0.5f) - rect.height * 0.5f;
-        if (typeNode == Node.NodeType.GetBooleanNode) {
-            if (type == ConnectionPointType.In) rect.y = defaultPosition;
-            else if (boolType) rect.y = defaultPosition - rect.height;
-            else rect.y = defaultPosition + rect.height;
+            } else if (typeString == "Multiple Choice") {
+                if (optionNumber == 1) rect.y = (node.rect.y + (node.rect.height * 0.5f) - rect.height * 0.5f) - 60;
+                else if (optionNumber == 2) rect.y = (node.rect.y + (node.rect.height * 0.5f) - rect.height * 0.5f) - 20;
+                else if (optionNumber == 3) rect.y = (node.rect.y + (node.rect.height * 0.5f) - rect.height * 0.5f) + 20;
+                else rect.y = (node.rect.y + (node.rect.height * 0.5f) - rect.height * 0.5f) + 60;
 
-        } else if (typeNode == Node.NodeType.MultipleChoiceNode) {
-            if (optionNumber == 1) rect.y = defaultPosition - (rect.height * 3);
-            else if (optionNumber == 2) rect.y = defaultPosition - rect.height;
-            else if (optionNumber == 3) rect.y = defaultPosition + rect.height;
-            else if (optionNumber == 4) rect.y = defaultPosition + (rect.height * 3);
-            else rect.y = defaultPosition;
+            } else rect.y = node.rect.y + (node.rect.height * 0.5f) - rect.height * 0.5f;
+        } else rect.y = node.rect.y + (node.rect.height * 0.5f) - rect.height * 0.5f;
 
-        } else rect.y = defaultPosition;
-
-
-        // Find X Position of the connection points
+        // X Position of the connection points.
         switch (type) {
             case ConnectionPointType.In:
                 rect.x = node.rect.x - rect.width + 8f;
@@ -57,25 +55,9 @@ public class ConnectionPoint {
                 break;
         }
 
-
         // Draw the button on the window.
-        switch (type) {
-            case ConnectionPointType.In:
-                GUIStyle inStyle = new GUIStyle();
-                inStyle.normal.background = EditorGUIUtility.Load("builtin skins/darkskin/images/btn left.png") as Texture2D;
-                inStyle.active.background = EditorGUIUtility.Load("builtin skins/darkskin/images/btn left on.png") as Texture2D;
-                inStyle.border = new RectOffset(4, 4, 12, 12);
-                if (GUI.Button(rect, "", inStyle)) OnClickConnectionPoint(this, type);
-                break;
-
-            case ConnectionPointType.Out:
-                GUIStyle outStyle = new GUIStyle();
-                outStyle.normal.background = EditorGUIUtility.Load("builtin skins/darkskin/images/btn right.png") as Texture2D;
-                outStyle.active.background = EditorGUIUtility.Load("builtin skins/darkskin/images/btn right on.png") as Texture2D;
-                outStyle.border = new RectOffset(4, 4, 12, 12);
-                if (GUI.Button(rect, "", outStyle)) OnClickConnectionPoint(this, type);
-                break;
+        if (GUI.Button(rect, "", style)) {
+            if (OnClickConnectionPoint != null) OnClickConnectionPoint(this);
         }
-
     }
 }
