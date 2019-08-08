@@ -7,7 +7,7 @@ using UnityEngine.Rendering;
 using UnityEngine.Events;
 namespace MajorVRProj
 {
-    //Handles transitioning between light and dark mode
+    //Handles transitioning between light and dark mode using unity events
     public class CorruptTransitioner : MonoBehaviour
     {
         [Header("Debug")]

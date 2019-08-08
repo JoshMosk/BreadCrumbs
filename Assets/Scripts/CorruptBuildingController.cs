@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 namespace MajorVRProj
 {
+    //this keeps track of all buildings and calls the transition on them
     public class CorruptBuildingController : MonoBehaviour
     {
         [SerializeField]

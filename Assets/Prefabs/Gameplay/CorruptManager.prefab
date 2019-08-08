@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4867614250175023451}
   - component: {fileID: 4867614250175023449}
   - component: {fileID: 4867614250175023448}
+  - component: {fileID: 1440833410}
   m_Layer: 0
   m_Name: CorruptManager
   m_TagString: Untagged
@@ -72,12 +73,34 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1440833410}
+        m_MethodName: Corrupt
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   OnNormal:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4867614250175023449}
+        m_MethodName: UnCorrupt
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1440833410}
         m_MethodName: UnCorrupt
         m_Mode: 1
         m_Arguments:
@@ -118,3 +141,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_actionSet:
     actionSetPath: /actions/default
+--- !u!114 &1440833410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4867614250175023453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c196d77318b22374dbf5014ced062f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_isCorrupt: 0
+  m_isDead: 0
+  m_maxhealth: 10
+  m_health: 0
+  m_gameOverScreen: {fileID: 0}
