@@ -19,7 +19,7 @@ public class SceneController : MonoBehaviour
     {
         if(SceneManager.GetSceneByName(sceneName).isLoaded)
         {
-            SceneManager.UnloadSceneAsync("");//TODO
+            SceneManager.UnloadSceneAsync(sceneName);
         }
     }
 }
