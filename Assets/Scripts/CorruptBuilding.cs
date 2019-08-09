@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 namespace MajorVRProj
 {
+    //this script goes on the building and turns it transparent
     public class CorruptBuilding : MonoBehaviour
     {
         /*How a building transitions to corrupt

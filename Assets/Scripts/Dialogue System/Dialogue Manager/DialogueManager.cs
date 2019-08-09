@@ -4,15 +4,12 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DialogueManager : MonoBehaviour
-{
+public class DialogueManager : MonoBehaviour {
 
     public static DialogueManager instance;
 
-    void Awake()
-    {
-        if (instance != null)
-        {
+    void Awake() {
+        if (instance != null) {
             Debug.LogWarning("More than one instance of DialogueManager found");
             return;
         }
@@ -35,7 +32,7 @@ public class DialogueManager : MonoBehaviour
 
     // Loaded Dialogue Data
     private JSONList currentJSONList;
-    private Node currentDictionary;
+    private JSONDictionary currentDictionary;
 
     // Multiple Choice
     public bool isMultipleChoice;
@@ -45,8 +42,7 @@ public class DialogueManager : MonoBehaviour
     public Button multipleChoiceThree;
     public Button multipleChoiceFour;
 
-    public enum TypeStatus
-    {
+    public enum TypeStatus {
         Typing,
         Complete,
         Waiting,
@@ -57,9 +53,8 @@ public class DialogueManager : MonoBehaviour
 
 
     #region Setup
-    /*
-    private void Start()
-    {
+
+    private void Start() {
         multipleChoiceOne.onClick.AddListener(PressOne);
         multipleChoiceTwo.onClick.AddListener(PressTwo);
         multipleChoiceThree.onClick.AddListener(PressThree);
@@ -67,47 +62,36 @@ public class DialogueManager : MonoBehaviour
         HideButtons();
     }
 
-    private void Update()
-    {
-        if (inConversation)
-        {
+    private void Update() {
+        if (inConversation) {
             panelObject.GetComponent<CanvasGroup>().alpha = 1f;
-            if (Input.GetKeyDown(KeyCode.Space) && !isMultipleChoice)
-            {
+            if (Input.GetKeyDown(KeyCode.Space) && !isMultipleChoice) {
                 if (typeStatus == TypeStatus.Typing) typeStatus = TypeStatus.Complete;
                 else FindNextNode();
             }
 
-        }
-        else panelObject.GetComponent<CanvasGroup>().alpha = 0f;
+        } else panelObject.GetComponent<CanvasGroup>().alpha = 0f;
     }
 
     #endregion
 
 
     #region Blackboards
-    public void SetBlackboardVariable(string blackboard, string variable, bool value)
-    {
+    public void SetBlackboardVariable(string blackboard, string variable, bool value) {
 
-        if (blackboards.ContainsKey(blackboard))
-        {
+        if (blackboards.ContainsKey(blackboard)) {
 
-            if (blackboards[blackboard].ContainsKey(variable))
-            {
+            if (blackboards[blackboard].ContainsKey(variable)) {
 
                 // Has Blackboard and Variable
                 blackboards[blackboard][variable] = value;
 
-            }
-            else
-            {
+            } else {
                 // Has Blackboard, but not Variable
                 blackboards[blackboard].Add(variable, value);
             }
 
-        }
-        else
-        {
+        } else {
             // No Blackboard or Variable
 
             Dictionary<string, bool> newDict = new Dictionary<string, bool>();
@@ -116,24 +100,20 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public bool GetBlackboardVariable(string blackboard, string variable)
-    {
+    public bool GetBlackboardVariable(string blackboard, string variable) {
 
-        if (blackboards.ContainsKey(blackboard))
-        {
+        if (blackboards.ContainsKey(blackboard)) {
             if (blackboards[blackboard].ContainsKey(variable)) return blackboards[blackboard][variable];
             else return false;
 
-        }
-        else return false;
+        } else return false;
     }
 
     #endregion
 
 
     #region Dialogue
-    public void StartConversation(string conversationID)
-    {
+    public void StartConversation(string conversationID) {
 
         // Load in the conversation data.
         inConversation = true;
@@ -141,28 +121,20 @@ public class DialogueManager : MonoBehaviour
         currentJSONList = JsonUtility.FromJson<JSONList>(File.ReadAllText(Application.streamingAssetsPath + "/Dialogue/" + currentChapter + ".json"));
 
         // Loop through each node in the conversation.
-        foreach (JSONDictionary currentDict in currentJSONList.dataList)
-        {
-            if (currentConversationID == currentDict.uniqueIDString)
-            {
+        foreach (JSONDictionary currentDict in currentJSONList.dataList) {
+            if (currentConversationID == currentDict.uniqueIDString) {
                 currentDictionary = currentDict;
                 FindNextNode();
             }
         }
     }
 
-    private void FindNextNode()
-    {
-        foreach (JSONConnectionDictionary currentLink in currentJSONList.connectionList)
-        {
-            if (currentLink.outPointID == currentDictionary.nodeID)
-            {
-                if (currentLink.outPointID == currentDictionary.nodeID)
-                {
-                    foreach (JSONDictionary currentDict in currentJSONList.dataList)
-                    {
-                        if (currentDict.nodeID == currentLink.inPointID)
-                        {
+    private void FindNextNode() {
+        foreach (JSONConnectionDictionary currentLink in currentJSONList.connectionList) {
+            if (currentLink.outPointID == currentDictionary.nodeID) {
+                if (currentLink.outPointID == currentDictionary.nodeID) {
+                    foreach (JSONDictionary currentDict in currentJSONList.dataList) {
+                        if (currentDict.nodeID == currentLink.inPointID) {
 
                             currentDictionary = currentDict;
                             ProcessNode();
@@ -175,29 +147,23 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    private void ProcessNode()
-    {
-        if (currentDictionary.type == "Dialogue")
-        {
+    private void ProcessNode() {
+        if (currentDictionary.type == "Dialogue") {
             //  speakerTextBox.text = currentDictionary.name;
             // bodyTextBox.text = currentDictionary.body;
 
 
             StartCoroutine(TypeText(currentDictionary.name, currentDictionary.body));
 
-            foreach (DialogueCharacter currentCharacter in FindObjectsOfType<DialogueCharacter>())
-            {
+            foreach (DialogueCharacter currentCharacter in FindObjectsOfType<DialogueCharacter>()) {
                 if (currentCharacter.characterName == currentDictionary.name) currentSpeaker = currentCharacter.gameObject.transform;
             }
 
-        }
-        else if (currentDictionary.type == "Multiple Choice")
-        {
+        } else if (currentDictionary.type == "Multiple Choice") {
             isMultipleChoice = true;
             StartCoroutine(TypeText(currentDictionary.name, currentDictionary.body));
 
-            foreach (DialogueCharacter currentCharacter in FindObjectsOfType<DialogueCharacter>())
-            {
+            foreach (DialogueCharacter currentCharacter in FindObjectsOfType<DialogueCharacter>()) {
                 if (currentCharacter.characterName == currentDictionary.name) currentSpeaker = currentCharacter.gameObject.transform;
             }
 
@@ -211,48 +177,34 @@ public class DialogueManager : MonoBehaviour
             multipleChoiceThree.GetComponentInChildren<Text>().text = currentDictionary.option3;
             multipleChoiceFour.GetComponentInChildren<Text>().text = currentDictionary.option4;
 
-        }
-        else if (currentDictionary.type == "Set Variable")
-        {
+        } else if (currentDictionary.type == "Set Variable") {
             DialogueManager.instance.SetBlackboardVariable(currentDictionary.blackboardString, currentDictionary.variableString, currentDictionary.variableValue);
             FindNextNode();
 
-        }
-        else if (currentDictionary.type == "Random")
-        {
+        } else if (currentDictionary.type == "Random") {
             List<string> inNodes = new List<string>();
 
-            foreach (JSONConnectionDictionary currentRandom in currentJSONList.connectionList)
-            {
+            foreach (JSONConnectionDictionary currentRandom in currentJSONList.connectionList) {
                 if (currentRandom.outPointID == currentDictionary.nodeID) inNodes.Add(currentRandom.inPointID);
             }
 
             string randomStr = inNodes[Random.Range(0, inNodes.Count)];
-            foreach (JSONDictionary currentNode in currentJSONList.dataList)
-            {
-                if (currentNode.nodeID == randomStr)
-                {
+            foreach (JSONDictionary currentNode in currentJSONList.dataList) {
+                if (currentNode.nodeID == randomStr) {
                     currentDictionary = currentNode;
                     ProcessNode();
 
                 }
             }
 
-        }
-        else if (currentDictionary.type == "Boolean")
-        {
-            foreach (JSONConnectionDictionary currentRandom in currentJSONList.connectionList)
-            {
-                if (currentRandom.outBoolType == DialogueManager.instance.GetBlackboardVariable(currentDictionary.blackboardString, currentDictionary.variableString))
-                {
+        } else if (currentDictionary.type == "Boolean") {
+            foreach (JSONConnectionDictionary currentRandom in currentJSONList.connectionList) {
+                if (currentRandom.outBoolType == DialogueManager.instance.GetBlackboardVariable(currentDictionary.blackboardString, currentDictionary.variableString)) {
 
-                    if (currentRandom.outPointID == currentDictionary.nodeID)
-                    {
+                    if (currentRandom.outPointID == currentDictionary.nodeID) {
 
-                        foreach (JSONDictionary currentNode in currentJSONList.dataList)
-                        {
-                            if (currentNode.nodeID == currentRandom.inPointID)
-                            {
+                        foreach (JSONDictionary currentNode in currentJSONList.dataList) {
+                            if (currentNode.nodeID == currentRandom.inPointID) {
                                 currentDictionary = currentNode;
                                 ProcessNode();
                                 return;
@@ -263,12 +215,10 @@ public class DialogueManager : MonoBehaviour
                 }
             }
 
-        }
-        else if (currentDictionary.type == "End Conversation") inConversation = false;
+        } else if (currentDictionary.type == "End Conversation") inConversation = false;
     }
 
-    IEnumerator TypeText(string characterName, string bodyString)
-    {
+    IEnumerator TypeText(string characterName, string bodyString) {
 
         typeStatus = TypeStatus.Typing;
 
@@ -277,16 +227,12 @@ public class DialogueManager : MonoBehaviour
 
         bodyString = bodyString.Replace("…", "...");
 
-        foreach (char letter in bodyString.ToCharArray())
-        {
+        foreach (char letter in bodyString.ToCharArray()) {
 
-            if (typeStatus == TypeStatus.Complete)
-            {
+            if (typeStatus == TypeStatus.Complete) {
                 bodyTextBox.text = bodyString;
 
-            }
-            else
-            {
+            } else {
 
                 bodyTextBox.text += letter;
                 if (letter == ".".ToCharArray()[0]) yield return new WaitForSeconds(.5f);
@@ -303,29 +249,25 @@ public class DialogueManager : MonoBehaviour
     }
 
 
-    void PressOne()
-    {
+    void PressOne() {
         selectedOption = 1;
         HideButtons();
         ProcessOption();
     }
 
-    void PressTwo()
-    {
+    void PressTwo() {
         selectedOption = 2;
         HideButtons();
         ProcessOption();
     }
 
-    void PressThree()
-    {
+    void PressThree() {
         selectedOption = 3;
         HideButtons();
         ProcessOption();
     }
 
-    void PressFour()
-    {
+    void PressFour() {
         selectedOption = 4;
         HideButtons();
         ProcessOption();
@@ -338,21 +280,15 @@ public class DialogueManager : MonoBehaviour
         multipleChoiceFour.gameObject.SetActive(false);
     }
 
-    void ProcessOption()
-    {
+    void ProcessOption() {
         isMultipleChoice = false;
-        foreach (JSONConnectionDictionary currentRandom in currentJSONList.connectionList)
-        {
-            if (currentRandom.optionNumber == selectedOption)
-            {
+        foreach (JSONConnectionDictionary currentRandom in currentJSONList.connectionList) {
+            if (currentRandom.optionNumber == selectedOption) {
 
-                if (currentRandom.outPointID == currentDictionary.nodeID)
-                {
+                if (currentRandom.outPointID == currentDictionary.nodeID) {
 
-                    foreach (JSONDictionary currentNode in currentJSONList.dataList)
-                    {
-                        if (currentNode.nodeID == currentRandom.inPointID)
-                        {
+                    foreach (JSONDictionary currentNode in currentJSONList.dataList) {
+                        if (currentNode.nodeID == currentRandom.inPointID) {
                             currentDictionary = currentNode;
                             ProcessNode();
                             return;
@@ -363,9 +299,8 @@ public class DialogueManager : MonoBehaviour
             }
         }
 
-        
+
     }
-    */
 
     #endregion
 }
