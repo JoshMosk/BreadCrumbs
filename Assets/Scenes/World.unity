@@ -2409,11 +2409,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2071454654541135641, guid: c9576230d2fdd674a802a6a721ac7a0c,
+    - target: {fileID: 2071454654541135847, guid: c9576230d2fdd674a802a6a721ac7a0c,
         type: 3}
-      propertyPath: m_ProbeAnchor
+      propertyPath: m_rayPoint
       value: 
-      objectReference: {fileID: 1046401445}
+      objectReference: {fileID: 1178586904}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9576230d2fdd674a802a6a721ac7a0c, type: 3}
 --- !u!4 &118413056 stripped
@@ -18596,12 +18596,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1046401443}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1046401445 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 393902173172819745, guid: 2600f8db4d9bf244993ff9113ce1bc58,
-    type: 3}
-  m_PrefabInstance: {fileID: 1046401443}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1046420484
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20231,12 +20225,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: NavMeshManager
       objectReference: {fileID: 0}
-    - target: {fileID: 940868878216783031, guid: 64884cb6a2e412248b74df2d9370e7a3,
-        type: 3}
-      propertyPath: m_NavMeshData
-      value: 
-      objectReference: {fileID: 23800000, guid: 611a8d7129ea0644a91d6e4cc681fae2,
-        type: 2}
     - target: {fileID: 940868878216783030, guid: 64884cb6a2e412248b74df2d9370e7a3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -20292,6 +20280,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 940868878216783031, guid: 64884cb6a2e412248b74df2d9370e7a3,
+        type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: 611a8d7129ea0644a91d6e4cc681fae2,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64884cb6a2e412248b74df2d9370e7a3, type: 3}
 --- !u!4 &1162439213 stripped
@@ -20834,6 +20828,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7850124724293178148, guid: 07e7e77093bd35c45844174a5156ea04,
     type: 3}
   m_PrefabInstance: {fileID: 1177731738}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1178586904 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 394449856426033865, guid: 2600f8db4d9bf244993ff9113ce1bc58,
+    type: 3}
+  m_PrefabInstance: {fileID: 1046401443}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1178612302
 PrefabInstance:
