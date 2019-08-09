@@ -20,6 +20,7 @@ namespace MajorVRProj
         [SerializeField] LightSettings lightSettings;
         [SerializeField] LightSettings darkSettings;
         [SerializeField] NavMeshSurface navmesh;
+
         [SerializeField] bool isCorrupted = false;
 
         [SerializeField] UnityEvent OnCorrupted, OnNormal;
@@ -66,6 +67,7 @@ namespace MajorVRProj
                 ToggleCorruption();
                 HandleLightTransitions();
                 HandleParticleEffects();
+                HandleDialogue();
             }
         }
 
@@ -88,6 +90,18 @@ namespace MajorVRProj
         }
 
         void HandleLightTransitions()
+        {
+            if (isCorrupted)
+            {
+                DialogueManager.instance.SetBlackboardVariable("Global", "isCorrupt", true);
+            }
+            else
+            {
+                DialogueManager.instance.SetBlackboardVariable("Global", "isCorrupt", true);
+            }
+        }
+
+        void HandleDialogue()
         {
             if (isCorrupted)
             {

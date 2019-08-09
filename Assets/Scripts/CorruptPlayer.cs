@@ -12,7 +12,7 @@ public class CorruptPlayer : MonoBehaviour
     public float m_health;
 
     public GameObject m_gameOverScreen;
-    float m_restartTimer = 3;
+    public float m_restartTimer = 5;
 
     private void Start()
     {
@@ -67,7 +67,6 @@ public class CorruptPlayer : MonoBehaviour
 
     public void Reload()
     {
-        //SceneManager.LoadScene();
-        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
