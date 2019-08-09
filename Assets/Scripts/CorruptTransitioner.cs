@@ -21,6 +21,10 @@ namespace MajorVRProj
         [SerializeField] LightSettings darkSettings;
         [SerializeField] NavMeshSurface navmesh;
 
+        [SerializeField] Volume volume;
+        [SerializeField] VolumeProfile lightVolume;
+        [SerializeField] VolumeProfile darkVolume;
+
         [SerializeField] bool isCorrupted = false;
 
         [SerializeField] UnityEvent OnCorrupted, OnNormal;
@@ -93,11 +97,13 @@ namespace MajorVRProj
         {
             if (isCorrupted)
             {
-                DialogueManager.instance.SetBlackboardVariable("Global", "isCorrupt", true);
+                transitionLight.Transition(darkSettings);
+                volume.profile = darkVolume;
             }
             else
             {
-                DialogueManager.instance.SetBlackboardVariable("Global", "isCorrupt", true);
+                transitionLight.Transition(lightSettings);
+                volume.profile = lightVolume;
             }
         }
 
@@ -105,11 +111,11 @@ namespace MajorVRProj
         {
             if (isCorrupted)
             {
-                transitionLight.Transition(darkSettings);
+                DialogueManager.instance.SetBlackboardVariable("Global", "isCorrupt", true);
             }
             else
             {
-                transitionLight.Transition(lightSettings);
+                DialogueManager.instance.SetBlackboardVariable("Global", "isCorrupt", false);
             }
         }
 
