@@ -2468,6 +2468,10 @@ PrefabInstance:
       propertyPath: m_rayPoint
       value: 
       objectReference: {fileID: 1178586904}
+    - target: {fileID: 1918311273, guid: c9576230d2fdd674a802a6a721ac7a0c, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
+      value: 0.18888855
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9576230d2fdd674a802a6a721ac7a0c, type: 3}
 --- !u!4 &118413056 stripped
@@ -17817,12 +17821,17 @@ PrefabInstance:
     - target: {fileID: 6194064795542774243, guid: 79e57326b118e08418e62b1aacfecc50,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6194064795542774243, guid: 79e57326b118e08418e62b1aacfecc50,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 11.300003
+      objectReference: {fileID: 0}
+    - target: {fileID: 6194064795542774247, guid: 79e57326b118e08418e62b1aacfecc50,
+        type: 3}
+      propertyPath: currentChapter
+      value: Area 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79e57326b118e08418e62b1aacfecc50, type: 3}
@@ -26849,6 +26858,12 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 04c84591b6fda264b898b89c94086a71, type: 2}
+--- !u!20 &1479817168 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 394449856424552625, guid: 2600f8db4d9bf244993ff9113ce1bc58,
+    type: 3}
+  m_PrefabInstance: {fileID: 1046401443}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1482783748
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36443,6 +36458,26 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1939383412}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1941176858 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6194064795542774246, guid: 79e57326b118e08418e62b1aacfecc50,
+    type: 3}
+  m_PrefabInstance: {fileID: 1001433590}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1941176864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941176858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eab9b2f368f33048b74616786809f15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_mainCamera: {fileID: 1479817168}
+  m_lerpSpeed: 0.2
 --- !u!1001 &1944231380
 PrefabInstance:
   m_ObjectHideFlags: 0
