@@ -32,8 +32,13 @@ namespace MajorVRProj
         public bool swapDimensionUp => Input.GetKeyDown(useKey);
 
         [SerializeField] KeyCode moveKey = KeyCode.UpArrow;
-        public bool dragMovementDown => Input.GetKey(useKey);
-        public bool dragMovement => Input.GetKeyDown(useKey);
-        public bool dragMovementUp => Input.GetKeyDown(useKey);
+        public bool dragMovementDown => Input.GetKey(moveKey);
+        public bool dragMovement => Input.GetKeyDown(moveKey);
+        public bool dragMovementUp => Input.GetKeyDown(moveKey);
+
+        [SerializeField] KeyCode NPCKey = KeyCode.LeftShift;
+        public bool NPCInteractDown => Input.GetKeyDown(NPCKey);
+        public bool NPCInteract => Input.GetKey(NPCKey);
+        public bool NPCInteractUp => Input.GetKeyUp(NPCKey);
     }
 }

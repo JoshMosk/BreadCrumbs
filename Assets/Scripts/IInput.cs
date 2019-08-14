@@ -17,4 +17,8 @@ public interface IInput
     bool dragMovementDown { get; }
     bool dragMovement { get; }
     bool dragMovementUp { get; }
+
+    bool NPCInteractDown { get; }
+    bool NPCInteract { get; }
+    bool NPCInteractUp { get; }
 }

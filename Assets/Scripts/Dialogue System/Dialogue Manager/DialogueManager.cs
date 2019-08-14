@@ -42,6 +42,8 @@ public class DialogueManager : MonoBehaviour {
     public Button multipleChoiceThree;
     public Button multipleChoiceFour;
 
+    public IInput m_input;
+
     public enum TypeStatus {
         Typing,
         Complete,
@@ -60,12 +62,14 @@ public class DialogueManager : MonoBehaviour {
         multipleChoiceThree.onClick.AddListener(PressThree);
         multipleChoiceFour.onClick.AddListener(PressFour);
         HideButtons();
+
+        m_input = GetComponent<IInput>();
     }
 
     private void Update() {
         if (inConversation) {
             panelObject.GetComponent<CanvasGroup>().alpha = 1f;
-            if (Input.GetKeyDown(KeyCode.Space) && !isMultipleChoice) {
+            if (m_input.NPCInteractDown && !isMultipleChoice) {
                 if (typeStatus == TypeStatus.Typing) typeStatus = TypeStatus.Complete;
                 else FindNextNode();
             }

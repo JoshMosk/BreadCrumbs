@@ -59,5 +59,11 @@ namespace MajorVRProj
         public bool dragMovementDown => SteamVR_Actions._default.DragWorld.GetLastStateDown(SteamVR_Input_Sources.Any);
         public bool dragMovement => SteamVR_Actions._default.DragWorld.GetLastState(SteamVR_Input_Sources.Any);
         public bool dragMovementUp => SteamVR_Actions._default.DragWorld.GetLastStateUp(SteamVR_Input_Sources.Any);
+
+
+        public bool NPCInteractDown => SteamVR_Actions._default.InteractNPC.GetLastStateDown(SteamVR_Input_Sources.Any);
+        public bool NPCInteract => SteamVR_Actions._default.InteractNPC.GetLastStateDown(SteamVR_Input_Sources.Any);
+        public bool NPCInteractUp => SteamVR_Actions._default.InteractNPC.GetLastStateDown(SteamVR_Input_Sources.Any);
+
     }
 }
