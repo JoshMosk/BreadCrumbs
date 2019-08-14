@@ -97,12 +97,14 @@ namespace MajorVRProj
         {
             if (isCorrupted)
             {
+                if(transitionLight.isActiveAndEnabled)
                 transitionLight.Transition(darkSettings);
                 volume.profile = darkVolume;
             }
             else
             {
-                transitionLight.Transition(lightSettings);
+                if (transitionLight.isActiveAndEnabled)
+                    transitionLight.Transition(lightSettings);
                 volume.profile = lightVolume;
             }
         }
@@ -136,7 +138,8 @@ namespace MajorVRProj
         void RunDebug()
         {
             currentLSIdx = (currentLSIdx < dbLightSettings.Count - 1) ? ++currentLSIdx : currentLSIdx = 0;    //i++ is different from ++i!!!
-            transitionLight.Transition(dbLightSettings[currentLSIdx]);
+            if (transitionLight.isActiveAndEnabled)
+                transitionLight.Transition(dbLightSettings[currentLSIdx]);
         }
     }
 }
