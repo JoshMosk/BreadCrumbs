@@ -16,7 +16,6 @@ namespace MajorVRProj
         int currentLSIdx = 0;   //Current light setting index
 
         [Header("The Corrupt")]
-        [SerializeField] TransitionLight transitionLight;
         [SerializeField] LightSettings lightSettings;
         [SerializeField] LightSettings darkSettings;
         [SerializeField] NavMeshSurface navmesh;
@@ -48,8 +47,6 @@ namespace MajorVRProj
             // GraphicsSettings.lightsUseLinearIntensity = true;
             // GraphicsSettings.lightsUseColorTemperature = true;
 
-            //Init light with first light settings
-            transitionLight.Transition(dbLightSettings[0]);
 
             OnCorrupted.AddListener(RebakeNavMesh);
             OnNormal.AddListener(RebakeNavMesh);
@@ -97,14 +94,10 @@ namespace MajorVRProj
         {
             if (isCorrupted)
             {
-                if(transitionLight.isActiveAndEnabled)
-                transitionLight.Transition(darkSettings);
                 volume.profile = darkVolume;
             }
             else
             {
-                if (transitionLight.isActiveAndEnabled)
-                    transitionLight.Transition(lightSettings);
                 volume.profile = lightVolume;
             }
         }
@@ -138,8 +131,6 @@ namespace MajorVRProj
         void RunDebug()
         {
             currentLSIdx = (currentLSIdx < dbLightSettings.Count - 1) ? ++currentLSIdx : currentLSIdx = 0;    //i++ is different from ++i!!!
-            if (transitionLight.isActiveAndEnabled)
-                transitionLight.Transition(dbLightSettings[currentLSIdx]);
         }
     }
 }
