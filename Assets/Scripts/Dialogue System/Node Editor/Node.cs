@@ -1,274 +1,482 @@
 ﻿using System;
 using UnityEditor;
 using UnityEngine;
+using System.Collections.Generic;
 using Random = UnityEngine.Random;
+using System.Collections;
 
+[Serializable]
+public class NodeData : SerializableDictionary<string, string> { }
+
+[Serializable]
 public class Node {
+
+    public enum NodeType {
+        EndNode,
+        RandomNode,
+        CommentNode,
+        DialogueNode,
+        SetBooleanNode,
+        GetBooleanNode,
+        ConversationNode,
+        MultipleChoiceNode,
+    }
+
+    public Rect nodeRect;
+    public Rect actualNodeRect;
+    private bool isDragged;
+    private bool isSelected;
+    public NodeType nodeType;
     public string nodeID = "";
-
-    public Rect rect;
-    public string title;
-    public bool isDragged;
-    public bool isSelected;
-    public string type;
-
-    public ConnectionPoint inPoint;
-    public ConnectionPoint outPoint;
-    public ConnectionPoint outPoint2;
-    public ConnectionPoint outPoint3;
-    public ConnectionPoint outPoint4;
-
-    public GUIStyle style;
-    public GUIStyle defaultNodeStyle;
-    public GUIStyle selectedNodeStyle;
-
-    // Dialogue
-    public string titleString = "";
-    public string bodyString = "";
-
-    // Conversation
+    private Vector2 scrollPosition;
     public string uniqueIDString = "";
 
-    // Bool
-    public string blackboardString = "";
-    public string variableString = "";
-    public bool valueBool = false;
-
-    // Multiple Choice
-    public string option1String = "";
-    public string option2String = "";
-    public string option3String = "";
-    public string option4String = "";
-
-
-    Vector2 scrollPosition;
+    private GUIStyle style;
+    private GUIStyle defaultNodeStyle;
+    private GUIStyle selectedNodeStyle;
 
     public Action<Node> OnRemoveNode;
 
-    public Node(Vector2 position, float width, GUIStyle nodeStyle, GUIStyle selectedStyle, GUIStyle inPointStyle, GUIStyle outPointStyle, Action<ConnectionPoint> OnClickInPoint, Action<ConnectionPoint> OnClickOutPoint, Action<Node> OnClickRemoveNode, string typeString) {
-        if (nodeID.Length == 0) {
-            string glyphs = "abcdefghijklmnopqrstuvwxyz0123456789";
-            for (int i = 0; i < 30; i++) nodeID += glyphs[Random.Range(0, glyphs.Length)];
-        }
-
-        type = typeString;
-
-        float height = 0f;
-        if (typeString == "Conversation") height = 120f;
-        else if (typeString == "Dialogue") height = 200f;
-        else if (typeString == "Random") height = 57f;
-        else if (typeString == "Boolean") height = 135f;
-        else if (typeString == "Set Variable") height = 170f;
-        else if (typeString == "End Conversation") height = 57f;
-        else if (typeString == "Comment") height = 150f;
-        else if (typeString == "Multiple Choice") height = 400f;
-
-        rect = new Rect(position.x, position.y, width, height);
-
-        style = nodeStyle;
-
-        if (typeString != "Comment") {
-            if (typeString != "Conversation") inPoint = new ConnectionPoint(this, ConnectionPointType.In, inPointStyle, OnClickInPoint, typeString, false, 0);
-
-            if (typeString == "Boolean") {
-                outPoint = new ConnectionPoint(this, ConnectionPointType.Out, outPointStyle, OnClickOutPoint, typeString, true, 0);
-                outPoint2 = new ConnectionPoint(this, ConnectionPointType.Out, outPointStyle, OnClickOutPoint, typeString, false, 0);
-            } else if (typeString == "Multiple Choice") {
-                outPoint = new ConnectionPoint(this, ConnectionPointType.Out, outPointStyle, OnClickOutPoint, typeString, false, 1);
-                outPoint2 = new ConnectionPoint(this, ConnectionPointType.Out, outPointStyle, OnClickOutPoint, typeString, false, 2);
-                outPoint3 = new ConnectionPoint(this, ConnectionPointType.Out, outPointStyle, OnClickOutPoint, typeString, false, 3);
-                outPoint4 = new ConnectionPoint(this, ConnectionPointType.Out, outPointStyle, OnClickOutPoint, typeString, false, 4);
-            } else if (typeString != "End Conversation") {
-                outPoint = new ConnectionPoint(this, ConnectionPointType.Out, outPointStyle, OnClickOutPoint, typeString, false, 0);
-            }
-        }
+    public List<ConnectionPoint> inPoints = new List<ConnectionPoint>();
+    public List<ConnectionPoint> outPoints = new List<ConnectionPoint>();
+    public NodeData nodeData = new NodeData();
+    public List<Dictionary<string, object>> nodeFields = new List<Dictionary<string, object>>();
 
 
-        defaultNodeStyle = nodeStyle;
-        selectedNodeStyle = selectedStyle;
+    public Node(Vector2 position, Action<ConnectionPoint, ConnectionPoint.ConnectionPointType> OnClickPoint, Action<Node> OnClickRemoveNode, NodeType nodeType, bool isCentered) {
+
+        // Generate a unique ID for this node
+        if (nodeID.Length == 0) for (int i = 0; i < 30; i++) nodeID += "abcdefghijklmnopqrstuvwxyz0123456789"[Random.Range(0, "abcdefghijklmnopqrstuvwxyz0123456789".Length)];
+
+        // Set up the height and connection points
+        this.nodeType = nodeType;
+
+        if (isCentered) nodeRect = new Rect(position.x - ((float)GetNodeInfo(nodeType)["width"]/2), position.y - ((float)GetNodeInfo(nodeType)["height"] / 2), (float)GetNodeInfo(nodeType)["width"], (float)GetNodeInfo(nodeType)["height"]);
+        else nodeRect = new Rect(position.x, position.y, (float)GetNodeInfo(nodeType)["width"], (float)GetNodeInfo(nodeType)["height"]);
+
+        actualNodeRect = nodeRect;
+        for (var i = 0; i < (int)GetNodeInfo(nodeType)["inConnectionNumber"]; i++) inPoints.Add(new ConnectionPoint(this, ConnectionPoint.ConnectionPointType.In, OnClickPoint, nodeType, i + 1, (int)GetNodeInfo(nodeType)["inConnectionNumber"]));
+        for (var i = 0; i < (int)GetNodeInfo(nodeType)["outConnectionNumber"]; i++) outPoints.Add(new ConnectionPoint(this, ConnectionPoint.ConnectionPointType.Out, OnClickPoint, nodeType, i + 1, (int)GetNodeInfo(nodeType)["outConnectionNumber"]));
+
+
+        // Create the style of the node for selected and unselected
+        defaultNodeStyle = new GUIStyle();
+        defaultNodeStyle.border = new RectOffset(12, 12, 12, 12);
+        defaultNodeStyle.normal.background = EditorGUIUtility.Load("builtin skins/darkskin/images/node0.png") as Texture2D;
+
+        selectedNodeStyle = new GUIStyle();
+        selectedNodeStyle.border = new RectOffset(12, 12, 12, 12);
+        selectedNodeStyle.normal.background = EditorGUIUtility.Load("builtin skins/darkskin/images/node0 on.png") as Texture2D;
+
+
+        // Set the current style to unselected
+        style = defaultNodeStyle;
         OnRemoveNode = OnClickRemoveNode;
+
     }
 
-    public void Drag(Vector2 delta) {
-        rect.position += delta;
+    public Dictionary<string, object> GetNodeInfo(NodeType currentType) {
+
+        // Create a unique ID for this node if it has not already been made
+        if (uniqueIDString.Length == 0) {
+            uniqueIDString = "";
+            string glyphs = "abcdefghijklmnopqrstuvwxyz0123456789";
+            for (int i = 0; i < 10; i++) uniqueIDString += glyphs[Random.Range(0, glyphs.Length)];
+            nodeData["uniqueID"] = uniqueIDString;
+        }
+
+        // Setup each kind of node and its details
+        nodeFields = new List<Dictionary<string, object>>();
+        Dictionary<string, object> nodeInfo = new Dictionary<string, object>();
+        switch (currentType) {
+            case NodeType.ConversationNode:
+
+                nodeInfo.Add("name", "Conversation");
+                nodeInfo.Add("description", "Begins a new thread of dialogue nodes");
+                nodeInfo.Add("height", 138f);
+                nodeInfo.Add("width", 180f);
+                nodeInfo.Add("inConnectionNumber", 0);
+                nodeInfo.Add("outConnectionNumber", 1);
+
+                nodeFields.Add(new Dictionary<string, object> { { "name", "Name" }, { "kind", "SmallBox" }, { "id", "name" } });
+                nodeFields.Add(new Dictionary<string, object> { {"name", "ID: " + uniqueIDString }, { "kind", "Copy" }, { "id", "uniqueID" } });
+
+                break;
+
+
+            case NodeType.DialogueNode:
+
+                nodeInfo.Add("name", "Dialogue");
+                nodeInfo.Add("description", "Defines a speach bubble in a conversation");
+                nodeInfo.Add("height", 200f);
+                nodeInfo.Add("width", 200f);
+                nodeInfo.Add("inConnectionNumber", 1);
+                nodeInfo.Add("outConnectionNumber", 1);
+
+                nodeFields.Add(new Dictionary<string, object> { { "name", "Speaker" }, { "kind", "Dropdown" }, { "id", "speaker" } });
+                nodeFields.Add(new Dictionary<string, object> { { "name", "Dialogue" }, { "kind", "LargeBox" }, { "id", "dialogue" } });
+
+                break;
+
+
+            case NodeType.CommentNode:
+
+                nodeInfo.Add("name", "Comment");
+                nodeInfo.Add("description", "Can be used to describe a conversation");
+                nodeInfo.Add("height", 150f);
+                nodeInfo.Add("width", 200f);
+                nodeInfo.Add("inConnectionNumber", 0);
+                nodeInfo.Add("outConnectionNumber", 0);
+
+                nodeFields.Add(new Dictionary<string, object> { { "name", "" }, { "kind", "LargeBox" }, { "id", "comment" } });
+
+                break;
+
+
+            case NodeType.EndNode:
+
+                nodeInfo.Add("name", "End Conversation");
+                nodeInfo.Add("description", "Concludes the preceding conversation");
+                nodeInfo.Add("height", 57f);
+                nodeInfo.Add("width", 160f);
+                nodeInfo.Add("inConnectionNumber", 1);
+                nodeInfo.Add("outConnectionNumber", 0);
+
+                break;
+
+
+            case NodeType.GetBooleanNode:
+
+                nodeInfo.Add("name", "Get Boolean");
+                nodeInfo.Add("description", "Returns true or false based on a blackboard value");
+                nodeInfo.Add("height", 170f);
+                nodeInfo.Add("width", 175f);
+                nodeInfo.Add("inConnectionNumber", 1);
+                nodeInfo.Add("outConnectionNumber", 2);
+
+                nodeFields.Add(new Dictionary<string, object> { { "name", "Blackboard" }, { "kind", "Dropdown" }, { "id", "blackboard" } });
+                nodeFields.Add(new Dictionary<string, object> { { "name", "Variable" }, { "kind", "Dropdown" }, { "id", "variable" } });
+
+                break;
+
+
+            case NodeType.SetBooleanNode:
+               
+                nodeInfo.Add("name", "Set Boolean");
+                nodeInfo.Add("description", "Changes a variable on the specified blackboard");
+                nodeInfo.Add("height", 210f);
+                nodeInfo.Add("width", 175f);
+                nodeInfo.Add("inConnectionNumber", 1);
+                nodeInfo.Add("outConnectionNumber", 1);
+
+                nodeFields.Add(new Dictionary<string, object> { { "name", "Blackboard" }, { "kind", "Dropdown" }, { "id", "blackboard" } });
+                nodeFields.Add(new Dictionary<string, object> { { "name", "Variable" }, { "kind", "Dropdown" }, { "id", "variable" } });
+                nodeFields.Add(new Dictionary<string, object> { { "name", "Value" }, { "kind", "Box" }, { "id", "value" } });
+
+                break;
+
+
+            case NodeType.MultipleChoiceNode:
+
+                nodeInfo.Add("name", "Multiple Choice");
+                nodeInfo.Add("description", "Allows different options for the player to choose from");
+                nodeInfo.Add("height", 350f);
+                nodeInfo.Add("width", 200f);
+                nodeInfo.Add("inConnectionNumber", 1);
+                nodeInfo.Add("outConnectionNumber", 4);
+
+                nodeFields.Add(new Dictionary<string, object> { { "name", "Speaker" }, { "kind", "Dropdown" }, { "id", "speaker" } });
+                nodeFields.Add(new Dictionary<string, object> { { "name", "Dialogue" }, { "kind", "LargeBox" }, { "id", "dialogue" } });
+                nodeFields.Add(new Dictionary<string, object> { { "name", "Option 1" }, { "kind", "SmallBox" }, { "id", "option1" } });
+                nodeFields.Add(new Dictionary<string, object> { { "name", "Option 2" }, { "kind", "SmallBox" }, { "id", "option2" } });
+                nodeFields.Add(new Dictionary<string, object> { { "name", "Option 3" }, { "kind", "SmallBox" }, { "id", "option3" } });
+                nodeFields.Add(new Dictionary<string, object> { { "name", "Option 4" }, { "kind", "SmallBox" }, { "id", "option4" } });
+
+                break;
+
+
+            case NodeType.RandomNode:
+
+                nodeInfo.Add("name", "Random");
+                nodeInfo.Add("description", "Picks a random node");
+                nodeInfo.Add("height", 57f);
+                nodeInfo.Add("width", 150f);
+                nodeInfo.Add("inConnectionNumber", 1);
+                nodeInfo.Add("outConnectionNumber", 1);
+
+                break;
+
+
+        }
+
+        return nodeInfo;
+
     }
 
     public void Draw() {
-        if (inPoint != null) inPoint.Draw();
-        if (outPoint != null) outPoint.Draw();
-        if (type == "Boolean") outPoint2.Draw();
-        if (type == "Multiple Choice") {
-            outPoint2.Draw();
-            outPoint3.Draw();
-            outPoint4.Draw();
+
+        // Draw all of the connection points onto the node
+        foreach (ConnectionPoint inPoint in inPoints) {
+            inPoint.Draw();
         }
 
-        string tooltipString = "";
-        if (type == "Conversation") tooltipString = "Begins a new thread of dialogue nodes";
-        else if (type == "Dialogue") tooltipString = "Defines a speach bubble in a conversation";
-        else if (type == "Random") tooltipString = "Picks a random node";
-        else if (type == "Boolean") tooltipString = "Returns true or false based on a blackboard value";
-        else if (type == "End Conversation") tooltipString = "Concludes the preceding conversation";
-        else if (type == "Set Variable") tooltipString = "Changes a variable on the specified blackboard";
-        else if (type == "Multiple Choice") tooltipString = "Allows different options for the player to choose from";
+        foreach (ConnectionPoint outPoint in outPoints) {
+            outPoint.Draw();
+        }
 
-        GUIContent content = new GUIContent("", tooltipString);
 
-        GUI.Box(rect, content, style);
-
+        // Create the node and set up the scroll view
         float insets = 20f;
-        GUILayout.BeginArea(new Rect(rect.x + insets, rect.y + insets, rect.width - (insets * 2), rect.height - (insets * 2)));
+        //GUI.Box(nodeRect, new GUIContent("", (string)GetNodeInfo(nodeType)["description"]), style);
+        GUI.Box(nodeRect, new GUIContent(""), style);
+        GUILayout.BeginArea(new Rect(nodeRect.x + insets, nodeRect.y + insets, nodeRect.width - (insets * 2), nodeRect.height - (insets * 2)));
+        scrollPosition = GUILayout.BeginScrollView(scrollPosition, GUILayout.Width(nodeRect.width - (insets * 2)), GUILayout.Height(nodeRect.height - (insets * 2)));
 
-        scrollPosition = GUILayout.BeginScrollView(scrollPosition, GUILayout.Width(rect.width - (insets * 2)), GUILayout.Height(rect.height - (insets * 2)));
 
+        // Make the text styles
         GUIStyle titleStyle = new GUIStyle();
-        titleStyle.fontSize = 10;
-        titleStyle.fontStyle = FontStyle.Bold;
         titleStyle.normal.textColor = Color.white;
+        titleStyle.fontStyle = FontStyle.Bold;
+        titleStyle.alignment = TextAnchor.MiddleLeft;
+        if ((string)GetNodeInfo(nodeType)["name"] == "End Conversation" || (string)GetNodeInfo(nodeType)["name"] == "Random") titleStyle.alignment = TextAnchor.MiddleCenter;
+        titleStyle.fontSize = 11;
 
         GUIStyle bodyStyle = new GUIStyle();
-        bodyStyle.fontSize = 10;
-        bodyStyle.fontStyle = FontStyle.Normal;
         bodyStyle.normal.textColor = Color.white;
+        bodyStyle.fontStyle = FontStyle.Normal;
+        bodyStyle.fontSize = 10;
 
-        GUILayout.Label(" " + type, titleStyle);
-        GUILayout.Space(5);
+        GUIStyle smallStyle = new GUIStyle();
+        smallStyle.normal.textColor = Color.gray;
+        smallStyle.fontStyle = FontStyle.Normal;
+        smallStyle.alignment = TextAnchor.MiddleLeft;
+        if ((string)GetNodeInfo(nodeType)["name"] == "End Conversation" || (string)GetNodeInfo(nodeType)["name"] == "Random") smallStyle.alignment = TextAnchor.MiddleCenter;
+        smallStyle.fontSize = 10;
 
-        if (type == "Conversation") {
+
+
+        // Add all of the fields to the node
+        if ((string)GetNodeInfo(nodeType)["name"] == "End Conversation" || (string)GetNodeInfo(nodeType)["name"] == "Random") GUILayout.Label("" + (string)GetNodeInfo(nodeType)["name"], titleStyle);
+        else GUILayout.Label(" " + (string)GetNodeInfo(nodeType)["name"], titleStyle);
+        GUILayout.Space(3);
+
+        foreach (Dictionary<string, object> fieldDict in nodeFields) {
+
             GUILayout.Space(5);
-            GUILayout.Label(" Unique ID", bodyStyle);
-            uniqueIDString = GUILayout.TextField(uniqueIDString, 10);
-            if (GUILayout.Button("Generate")) {
-                uniqueIDString = "";
-                string glyphs = "abcdefghijklmnopqrstuvwxyz0123456789";
-                for (int i = 0; i < 10; i++) uniqueIDString += glyphs[Random.Range(0, glyphs.Length)];
+
+            if ((string)fieldDict["kind"] == "Label") {
+                GUILayout.Label(" " + fieldDict["name"], bodyStyle);
+
+            } else if ((string)fieldDict["kind"] == "LargeBox") {
+                string nameString = (string)fieldDict["name"];
+                if (nameString.Length != 0) GUILayout.Label(" " + fieldDict["name"], bodyStyle);
+                string idString = (string)fieldDict["id"];
+                if (!nodeData.ContainsKey(idString)) nodeData[idString] = "";
+                nodeData[idString] = GUILayout.TextArea((string)nodeData[idString], GUILayout.ExpandHeight(true));
+
+            } else if ((string)fieldDict["kind"] == "SmallBox") {
+                GUILayout.Label(" " + fieldDict["name"], bodyStyle);
+                string idString = (string)fieldDict["id"];
+                if (!nodeData.ContainsKey(idString)) nodeData[idString] = "";
+                nodeData[idString] = GUILayout.TextField((string)nodeData[idString], 25);
+
+            } else if ((string)fieldDict["kind"] == "Copy") {
+                GUILayout.Label(" " + fieldDict["name"], bodyStyle);
+                string idString = (string)fieldDict["id"];
+                if (!nodeData.ContainsKey(idString)) nodeData[idString] = "";
+                if (GUILayout.Button("Copy")) GUIUtility.systemCopyBuffer = uniqueIDString;
+
+            } else if ((string)fieldDict["kind"] == "Box") {
+                string idString = (string)fieldDict["id"];
+                if (!nodeData.ContainsKey(idString)) nodeData[idString] = "False";
+                GUILayout.Label(" " + fieldDict["name"], bodyStyle);
+
+                bool boolResult = BoolFromString(nodeData[idString]);
+                boolResult = GUILayout.Toggle(boolResult, new GUIContent());
+                nodeData[idString] = StringFromBool(boolResult); 
+
+            } else if ((string)fieldDict["kind"] == "Dropdown") {
+                string idString = (string)fieldDict["id"];
+                List<string> dataList = new List<string>();
+                foreach (Node nameNode in NodeBasedEditor.Instance.nodes) {
+                    if (nameNode.nodeData.ContainsKey(idString)) {
+                        if (!dataList.Contains((string)nameNode.nodeData[idString])) {
+                            dataList.Add((string)nameNode.nodeData[idString]);
+                        }
+                    }
+                }
+                dataList.Sort();
+                dataList.Insert(0, "-");
+
+                GUILayout.Label(" " + fieldDict["name"], bodyStyle);
+                if (!nodeData.ContainsKey(idString)) nodeData[idString] = "";
+                nodeData[idString] = GUILayout.TextArea((string)nodeData[idString], GUILayout.ExpandHeight(false));
+                string selectedItem = dataList[EditorGUILayout.Popup(0, dataList.ToArray(), GUILayout.ExpandWidth(true))];
+                if (selectedItem != "-") nodeData[idString] = selectedItem;
+
             }
 
-        } else if (type == "Dialogue") {
-            GUILayout.Space(5);
-            GUILayout.Label(" Speaker", bodyStyle);
-            titleString = GUILayout.TextField(titleString, 25);
-
-            GUILayout.Space(5);
-            GUILayout.Label(" Speech", bodyStyle);
-            bodyString = GUILayout.TextArea(bodyString, GUILayout.ExpandHeight(true));
-            GUILayout.Space(5);
-
-        } else if (type == "Multiple Choice") {
-            GUILayout.Space(5);
-            GUILayout.Label(" Speaker", bodyStyle);
-            titleString = GUILayout.TextField(titleString, 25);
-
-            GUILayout.Space(5);
-            GUILayout.Label(" Speech", bodyStyle);
-            bodyString = GUILayout.TextArea(bodyString, GUILayout.ExpandHeight(true));
-            GUILayout.Space(5);
-
-            GUILayout.Space(5);
-            GUILayout.Label(" Option 1", bodyStyle);
-            option1String = GUILayout.TextArea(option1String, GUILayout.ExpandHeight(false));
-            GUILayout.Space(5);
-
-            GUILayout.Space(5);
-            GUILayout.Label(" Option 2", bodyStyle);
-            option2String = GUILayout.TextArea(option2String, GUILayout.ExpandHeight(false));
-            GUILayout.Space(5);
-
-            GUILayout.Space(5);
-            GUILayout.Label(" Option 3", bodyStyle);
-            option3String = GUILayout.TextArea(option3String, GUILayout.ExpandHeight(false));
-            GUILayout.Space(5);
-
-            GUILayout.Space(5);
-            GUILayout.Label(" Option 4", bodyStyle);
-            option4String = GUILayout.TextArea(option4String, GUILayout.ExpandHeight(false));
-            GUILayout.Space(5);
-
-        } else if (type == "Random") {
-
-        } else if (type == "End Conversation") {
-
-        } else if (type == "Comment") {
-            bodyString = GUILayout.TextArea(bodyString, GUILayout.ExpandHeight(true));
-            GUILayout.Space(5);
-
-        } else if (type == "Boolean") {
-            GUILayout.Space(5);
-            GUILayout.Label(" Blackboard", bodyStyle);
-            blackboardString = GUILayout.TextField(blackboardString, 25);
-
-            GUILayout.Space(5);
-            GUILayout.Label(" Variable", bodyStyle);
-            variableString = GUILayout.TextField(variableString, 25);
-
-        } else if (type == "Set Variable") {
-            GUILayout.Space(5);
-            GUILayout.Label(" Blackboard", bodyStyle);
-            blackboardString = GUILayout.TextField(blackboardString, 25);
-
-            GUILayout.Space(5);
-            GUILayout.Label(" Variable", bodyStyle);
-            variableString = GUILayout.TextField(variableString, 25);
-
-            GUILayout.Space(5);
-            GUILayout.Label(" Value", bodyStyle);
-            valueBool = GUILayout.Toggle(valueBool, new GUIContent());
-
         }
+
+        if (nodeFields.Count != 0) GUILayout.Space(5);
 
         GUILayout.EndScrollView();
         GUILayout.EndArea();
 
-        // GUILayout.Box("This is an sized label");
     }
 
-    public bool ProcessEvents(Event e) {
-        switch (e.type) {
+    public bool ProcessEvents(Event currentEvent) {
+
+        // Process what happens when the mouse is clicked
+        switch (currentEvent.type) {
             case EventType.MouseDown:
-                if (e.button == 0) {
-                    if (rect.Contains(e.mousePosition)) {
-                        isDragged = true;
-                        GUI.changed = true;
-                        isSelected = true;
-                        style = selectedNodeStyle;
-                    } else {
-                        GUI.changed = true;
-                        isSelected = false;
-                        style = defaultNodeStyle;
+                if (currentEvent.button == 0) {
+
+                    if (currentEvent.clickCount == 1) {
+                        if (nodeRect.Contains(currentEvent.mousePosition)) {
+                            isDragged = true;
+                            GUI.changed = true;
+                            isSelected = true;
+                            style = selectedNodeStyle;
+                        } else {
+                            GUI.changed = true;
+                            isSelected = false;
+                            style = defaultNodeStyle;
+                            GUI.FocusControl(null);
+                        }
+
+                    } else if (currentEvent.clickCount == 2) {
+                        if (nodeRect.Contains(currentEvent.mousePosition)) {
+                            float nodeCenterX = nodeRect.position.x + (nodeRect.width / 2);
+                            float nodeCenterY = nodeRect.position.y + (nodeRect.height / 2);
+                            NodeBasedEditor.Instance.ScrollToNode(nodeCenterX, nodeCenterY);
+                        }
                     }
+
                 }
 
-                if (e.button == 1 && isSelected && rect.Contains(e.mousePosition)) {
+                if (currentEvent.button == 1 && isSelected && nodeRect.Contains(currentEvent.mousePosition)) {
                     ProcessContextMenu();
-                    e.Use();
+                    currentEvent.Use();
                 }
                 break;
 
             case EventType.MouseUp:
                 isDragged = false;
+                actualNodeRect = nodeRect;
                 break;
 
             case EventType.MouseDrag:
-                if (e.button == 0 && isDragged) {
-                    Drag(e.delta);
-                    e.Use();
+                if (currentEvent.button == 0 && isDragged) {
+                    Drag(currentEvent.delta);
+                    currentEvent.Use();
                     return true;
                 }
                 break;
         }
 
         return false;
+
     }
 
     private void ProcessContextMenu() {
+
+        // Create the right click menu to remove a node
         GenericMenu genericMenu = new GenericMenu();
         genericMenu.AddItem(new GUIContent("Remove"), false, OnClickRemoveNode);
         genericMenu.ShowAsContext();
+
     }
 
     private void OnClickRemoveNode() {
-        if (OnRemoveNode != null) {
-            OnRemoveNode(this);
-        }
+
+        // When the user pressed 'Remove', get rid of the node
+        OnRemoveNode(this);
+
     }
+
+    public void DragAll(Vector2 delta) {
+
+        actualNodeRect.position += delta;
+        nodeRect.position += delta;
+
+    }
+
+    public void Drag(Vector2 delta) {
+
+        actualNodeRect.position += delta;
+
+        float snapRange = 15f;
+        float desiredX = actualNodeRect.position.x;
+        float desiredY = actualNodeRect.position.y;
+
+
+        List<Node> snappableXNodes = new List<Node>();
+        foreach (Node snapNode in NodeBasedEditor.Instance.nodes) {
+            if (snapNode != this) {
+                float xSnap = (actualNodeRect.position.x + (actualNodeRect.width / 2)) - (snapNode.nodeRect.position.x + (snapNode.nodeRect.width / 2));
+                if (xSnap < snapRange && xSnap > -snapRange) snappableXNodes.Add(snapNode);
+            }
+        }
+
+        if (snappableXNodes.Count != 0) {
+            float closestDistance = 10000;
+            Node closestNode = snappableXNodes[0];
+            foreach (Node snapNode in snappableXNodes) {
+                if (Vector2.Distance(new Vector2(actualNodeRect.x, actualNodeRect.y), new Vector2(snapNode.actualNodeRect.x, snapNode.actualNodeRect.y)) < closestDistance) {
+                    closestNode = snapNode;
+                    closestDistance = Vector2.Distance(new Vector2(actualNodeRect.x, actualNodeRect.y), new Vector2(snapNode.actualNodeRect.x, snapNode.actualNodeRect.y));
+                }
+            }
+
+            desiredX = closestNode.nodeRect.position.x + ((closestNode.nodeRect.width - nodeRect.width) / 2);
+        }
+
+
+        List<Node> snappableYNodes = new List<Node>();
+        foreach (Node snapNode in NodeBasedEditor.Instance.nodes) {
+            if (snapNode != this) {
+                float ySnap = (actualNodeRect.position.y + (actualNodeRect.height / 2)) - (snapNode.nodeRect.position.y + (snapNode.nodeRect.height / 2));
+                if (ySnap < snapRange && ySnap > -snapRange) snappableYNodes.Add(snapNode);
+            }
+        }
+
+        if (snappableYNodes.Count != 0) {
+            float closestDistance = 10000;
+            Node closestNode = snappableYNodes[0];
+            foreach (Node snapNode in snappableYNodes) {
+                if (Vector2.Distance(new Vector2(actualNodeRect.x, actualNodeRect.y), new Vector2(snapNode.actualNodeRect.x, snapNode.actualNodeRect.y)) < closestDistance) {
+                    closestNode = snapNode;
+                    closestDistance = Vector2.Distance(new Vector2(actualNodeRect.x, actualNodeRect.y), new Vector2(snapNode.actualNodeRect.x, snapNode.actualNodeRect.y));
+                }
+            }
+
+            desiredY = closestNode.nodeRect.position.y + ((closestNode.nodeRect.height - nodeRect.height) / 2);
+        }
+
+        nodeRect.position = new Vector2(desiredX, desiredY);
+
+    }
+
+    public void MoveTo(Vector2 delta) {
+
+        Vector2 newPos = nodeRect.position;
+        newPos += delta;
+        nodeRect.position = newPos;
+        actualNodeRect.position = newPos;
+        GUI.changed = true;
+
+    }
+
+    public static string StringFromBool(bool boolValue) {
+        if (boolValue) return "True";
+        else return "False";
+
+    }
+
+    public static bool BoolFromString(string stringValue) {
+        if (stringValue == "True") return true;
+        else return false;
+    }
+
 }
