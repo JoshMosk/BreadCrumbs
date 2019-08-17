@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.08166492, g: 0.13551252, b: 0.17107004, a: 1}
+  m_IndirectSpecularColor: {r: 0.0780764, g: 0.13187854, b: 0.16793081, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -340,7 +340,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &15009434
 Transform:
   m_ObjectHideFlags: 0
@@ -17202,6 +17202,31 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6194064795507497394, guid: 2600f8db4d9bf244993ff9113ce1bc58,
+        type: 3}
+      propertyPath: fileName
+      value: Area 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6194064795507497394, guid: 2600f8db4d9bf244993ff9113ce1bc58,
+        type: 3}
+      propertyPath: option1Button
+      value: 
+      objectReference: {fileID: 1046401448}
+    - target: {fileID: 6194064795507497394, guid: 2600f8db4d9bf244993ff9113ce1bc58,
+        type: 3}
+      propertyPath: option2Button
+      value: 
+      objectReference: {fileID: 1046401447}
+    - target: {fileID: 6194064795507497394, guid: 2600f8db4d9bf244993ff9113ce1bc58,
+        type: 3}
+      propertyPath: option3Button
+      value: 
+      objectReference: {fileID: 1046401446}
+    - target: {fileID: 6194064795507497394, guid: 2600f8db4d9bf244993ff9113ce1bc58,
+        type: 3}
+      propertyPath: option4Button
+      value: 
+      objectReference: {fileID: 1046401445}
     m_RemovedComponents:
     - {fileID: 394449855975065746, guid: 2600f8db4d9bf244993ff9113ce1bc58, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2600f8db4d9bf244993ff9113ce1bc58, type: 3}
@@ -17211,6 +17236,54 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1046401443}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1046401445 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6194064796736548820, guid: 2600f8db4d9bf244993ff9113ce1bc58,
+    type: 3}
+  m_PrefabInstance: {fileID: 1046401443}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1046401446 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6194064795779723689, guid: 2600f8db4d9bf244993ff9113ce1bc58,
+    type: 3}
+  m_PrefabInstance: {fileID: 1046401443}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1046401447 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6194064796659432717, guid: 2600f8db4d9bf244993ff9113ce1bc58,
+    type: 3}
+  m_PrefabInstance: {fileID: 1046401443}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1046401448 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6194064795612526438, guid: 2600f8db4d9bf244993ff9113ce1bc58,
+    type: 3}
+  m_PrefabInstance: {fileID: 1046401443}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1046420484
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23623,7 +23696,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 9100443951717543197, guid: fe45359a218a9484293136fb8e5f0683,
+        type: 3}
+      propertyPath: name
+      value: Lylah
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 903931461204438670, guid: fe45359a218a9484293136fb8e5f0683, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fe45359a218a9484293136fb8e5f0683, type: 3}
 --- !u!1001 &1397482182
 PrefabInstance:

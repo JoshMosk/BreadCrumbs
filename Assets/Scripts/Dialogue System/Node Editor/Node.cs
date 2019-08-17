@@ -20,6 +20,7 @@ public class Node {
         GetBooleanNode,
         ConversationNode,
         MultipleChoiceNode,
+        BroadcastNode,
     }
 
     public Rect nodeRect;
@@ -150,7 +151,7 @@ public class Node {
                 nodeInfo.Add("name", "Get Boolean");
                 nodeInfo.Add("description", "Returns true or false based on a blackboard value");
                 nodeInfo.Add("height", 170f);
-                nodeInfo.Add("width", 175f);
+                nodeInfo.Add("width", 200f);
                 nodeInfo.Add("inConnectionNumber", 1);
                 nodeInfo.Add("outConnectionNumber", 2);
 
@@ -165,7 +166,7 @@ public class Node {
                 nodeInfo.Add("name", "Set Boolean");
                 nodeInfo.Add("description", "Changes a variable on the specified blackboard");
                 nodeInfo.Add("height", 210f);
-                nodeInfo.Add("width", 175f);
+                nodeInfo.Add("width", 200f);
                 nodeInfo.Add("inConnectionNumber", 1);
                 nodeInfo.Add("outConnectionNumber", 1);
 
@@ -203,6 +204,20 @@ public class Node {
                 nodeInfo.Add("width", 150f);
                 nodeInfo.Add("inConnectionNumber", 1);
                 nodeInfo.Add("outConnectionNumber", 1);
+
+                break;
+
+
+            case NodeType.BroadcastNode:
+
+                nodeInfo.Add("name", "Broadcast");
+                nodeInfo.Add("description", "Calls custom scripting");
+                nodeInfo.Add("height", 100f);
+                nodeInfo.Add("width", 200f);
+                nodeInfo.Add("inConnectionNumber", 1);
+                nodeInfo.Add("outConnectionNumber", 1);
+
+                nodeFields.Add(new Dictionary<string, object> { { "name", "Event" }, { "kind", "SmallBox" }, { "id", "event" } });
 
                 break;
 

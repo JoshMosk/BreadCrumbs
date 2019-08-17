@@ -4,13 +4,11 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DialogueManager : MonoBehaviour
-{
+public class DialogueManager : MonoBehaviour {
 
     public static DialogueManager instance;
 
-    void Awake()
-    {
+    void Awake() {
         if (instance != null) return;
         instance = this;
     }
@@ -48,8 +46,7 @@ public class DialogueManager : MonoBehaviour
     public IInput m_input;
 
 
-    private void Start()
-    {
+    private void Start() {
 
         // Set up the multiple choice buttons
         option1Button.onClick.AddListener(delegate { SelectOption(1); });
@@ -60,40 +57,32 @@ public class DialogueManager : MonoBehaviour
 
     }
 
-    private void Update()
-    {
+    private void Update() {
 
         // Show and hide the dialogue box
-        if (inConversation)
-        {
+        if (inConversation) {
             panelObject.GetComponent<CanvasGroup>().alpha = 1f;
 
             // Determine if the user can go to the next dialogue in the conversation
-            if (m_input.NPCInteractDown || Input.GetKeyDown(KeyCode.Space))
-            {
+            if (m_input.NPCInteractDown || Input.GetKeyDown(KeyCode.Space)) {
                 if (isTyping) isTyping = false;
                 else if (canSkip) FindNextNode();
             }
 
-        }
-        else panelObject.GetComponent<CanvasGroup>().alpha = 0f;
+        } else panelObject.GetComponent<CanvasGroup>().alpha = 0f;
 
     }
 
 
-    public void SetBlackboardVariable(string blackboard, string variable, bool value)
-    {
+    public void SetBlackboardVariable(string blackboard, string variable, bool value) {
 
-        if (blackboards.ContainsKey(blackboard))
-        {
+        if (blackboards.ContainsKey(blackboard)) {
 
             // Check if the blackboard alreavy has the variable as a key
             if (blackboards[blackboard].ContainsKey(variable)) blackboards[blackboard][variable] = value;
             else blackboards[blackboard].Add(variable, value);
 
-        }
-        else
-        {
+        } else {
 
             // There is no stored data, set it up as new
             Dictionary<string, bool> newDict = new Dictionary<string, bool> {
@@ -105,12 +94,10 @@ public class DialogueManager : MonoBehaviour
 
     }
 
-    public bool GetBlackboardVariable(string blackboard, string variable)
-    {
+    public bool GetBlackboardVariable(string blackboard, string variable) {
 
         // Return the variable that was requested
-        if (blackboards.ContainsKey(blackboard))
-        {
+        if (blackboards.ContainsKey(blackboard)) {
             if (blackboards[blackboard].ContainsKey(variable)) return blackboards[blackboard][variable];
         }
 
@@ -119,8 +106,7 @@ public class DialogueManager : MonoBehaviour
     }
 
 
-    public void StartConversation(string sentConversationID)
-    {
+    public void StartConversation(string sentConversationID) {
 
         if (currentEnumerator != null) StopCoroutine(currentEnumerator);
 
@@ -131,11 +117,9 @@ public class DialogueManager : MonoBehaviour
 
 
         // Loop through each node in the file to find the conversation
-        foreach (Node currentDict in loadedData.dataList)
-        {
+        foreach (Node currentDict in loadedData.dataList) {
 
-            if (conversationID == currentDict.uniqueIDString)
-            {
+            if (conversationID == currentDict.uniqueIDString) {
                 currentNode = currentDict;
                 selectedOption = 1;
                 FindNextNode();
@@ -144,19 +128,14 @@ public class DialogueManager : MonoBehaviour
 
     }
 
-    private void FindNextNode()
-    {
+    private void FindNextNode() {
 
         // Find the connection that leads away from this current node
-        foreach (JSONConnectionDictionary currentLink in loadedData.connectionList)
-        {
-            if (currentLink.outPointID == currentNode.nodeID && currentLink.outOptionNumber == selectedOption)
-            {
+        foreach (JSONConnectionDictionary currentLink in loadedData.connectionList) {
+            if (currentLink.outPointID == currentNode.nodeID && currentLink.outOptionNumber == selectedOption) {
 
-                foreach (Node currentDict in loadedData.dataList)
-                {
-                    if (currentDict.nodeID == currentLink.inPointID)
-                    {
+                foreach (Node currentDict in loadedData.dataList) {
+                    if (currentDict.nodeID == currentLink.inPointID) {
 
                         selectedOption = 1;
                         currentNode = currentDict;
@@ -171,18 +150,23 @@ public class DialogueManager : MonoBehaviour
 
     }
 
-    private void ProcessNode()
-    {
+    private void ProcessNode() {
 
-        if (currentNode.nodeType == Node.NodeType.DialogueNode)
-        {
+        if (currentNode.nodeType == Node.NodeType.BroadcastNode) {
+
+            if (currentNode.nodeData["event"] == "") {
+
+            }
+
+            FindNextNode();
+
+
+        } else if (currentNode.nodeType == Node.NodeType.DialogueNode) {
             currentEnumerator = StartCoroutine(TypeText((string)currentNode.nodeData["speaker"], (string)currentNode.nodeData["dialogue"]));
             foreach (DialogueCharacter currentCharacter in FindObjectsOfType<DialogueCharacter>()) if (currentCharacter.name == (string)currentNode.nodeData["speaker"]) speakerObject = currentCharacter.gameObject.transform;
 
 
-        }
-        else if (currentNode.nodeType == Node.NodeType.MultipleChoiceNode)
-        {
+        } else if (currentNode.nodeType == Node.NodeType.MultipleChoiceNode) {
             canSkip = false;
             currentEnumerator = StartCoroutine(TypeText((string)currentNode.nodeData["speaker"], (string)currentNode.nodeData["dialogue"]));
             foreach (DialogueCharacter currentCharacter in FindObjectsOfType<DialogueCharacter>()) if (currentCharacter.name == (string)currentNode.nodeData["speaker"]) speakerObject = currentCharacter.gameObject.transform;
@@ -200,62 +184,48 @@ public class DialogueManager : MonoBehaviour
             option4Button.GetComponentInChildren<Text>().text = (string)currentNode.nodeData["option4"];
 
 
-        }
-        else if (currentNode.nodeType == Node.NodeType.SetBooleanNode)
-        {
+        } else if (currentNode.nodeType == Node.NodeType.SetBooleanNode) {
             instance.SetBlackboardVariable((string)currentNode.nodeData["blackboard"], (string)currentNode.nodeData["variable"], Node.BoolFromString(currentNode.nodeData["value"]));
             FindNextNode();
 
-
-        }
-        else if (currentNode.nodeType == Node.NodeType.RandomNode)
-        {
+        } else if (currentNode.nodeType == Node.NodeType.RandomNode) {
             List<string> inNodes = new List<string>();
             foreach (JSONConnectionDictionary currentRandom in loadedData.connectionList) if (currentRandom.outPointID == currentNode.nodeID) inNodes.Add(currentRandom.inPointID);
 
             string randomStr = inNodes[Random.Range(0, inNodes.Count)];
-            foreach (Node loopNode in loadedData.dataList)
-            {
-                if (loopNode.nodeID == randomStr)
-                {
+            foreach (Node loopNode in loadedData.dataList) {
+                if (loopNode.nodeID == randomStr) {
                     currentNode = loopNode;
                     ProcessNode();
                 }
             }
 
 
-        }
-        else if (currentNode.nodeType == Node.NodeType.GetBooleanNode)
-        {
+        } else if (currentNode.nodeType == Node.NodeType.GetBooleanNode) {
             bool blackboardBool = GetBlackboardVariable(currentNode.nodeData["blackboard"], currentNode.nodeData["variable"]);
             if (blackboardBool) selectedOption = 1;
             else selectedOption = 2;
             FindNextNode();
 
 
-        }
-        else if (currentNode.nodeType == Node.NodeType.EndNode)
-        {
+        } else if (currentNode.nodeType == Node.NodeType.EndNode) {
             inConversation = false;
 
 
         }
     }
 
-    IEnumerator TypeText(string characterName, string bodyString)
-    {
+    IEnumerator TypeText(string characterName, string bodyString) {
 
         isTyping = true;
         bodyTextBox.text = "";
         speakerTextBox.text = characterName;
         bodyString = bodyString.Replace("…", "...");
 
-        foreach (char letter in bodyString)
-        {
+        foreach (char letter in bodyString) {
 
             if (isTyping == false) bodyTextBox.text = bodyString;
-            else
-            {
+            else {
 
                 bodyTextBox.text += letter;
                 if (letter == ".".ToCharArray()[0]) yield return new WaitForSeconds(.5f);
@@ -272,8 +242,7 @@ public class DialogueManager : MonoBehaviour
 
     }
 
-    void ShowMultipleChoice(int optionCount)
-    {
+    void ShowMultipleChoice(int optionCount) {
 
         if (optionCount >= 1) option1Button.gameObject.SetActive(true);
         if (optionCount >= 2) option2Button.gameObject.SetActive(true);
@@ -287,8 +256,7 @@ public class DialogueManager : MonoBehaviour
 
     }
 
-    void HideMultipleChoice()
-    {
+    void HideMultipleChoice() {
 
         option1Button.gameObject.SetActive(false);
         option2Button.gameObject.SetActive(false);
@@ -297,8 +265,7 @@ public class DialogueManager : MonoBehaviour
 
     }
 
-    void SelectOption(int index)
-    {
+    void SelectOption(int index) {
         isTyping = false;
         if (currentEnumerator != null) StopCoroutine(currentEnumerator);
         selectedOption = index;

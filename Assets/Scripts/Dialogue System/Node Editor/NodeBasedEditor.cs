@@ -224,6 +224,7 @@ public class NodeBasedEditor : EditorWindow {
         genericMenu.AddItem(new GUIContent("Multiple Choice"), false, () => OnClickAddNode(mousePosition, Node.NodeType.MultipleChoiceNode));
         genericMenu.AddSeparator("");
         genericMenu.AddItem(new GUIContent("Random"), false, () => OnClickAddNode(mousePosition, Node.NodeType.RandomNode));
+        genericMenu.AddItem(new GUIContent("Broadcast"), false, () => OnClickAddNode(mousePosition, Node.NodeType.BroadcastNode));
         genericMenu.AddItem(new GUIContent("Set Boolean"), false, () => OnClickAddNode(mousePosition, Node.NodeType.SetBooleanNode));
         genericMenu.AddItem(new GUIContent("Get Boolean"), false, () => OnClickAddNode(mousePosition, Node.NodeType.GetBooleanNode));
         if (selectedOutPoint == null) genericMenu.AddSeparator("");
