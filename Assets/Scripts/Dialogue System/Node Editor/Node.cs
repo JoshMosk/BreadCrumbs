@@ -150,7 +150,7 @@ public class Node {
 
                 nodeInfo.Add("name", "Get Boolean");
                 nodeInfo.Add("description", "Returns true or false based on a blackboard value");
-                nodeInfo.Add("height", 170f);
+                nodeInfo.Add("height", 135f);
                 nodeInfo.Add("width", 200f);
                 nodeInfo.Add("inConnectionNumber", 1);
                 nodeInfo.Add("outConnectionNumber", 2);
@@ -165,7 +165,7 @@ public class Node {
                
                 nodeInfo.Add("name", "Set Boolean");
                 nodeInfo.Add("description", "Changes a variable on the specified blackboard");
-                nodeInfo.Add("height", 210f);
+                nodeInfo.Add("height", 170f);
                 nodeInfo.Add("width", 200f);
                 nodeInfo.Add("inConnectionNumber", 1);
                 nodeInfo.Add("outConnectionNumber", 1);
@@ -254,20 +254,21 @@ public class Node {
         titleStyle.fontStyle = FontStyle.Bold;
         titleStyle.alignment = TextAnchor.MiddleLeft;
         if ((string)GetNodeInfo(nodeType)["name"] == "End Conversation" || (string)GetNodeInfo(nodeType)["name"] == "Random") titleStyle.alignment = TextAnchor.MiddleCenter;
-        titleStyle.fontSize = 11;
+        titleStyle.fontSize = 10;
 
         GUIStyle bodyStyle = new GUIStyle();
         bodyStyle.normal.textColor = Color.white;
         bodyStyle.fontStyle = FontStyle.Normal;
-        bodyStyle.fontSize = 10;
+        bodyStyle.fontSize = 9;
 
         GUIStyle smallStyle = new GUIStyle();
         smallStyle.normal.textColor = Color.gray;
         smallStyle.fontStyle = FontStyle.Normal;
         smallStyle.alignment = TextAnchor.MiddleLeft;
         if ((string)GetNodeInfo(nodeType)["name"] == "End Conversation" || (string)GetNodeInfo(nodeType)["name"] == "Random") smallStyle.alignment = TextAnchor.MiddleCenter;
-        smallStyle.fontSize = 10;
+        smallStyle.fontSize = 9;
 
+        GUI.skin.textField.fontSize = 11;
 
 
         // Add all of the fields to the node
@@ -293,7 +294,7 @@ public class Node {
                 GUILayout.Label(" " + fieldDict["name"], bodyStyle);
                 string idString = (string)fieldDict["id"];
                 if (!nodeData.ContainsKey(idString)) nodeData[idString] = "";
-                nodeData[idString] = GUILayout.TextField((string)nodeData[idString], 25);
+                nodeData[idString] = GUILayout.TextField((string)nodeData[idString], GUILayout.ExpandHeight(false), GUILayout.ExpandWidth(true));
 
             } else if ((string)fieldDict["kind"] == "Copy") {
                 GUILayout.Label(" " + fieldDict["name"], bodyStyle);
@@ -324,10 +325,14 @@ public class Node {
                 dataList.Insert(0, "-");
 
                 GUILayout.Label(" " + fieldDict["name"], bodyStyle);
+                EditorGUILayout.BeginHorizontal();
+
                 if (!nodeData.ContainsKey(idString)) nodeData[idString] = "";
-                nodeData[idString] = GUILayout.TextArea((string)nodeData[idString], GUILayout.ExpandHeight(false));
-                string selectedItem = dataList[EditorGUILayout.Popup(0, dataList.ToArray(), GUILayout.ExpandWidth(true))];
+                nodeData[idString] = GUILayout.TextArea((string)nodeData[idString], GUILayout.ExpandHeight(false), GUILayout.ExpandWidth(true));
+
+                string selectedItem = dataList[EditorGUILayout.Popup(0, dataList.ToArray(), GUILayout.Width(20f))];
                 if (selectedItem != "-") nodeData[idString] = selectedItem;
+                EditorGUILayout.EndHorizontal();
 
             }
 
