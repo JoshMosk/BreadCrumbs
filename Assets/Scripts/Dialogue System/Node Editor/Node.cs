@@ -21,6 +21,8 @@ public class Node {
         ConversationNode,
         MultipleChoiceNode,
         BroadcastNode,
+        SetNumberNode,
+        GetNumberNode,
     }
 
     public Rect nodeRect;
@@ -162,9 +164,40 @@ public class Node {
 
 
             case NodeType.SetBooleanNode:
-               
+
                 nodeInfo.Add("name", "Set Boolean");
-                nodeInfo.Add("description", "Changes a variable on the specified blackboard");
+                nodeInfo.Add("description", "Changes a boolean variable on the specified blackboard");
+                nodeInfo.Add("height", 170f);
+                nodeInfo.Add("width", 200f);
+                nodeInfo.Add("inConnectionNumber", 1);
+                nodeInfo.Add("outConnectionNumber", 1);
+
+                nodeFields.Add(new Dictionary<string, object> { { "name", "Blackboard" }, { "kind", "Dropdown" }, { "id", "blackboard" } });
+                nodeFields.Add(new Dictionary<string, object> { { "name", "Variable" }, { "kind", "Dropdown" }, { "id", "variable" } });
+                nodeFields.Add(new Dictionary<string, object> { { "name", "Value" }, { "kind", "Box" }, { "id", "value" } });
+
+                break;
+
+
+            case NodeType.GetNumberNode:
+
+                nodeInfo.Add("name", "Get Number");
+                nodeInfo.Add("description", "Returns true or false based on a comparison of a blackboard value");
+                nodeInfo.Add("height", 135f);
+                nodeInfo.Add("width", 200f);
+                nodeInfo.Add("inConnectionNumber", 1);
+                nodeInfo.Add("outConnectionNumber", 2);
+
+                nodeFields.Add(new Dictionary<string, object> { { "name", "Blackboard" }, { "kind", "Dropdown" }, { "id", "blackboard" } });
+                nodeFields.Add(new Dictionary<string, object> { { "name", "Variable" }, { "kind", "Dropdown" }, { "id", "variable" } });
+
+                break;
+
+
+            case NodeType.SetNumberNode:
+
+                nodeInfo.Add("name", "Set Number");
+                nodeInfo.Add("description", "Changes a number variable on the specified blackboard");
                 nodeInfo.Add("height", 170f);
                 nodeInfo.Add("width", 200f);
                 nodeInfo.Add("inConnectionNumber", 1);
@@ -304,7 +337,7 @@ public class Node {
 
             } else if ((string)fieldDict["kind"] == "Box") {
                 string idString = (string)fieldDict["id"];
-                if (!nodeData.ContainsKey(idString)) nodeData[idString] = "False";
+                if (!nodeData.ContainsKey(idString)) nodeData[idString] = "True";
                 GUILayout.Label(" " + fieldDict["name"], bodyStyle);
 
                 bool boolResult = BoolFromString(nodeData[idString]);

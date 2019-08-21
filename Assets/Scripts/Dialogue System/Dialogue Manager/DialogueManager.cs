@@ -64,7 +64,8 @@ public class DialogueManager : MonoBehaviour {
             panelObject.GetComponent<CanvasGroup>().alpha = 1f;
 
             // Determine if the user can go to the next dialogue in the conversation
-            if (m_input.NPCInteractDown || Input.GetKeyDown(KeyCode.Space)) {
+            //if (m_input.NPCInteractDown || Input.GetKeyDown(KeyCode.Space)) {
+            if (Input.GetKeyDown(KeyCode.Space)) {
                 if (isTyping) isTyping = false;
                 else if (canSkip) FindNextNode();
             }
@@ -165,6 +166,10 @@ public class DialogueManager : MonoBehaviour {
             currentEnumerator = StartCoroutine(TypeText((string)currentNode.nodeData["speaker"], (string)currentNode.nodeData["dialogue"]));
             foreach (DialogueCharacter currentCharacter in FindObjectsOfType<DialogueCharacter>()) if (currentCharacter.name == (string)currentNode.nodeData["speaker"]) speakerObject = currentCharacter.gameObject.transform;
 
+            transform.position = new Vector3(speakerObject.transform.position.x, speakerObject.transform.position.y + 2.5f, speakerObject.transform.position.z);
+            transform.LookAt(Camera.main.transform, -Vector3.up);
+            transform.localEulerAngles = new Vector3(0, -transform.localEulerAngles.y, 0);
+
 
         } else if (currentNode.nodeType == Node.NodeType.MultipleChoiceNode) {
             canSkip = false;
@@ -228,11 +233,11 @@ public class DialogueManager : MonoBehaviour {
             else {
 
                 bodyTextBox.text += letter;
-                if (letter == ".".ToCharArray()[0]) yield return new WaitForSeconds(.5f);
-                else if (letter == ",".ToCharArray()[0]) yield return new WaitForSeconds(.2f);
-                else if (letter == "!".ToCharArray()[0]) yield return new WaitForSeconds(.2f);
-                else if (letter == "?".ToCharArray()[0]) yield return new WaitForSeconds(.2f);
-                else yield return new WaitForSeconds(.03f);
+                if (letter == ".".ToCharArray()[0]) yield return new WaitForSeconds(.2f);
+                else if (letter == ",".ToCharArray()[0]) yield return new WaitForSeconds(.1f);
+                else if (letter == "!".ToCharArray()[0]) yield return new WaitForSeconds(.1f);
+                else if (letter == "?".ToCharArray()[0]) yield return new WaitForSeconds(.1f);
+                else yield return new WaitForSeconds(.02f);
 
             }
 
@@ -270,8 +275,20 @@ public class DialogueManager : MonoBehaviour {
         if (currentEnumerator != null) StopCoroutine(currentEnumerator);
         selectedOption = index;
         canSkip = true;
-        FindNextNode();
         HideMultipleChoice();
+        FindNextNode();
+        
+    }
+
+    public Vector3 worldToUISpace(Canvas parentCanvas, Vector3 worldPos) {
+        //Convert the world for screen point so that it can be used with ScreenPointToLocalPointInRectangle function
+        Vector3 screenPos = Camera.main.WorldToScreenPoint(worldPos);
+        Vector2 movePos;
+
+        //Convert the screenpoint to ui rectangle local point
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(parentCanvas.transform as RectTransform, screenPos, parentCanvas.worldCamera, out movePos);
+        //Convert the local point to world point
+        return parentCanvas.transform.TransformPoint(movePos);
     }
 
 }
