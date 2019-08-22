@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Mat_Seethrough wall test
+  m_Shader: {fileID: -6465566751694194690, guid: ae5aad7e16d25ff47984970c0d0687bd,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap:
+    MotionVector: User
+  disabledShaderPasses:
+  - MOTIONVECTORS
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_115A5D7D:
+        m_Texture: {fileID: 2800000, guid: d6f0e028c1244404eb2d02959b9f8f60, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_8AD90FC3:
+        m_Texture: {fileID: 2800000, guid: c895ac09c5f562b4798e88828f61e812, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_E3CBF8CE:
+        m_Texture: {fileID: 2800000, guid: 1b0a81148594a0145a30fb42626127ea, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2DLOD_7606987B_Texture_1:
+        m_Texture: {fileID: 2800000, guid: d79dbb830b9822042b272818b1452a7e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2DLOD_D47831C0_Texture_1:
+        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_BFA26027_Out_0:
+        m_Texture: {fileID: 2800000, guid: d79dbb830b9822042b272818b1452a7e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Boolean_4D284310: 0
+    - Vector1_3B50FC28: 0.68
+    - Vector1_46E52C79: -3.79
+    - Vector1_C5AC5D2D: 3.05
+    - Vector1_E0965E08: -0.99
+    - Vector1_E353721B: 0.34
+    - Vector1_EA59EFE9: 0.001
+    m_Colors:
+    - Color_E84CBC6C: {r: 0, g: 0, b: 0, a: 0}
