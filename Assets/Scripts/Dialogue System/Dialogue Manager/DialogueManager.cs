@@ -45,6 +45,10 @@ public class DialogueManager : MonoBehaviour {
 
     public IInput m_input;
 
+    public bool isWorldSpace;
+
+    public GameObject startPanel;
+
 
     private void Start() {
 
@@ -64,9 +68,10 @@ public class DialogueManager : MonoBehaviour {
             panelObject.GetComponent<CanvasGroup>().alpha = 1f;
 
             // Determine if the user can go to the next dialogue in the conversation
-            //if (m_input.NPCInteractDown || Input.GetKeyDown(KeyCode.Space)) {
-            if (Input.GetKeyDown(KeyCode.Space)) {
-                if (isTyping) isTyping = false;
+          //  if (m_input.NPCInteractDown || Input.GetKeyDown(KeyCode.Space)) {
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    if (isTyping) isTyping = false;
                 else if (canSkip) FindNextNode();
             }
 
@@ -166,9 +171,12 @@ public class DialogueManager : MonoBehaviour {
             currentEnumerator = StartCoroutine(TypeText((string)currentNode.nodeData["speaker"], (string)currentNode.nodeData["dialogue"]));
             foreach (DialogueCharacter currentCharacter in FindObjectsOfType<DialogueCharacter>()) if (currentCharacter.name == (string)currentNode.nodeData["speaker"]) speakerObject = currentCharacter.gameObject.transform;
 
-            transform.position = new Vector3(speakerObject.transform.position.x, speakerObject.transform.position.y + 2.5f, speakerObject.transform.position.z);
-            transform.LookAt(Camera.main.transform, -Vector3.up);
-            transform.localEulerAngles = new Vector3(0, -transform.localEulerAngles.y, 0);
+            if (isWorldSpace)
+            {
+                transform.position = new Vector3(speakerObject.transform.position.x, speakerObject.transform.position.y + 2.5f, speakerObject.transform.position.z);
+                transform.LookAt(Camera.main.transform, -Vector3.up);
+                transform.localEulerAngles = new Vector3(0, -transform.localEulerAngles.y, 0);
+            }
 
 
         } else if (currentNode.nodeType == Node.NodeType.MultipleChoiceNode) {
