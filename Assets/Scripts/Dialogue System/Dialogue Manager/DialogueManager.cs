@@ -214,14 +214,17 @@ public class DialogueManager : MonoBehaviour {
             }
 
 
-        } else if (currentNode.nodeType == Node.NodeType.GetBooleanNode) {
+        }
+        else if (currentNode.nodeType == Node.NodeType.GetBooleanNode)
+        {
             bool blackboardBool = GetBlackboardVariable(currentNode.nodeData["blackboard"], currentNode.nodeData["variable"]);
             if (blackboardBool) selectedOption = 1;
             else selectedOption = 2;
             FindNextNode();
 
 
-        } else if (currentNode.nodeType == Node.NodeType.EndNode) {
+        }
+        else if (currentNode.nodeType == Node.NodeType.EndNode) {
             inConversation = false;
 
 
