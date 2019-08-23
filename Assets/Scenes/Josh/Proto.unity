@@ -3306,6 +3306,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: City_Particle
       objectReference: {fileID: 0}
+    - target: {fileID: 7602499309503219434, guid: bcdcbbfcbf3d899498e05e45f1f31074,
+        type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7602499309503219434, guid: bcdcbbfcbf3d899498e05e45f1f31074,
+        type: 3}
+      propertyPath: EmissionModule.rateOverDistance.scalar
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2848853558269866731, guid: bcdcbbfcbf3d899498e05e45f1f31074,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3370,16 +3380,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7602499309503219434, guid: bcdcbbfcbf3d899498e05e45f1f31074,
-        type: 3}
-      propertyPath: moveWithTransform
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7602499309503219434, guid: bcdcbbfcbf3d899498e05e45f1f31074,
-        type: 3}
-      propertyPath: EmissionModule.rateOverDistance.scalar
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcdcbbfcbf3d899498e05e45f1f31074, type: 3}
@@ -9310,7 +9310,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: 979714b1ec407c443a82f14933793ce0, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -10047,6 +10047,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 629661853542980373, guid: 4e27be2ce25c4b048b2c47809e807f22,
+        type: 3}
+      propertyPath: sceneDeps.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 629661853542980373, guid: 4e27be2ce25c4b048b2c47809e807f22,
+        type: 3}
+      propertyPath: startScene
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e27be2ce25c4b048b2c47809e807f22, type: 3}
 --- !u!4 &623888253213312403 stripped
@@ -10625,6 +10635,10 @@ PrefabInstance:
       propertyPath: m_gameOverScreen
       value: 
       objectReference: {fileID: 1459608097}
+    - target: {fileID: 1440833410, guid: 763264513d044844a96a671ae469677d, type: 3}
+      propertyPath: corruptMeter
+      value: 
+      objectReference: {fileID: 2065450015}
     m_RemovedComponents:
     - {fileID: 4867614250175023448, guid: 763264513d044844a96a671ae469677d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 763264513d044844a96a671ae469677d, type: 3}

@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Mat_UI_Darkness
+  m_Name: Mat_Ui_Darkness
   m_Shader: {fileID: 4800000, guid: 46e61cc68114fe643a0e9ab0a8e9352b, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -21,11 +21,15 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_44CBE337:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 979714b1ec407c443a82f14933793ce0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _DissolveSlider: 0
+    - _DissolveSlider: 0.3378401
     m_Colors:
     - _Colour: {r: 0, g: 0, b: 0, a: 0}

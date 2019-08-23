@@ -286,16 +286,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86beba034795c4e80a156e1469877276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentChapter: Area 5
+  fileName: 
   speakerTextBox: {fileID: 6194064795776808281}
   bodyTextBox: {fileID: 6194064795982938129}
   panelObject: {fileID: 6194064795460127164}
-  isMultipleChoice: 0
-  multipleChoiceOne: {fileID: 6194064795706249011}
-  multipleChoiceTwo: {fileID: 6194064796737684824}
-  multipleChoiceThree: {fileID: 6194064795740506620}
-  multipleChoiceFour: {fileID: 6194064796662732673}
-  typeStatus: 0
+  option1Button: {fileID: 6194064795706249011}
+  option2Button: {fileID: 6194064796737684824}
+  option3Button: {fileID: 6194064795740506620}
+  option4Button: {fileID: 6194064796662732673}
+  isWorldSpace: 0
+  startPanel: {fileID: 0}
 --- !u!1 &6194064795614460421
 GameObject:
   m_ObjectHideFlags: 0

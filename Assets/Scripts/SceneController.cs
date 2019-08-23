@@ -33,7 +33,10 @@ public class SceneController : MonoBehaviour
     private void Start()
     {
         //SceneManager.LoadSceneAsync(SceneManager.GetSceneByName("test1").buildIndex, LoadSceneMode.Additive);
-        SceneManager.LoadSceneAsync(startScene.name, LoadSceneMode.Additive);
+		if(startScene != null)
+		{
+			SceneManager.LoadSceneAsync(startScene.name, LoadSceneMode.Additive);
+		}
     }
 
     public void LoadDepFromTargetScene(SceneAsset s)
