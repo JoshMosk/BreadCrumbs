@@ -29,7 +29,7 @@ public class DragMovement : MonoBehaviour
             transform.position -= pointDiff * m_sensitivity;
             //transform.position = m_dragPoint.localPosition;
 
-            Debug.Log(m_dragPoint.localPosition);
+            //Debug.Log(m_dragPoint.localPosition);
             //Debug.Log(m_dragPoint.position);
 
             //Debug.Log(pointDiff * 1000);

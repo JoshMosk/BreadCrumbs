@@ -59,6 +59,8 @@ public class DialogueManager : MonoBehaviour {
         option4Button.onClick.AddListener(delegate { SelectOption(4); });
         HideMultipleChoice();
 
+        m_input = GetComponent<IInput>();
+
     }
 
     private void Update() {
@@ -68,9 +70,9 @@ public class DialogueManager : MonoBehaviour {
             panelObject.GetComponent<CanvasGroup>().alpha = 1f;
 
             // Determine if the user can go to the next dialogue in the conversation
-          //  if (m_input.NPCInteractDown || Input.GetKeyDown(KeyCode.Space)) {
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
+            if (m_input.NPCInteractDown || Input.GetKeyDown(KeyCode.Space)) {
+            //    if (Input.GetKeyDown(KeyCode.Space))
+             //   {
                     if (isTyping) isTyping = false;
                 else if (canSkip) FindNextNode();
             }

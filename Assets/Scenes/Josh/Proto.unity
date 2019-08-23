@@ -3307,16 +3307,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: City_Particle
       objectReference: {fileID: 0}
-    - target: {fileID: 7602499309503219434, guid: bcdcbbfcbf3d899498e05e45f1f31074,
-        type: 3}
-      propertyPath: moveWithTransform
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7602499309503219434, guid: bcdcbbfcbf3d899498e05e45f1f31074,
-        type: 3}
-      propertyPath: EmissionModule.rateOverDistance.scalar
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2848853558269866731, guid: bcdcbbfcbf3d899498e05e45f1f31074,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3381,6 +3371,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7602499309503219434, guid: bcdcbbfcbf3d899498e05e45f1f31074,
+        type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7602499309503219434, guid: bcdcbbfcbf3d899498e05e45f1f31074,
+        type: 3}
+      propertyPath: EmissionModule.rateOverDistance.scalar
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcdcbbfcbf3d899498e05e45f1f31074, type: 3}
@@ -10423,11 +10423,11 @@ PrefabInstance:
       objectReference: {fileID: 160897596}
     - target: {fileID: 1918311273, guid: c9576230d2fdd674a802a6a721ac7a0c, type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1918311273, guid: c9576230d2fdd674a802a6a721ac7a0c, type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
-      value: 0
+      value: 0.032400627
       objectReference: {fileID: 0}
     - target: {fileID: 1918311273, guid: c9576230d2fdd674a802a6a721ac7a0c, type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].time
@@ -10443,15 +10443,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1918311273, guid: c9576230d2fdd674a802a6a721ac7a0c, type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].time
-      value: 0.14962608
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1918311273, guid: c9576230d2fdd674a802a6a721ac7a0c, type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].inWeight
-      value: 0.33333334
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1918311273, guid: c9576230d2fdd674a802a6a721ac7a0c, type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].outWeight
-      value: 0.33333334
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1918311273, guid: c9576230d2fdd674a802a6a721ac7a0c, type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].inSlope
@@ -10463,7 +10463,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1918311273, guid: c9576230d2fdd674a802a6a721ac7a0c, type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].value
-      value: 1
+      value: 0.05091858
       objectReference: {fileID: 0}
     - target: {fileID: 1918311273, guid: c9576230d2fdd674a802a6a721ac7a0c, type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[2].time
@@ -10479,12 +10479,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1918311273, guid: c9576230d2fdd674a802a6a721ac7a0c, type: 3}
       propertyPath: m_Parameters.colorGradient.key0.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1918311273, guid: c9576230d2fdd674a802a6a721ac7a0c, type: 3}
       propertyPath: m_Parameters.colorGradient.key0.b
-      value: 0.746696
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1918311273, guid: c9576230d2fdd674a802a6a721ac7a0c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9576230d2fdd674a802a6a721ac7a0c, type: 3}
 --- !u!1001 &3091579777169087962
