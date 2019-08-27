@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.30261263, g: 0.44259453, b: 0.71672654, a: 1}
+  m_IndirectSpecularColor: {r: 0.039185412, g: 0.059028964, b: 0.11511781, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2301,6 +2301,11 @@ PrefabInstance:
       propertyPath: lookObject
       value: 
       objectReference: {fileID: 955057274}
+    - target: {fileID: 4339323333303796687, guid: 48cee8a1660a9f1438d16ff9a9365f0a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6608dce92a83768498c05364e294c771, type: 2}
     m_RemovedComponents:
     - {fileID: 963262090716363602, guid: 48cee8a1660a9f1438d16ff9a9365f0a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 48cee8a1660a9f1438d16ff9a9365f0a, type: 3}
@@ -2841,11 +2846,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mannequin Head Prop
       objectReference: {fileID: 0}
-    - target: {fileID: 2950527468829776088, guid: e269d2bb8abe1a043874da836956f065,
-        type: 3}
-      propertyPath: name
-      value: Mannequin Head
-      objectReference: {fileID: 0}
     - target: {fileID: 5704889864616621391, guid: e269d2bb8abe1a043874da836956f065,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2900,6 +2900,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2950527468829776088, guid: e269d2bb8abe1a043874da836956f065,
+        type: 3}
+      propertyPath: name
+      value: Mannequin Head
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e269d2bb8abe1a043874da836956f065, type: 3}
@@ -11709,25 +11714,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 896204783}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &903284364 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5590829229404497255, guid: edd7880b35dbf9649b58617ef3f80d7a,
-    type: 3}
-  m_PrefabInstance: {fileID: 786931089}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &903284368
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 903284364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dd6092ed163c3e4b8170d05b4e493cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weight: 1
 --- !u!1001 &907901982
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12067,7 +12053,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 955057274}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -29669,6 +29655,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weight: 1
+  offset: {x: 0, y: 1.67, z: 0}
 --- !u!1001 &2139955333
 PrefabInstance:
   m_ObjectHideFlags: 0

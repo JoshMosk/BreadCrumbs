@@ -29,7 +29,7 @@ public class IKHeadMove : MonoBehaviour {
             lookTimer = Random.Range(1f, 10f);
         }
 
-        lookObject.transform.position = Vector3.Lerp(lookObject.transform.position, currentTarget.position, Time.deltaTime * speed);
+        lookObject.transform.position = Vector3.Lerp(lookObject.transform.position, currentTarget.position + currentTarget.GetComponent<PointOfInterest>().offset, Time.deltaTime * speed);
     }
 
     private void OnAnimatorIK(int layerIndex) {
