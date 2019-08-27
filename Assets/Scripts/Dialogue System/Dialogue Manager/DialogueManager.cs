@@ -65,6 +65,14 @@ public class DialogueManager : MonoBehaviour {
 
     private void Update() {
 
+        if (isWorldSpace) {
+            transform.LookAt(Camera.main.transform, Vector3.up);
+            transform.localEulerAngles = new Vector3(0, transform.localEulerAngles.y + 180, 0);
+            if (speakerObject) {
+                transform.position = new Vector3(speakerObject.transform.position.x, speakerObject.transform.position.y + 6f, speakerObject.transform.position.z);
+            }
+        }
+
         // Show and hide the dialogue box
         if (inConversation) {
             panelObject.GetComponent<CanvasGroup>().alpha = 1f;
@@ -172,14 +180,6 @@ public class DialogueManager : MonoBehaviour {
         } else if (currentNode.nodeType == Node.NodeType.DialogueNode) {
             currentEnumerator = StartCoroutine(TypeText((string)currentNode.nodeData["speaker"], (string)currentNode.nodeData["dialogue"]));
             foreach (DialogueCharacter currentCharacter in FindObjectsOfType<DialogueCharacter>()) if (currentCharacter.name == (string)currentNode.nodeData["speaker"]) speakerObject = currentCharacter.gameObject.transform;
-
-            if (isWorldSpace)
-            {
-                transform.position = new Vector3(speakerObject.transform.position.x, speakerObject.transform.position.y + 2.5f, speakerObject.transform.position.z);
-                transform.LookAt(Camera.main.transform, -Vector3.up);
-                transform.localEulerAngles = new Vector3(0, -transform.localEulerAngles.y, 0);
-            }
-
 
         } else if (currentNode.nodeType == Node.NodeType.MultipleChoiceNode) {
             canSkip = false;
