@@ -15,6 +15,20 @@ MonoBehaviour:
   name: Denial Shadow NPC
   fontSize: 8
   labelHeight: 1
+--- !u!114 &4197562989531981946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487232988079108167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dd6092ed163c3e4b8170d05b4e493cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weight: 1
+  offset: {x: -0.9, y: 1.6, z: -0.04}
 --- !u!1 &6866252603894630771
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,22 +285,22 @@ PrefabInstance:
     - target: {fileID: 5470293380647898903, guid: 9cc4351d28ceb8743b9b6731b0e37d23,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5470293380647898903, guid: 9cc4351d28ceb8743b9b6731b0e37d23,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.100908875
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5470293380647898903, guid: 9cc4351d28ceb8743b9b6731b0e37d23,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5470293380647898903, guid: 9cc4351d28ceb8743b9b6731b0e37d23,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9948957
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5470293380647898903, guid: 9cc4351d28ceb8743b9b6731b0e37d23,
         type: 3}
@@ -301,23 +315,18 @@ PrefabInstance:
     - target: {fileID: 5470293380647898903, guid: 9cc4351d28ceb8743b9b6731b0e37d23,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -11.583
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5470293380647898903, guid: 9cc4351d28ceb8743b9b6731b0e37d23,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5470293380647898899, guid: 9cc4351d28ceb8743b9b6731b0e37d23,
+    - target: {fileID: 5470293380647898897, guid: 9cc4351d28ceb8743b9b6731b0e37d23,
         type: 3}
-      propertyPath: m_BaseOffset
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 559955643169481385, guid: 9cc4351d28ceb8743b9b6731b0e37d23,
-        type: 3}
-      propertyPath: name
-      value: Denial Shadow NPC
-      objectReference: {fileID: 0}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a569231f467b973469f383e88e018cdb, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cc4351d28ceb8743b9b6731b0e37d23, type: 3}
 --- !u!1 &1487232988079108167 stripped

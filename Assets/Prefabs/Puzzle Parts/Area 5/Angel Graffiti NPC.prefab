@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2622162020063670898}
   - component: {fileID: 1042479434885834315}
+  - component: {fileID: 9153192947093917024}
   m_Layer: 0
   m_Name: Angel Graffiti NPC
   m_TagString: Untagged
@@ -47,6 +48,20 @@ MonoBehaviour:
   name: Angel
   fontSize: 8
   labelHeight: 1
+--- !u!114 &9153192947093917024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5772990904073080229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dd6092ed163c3e4b8170d05b4e493cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weight: 1
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1001 &5054042089524691339
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3997407172453830950}
   - component: {fileID: 8370079069116248477}
+  - component: {fileID: 5719481945947211546}
   m_Layer: 0
   m_Name: Green Tiger Graffiti NPC
   m_TagString: Untagged
@@ -47,6 +48,20 @@ MonoBehaviour:
   name: Green Tiger
   fontSize: 8
   labelHeight: 1
+--- !u!114 &5719481945947211546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3997407172453830953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dd6092ed163c3e4b8170d05b4e493cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weight: 1
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1001 &5377094077177466753
 PrefabInstance:
   m_ObjectHideFlags: 0

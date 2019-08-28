@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5317462962595742296}
+  - component: {fileID: 1369165863}
+  - component: {fileID: 2129449278972341266}
   m_Layer: 0
   m_Name: Mannequin Body Prop
   m_TagString: Untagged
@@ -23,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6885321141939651966}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10.496134, y: 0, z: -143.85158}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -31,6 +33,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1369165863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6885321141939651966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dde9ba7db2379459182189b73d37f155, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 
+  fontSize: 8
+  labelHeight: 1
+--- !u!114 &2129449278972341266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6885321141939651966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dd6092ed163c3e4b8170d05b4e493cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weight: 1
+  offset: {x: 0, y: 1.17, z: 0}
 --- !u!1001 &1269080504119800399
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -87,13 +118,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: ba8da35432640c144ae63ec1bb91f9ed, type: 3}
-      propertyPath: m_Materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: 8d0ea1a5efc9e1242a2a5aa3508fc6f7, type: 2}
-    - target: {fileID: 2300000, guid: ba8da35432640c144ae63ec1bb91f9ed, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 94d28e17d7809b348bcd9797ab19e88d, type: 2}
+    - target: {fileID: 2300000, guid: ba8da35432640c144ae63ec1bb91f9ed, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8d0ea1a5efc9e1242a2a5aa3508fc6f7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba8da35432640c144ae63ec1bb91f9ed, type: 3}
 --- !u!4 &1269080504119404751 stripped
