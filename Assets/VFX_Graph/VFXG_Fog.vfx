@@ -109,7 +109,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.AABox, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"center":{"x":0.0,"y":0.0,"z":0.0},"size":{"x":25.0,"y":25.0,"z":25.0}}'
+      m_SerializableObject: '{"center":{"x":0.0,"y":0.0,"z":0.0},"size":{"x":50.0,"y":50.0,"z":50.0}}'
     m_Space: 0
   m_Property:
     name: bounds
@@ -140,7 +140,7 @@ MonoBehaviour:
     x: -332
     y: -725
     width: 1865
-    height: 3044
+    height: 3043
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1364,7 +1364,7 @@ VisualEffectResource:
         - m_ExpressionIndex: 26
           m_Value: {x: 0, y: 0, z: 0}
         - m_ExpressionIndex: 29
-          m_Value: {x: 25, y: 25, z: 25}
+          m_Value: {x: 50, y: 50, z: 50}
         - m_ExpressionIndex: 30
           m_Value: {x: 0, y: 0, z: 0}
       m_Vector4f:
@@ -1932,7 +1932,7 @@ MonoBehaviour:
     linkedSlots:
     - outputSlot: {fileID: 8926484042661614579}
       inputSlot: {fileID: 8926484042661614809}
-    position: {x: 1021, y: 1657}
+    position: {x: 1022, y: 1717}
     expandedSlots: []
     expanded: 0
 --- !u!114 &8926484042661614579
@@ -2100,7 +2100,7 @@ MonoBehaviour:
     linkedSlots:
     - outputSlot: {fileID: 8926484042661614596}
       inputSlot: {fileID: 8926484042661614815}
-    position: {x: 930, y: 1957}
+    position: {x: 942, y: 1984}
     expandedSlots: []
     expanded: 0
 --- !u!114 &8926484042661614596
@@ -2153,7 +2153,7 @@ MonoBehaviour:
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
+  m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots: []
   m_OutputSlots:
@@ -2177,7 +2177,7 @@ MonoBehaviour:
     linkedSlots:
     - outputSlot: {fileID: 8926484042661614603}
       inputSlot: {fileID: 8926484042661614818}
-    position: {x: 963, y: 2076}
+    position: {x: 975, y: 2103}
     expandedSlots: []
     expanded: 0
 --- !u!114 &8926484042661614603
@@ -2388,7 +2388,7 @@ MonoBehaviour:
     linkedSlots:
     - outputSlot: {fileID: 8926484042661614618}
       inputSlot: {fileID: 8926484042661614612}
-    position: {x: 570, y: 1010}
+    position: {x: 576, y: 1024}
     expandedSlots: []
     expanded: 0
 --- !u!114 &8926484042661614618
@@ -2465,7 +2465,7 @@ MonoBehaviour:
     linkedSlots:
     - outputSlot: {fileID: 8926484042661614620}
       inputSlot: {fileID: 8926484042661614613}
-    position: {x: 568, y: 1043}
+    position: {x: 574, y: 1057}
     expandedSlots: []
     expanded: 0
 --- !u!114 &8926484042661614620
@@ -4361,7 +4361,7 @@ MonoBehaviour:
     linkedSlots:
     - outputSlot: {fileID: 8926484042661615144}
       inputSlot: {fileID: 8926484042661614751}
-    position: {x: 551, y: 890}
+    position: {x: 557, y: 904}
     expandedSlots: []
     expanded: 0
 --- !u!114 &8926484042661615144
