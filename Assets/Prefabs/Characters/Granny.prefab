@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4577885383625243081}
   - component: {fileID: 4577885383625243082}
   - component: {fileID: 8158375217757245937}
+  - component: {fileID: 2134412926}
   m_Layer: 10
   m_Name: Granny
   m_TagString: Untagged
@@ -61,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 29d8fe0989493ff47956f218b2166c91, type: 2}
+  - {fileID: 2100000, guid: a569231f467b973469f383e88e018cdb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -90,7 +91,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4577885383625243095}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 1.9515862
@@ -133,6 +134,20 @@ MonoBehaviour:
   name: Granny
   fontSize: 8
   labelHeight: 1
+--- !u!114 &2134412926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4577885383625243095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dd6092ed163c3e4b8170d05b4e493cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weight: 1
+  offset: {x: 0.13, y: 1.6, z: -0.89}
 --- !u!1001 &5248340501586748025
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -203,7 +218,12 @@ PrefabInstance:
     - target: {fileID: 902517948967185286, guid: d4791a716981b404599a7678702edb99,
         type: 3}
       propertyPath: conversationID
-      value: iykqam23qn
+      value: e2c05zo7rk
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598835139495947158, guid: d4791a716981b404599a7678702edb99,
+        type: 3}
+      propertyPath: m_Radius
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4791a716981b404599a7678702edb99, type: 3}
