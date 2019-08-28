@@ -24,6 +24,8 @@ namespace MajorVRProj
         [SerializeField] VolumeProfile lightVolume;
         [SerializeField] VolumeProfile darkVolume;
 
+		List<LightTransition> m_transitionLights;
+
         [SerializeField] bool isCorrupted = false;
 
         [SerializeField] UnityEvent OnCorrupted, OnNormal;
@@ -53,6 +55,9 @@ namespace MajorVRProj
 
             HandleLightTransitions();
             HandleParticleEffects();
+
+			foreach (GameObject g in GameObject.FindObjectsOfType(typeof(LightTransition)))
+				m_transitionLights.Add(g.GetComponent<LightTransition>());
         }
 
         void Update()
@@ -74,7 +79,8 @@ namespace MajorVRProj
 
         void RebakeNavMesh()
         {
-            navmesh.BuildNavMesh();
+            //navmesh.BuildNavMesh();
+			//need to just have swap between two nav meshes
         }
 
         void ToggleCorruption()
@@ -95,11 +101,15 @@ namespace MajorVRProj
             if (isCorrupted)
             {
                 volume.profile = darkVolume;
+				foreach (LightTransition l in m_transitionLights)
+					l.m_isCorrupt = true;
             }
             else
             {
                 volume.profile = lightVolume;
-            }
+				foreach (LightTransition l in m_transitionLights)
+					l.m_isCorrupt = false;
+			}
         }
 
         void HandleDialogue()

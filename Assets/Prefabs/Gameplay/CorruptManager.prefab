@@ -54,10 +54,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7d721ab0853f4b74baf08c05ce66114d, type: 2}
   - {fileID: 11400000, guid: bf4b868678487964a95ab3069af4e939, type: 2}
   - {fileID: 11400000, guid: 60d9d86b91b61e648b957e9e76ce6f10, type: 2}
-  transitionLight: {fileID: 0}
   lightSettings: {fileID: 11400000, guid: 3b0328ceab77e2e47a1aefe6e957356f, type: 2}
   darkSettings: {fileID: 11400000, guid: 04a597a0e86693642a97d42d778ef42b, type: 2}
   navmesh: {fileID: 0}
+  volume: {fileID: 0}
+  lightVolume: {fileID: 11400000, guid: 04c84591b6fda264b898b89c94086a71, type: 2}
+  darkVolume: {fileID: 11400000, guid: 2e55876c5a10de2468fc70aa6692b6a3, type: 2}
   isCorrupted: 0
   OnCorrupted:
     m_PersistentCalls:
@@ -158,3 +160,5 @@ MonoBehaviour:
   m_maxhealth: 10
   m_health: 0
   m_gameOverScreen: {fileID: 0}
+  m_restartTimer: 5
+  corruptMeter: {fileID: 0}
