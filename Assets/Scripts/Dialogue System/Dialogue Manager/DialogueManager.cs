@@ -36,7 +36,7 @@ public class DialogueManager : MonoBehaviour {
 
     private bool canSkip = true;
     private bool isTyping = false;
-    private bool inConversation = false;
+    public bool inConversation = false;
 
     private Node currentNode;
     private JSONList loadedData;
@@ -79,8 +79,6 @@ public class DialogueManager : MonoBehaviour {
 
             // Determine if the user can go to the next dialogue in the conversation
             if (m_input.NPCInteractDown || Input.GetKeyDown(KeyCode.Space)) {
-            //    if (Input.GetKeyDown(KeyCode.Space))
-             //   {
                     if (isTyping) isTyping = false;
                 else if (canSkip) FindNextNode();
             }
@@ -123,6 +121,8 @@ public class DialogueManager : MonoBehaviour {
 
 
     public void StartConversation(string sentConversationID) {
+
+        DialolgueIcon.instance.SetVisible(false);
 
         if (currentEnumerator != null) StopCoroutine(currentEnumerator);
 
@@ -228,7 +228,7 @@ public class DialogueManager : MonoBehaviour {
         }
         else if (currentNode.nodeType == Node.NodeType.EndNode) {
             inConversation = false;
-
+            DialolgueIcon.instance.SetVisible(true);
 
         }
     }
