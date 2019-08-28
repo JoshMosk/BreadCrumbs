@@ -21,4 +21,6 @@ public interface IInput
     bool NPCInteractDown { get; }
     bool NPCInteract { get; }
     bool NPCInteractUp { get; }
+
+	Vector2 TouchPadPos { get; }
 }

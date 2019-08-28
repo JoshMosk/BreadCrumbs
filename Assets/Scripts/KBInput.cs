@@ -40,5 +40,7 @@ namespace MajorVRProj
         public bool NPCInteractDown => Input.GetKeyDown(NPCKey);
         public bool NPCInteract => Input.GetKey(NPCKey);
         public bool NPCInteractUp => Input.GetKeyUp(NPCKey);
+
+		public Vector2 TouchPadPos => new Vector2(0, 0);
     }
 }
