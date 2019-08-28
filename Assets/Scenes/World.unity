@@ -3449,7 +3449,7 @@ Transform:
   - {fileID: 982642448}
   - {fileID: 1992681865}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &253827430
 PrefabInstance:
@@ -17003,6 +17003,95 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1284759838}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1287386029
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 434312966779829214, guid: 816847d2d0ff7b547ae09b125fa39d6d,
+        type: 3}
+      propertyPath: m_Name
+      value: Graffiti Girl NPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 3869049907513800791, guid: 816847d2d0ff7b547ae09b125fa39d6d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -14.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 3869049907513800791, guid: 816847d2d0ff7b547ae09b125fa39d6d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3869049907513800791, guid: 816847d2d0ff7b547ae09b125fa39d6d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -51.341
+      objectReference: {fileID: 0}
+    - target: {fileID: 3869049907513800791, guid: 816847d2d0ff7b547ae09b125fa39d6d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3869049907513800791, guid: 816847d2d0ff7b547ae09b125fa39d6d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.53539425
+      objectReference: {fileID: 0}
+    - target: {fileID: 3869049907513800791, guid: 816847d2d0ff7b547ae09b125fa39d6d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3869049907513800791, guid: 816847d2d0ff7b547ae09b125fa39d6d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.8446023
+      objectReference: {fileID: 0}
+    - target: {fileID: 3869049907513800791, guid: 816847d2d0ff7b547ae09b125fa39d6d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3869049907513800791, guid: 816847d2d0ff7b547ae09b125fa39d6d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3869049907513800791, guid: 816847d2d0ff7b547ae09b125fa39d6d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 64.741005
+      objectReference: {fileID: 0}
+    - target: {fileID: 3869049907513800791, guid: 816847d2d0ff7b547ae09b125fa39d6d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5274921034807204135, guid: 816847d2d0ff7b547ae09b125fa39d6d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5274921034807204135, guid: 816847d2d0ff7b547ae09b125fa39d6d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5274921034807204135, guid: 816847d2d0ff7b547ae09b125fa39d6d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5274921034807204135, guid: 816847d2d0ff7b547ae09b125fa39d6d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 816847d2d0ff7b547ae09b125fa39d6d, type: 3}
 --- !u!1001 &1288062161
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23827,7 +23916,6 @@ Transform:
   m_Children:
   - {fileID: 3779224411232742304}
   - {fileID: 3049105413985416507}
-  - {fileID: 5502136306725470407}
   m_Father: {fileID: 31095160}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -28824,7 +28912,7 @@ Transform:
   - {fileID: 1946580916}
   - {fileID: 619377193}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2054257796 stripped
 GameObject:
@@ -30954,81 +31042,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2510249706584838024}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &5502136306725470406
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1743653759}
-    m_Modifications:
-    - target: {fileID: 8001472743858708887, guid: 5a12a4405278b9a4f9c0e88f26b3303a,
-        type: 3}
-      propertyPath: m_Name
-      value: Graffiti Girl NPC
-      objectReference: {fileID: 0}
-    - target: {fileID: 7194191324917546954, guid: 5a12a4405278b9a4f9c0e88f26b3303a,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 10.722618
-      objectReference: {fileID: 0}
-    - target: {fileID: 7194191324917546954, guid: 5a12a4405278b9a4f9c0e88f26b3303a,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.3327128
-      objectReference: {fileID: 0}
-    - target: {fileID: 7194191324917546954, guid: 5a12a4405278b9a4f9c0e88f26b3303a,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 10.252029
-      objectReference: {fileID: 0}
-    - target: {fileID: 7194191324917546954, guid: 5a12a4405278b9a4f9c0e88f26b3303a,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.70710456
-      objectReference: {fileID: 0}
-    - target: {fileID: 7194191324917546954, guid: 5a12a4405278b9a4f9c0e88f26b3303a,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.0017953811
-      objectReference: {fileID: 0}
-    - target: {fileID: 7194191324917546954, guid: 5a12a4405278b9a4f9c0e88f26b3303a,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.0017954705
-      objectReference: {fileID: 0}
-    - target: {fileID: 7194191324917546954, guid: 5a12a4405278b9a4f9c0e88f26b3303a,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071045
-      objectReference: {fileID: 0}
-    - target: {fileID: 7194191324917546954, guid: 5a12a4405278b9a4f9c0e88f26b3303a,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7194191324917546954, guid: 5a12a4405278b9a4f9c0e88f26b3303a,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7194191324917546954, guid: 5a12a4405278b9a4f9c0e88f26b3303a,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7194191324917546954, guid: 5a12a4405278b9a4f9c0e88f26b3303a,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5a12a4405278b9a4f9c0e88f26b3303a, type: 3}
---- !u!4 &5502136306725470407 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7194191324917546954, guid: 5a12a4405278b9a4f9c0e88f26b3303a,
-    type: 3}
-  m_PrefabInstance: {fileID: 5502136306725470406}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5531280800551862561
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31204,7 +31217,7 @@ PrefabInstance:
     - target: {fileID: 7634545668576868342, guid: 9872d2404834b8b4c934c33301cd3b3a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 110.4
+      value: 107.87
       objectReference: {fileID: 0}
     - target: {fileID: 7634545668576868342, guid: 9872d2404834b8b4c934c33301cd3b3a,
         type: 3}
