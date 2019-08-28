@@ -64,6 +64,6 @@ namespace MajorVRProj
         public bool NPCInteract => SteamVR_Actions._default.InteractNPC.GetLastState(SteamVR_Input_Sources.Any);
         public bool NPCInteractUp => SteamVR_Actions._default.InteractNPC.GetLastStateUp(SteamVR_Input_Sources.Any);
 
-		public Vector2 TouchPadPos => SteamVR_Actions._default.MultipleChoiceInput.GetLastAxis(SteamVR_Input_Sources.Any);
+		public Vector2 TouchPadPos => new Vector2();//SteamVR_Actions._default.MultipleChoiceInput.GetLastAxis(SteamVR_Input_Sources.Any);
     }
 }
