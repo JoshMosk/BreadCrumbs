@@ -67,6 +67,8 @@ public class DialogueManager : MonoBehaviour {
 
     private void Update() {
 
+        DialogueManager.instance.cooldownTimer -= Time.deltaTime;
+
         if (isWorldSpace) {
             transform.LookAt(Camera.main.transform, Vector3.up);
             transform.localEulerAngles = new Vector3(0, transform.localEulerAngles.y + 180, 0);
