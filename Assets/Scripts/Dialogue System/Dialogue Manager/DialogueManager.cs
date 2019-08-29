@@ -31,7 +31,7 @@ public class DialogueManager : MonoBehaviour {
 
 
     private int selectedOption;
-    private string conversationID;
+    public string conversationID;
     private Transform speakerObject;
 
     private bool canSkip = true;
@@ -48,6 +48,8 @@ public class DialogueManager : MonoBehaviour {
     public bool isWorldSpace;
 
     public GameObject startPanel;
+
+    public float cooldownTimer;
 
 
     private void Start() {
@@ -129,8 +131,27 @@ public class DialogueManager : MonoBehaviour {
         // Load in the conversation data
         inConversation = true;
         conversationID = sentConversationID;
-        loadedData = JsonUtility.FromJson<JSONList>(File.ReadAllText(Application.streamingAssetsPath + "/" + fileName + ".json"));
 
+        List<Node> nodes = new List<Node>();
+        List<JSONConnectionDictionary> JSONConnectDict = new List<JSONConnectionDictionary>();
+
+        DirectoryInfo dir = new DirectoryInfo(Application.streamingAssetsPath);
+        FileInfo[] info = dir.GetFiles("*.*");
+        foreach (FileInfo f in info) {
+
+            if (f.Name.EndsWith(".json")) {
+                JSONList thisData = JsonUtility.FromJson<JSONList>(File.ReadAllText(Application.streamingAssetsPath + "/" + f.Name));
+                nodes.AddRange(thisData.dataList);
+                JSONConnectDict.AddRange(thisData.connectionList);
+            }
+        }
+
+        loadedData = new JSONList {
+            dataList = nodes,
+            connectionList = JSONConnectDict
+        };
+
+     //   loadedData = JsonUtility.FromJson<JSONList>(File.ReadAllText(Application.streamingAssetsPath + "/" + fileName + ".json"));
 
         // Loop through each node in the file to find the conversation
         foreach (Node currentDict in loadedData.dataList) {
@@ -227,8 +248,10 @@ public class DialogueManager : MonoBehaviour {
 
         }
         else if (currentNode.nodeType == Node.NodeType.EndNode) {
+            cooldownTimer = 1f;
             inConversation = false;
             DialolgueIcon.instance.SetVisible(true);
+
 
         }
     }

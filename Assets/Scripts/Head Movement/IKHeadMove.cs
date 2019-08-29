@@ -23,15 +23,17 @@ public class IKHeadMove : MonoBehaviour {
 
         GetClosestCharacter(Physics.OverlapSphere(transform.position, 1000f), 1000f);
 
-        lookTimer -= Time.deltaTime;
-        if (lookTimer <= 0f) {
-            currentTarget = poiList[Random.Range(0, poiList.Count)].gameObject.transform;
+        if (poiList.Count != 0) {
 
-            lookTimer = Random.Range(1f, 10f);
+            lookTimer -= Time.deltaTime;
+            if (lookTimer <= 0f) {
+                currentTarget = poiList[Random.Range(0, poiList.Count)].gameObject.transform;
+
+                lookTimer = Random.Range(1f, 10f);
+            }
+
+            lookObject.transform.position = Vector3.Lerp(lookObject.transform.position, currentTarget.position + currentTarget.GetComponent<PointOfInterest>().offset, Time.deltaTime * speed);
         }
-
-        lookObject.transform.position = Vector3.Lerp(lookObject.transform.position, currentTarget.position + currentTarget.GetComponent<PointOfInterest>().offset, Time.deltaTime * speed);
-
         
     }
 
@@ -53,7 +55,7 @@ public class IKHeadMove : MonoBehaviour {
     }
 
     private void OnAnimatorIK(int layerIndex) {
-        if (currentTarget) {
+        if (currentTarget && poiList.Count != 0) {
             anim.SetLookAtPosition(lookObject.transform.position);
             anim.SetLookAtWeight(1f);
         }
