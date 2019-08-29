@@ -1564,11 +1564,6 @@ PrefabInstance:
       objectReference: {fileID: 1479817163}
     - target: {fileID: 4867614250175023451, guid: 763264513d044844a96a671ae469677d,
         type: 3}
-      propertyPath: darkVolume
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4867614250175023451, guid: 763264513d044844a96a671ae469677d,
-        type: 3}
       propertyPath: lightVolume
       value: 
       objectReference: {fileID: 11400000, guid: 04c84591b6fda264b898b89c94086a71,
@@ -2941,6 +2936,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6608dce92a83768498c05364e294c771, type: 2}
+    - target: {fileID: 9069206718906697296, guid: 48cee8a1660a9f1438d16ff9a9365f0a,
+        type: 3}
+      propertyPath: m_rayPoint
+      value: 
+      objectReference: {fileID: 879229331}
     m_RemovedComponents:
     - {fileID: 963262090716363602, guid: 48cee8a1660a9f1438d16ff9a9365f0a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 48cee8a1660a9f1438d16ff9a9365f0a, type: 3}
@@ -16808,6 +16808,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6374126170582461576, guid: 8d736c1c3212a7340bc5ee1c27aa2a93,
     type: 3}
   m_PrefabInstance: {fileID: 869544284}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &879229331 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 394449856426049267, guid: 2600f8db4d9bf244993ff9113ce1bc58,
+    type: 3}
+  m_PrefabInstance: {fileID: 1046401443}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &896204783
 PrefabInstance:
