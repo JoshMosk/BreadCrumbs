@@ -7,21 +7,121 @@ public class RadialMenu : MonoBehaviour
 	[Header("Scene")]
 	public Transform m_selectionTransform = null;
 	public Transform m_cursorTranform = null;
+	public Transform m_arrow;
+
+	public IInput m_input;
 
 	[Header("Events")]
-	//public RadialSection top = null;
-	//public RadialSection right = null;
-	//public RadialSection bottom = null;
-	//public RadialSection left = null;
+	public RadialSection top = null;
+	public RadialSection right = null;
+	public RadialSection bottom = null;
+	public RadialSection left = null;
 
 	private Vector2 touchPos = Vector2.zero;
-	//private List<RadialSection> radialSection = null;
-	//private RadialSection highlighttedSection = null;
+	private List<RadialSection> radialSections = null;
+	private RadialSection highlightedSection = null;
 
 	private readonly float degreeIncrement = 90.0f;
 
+	private void Awake()
+	{
+		CreateSections();
+	}
+
+	private void CreateSections()
+	{
+		radialSections = new List<RadialSection>()
+		{
+			top, right, bottom, left
+		};
+
+		foreach(RadialSection s in radialSections)
+		{
+			s.iconRenderer.sprite = s.icon;
+		}
+	}
+
+	private void Start()
+	{
+		m_input = GetComponent<IInput>();
+	}
+
 	private void Update()
 	{
-		Vector2 direction = Vector2.zero + touchPos;//TODO: JM START HERE WATCH https://www.youtube.com/watch?v=2SpegTl1wP8 @6:30
+		SetTouchPos(m_input.TouchPadPos);
+
+		Vector2 direction = Vector2.zero + touchPos;
+		float rot = GetDegree(direction);
+
+		SetCursorPos();
+
+		SetSelectionRotation(rot);
+		SetSelectedEvent(rot);
+
+		if(m_input.NPCInteractUp)
+		{
+			ActivateHighlightedSections();
+		}
+	}
+
+	private float GetDegree(Vector2 dir)
+	{
+		float value = Mathf.Atan2(dir.x, dir.y);
+
+		value *= Mathf.Rad2Deg;
+
+		if(value < 0)		//so instead of -180 to 180 is 0 to 360
+		{
+			value += 360.0f;
+		}
+
+		return value;
+	}
+
+	private void SetCursorPos()
+	{
+		m_cursorTranform.localPosition = touchPos;
+	}
+
+	private void SetArrowRot()
+	{
+		m_arrow.rotation = Quaternion.LookRotation(m_cursorTranform.position - m_arrow.position);
+	}
+
+	public void SetTouchPos(Vector2 newValue)
+	{
+		touchPos = newValue;
+	}
+
+	private void SetSelectionRotation(float newRotation)
+	{
+		float snappedRot = SnapRotation(newRotation);
+		m_selectionTransform.localEulerAngles = new Vector3(0, 0, -snappedRot);
+	}
+
+	private float SnapRotation(float rotation)
+	{
+		return GetNearestIncrement(rotation) * degreeIncrement;
+	}
+
+	private int GetNearestIncrement(float rotation)
+	{
+		return Mathf.RoundToInt(rotation / degreeIncrement);
+	}
+
+	private void SetSelectedEvent(float currentRotation)
+	{
+		int index = GetNearestIncrement(currentRotation);
+
+		if (index == 4)
+			index = 0;
+
+		highlightedSection = radialSections[index];
+	}
+
+	public void ActivateHighlightedSections()
+	{
+		//highlightedSection.onPress.Invoke();
+		highlightedSection.button.onClick.Invoke();
 	}
 }
