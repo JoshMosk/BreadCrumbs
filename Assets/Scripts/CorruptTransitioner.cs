@@ -24,6 +24,9 @@ namespace MajorVRProj
         [SerializeField] VolumeProfile lightVolume;
         [SerializeField] VolumeProfile darkVolume;
 
+		public NavMeshSurface uncorruptNav;
+		public NavMeshSurface corruptNav;
+
 		List<LightTransition> m_transitionLights;
 
         [SerializeField] bool isCorrupted = false;
@@ -81,6 +84,17 @@ namespace MajorVRProj
         {
             //navmesh.BuildNavMesh();
 			//need to just have swap between two nav meshes
+			if(isCorrupted)
+			{
+				uncorruptNav.enabled = false;
+				corruptNav.enabled = true;
+			}
+			if(!isCorrupted)
+			{
+				corruptNav.enabled = false;
+				corruptNav.enabled = true;
+			}
+
         }
 
         void ToggleCorruption()

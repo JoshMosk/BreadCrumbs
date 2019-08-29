@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.039185412, g: 0.059028964, b: 0.11511781, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7129,6 +7129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conversationID: 53vdc6xx0t
+  canActivate: 0
 --- !u!114 &1629797145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8959,6 +8960,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1332817563}
     m_Modifications:
+    - target: {fileID: 4717129368628546295, guid: b660ba3b98d75f742a29b16ffb5b0755,
+        type: 3}
+      propertyPath: m_Name
+      value: Npc_Smoke
+      objectReference: {fileID: 0}
     - target: {fileID: 4717129368628546298, guid: b660ba3b98d75f742a29b16ffb5b0755,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9013,11 +9019,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4717129368628546295, guid: b660ba3b98d75f742a29b16ffb5b0755,
-        type: 3}
-      propertyPath: m_Name
-      value: Npc_Smoke
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b660ba3b98d75f742a29b16ffb5b0755, type: 3}
@@ -10304,6 +10305,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 940868878216783031, guid: 64884cb6a2e412248b74df2d9370e7a3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64884cb6a2e412248b74df2d9370e7a3, type: 3}
 --- !u!1001 &995917633040590639
@@ -10574,6 +10580,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1332817563}
     m_Modifications:
+    - target: {fileID: 3526677337264752882, guid: 83a696bae9481234085db29e23e919bc,
+        type: 3}
+      propertyPath: m_Name
+      value: Smoke_Ball
+      objectReference: {fileID: 0}
     - target: {fileID: 3526677337264752895, guid: 83a696bae9481234085db29e23e919bc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10628,11 +10639,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3526677337264752882, guid: 83a696bae9481234085db29e23e919bc,
-        type: 3}
-      propertyPath: m_Name
-      value: Smoke_Ball
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83a696bae9481234085db29e23e919bc, type: 3}
