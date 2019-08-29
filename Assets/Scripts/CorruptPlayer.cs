@@ -17,9 +17,21 @@ public class CorruptPlayer : MonoBehaviour
 
 	public GameObject corruptMeter;
 
+	public Transform playerRespawnPoint = null;
+	public Transform characterRespawnPoint = null;
+
+	public Transform player = null;
+	public Transform character = null;
+
 	private void Start()
 	{
 		m_health = m_maxhealth;
+
+		playerRespawnPoint = GameObject.Find("playerRespawnPoint").transform;
+		characterRespawnPoint = GameObject.Find("characterRespawnPoint").transform;
+
+		player = GameObject.Find("PlayerContainer").transform;
+		character = GameObject.Find("Lylah").transform;
 	}
 
 	private void Update()
@@ -76,7 +88,17 @@ public class CorruptPlayer : MonoBehaviour
 
 	public void Reload()
 	{
-		//need game to uncorrupt, reset death and health
-		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+		//need game to uncorrupt, reset death and health//TODO
+		//SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+		if(playerRespawnPoint != null && player != null)
+		{
+			player.position  = playerRespawnPoint.position;
+		}
+
+		if(characterRespawnPoint != null && character != null)
+		{
+			character.position = characterRespawnPoint.position;
+		}
+
 	}
 }
