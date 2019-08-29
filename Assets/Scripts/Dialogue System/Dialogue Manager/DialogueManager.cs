@@ -267,10 +267,10 @@ public class DialogueManager : MonoBehaviour {
         if (optionCount >= 3) option3Button.gameObject.SetActive(true);
         if (optionCount >= 4) option4Button.gameObject.SetActive(true);
 
-        option1Button.gameObject.transform.localPosition = new Vector3(730, 170 + (90 * (optionCount - 1)), 0);
-        option2Button.gameObject.transform.localPosition = new Vector3(730, 170 + (90 * (optionCount - 2)), 0);
-        option3Button.gameObject.transform.localPosition = new Vector3(730, 170 + (90 * (optionCount - 3)), 0);
-        option4Button.gameObject.transform.localPosition = new Vector3(730, 170 + (90 * (optionCount - 4)), 0);
+       // option1Button.gameObject.transform.localPosition = new Vector3(730, 170 + (90 * (optionCount - 1)), 0);
+       // option2Button.gameObject.transform.localPosition = new Vector3(730, 170 + (90 * (optionCount - 2)), 0);
+       // option3Button.gameObject.transform.localPosition = new Vector3(730, 170 + (90 * (optionCount - 3)), 0);
+       // option4Button.gameObject.transform.localPosition = new Vector3(730, 170 + (90 * (optionCount - 4)), 0);
 
     }
 
