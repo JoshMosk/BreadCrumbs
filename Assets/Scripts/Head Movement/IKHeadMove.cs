@@ -4,16 +4,26 @@ using UnityEngine;
 
 public class IKHeadMove : MonoBehaviour {
 
-    public GameObject lookObject;
-    public float speed = 1f;
-
-    public Transform currentTarget;
     Animator anim;
-
-    public float minDist = 100f;
-
-    public float lookTimer;
+    public float minDist = 250f;
+    public GameObject lookObject;
+    
     public List<PointOfInterest> poiList = new List<PointOfInterest>();
+
+    public float macroLookTimer;
+    public float macroSpeed = 2f;
+    public Transform macroTarget;
+
+    public float microLookTimer;
+    public float microSpeed = 1f;
+    public Vector3 microTarget;
+    public float microSphere = 3;
+
+    public float microSmall = 2;
+    public float microBig = 7;
+    public float macroSmall = 2;
+    public float macroBig = 20;
+
 
     void Start() {
         anim = GetComponent<Animator>();
@@ -25,14 +35,20 @@ public class IKHeadMove : MonoBehaviour {
 
         if (poiList.Count != 0) {
 
-            lookTimer -= Time.deltaTime;
-            if (lookTimer <= 0f) {
-                currentTarget = poiList[Random.Range(0, poiList.Count)].gameObject.transform;
+            macroLookTimer -= Time.deltaTime;
+            microLookTimer -= Time.deltaTime;
 
-                lookTimer = Random.Range(1f, 10f);
+            if (macroLookTimer <= 0f) {
+                macroTarget = poiList[Random.Range(0, poiList.Count)].gameObject.transform;
+                macroLookTimer = Random.Range(macroSmall, macroBig);
             }
 
-            lookObject.transform.position = Vector3.Lerp(lookObject.transform.position, currentTarget.position + currentTarget.GetComponent<PointOfInterest>().offset, Time.deltaTime * speed);
+            if (microLookTimer <= 0f) {
+                microTarget = (macroTarget.position + macroTarget.GetComponent<PointOfInterest>().offset) + (Random.insideUnitSphere * microSphere);
+                microLookTimer = Random.Range(microSmall, microBig);
+            }
+
+            lookObject.transform.position = Vector3.Lerp(lookObject.transform.position, microTarget, Time.deltaTime * macroSpeed);
         }
         
     }
@@ -55,9 +71,18 @@ public class IKHeadMove : MonoBehaviour {
     }
 
     private void OnAnimatorIK(int layerIndex) {
-        if (currentTarget && poiList.Count != 0) {
+        if (macroTarget && poiList.Count != 0) {
             anim.SetLookAtPosition(lookObject.transform.position);
             anim.SetLookAtWeight(1f);
         }
+    }
+
+    void OnDrawGizmosSelected() {
+        // Draw a yellow sphere at the transform's position
+        Gizmos.color = Color.blue;
+        Gizmos.DrawSphere(lookObject.transform.position, .1f);
+
+      //  Gizmos.color = Color.green;
+     //   Gizmos.DrawWireSphere(macroTarget.transform.position, spherewsie);
     }
 }
