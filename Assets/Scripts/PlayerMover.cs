@@ -13,6 +13,9 @@ namespace MajorVRProj
         Camera cam;
         public Transform m_rayPoint;
         LineRenderer m_line;
+        public GameObject meshLylah;
+        public float speed = 1f;
+        public float lookspeed = 1f;
 
         void Start()
         {
@@ -25,6 +28,24 @@ namespace MajorVRProj
         void Update()
         {
             RayCastMove();
+
+            
+
+            ////////////////////////////////////// temp code lol
+            var targetRotation = Quaternion.LookRotation(agent.destination - transform.position);
+            targetRotation.x = 0f;
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, lookspeed * Time.deltaTime);
+
+
+            float score = meshLylah.GetComponent<Animator>().GetFloat("Walking");
+            float scoreTo = agent.velocity.normalized.magnitude;
+            score = Mathf.Lerp(score, scoreTo, Time.deltaTime / speed);
+            ///////////// max wuz here
+
+            /////////////// yolo
+
+
+            meshLylah.GetComponent<Animator>().SetFloat("Walking", score);
         }
 
         void RayCastMove()
