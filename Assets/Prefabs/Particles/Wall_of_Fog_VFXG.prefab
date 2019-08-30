@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 4568069671000437581}
   - component: {fileID: 4568069671000437580}
   - component: {fileID: 4568069671000437571}
-  - component: {fileID: 4568069671000437570}
-  - component: {fileID: 4568069671000437569}
   m_Layer: 0
   m_Name: Fog_Front
   m_TagString: Untagged
@@ -288,37 +286,6 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &4568069671000437570
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4568069671000437568}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdafc37f32b176349b1684c4455b98e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ExecuteInEditor: 1
-  m_Bindings:
-  - {fileID: 4568069671000437569}
-  m_VisualEffect: {fileID: 4568069671000437580}
---- !u!114 &4568069671000437569
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4568069671000437568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24279ee835d6c4c48ae512c6e29b9808, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Parameter:
-    m_Name: Attract targert position
-  Target: {fileID: 0}
 --- !u!1 &4568069671366025047
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,8 +297,6 @@ GameObject:
   - component: {fileID: 4568069671366025052}
   - component: {fileID: 4568069671366025043}
   - component: {fileID: 4568069671366025042}
-  - component: {fileID: 4568069671366025041}
-  - component: {fileID: 4568069671366025040}
   m_Layer: 0
   m_Name: Fog_Back
   m_TagString: Untagged
@@ -607,37 +572,6 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &4568069671366025041
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4568069671366025047}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdafc37f32b176349b1684c4455b98e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ExecuteInEditor: 1
-  m_Bindings:
-  - {fileID: 4568069671366025040}
-  m_VisualEffect: {fileID: 4568069671366025043}
---- !u!114 &4568069671366025040
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4568069671366025047}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24279ee835d6c4c48ae512c6e29b9808, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Parameter:
-    m_Name: Attract targert position
-  Target: {fileID: 0}
 --- !u!1 &7573610481715911253
 GameObject:
   m_ObjectHideFlags: 0

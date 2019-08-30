@@ -10361,6 +10361,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mesh_Envi_WallOfFog_001v2
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1452e44a2cc765c4aa5db253ed146ccf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1452e44a2cc765c4aa5db253ed146ccf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 58.9
@@ -72218,7 +72222,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 7084
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 3.85186e-34, y: 1.5046328e-36, z: 2.3509887e-38, w: 4.5918e-41}
+  m_BoundingSphereOverride: {x: NaN, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
