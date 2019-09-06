@@ -28,6 +28,11 @@ public class RadialMenu : MonoBehaviour
 		CreateSections();
 	}
 
+	private void Start()
+	{
+		m_input = GetComponent<IInput>();
+	}
+
 	private void CreateSections()
 	{
 		radialSections = new List<RadialSection>()
@@ -41,11 +46,6 @@ public class RadialMenu : MonoBehaviour
 		}
 	}
 
-	private void Start()
-	{
-		m_input = GetComponent<IInput>();
-	}
-
 	private void Update()
 	{
 		SetTouchPos(m_input.TouchPadPos);
@@ -54,6 +54,7 @@ public class RadialMenu : MonoBehaviour
 		float rot = GetDegree(direction);
 
 		SetCursorPos();
+		SetArrowRot();
 
 		SetSelectionRotation(rot);
 		SetSelectedEvent(rot);
