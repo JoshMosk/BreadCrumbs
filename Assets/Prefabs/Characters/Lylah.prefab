@@ -15,6 +15,7 @@ MonoBehaviour:
   lookObject: {fileID: 0}
   speed: 1
   currentTarget: {fileID: 0}
+  minDist: 100
   lookTimer: 0
   poiList: []
 --- !u!1 &7105385324355759291
@@ -154,7 +155,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0
+        value: 0.12962341
         inSlope: 0.032286633
         outSlope: 0.032286633
         tangentMode: 0
@@ -171,8 +172,8 @@ LineRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1
-        value: 0
+        time: 0.9978943
+        value: 0.152771
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -184,7 +185,7 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0, b: 0.746696, a: 1}
+      key0: {r: 1, g: 1, b: 1, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
