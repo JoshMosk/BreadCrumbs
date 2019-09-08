@@ -42,6 +42,7 @@ public class RadialMenu : MonoBehaviour
 
 		foreach(RadialSection s in radialSections)
 		{
+            if(s.iconRenderer != null && s.icon != null)
 			s.iconRenderer.sprite = s.icon;
 		}
 	}
@@ -86,12 +87,18 @@ public class RadialMenu : MonoBehaviour
 
 	private void SetArrowRot()
 	{
-		m_arrow.rotation = Quaternion.LookRotation(m_cursorTranform.position - m_arrow.position);
-	}
+
+        m_arrow.LookAt(m_cursorTranform);
+        //m_arrow.rotation = Quaternion.LookRotation(m_cursorTranform.position - m_arrow.position);
+    }
 
 	public void SetTouchPos(Vector2 newValue)
 	{
-		touchPos = newValue;
+        if(newValue.x != 0 && newValue.y != 0)
+        {
+		    touchPos = newValue;
+
+        }
 	}
 
 	private void SetSelectionRotation(float newRotation)

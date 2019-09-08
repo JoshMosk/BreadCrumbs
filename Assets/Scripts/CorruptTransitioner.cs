@@ -18,7 +18,7 @@ namespace MajorVRProj
         [Header("The Corrupt")]
         [SerializeField] LightSettings lightSettings;
         [SerializeField] LightSettings darkSettings;
-        [SerializeField] NavMeshSurface navmesh;
+        //[SerializeField] NavMeshSurface navmesh;
 
         [SerializeField] Volume volume;
         [SerializeField] VolumeProfile lightVolume;
@@ -27,7 +27,7 @@ namespace MajorVRProj
 		public NavMeshSurface uncorruptNav;
 		public NavMeshSurface corruptNav;
 
-		List<LightTransition> m_transitionLights;
+		List<LightTransition> m_transitionLights = new List<LightTransition>();
 
         [SerializeField] bool isCorrupted = false;
 
@@ -52,6 +52,7 @@ namespace MajorVRProj
             // GraphicsSettings.lightsUseLinearIntensity = true;
             // GraphicsSettings.lightsUseColorTemperature = true;
 
+            m_transitionLights.AddRange(FindObjectsOfType<LightTransition>());
 
             OnCorrupted.AddListener(RebakeNavMesh);
             OnNormal.AddListener(RebakeNavMesh);
@@ -59,8 +60,8 @@ namespace MajorVRProj
             HandleLightTransitions();
             HandleParticleEffects();
 
-			foreach (GameObject g in GameObject.FindObjectsOfType(typeof(LightTransition)))
-				m_transitionLights.Add(g.GetComponent<LightTransition>());
+			//foreach (GameObject g in GameObject.FindObjectsOfType(typeof(LightTransition)))
+			//	m_transitionLights.Add(g.GetComponent<LightTransition>());
         }
 
         void Update()
