@@ -64,7 +64,7 @@ public class CorruptPlayer : MonoBehaviour
 			float t = m_health / m_maxhealth;
 
 
-			corruptMeter.GetComponent<RawImage>().material.SetFloat("_DissolveSlider", Mathf.Lerp(0, 1, t));
+			corruptMeter.GetComponent<Material>().SetFloat("_DissolveSlider", Mathf.Lerp(0, 1, t));
             }
 		}
 		else
