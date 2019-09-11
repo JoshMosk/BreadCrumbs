@@ -65,5 +65,7 @@ namespace MajorVRProj
         public bool NPCInteractUp => SteamVR_Actions._default.InteractNPC.GetLastStateUp(SteamVR_Input_Sources.Any);
 
 		public Vector2 TouchPadPos => SteamVR_Actions._default.MultipleChoiceInput.GetLastAxis(SteamVR_Input_Sources.Any);
+
+		//need to add in touch down and up (so the button aint pressed but you finger on the trigger (ooo rhyme) )
     }
 }
