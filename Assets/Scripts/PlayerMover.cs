@@ -32,8 +32,8 @@ namespace MajorVRProj
             
 
             ////////////////////////////////////// temp code lol
-            var targetRotation = Quaternion.LookRotation(agent.destination - transform.position);
-            targetRotation.x = 0f;
+          //  var targetRotation = Quaternion.LookRotation(agent.destination - transform.position);
+           // targetRotation.x = 0f;
            // transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, lookspeed * Time.deltaTime);
 
 

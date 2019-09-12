@@ -28,6 +28,7 @@ public class DialogueManager : MonoBehaviour {
     public Button option2Button;
     public Button option3Button;
     public Button option4Button;
+    public GameObject indicatorArrow;
 
 
     private int selectedOption;
@@ -264,6 +265,18 @@ public class DialogueManager : MonoBehaviour {
         bodyTextBox.text = bodyString;
         speakerTextBox.text = characterName;
 
+        TextGenerator speakerTextGen = new TextGenerator();
+        TextGenerationSettings speakerGenerationSettings = speakerTextBox.GetGenerationSettings(speakerTextBox.rectTransform.rect.size);
+
+        TextGenerator bodyTextGen = new TextGenerator();
+        TextGenerationSettings bodyGenerationSettings = bodyTextBox.GetGenerationSettings(bodyTextBox.rectTransform.rect.size);
+
+        float speakerHeight = speakerTextGen.GetPreferredWidth(characterName, speakerGenerationSettings);
+        float bodyHeight = bodyTextGen.GetPreferredHeight(bodyString, bodyGenerationSettings);
+
+        Debug.Log("Text size " + (speakerHeight + bodyHeight));
+
+
         // Temp lets just not have typed letters rn
 
         /*
@@ -298,6 +311,7 @@ public class DialogueManager : MonoBehaviour {
         if (optionCount >= 2) option2Button.gameObject.SetActive(true);
         if (optionCount >= 3) option3Button.gameObject.SetActive(true);
         if (optionCount >= 4) option4Button.gameObject.SetActive(true);
+        indicatorArrow.SetActive(true);
 
        // option1Button.gameObject.transform.localPosition = new Vector3(730, 170 + (90 * (optionCount - 1)), 0);
        // option2Button.gameObject.transform.localPosition = new Vector3(730, 170 + (90 * (optionCount - 2)), 0);
@@ -312,6 +326,7 @@ public class DialogueManager : MonoBehaviour {
         option2Button.gameObject.SetActive(false);
         option3Button.gameObject.SetActive(false);
         option4Button.gameObject.SetActive(false);
+        indicatorArrow.SetActive(false);
 
     }
 
@@ -322,7 +337,7 @@ public class DialogueManager : MonoBehaviour {
         canSkip = true;
         HideMultipleChoice();
         FindNextNode();
-        
+
     }
 
     public Vector3 worldToUISpace(Canvas parentCanvas, Vector3 worldPos) {
