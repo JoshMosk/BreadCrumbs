@@ -13,7 +13,6 @@ public class DialogueManager : MonoBehaviour {
         instance = this;
     }
 
-
     [Header("Blackboards")]
     public string fileName;
     public Dictionary<string, Dictionary<string, bool>> blackboards = new Dictionary<string, Dictionary<string, bool>>();
@@ -28,6 +27,7 @@ public class DialogueManager : MonoBehaviour {
     public Button option2Button;
     public Button option3Button;
     public Button option4Button;
+    public GameObject indicatorArrow;
 
 
     private int selectedOption;
@@ -69,11 +69,17 @@ public class DialogueManager : MonoBehaviour {
 
         DialogueManager.instance.cooldownTimer -= Time.deltaTime;
 
+        if (inConversation) {
+            transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(1, 1, 1), .5f * Time.deltaTime);
+        } else {
+            transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(0, 0, 0), .5f * Time.deltaTime);
+        }
+
         if (isWorldSpace) {
             transform.LookAt(Camera.main.transform, Vector3.up);
-            transform.localEulerAngles = new Vector3(0, transform.localEulerAngles.y + 180, 0);
+            transform.localEulerAngles = Vector3.Lerp(transform.localEulerAngles, new Vector3(0, transform.localEulerAngles.y + 180, 0), .5f * Time.deltaTime);
             if (speakerObject) {
-                transform.position = new Vector3(speakerObject.transform.position.x, speakerObject.transform.position.y + 6f, speakerObject.transform.position.z);
+                transform.position = Vector3.Lerp(transform.position, new Vector3(speakerObject.transform.position.x, speakerObject.transform.position.y + 6f, speakerObject.transform.position.z), .5f * Time.deltaTime);
             }
         }
 
@@ -261,8 +267,25 @@ public class DialogueManager : MonoBehaviour {
     IEnumerator TypeText(string characterName, string bodyString) {
 
         isTyping = true;
-        bodyTextBox.text = "";
+        bodyTextBox.text = bodyString;
         speakerTextBox.text = characterName;
+
+        TextGenerator speakerTextGen = new TextGenerator();
+        TextGenerationSettings speakerGenerationSettings = speakerTextBox.GetGenerationSettings(speakerTextBox.rectTransform.rect.size);
+
+        TextGenerator bodyTextGen = new TextGenerator();
+        TextGenerationSettings bodyGenerationSettings = bodyTextBox.GetGenerationSettings(bodyTextBox.rectTransform.rect.size);
+
+        float speakerHeight = speakerTextGen.GetPreferredWidth(characterName, speakerGenerationSettings);
+        float bodyHeight = bodyTextGen.GetPreferredHeight(bodyString, bodyGenerationSettings);
+
+        Debug.Log("Text size " + (speakerHeight + bodyHeight));
+
+
+        // Temp lets just not have typed letters rn
+
+        /*
+        bodyTextBox.text = "";
         bodyString = bodyString.Replace("…", "...");
 
         foreach (char letter in bodyString) {
@@ -281,8 +304,10 @@ public class DialogueManager : MonoBehaviour {
 
         }
 
-        isTyping = false;
+    */
 
+        isTyping = false;
+        yield return new WaitForSeconds(.0f);
     }
 
     void ShowMultipleChoice(int optionCount) {
@@ -291,6 +316,7 @@ public class DialogueManager : MonoBehaviour {
         if (optionCount >= 2) option2Button.gameObject.SetActive(true);
         if (optionCount >= 3) option3Button.gameObject.SetActive(true);
         if (optionCount >= 4) option4Button.gameObject.SetActive(true);
+        indicatorArrow.SetActive(true);
 
        // option1Button.gameObject.transform.localPosition = new Vector3(730, 170 + (90 * (optionCount - 1)), 0);
        // option2Button.gameObject.transform.localPosition = new Vector3(730, 170 + (90 * (optionCount - 2)), 0);
@@ -305,6 +331,7 @@ public class DialogueManager : MonoBehaviour {
         option2Button.gameObject.SetActive(false);
         option3Button.gameObject.SetActive(false);
         option4Button.gameObject.SetActive(false);
+        indicatorArrow.SetActive(false);
 
     }
 
@@ -315,7 +342,7 @@ public class DialogueManager : MonoBehaviour {
         canSkip = true;
         HideMultipleChoice();
         FindNextNode();
-        
+
     }
 
     public Vector3 worldToUISpace(Canvas parentCanvas, Vector3 worldPos) {
