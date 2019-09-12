@@ -12,12 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eb3ab8dc5a5cc942acb0e5a6d280ead, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookObject: {fileID: 0}
-  speed: 1
-  currentTarget: {fileID: 0}
   minDist: 100
-  lookTimer: 0
+  lookObject: {fileID: 0}
   poiList: []
+  macroLookTimer: 0
+  macroSpeed: 2
+  macroTarget: {fileID: 0}
+  microLookTimer: 0
+  microSpeed: 1
+  microTarget: {x: 0, y: 0, z: 0}
+  microSphere: 3
+  microSmall: 2
+  microBig: 7
+  macroSmall: 2
+  macroBig: 20
 --- !u!1 &7105385324355759291
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,6 +98,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_rayPoint: {fileID: 0}
+  meshLylah: {fileID: 0}
+  speed: 1
+  lookspeed: 1
 --- !u!54 &4260035437440813055
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -123,7 +134,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 738ecbe498381104e83db1a5801fab3e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
