@@ -19600,6 +19600,11 @@ PrefabInstance:
       propertyPath: isWorldSpace
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6194064795507497394, guid: 2600f8db4d9bf244993ff9113ce1bc58,
+        type: 3}
+      propertyPath: indicatorArrow
+      value: 
+      objectReference: {fileID: 1667129739}
     - target: {fileID: 6194064795507497398, guid: 2600f8db4d9bf244993ff9113ce1bc58,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -30257,6 +30262,26 @@ Light:
   m_UseBoundingSphereOverride: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &1629557612 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4577885383625243095, guid: a97876bc09818254aa84958a3c343d7a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8158375217899727797}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1629557619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629557612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37ca1ef5a2f114fd7b256bb25c805f9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  conversationID: ma19rnolce
+  canActivate: 0
 --- !u!1001 &1632907778
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30549,6 +30574,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3240643245233434284, guid: 43c380d1484a6584e9adbb966f79f8fd,
     type: 3}
   m_PrefabInstance: {fileID: 1640860798}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1667129739 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 932089430563715844, guid: 2600f8db4d9bf244993ff9113ce1bc58,
+    type: 3}
+  m_PrefabInstance: {fileID: 1046401443}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1668473223
 PrefabInstance:
@@ -43405,7 +43436,13 @@ PrefabInstance:
       propertyPath: conversationID
       value: ma19rnolce
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1388828845340805615, guid: a97876bc09818254aa84958a3c343d7a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4923484065254197759, guid: a97876bc09818254aa84958a3c343d7a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a97876bc09818254aa84958a3c343d7a, type: 3}
 --- !u!1001 &8589574823347106169
 PrefabInstance:

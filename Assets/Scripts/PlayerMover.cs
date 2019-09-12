@@ -23,6 +23,11 @@ namespace MajorVRProj
             agent = GetComponent<NavMeshAgent>();
             cam = FindObjectOfType<Camera>();
             m_line = GetComponent<LineRenderer>();
+
+			if(m_line != null)
+			{
+				m_line.enabled = false;
+			}
         }
 
         void Update()
@@ -50,6 +55,10 @@ namespace MajorVRProj
 
         void RayCastMove()
         {
+			if(input.pointAndClickDown)
+			{
+				m_line.enabled = true;
+			}
             //Move player to clicked position
             if (input.pointAndClick)
             {
@@ -72,6 +81,10 @@ namespace MajorVRProj
                 }
 
             }
+			if(input.pointAndClickUp)
+			{
+				m_line.enabled = false;
+			}
         }
     }
 }
