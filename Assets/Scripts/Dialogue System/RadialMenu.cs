@@ -87,8 +87,8 @@ public class RadialMenu : MonoBehaviour
 
 	private void SetArrowRot()
 	{
-
-        m_arrow.LookAt(m_cursorTranform);
+		m_arrow.LookAt(m_cursorTranform, /*m_arrow.parent.transform.forward * -1*/ new Vector3(0, 0, -1));
+		
         //m_arrow.rotation = Quaternion.LookRotation(m_cursorTranform.position - m_arrow.position);
     }
 

@@ -52,20 +52,22 @@ public class CorruptPlayer : MonoBehaviour
 			}
 		}
 
+		if (corruptMeter != null)
+		{
+
+
+			//float a = corruptMeter.GetComponent<Material>().GetFloat("_DissolveSlider");
+			float t = m_health / m_maxhealth;
+
+
+			corruptMeter.GetComponent<Renderer>().material.SetFloat("_DissolveSlider", Mathf.Lerp(0, 1, t));
+		}
+
 		if (m_isCorrupt)
 		{
 			m_health -= Time.deltaTime;
 
-            if(corruptMeter != null)
-            {
-
-
-			float a = corruptMeter.GetComponent<RawImage>().material.GetFloat("_DissolveSlider");
-			float t = m_health / m_maxhealth;
-
-
-			corruptMeter.GetComponent<RawImage>().material.SetFloat("_DissolveSlider", Mathf.Lerp(0, 1, t));
-            }
+			
 		}
 		else
 		{
