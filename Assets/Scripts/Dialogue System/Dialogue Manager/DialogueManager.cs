@@ -13,7 +13,6 @@ public class DialogueManager : MonoBehaviour {
         instance = this;
     }
 
-
     [Header("Blackboards")]
     public string fileName;
     public Dictionary<string, Dictionary<string, bool>> blackboards = new Dictionary<string, Dictionary<string, bool>>();
@@ -69,6 +68,12 @@ public class DialogueManager : MonoBehaviour {
     private void Update() {
 
         DialogueManager.instance.cooldownTimer -= Time.deltaTime;
+
+        if (inConversation) {
+            transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(1, 1, 1), .5f * Time.deltaTime);
+        } else {
+            transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(0, 0, 0), .5f * Time.deltaTime);
+        }
 
         if (isWorldSpace) {
             transform.LookAt(Camera.main.transform, Vector3.up);
