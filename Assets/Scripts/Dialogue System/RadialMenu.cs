@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -87,8 +87,16 @@ public class RadialMenu : MonoBehaviour
 
 	private void SetArrowRot()
 	{
-		m_arrow.LookAt(m_cursorTranform, /*m_arrow.parent.transform.forward * -1*/ new Vector3(0, 0, -1));
+		//m_arrow.localRotation = Quaternion.LookRotation(Vector3.forward, m_cursorTranform.position);
+
+		//m_arrow.LookAt(m_cursorTranform, /*m_arrow.parent.transform.forward * -1*/ new Vector3(0, 0, -1));
+
+		Vector2 direction = m_cursorTranform.position - m_arrow.position;
+		float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+		m_arrow.rotation = Quaternion.AngleAxis(angle, Vector3.forward);		//make the forward be the parents forward
 		
+		//m_arrow.rotation = Quaternion.Euler(m_arrow.rotation.eulerAngles.x, 0, m_arrow.rotation.eulerAngles.z); //new Vector3(0, 0, m_arrow.rotation.z);
+
         //m_arrow.rotation = Quaternion.LookRotation(m_cursorTranform.position - m_arrow.position);
     }
 

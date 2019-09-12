@@ -60,7 +60,7 @@ namespace MajorVRProj
                 //}
 
                 Ray ray = new Ray(m_rayPoint.position, m_rayPoint.forward);
-                    Debug.Log("heyoooooo");
+                    //Debug.Log("heyoooooo");
                     Debug.DrawRay(ray.origin, ray.GetPoint(300));
 
                 if(Physics.Raycast(ray, out RaycastHit hit, 500.0f))
