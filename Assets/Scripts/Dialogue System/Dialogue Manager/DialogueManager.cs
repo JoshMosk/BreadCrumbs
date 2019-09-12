@@ -77,9 +77,9 @@ public class DialogueManager : MonoBehaviour {
 
         if (isWorldSpace) {
             transform.LookAt(Camera.main.transform, Vector3.up);
-            transform.localEulerAngles = new Vector3(0, transform.localEulerAngles.y + 180, 0);
+            transform.localEulerAngles = Vector3.Lerp(transform.localEulerAngles, new Vector3(0, transform.localEulerAngles.y + 180, 0), .5f * Time.deltaTime);
             if (speakerObject) {
-                transform.position = new Vector3(speakerObject.transform.position.x, speakerObject.transform.position.y + 6f, speakerObject.transform.position.z);
+                transform.position = Vector3.Lerp(transform.position, new Vector3(speakerObject.transform.position.x, speakerObject.transform.position.y + 6f, speakerObject.transform.position.z), .5f * Time.deltaTime);
             }
         }
 
