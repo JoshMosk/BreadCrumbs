@@ -93,7 +93,7 @@ public class RadialMenu : MonoBehaviour
 
 		Vector2 direction = m_cursorTranform.position - m_arrow.position;
 		float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-		m_arrow.rotation = Quaternion.AngleAxis(angle, transform.parent.forward);//Vector3.forward);		//make the forward be the parents forward
+		m_arrow.localRotation = Quaternion.AngleAxis(angle, /*transform.parent.forward);*/ Vector3.forward);		//make the forward be the parents forward
 		
 		//m_arrow.rotation = Quaternion.Euler(m_arrow.rotation.eulerAngles.x, 0, m_arrow.rotation.eulerAngles.z); //new Vector3(0, 0, m_arrow.rotation.z);
 

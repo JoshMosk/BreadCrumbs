@@ -32,7 +32,10 @@ namespace MajorVRProj
 
         void Update()
         {
-            RayCastMove();
+			if(DialogueManager.instance.inConversation == false)		//if in convo dont fucking move
+			{
+				RayCastMove();
+			}
 
             
 
@@ -55,6 +58,8 @@ namespace MajorVRProj
 
         void RayCastMove()
         {
+			
+
 			if(input.pointAndClickDown)
 			{
 				m_line.enabled = true;

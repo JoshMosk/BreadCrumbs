@@ -70,16 +70,18 @@ public class DialogueManager : MonoBehaviour {
         DialogueManager.instance.cooldownTimer -= Time.deltaTime;
 
         if (inConversation) {
-            transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(1, 1, 1), .5f * Time.deltaTime);
+            transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(0.01124641f, 0.01124641f, 0.01124641f), 3f * Time.deltaTime);
         } else {
-            transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(0, 0, 0), .5f * Time.deltaTime);
+            transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(0, 0, 0), 3f * Time.deltaTime);
         }
 
         if (isWorldSpace) {
             transform.LookAt(Camera.main.transform, Vector3.up);
-            transform.localEulerAngles = Vector3.Lerp(transform.localEulerAngles, new Vector3(0, transform.localEulerAngles.y + 180, 0), .5f * Time.deltaTime);
+          //  transform.localEulerAngles = Vector3.Lerp(transform.localEulerAngles, new Vector3(0, transform.localEulerAngles.y + 180, 0), .5f * Time.deltaTime);
+            transform.localEulerAngles = new Vector3(0, transform.localEulerAngles.y + 180, 0);
             if (speakerObject) {
-                transform.position = Vector3.Lerp(transform.position, new Vector3(speakerObject.transform.position.x, speakerObject.transform.position.y + 6f, speakerObject.transform.position.z), .5f * Time.deltaTime);
+                // transform.position = Vector3.Lerp(transform.position, , .5f * Time.deltaTime);
+                transform.position = new Vector3(speakerObject.transform.position.x, speakerObject.transform.position.y + 6f, speakerObject.transform.position.z);
             }
         }
 
