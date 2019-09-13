@@ -20,6 +20,8 @@ public class DialolgueIcon : MonoBehaviour {
     public DialogueTrigger closestCharacter;
     public Canvas bubbleCanvas;
 
+    public float iconHeight = 3f;
+
     public Vector3 initialScale;
 
     private void Start() {
@@ -41,7 +43,7 @@ public class DialolgueIcon : MonoBehaviour {
 
         bubbleCanvas.transform.LookAt(Camera.main.transform, Vector3.up);
         bubbleCanvas.transform.localEulerAngles = new Vector3(0, bubbleCanvas.transform.localEulerAngles.y + 180, 0);
-        bubbleCanvas.transform.position = new Vector3(closestCharacter.gameObject.transform.position.x, closestCharacter.gameObject.transform.position.y + 3f, closestCharacter.gameObject.transform.position.z);
+        bubbleCanvas.transform.position = new Vector3(closestCharacter.gameObject.transform.position.x, closestCharacter.gameObject.transform.position.y + iconHeight, closestCharacter.gameObject.transform.position.z);
     }
 
     public void SenseCharactersNearby(float radius) {
