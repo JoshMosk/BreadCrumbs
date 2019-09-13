@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Mat_Water
+  m_Shader: {fileID: 4800000, guid: 26d6f1188badd5f4d901381abbc5b48a, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap:
+    MotionVector: User
+  disabledShaderPasses:
+  - MOTIONVECTORS
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Cubemap_8A9ED73B:
+        m_Texture: {fileID: 8900000, guid: d3417bb56054de64db8389f786028d49, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_7B7567DC:
+        m_Texture: {fileID: 2800000, guid: 1250643187cd6e84f873b5efc80f049d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_8D483C14:
+        m_Texture: {fileID: 2800000, guid: 1250643187cd6e84f873b5efc80f049d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_15CB2D5F: 0
+    - Vector1_16AD9BDC: 45
+    - Vector1_18F8D3A7: 1
+    - Vector1_42C22098: 3
+    - Vector1_45C7BF87: 1
+    - Vector1_490D9429: 0
+    - Vector1_5D2F9B8: 0.5
+    - Vector1_6992F4F7: 15
+    - Vector1_6A308BB0: 20.5
+    - Vector1_6B863688: 0.2
+    - Vector1_70862BB9: 45
+    - Vector1_85037D7F: 15
+    - Vector1_865F5DB6: 1.336
+    - Vector1_9FEDDE10: 1
+    - Vector1_BA096B12: 1.6
+    - Vector1_BAC177E: 0.7
+    - Vector1_C3137EA3: 0
+    - Vector1_CE0D1138: 0.5
+    - Vector1_D10E73A8: 0.5
+    - Vector1_D521BF56: 0
+    - Vector1_E2444BBE: 2
+    - Vector1_E3C50104: 0
+    - Vector1_E65EFA1D: 0.5
+    m_Colors:
+    - Color_3C843537: {r: 1, g: 1, b: 1, a: 0}
+    - Color_432E53DC: {r: 0.05793874, g: 0.15815946, b: 0.5849056, a: 0}
+    - Color_6D6760E: {r: 0.14489135, g: 0.7189624, b: 0.8301887, a: 0}
+    - Color_BEF2F2D0: {r: 0.6768423, g: 0.735849, b: 0.735849, a: 0}
+    - Vector2_1146AADB: {r: 0, g: 0.5, b: 0, a: 0}
+    - Vector2_4E86694F: {r: 0.9, g: 0.9, b: 0, a: 0}
+    - Vector2_58CB185: {r: 0, g: 0.25, b: 0, a: 0}
+    - Vector2_74CF1D58: {r: 1, g: 1, b: 0, a: 0}
+    - Vector2_A1060C74: {r: 1, g: 1, b: 0, a: 0}
+    - Vector2_C2E6B4BC: {r: 0, g: 0.15, b: 0, a: 0}
+    - Vector2_C5DD4BF3: {r: 0, g: 0.1, b: 0, a: 0}
+    - Vector2_FD4E1E04: {r: 0.6, g: 0.6, b: 0, a: 0}
