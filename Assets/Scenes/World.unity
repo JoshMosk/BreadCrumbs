@@ -24024,7 +24024,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conversationID: e52qhlditp
-  canActivate: 0
 --- !u!135 &1287386035
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -27325,11 +27324,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 150854064}
     m_Modifications:
-    - target: {fileID: 410606690975815009, guid: d4791a716981b404599a7678702edb99,
-        type: 3}
-      propertyPath: m_Name
-      value: Dialogue Trigger
-      objectReference: {fileID: 0}
     - target: {fileID: 2206463112928194082, guid: d4791a716981b404599a7678702edb99,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -27384,6 +27378,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 410606690975815009, guid: d4791a716981b404599a7678702edb99,
+        type: 3}
+      propertyPath: m_Name
+      value: Dialogue Trigger
       objectReference: {fileID: 0}
     - target: {fileID: 902517948967185286, guid: d4791a716981b404599a7678702edb99,
         type: 3}
@@ -34457,7 +34456,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conversationID: fthl2dq87n
-  canActivate: 0
 --- !u!135 &1896603937
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -34945,7 +34943,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conversationID: e2c05zo7rk
-  canActivate: 0
 --- !u!1001 &1921885331
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35542,9 +35539,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dde9ba7db2379459182189b73d37f155, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Dragon
-  fontSize: 8
-  labelHeight: 1
+  characterName: 
+  debugTextHeight: 1
+  debugFontSize: 15
 --- !u!1001 &1939383412
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37725,9 +37722,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dde9ba7db2379459182189b73d37f155, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Lylah
-  fontSize: 8
-  labelHeight: 1
+  characterName: 
+  debugTextHeight: 1
+  debugFontSize: 15
 --- !u!114 &2054257799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39357,7 +39354,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conversationID: sg1zgleje4
-  canActivate: 0
 --- !u!135 &3049105413985416512
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -39539,7 +39535,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conversationID: 8smfm4x0ni
-  canActivate: 0
 --- !u!135 &3779224411232742309
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -39641,7 +39636,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conversationID: e2zolk4dsn
-  canActivate: 0
 --- !u!1001 &3997407172402723646
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39730,7 +39724,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conversationID: 0vx4nqrbyv
-  canActivate: 0
 --- !u!1001 &4086798282551318172
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39969,7 +39962,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conversationID: mor92g9i55
-  canActivate: 0
 --- !u!1001 &4822978235673076150
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40277,7 +40269,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conversationID: 49ki206wyb
-  canActivate: 0
 --- !u!135 &5564408450517944190
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -40303,9 +40294,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dde9ba7db2379459182189b73d37f155, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Granny
-  fontSize: 8
-  labelHeight: 1
+  characterName: 
+  debugTextHeight: 1
+  debugFontSize: 15
 --- !u!4 &5674453656970990179 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4577885383625243094, guid: a97876bc09818254aa84958a3c343d7a,
@@ -40400,7 +40391,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conversationID: u4ecqdb5m9
-  canActivate: 0
 --- !u!1001 &7634545670106113559
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40499,7 +40489,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conversationID: rr4a52mi4m
-  canActivate: 0
 --- !u!135 &7634545670106113564
 SphereCollider:
   m_ObjectHideFlags: 0
