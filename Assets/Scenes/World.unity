@@ -27324,6 +27324,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 150854064}
     m_Modifications:
+    - target: {fileID: 410606690975815009, guid: d4791a716981b404599a7678702edb99,
+        type: 3}
+      propertyPath: m_Name
+      value: Dialogue Trigger
+      objectReference: {fileID: 0}
     - target: {fileID: 2206463112928194082, guid: d4791a716981b404599a7678702edb99,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -27378,11 +27383,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 410606690975815009, guid: d4791a716981b404599a7678702edb99,
-        type: 3}
-      propertyPath: m_Name
-      value: Dialogue Trigger
       objectReference: {fileID: 0}
     - target: {fileID: 902517948967185286, guid: d4791a716981b404599a7678702edb99,
         type: 3}
@@ -38044,6 +38044,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Profile: {fileID: 11400000, guid: 04c84591b6fda264b898b89c94086a71, type: 2}
   m_StaticLightingSkyUniqueID: 2
+  m_SkySettings: {fileID: 0}
+  m_SkySettingsFromProfile: {fileID: 0}
 --- !u!114 &2089208345
 MonoBehaviour:
   m_ObjectHideFlags: 0
