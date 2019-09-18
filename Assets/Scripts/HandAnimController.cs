@@ -9,6 +9,6 @@ public class HandAnimController : MonoBehaviour
 
 	private void Update()
 	{
-		m_animator.se
+	//	m_animator.se
 	}
 }
