@@ -17,7 +17,10 @@ public class DialolgueIcon : MonoBehaviour {
 
     public float distanceToCharacter;
     public float percent;
+
+    public DialogueTrigger previousClosestCharacter;
     public DialogueTrigger closestCharacter;
+
     public Canvas bubbleCanvas;
 
     public float iconHeight = 3f;
@@ -31,24 +34,34 @@ public class DialolgueIcon : MonoBehaviour {
     private void Update() {
         SenseCharactersNearby(1000f);
 
-        percent = (distanceToCharacter - upperLimit) / (lowerLimit - upperLimit);
-        if (percent < 0f) percent = 0f;
-        else if (percent > 1f) percent = 1f;
+        if (closestCharacter != null) {
+            percent = (distanceToCharacter - upperLimit) / (lowerLimit - upperLimit);
+            if (percent < 0f) percent = 0f;
+            else if (percent > 1f) percent = 1f;
 
-        float newNum = initialScale.x * percent;
-        bubbleCanvas.transform.localScale = new Vector3(newNum, newNum, newNum);
+            float newNum = initialScale.x * percent;
+            bubbleCanvas.transform.localScale = new Vector3(newNum, newNum, newNum);
 
-        if (distanceToCharacter < 5f) closestCharacter.canActivate = true;
-        else closestCharacter.canActivate = false;
+            if (previousClosestCharacter != closestCharacter) {
+                previousClosestCharacter.canActivate = false;
+                previousClosestCharacter = closestCharacter;
+            }
 
-        bubbleCanvas.transform.LookAt(Camera.main.transform, Vector3.up);
-        bubbleCanvas.transform.localEulerAngles = new Vector3(0, bubbleCanvas.transform.localEulerAngles.y + 180, 0);
-        bubbleCanvas.transform.position = new Vector3(closestCharacter.gameObject.transform.position.x, closestCharacter.gameObject.transform.position.y + iconHeight, closestCharacter.gameObject.transform.position.z);
+            if (distanceToCharacter < 5f) closestCharacter.canActivate = true;
+            else closestCharacter.canActivate = false;
+
+            bubbleCanvas.transform.LookAt(Camera.main.transform, Vector3.up);
+            bubbleCanvas.transform.localEulerAngles = new Vector3(0, bubbleCanvas.transform.localEulerAngles.y + 180, 0);
+            bubbleCanvas.transform.position = new Vector3(closestCharacter.gameObject.transform.position.x, closestCharacter.gameObject.transform.position.y + iconHeight, closestCharacter.gameObject.transform.position.z);
+        } else {
+            bubbleCanvas.transform.localScale = new Vector3(0, 0, 0);
+        }
     }
 
     public void SenseCharactersNearby(float radius) {
         closestCharacter = GetClosestCharacter(Physics.OverlapSphere(transform.position, radius), radius);
-        distanceToCharacter = Vector3.Distance(transform.position, closestCharacter.gameObject.transform.position);
+        if (closestCharacter != null) distanceToCharacter = Vector3.Distance(transform.position, closestCharacter.gameObject.transform.position);
+        if (!previousClosestCharacter) previousClosestCharacter = closestCharacter;
     }
 
     private DialogueTrigger GetClosestCharacter(Collider[] characters, float radius) {
