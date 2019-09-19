@@ -27,6 +27,9 @@ namespace MajorVRProj
 		public NavMeshSurface uncorruptNav;
 		public NavMeshSurface corruptNav;
 
+		public NavMeshData uncorruptData;
+		public NavMeshData corruptData;
+
 		List<LightTransition> m_transitionLights = new List<LightTransition>();
 
         [SerializeField] bool isCorrupted = false;
@@ -54,8 +57,8 @@ namespace MajorVRProj
 
             m_transitionLights.AddRange(FindObjectsOfType<LightTransition>());
 
-            OnCorrupted.AddListener(RebakeNavMesh);
-            OnNormal.AddListener(RebakeNavMesh);
+            //OnCorrupted.AddListener(RebakeNavMesh);
+            //OnNormal.AddListener(RebakeNavMesh);
 
             HandleLightTransitions();
             HandleParticleEffects();
@@ -78,6 +81,7 @@ namespace MajorVRProj
                 HandleLightTransitions();
                 HandleParticleEffects();
                 HandleDialogue();
+				RebakeNavMesh();
             }
         }
 
@@ -87,13 +91,17 @@ namespace MajorVRProj
 			//need to just have swap between two nav meshes
 			if(isCorrupted)
 			{
-				uncorruptNav.enabled = false;
-				corruptNav.enabled = true;
+				//uncorruptNav.enabled = false;
+				//corruptNav.enabled = true;
+
+				corruptNav.navMeshData = corruptData;
 			}
 			if(!isCorrupted)
 			{
-				corruptNav.enabled = false;
-				corruptNav.enabled = true;
+				corruptNav.navMeshData = uncorruptData;
+
+				//corruptNav.enabled = false;
+				//corruptNav.enabled = true;
 			}
 
         }

@@ -8,11 +8,11 @@ namespace MajorVRProj
     public class CorruptBuildingController : MonoBehaviour
     {
         [SerializeField]
-        CorruptBuilding[] corruptBuildings;
+        public List<CorruptBuilding> corruptBuildings;
 
         void Awake()
         {
-            corruptBuildings = FindObjectsOfType<CorruptBuilding>();
+			corruptBuildings.AddRange(FindObjectsOfType<CorruptBuilding>());
         }
 
         public void Corrupt()

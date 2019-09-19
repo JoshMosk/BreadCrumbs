@@ -46,39 +46,57 @@ namespace MajorVRProj
             //col.enabled = true;
         }
 
-        //Transition coroutine
-        //"forward" = true means it transition TO the corrupt. False means it transitions TO normal
-        IEnumerator TransitionRoutine(bool direction)
-        {
-            //Modify the alphas
-            for (float t = 0f; t < transitionTime; t += Time.deltaTime)
-            {
-                
-                if (direction)
-                {
-                    foreach(Renderer r in renderers)
-                    {
-                        r.material.SetFloat("_DissolveSlider", transitionTime - t * 2.1f);
-                    }
+		//Transition coroutine
+		//"forward" = true means it transition TO the corrupt. False means it transitions TO normal
+		IEnumerator TransitionRoutine(bool direction)
+		{
+			if (renderers[0].material.HasProperty("_DissolveSlider"))
+			{
 
-                    //foreach (Material m in materials)
-                    //{
-                    //    m.SetFloat("_DissolveSlider", t);
-                    //}
-                    //light.colorTemperature = Mathf.Lerp(light.colorTemperature, newSettings.colorTemperature, t / lerpTime);
-                    //light.color = Color.Lerp(light.color, newSettings.color, t / transitionTime);
-                    //light.intensity = Mathf.Lerp(light.intensity, newSettings.intensity, t / transitionTime);
-                }
-                else
-                {
-                    foreach(Renderer r in renderers)
-                    {
-                        r.material.SetFloat("_DissolveSlider", t * 2.1f);
-                    }
-                }
-                yield return null;
-            }
-        }
+				//Modify the alphas
+				for (float t = 0f; t < transitionTime; t += Time.deltaTime)
+				{
+
+					if (direction)
+					{
+						foreach (Renderer r in renderers)
+						{
+							r.material.SetFloat("_DissolveSlider", transitionTime - t * 2.1f);
+						}
+
+						//foreach (Material m in materials)
+						//{
+						//    m.SetFloat("_DissolveSlider", t);
+						//}
+						//light.colorTemperature = Mathf.Lerp(light.colorTemperature, newSettings.colorTemperature, t / lerpTime);
+						//light.color = Color.Lerp(light.color, newSettings.color, t / transitionTime);
+						//light.intensity = Mathf.Lerp(light.intensity, newSettings.intensity, t / transitionTime);
+					}
+					else
+					{
+						foreach (Renderer r in renderers)
+						{
+							r.material.SetFloat("_DissolveSlider", t * 2.1f);
+						}
+					}
+					yield return null;
+				}
+			}
+			else
+			{
+				if (direction = true)
+				{
+					foreach(Renderer r in renderers)
+					r.enabled = false;
+				}
+				else
+				{
+					foreach (Renderer r in renderers)
+						r.enabled = true;
+				}
+			}
+		}
+
 
     }
 }
