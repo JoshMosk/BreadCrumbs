@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class Puzzle3 : MonoBehaviour
 {
-	CorruptPlayer m_corruptPlayer;
+	CorruptPlayer m_corruptPlayer;		//the player
 
-	GameObject m_gate;
+	public GameObject m_gate;      //used to block lylah
+	public GameObject m_holeInTheWall;          //the hole that will disppear once puzzle is solved
+	public Material m_buildingSolvedMat;
 
+	[SerializeField]
+	bool m_puzzleComplete = false;
 
 	void Start()
     {
@@ -21,10 +25,28 @@ public class Puzzle3 : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if (m_corruptPlayer.m_isCorrupt)
+		if (m_corruptPlayer.m_isCorrupt == false)
 		{
 			if (other.gameObject.name == "Lylah")
 			{
+				if(m_puzzleComplete == false)
+				{
+					m_holeInTheWall.GetComponent<Renderer>().material = m_buildingSolvedMat;
+
+					//make building disappear when in dark
+					m_holeInTheWall.AddComponent<MajorVRProj.CorruptBuilding>();
+					FindObjectOfType<MajorVRProj.CorruptBuildingController>().corruptBuildings.Add(m_holeInTheWall.GetComponent<MajorVRProj.CorruptBuilding>());
+
+					//disable gate
+					m_gate.GetComponent<Collider>().enabled = false;
+
+					//puzzle is complete
+					m_puzzleComplete = true;
+				}
+
+
+
+
 				//need to show shadow only in light mode// DONE
 				//once triggered make sure inly lylah// DONE
 				//disable trigger
