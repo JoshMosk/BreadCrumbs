@@ -32,7 +32,7 @@ public class DialogueManager : MonoBehaviour {
 
     private int selectedOption;
     public string conversationID;
-    private Transform speakerObject;
+    public Transform speakerObject;
 
     private bool canSkip = true;
     private bool isTyping = false;
@@ -210,12 +210,12 @@ public class DialogueManager : MonoBehaviour {
 
         } else if (currentNode.nodeType == Node.NodeType.DialogueNode) {
             currentEnumerator = StartCoroutine(TypeText((string)currentNode.nodeData["speaker"], (string)currentNode.nodeData["dialogue"]));
-            foreach (DialogueCharacter currentCharacter in FindObjectsOfType<DialogueCharacter>()) if (currentCharacter.name == (string)currentNode.nodeData["speaker"]) speakerObject = currentCharacter.gameObject.transform;
+          //  foreach (DialogueCharacter currentCharacter in FindObjectsOfType<DialogueCharacter>()) if (currentCharacter.name == (string)currentNode.nodeData["speaker"]) speakerObject = currentCharacter.gameObject.transform;
 
         } else if (currentNode.nodeType == Node.NodeType.MultipleChoiceNode) {
             canSkip = false;
             currentEnumerator = StartCoroutine(TypeText((string)currentNode.nodeData["speaker"], (string)currentNode.nodeData["dialogue"]));
-            foreach (DialogueCharacter currentCharacter in FindObjectsOfType<DialogueCharacter>()) if (currentCharacter.name == (string)currentNode.nodeData["speaker"]) speakerObject = currentCharacter.gameObject.transform;
+          //  foreach (DialogueCharacter currentCharacter in FindObjectsOfType<DialogueCharacter>()) if (currentCharacter.name == (string)currentNode.nodeData["speaker"]) speakerObject = currentCharacter.gameObject.transform;
 
             int optionNumbers = 0;
             if (currentNode.nodeData["option1"].Length != 0) optionNumbers++;
@@ -270,6 +270,11 @@ public class DialogueManager : MonoBehaviour {
 
         isTyping = true;
         bodyTextBox.text = bodyString;
+
+        if (characterName.Contains("Shadow")) {
+            speakerTextBox.text = "Shadow Creature";
+        }
+
         speakerTextBox.text = characterName;
 
         TextGenerator speakerTextGen = new TextGenerator();
