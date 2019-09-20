@@ -287,14 +287,15 @@ public class DialogueManager : MonoBehaviour {
     IEnumerator TypeText(string characterName, string bodyString) {
 
         isTyping = true;
-        bodyTextBox.text = bodyString;
+       // bodyTextBox.text = bodyString;
 
         if (characterName.Contains("Shadow")) {
-            speakerTextBox.text = "Shadow Creature";
+            characterName = "Shadow Creature";
         }
 
         speakerTextBox.text = characterName;
 
+        /*
         TextGenerator speakerTextGen = new TextGenerator();
         TextGenerationSettings speakerGenerationSettings = speakerTextBox.GetGenerationSettings(speakerTextBox.rectTransform.rect.size);
 
@@ -303,13 +304,13 @@ public class DialogueManager : MonoBehaviour {
 
         float speakerHeight = speakerTextGen.GetPreferredWidth(characterName, speakerGenerationSettings);
         float bodyHeight = bodyTextGen.GetPreferredHeight(bodyString, bodyGenerationSettings);
-
-        Debug.Log("Text size " + (speakerHeight + bodyHeight));
+        */
+       // Debug.Log("Text size " + (speakerHeight + bodyHeight));
 
 
         // Temp lets just not have typed letters rn
 
-        /*
+        
         bodyTextBox.text = "";
         bodyString = bodyString.Replace("…", "...");
 
@@ -319,17 +320,17 @@ public class DialogueManager : MonoBehaviour {
             else {
 
                 bodyTextBox.text += letter;
-                if (letter == ".".ToCharArray()[0]) yield return new WaitForSeconds(.2f);
-                else if (letter == ",".ToCharArray()[0]) yield return new WaitForSeconds(.1f);
-                else if (letter == "!".ToCharArray()[0]) yield return new WaitForSeconds(.1f);
-                else if (letter == "?".ToCharArray()[0]) yield return new WaitForSeconds(.1f);
-                else yield return new WaitForSeconds(.02f);
+                if (letter == ".".ToCharArray()[0]) yield return new WaitForSeconds(.1f);
+                else if (letter == ",".ToCharArray()[0]) yield return new WaitForSeconds(.05f);
+                else if (letter == "!".ToCharArray()[0]) yield return new WaitForSeconds(.05f);
+                else if (letter == "?".ToCharArray()[0]) yield return new WaitForSeconds(.5f);
+                else yield return new WaitForSeconds(.01f);
 
             }
 
         }
 
-    */
+    
 
         isTyping = false;
         yield return new WaitForSeconds(.0f);
