@@ -222,14 +222,6 @@ public class DialogueManager : MonoBehaviour {
 			{
 				puzzle3Building.Solved = true;
 			}
-			if (currentNode.nodeData["event"] == "Puzzle4Complete")
-			{
-				puzzle4Building.Solved = true;
-			}
-			if (currentNode.nodeData["event"] == "Puzzle5Complete")
-			{
-				puzzle5Building.Solved = true;
-			}
 
 			FindNextNode();
 
