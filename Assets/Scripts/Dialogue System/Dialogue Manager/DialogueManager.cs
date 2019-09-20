@@ -51,8 +51,14 @@ public class DialogueManager : MonoBehaviour {
 
     public float cooldownTimer;
 
+	public MajorVRProj.CorruptBuilding puzzle1Building;
+	public MajorVRProj.CorruptBuilding puzzle2aBuilding;
+	public MajorVRProj.CorruptBuilding puzzle2bBuilding;
+	public MajorVRProj.CorruptBuilding puzzle3Building;
+	public MajorVRProj.CorruptBuilding puzzle4Building;
+	public MajorVRProj.CorruptBuilding puzzle5Building;
 
-    private void Start() {
+	private void Start() {
 
         // Set up the multiple choice buttons
         option1Button.onClick.AddListener(delegate { SelectOption(1); });
@@ -201,11 +207,31 @@ public class DialogueManager : MonoBehaviour {
 
         if (currentNode.nodeType == Node.NodeType.BroadcastNode) {
 
-            if (currentNode.nodeData["event"] == "") {
-
+            if (currentNode.nodeData["event"] == "Puzzle1Complete") {
+				puzzle1Building.Solved = true;
             }
+			if (currentNode.nodeData["event"] == "Puzzle2aComplete")
+			{
+				puzzle2aBuilding.Solved = true;
+			}
+			if (currentNode.nodeData["event"] == "Puzzle2bComplete")
+			{
+				puzzle2bBuilding.Solved = true;
+			}
+			if (currentNode.nodeData["event"] == "Puzzle3Complete")
+			{
+				puzzle3Building.Solved = true;
+			}
+			if (currentNode.nodeData["event"] == "Puzzle4Complete")
+			{
+				puzzle4Building.Solved = true;
+			}
+			if (currentNode.nodeData["event"] == "Puzzle5Complete")
+			{
+				puzzle5Building.Solved = true;
+			}
 
-            FindNextNode();
+			FindNextNode();
 
 
         } else if (currentNode.nodeType == Node.NodeType.DialogueNode) {
