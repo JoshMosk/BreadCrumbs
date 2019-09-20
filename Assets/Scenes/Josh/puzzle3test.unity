@@ -1591,7 +1591,8 @@ PrefabInstance:
       propertyPath: corruptMeter
       value: 
       objectReference: {fileID: 1542783041}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4867614250175023448, guid: 763264513d044844a96a671ae469677d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 763264513d044844a96a671ae469677d, type: 3}
 --- !u!4 &73980316 stripped
 Transform:
@@ -2400,7 +2401,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1162439212}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
   m_Name: 
@@ -2753,11 +2754,6 @@ PrefabInstance:
       propertyPath: m_AngularSpeed
       value: 3000
       objectReference: {fileID: 0}
-    - target: {fileID: 8945344091910078812, guid: 48cee8a1660a9f1438d16ff9a9365f0a,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 963262090716363602, guid: 48cee8a1660a9f1438d16ff9a9365f0a,
         type: 3}
       propertyPath: name
@@ -2812,6 +2808,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Constraints
       value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 8945344091910078812, guid: 48cee8a1660a9f1438d16ff9a9365f0a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 963262090716363602, guid: 48cee8a1660a9f1438d16ff9a9365f0a, type: 3}
@@ -3016,6 +3017,22 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 170596155}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &180668040
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 3997407172402723646}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 219949592}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1001 &183059287
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4155,12 +4172,21 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 212362924}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &219949592 stripped
+--- !u!4 &219949592
 Transform:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 3997407172453830950, guid: 2457295182bc5604680d681dd03077ef,
     type: 3}
   m_PrefabInstance: {fileID: 3997407172402723646}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180668040}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2015143153}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &220222637
 GameObject:
   m_ObjectHideFlags: 0
@@ -4372,6 +4398,38 @@ Light:
   m_UseBoundingSphereOverride: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &235623726
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 4673461866156987543}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 235623727}
+  m_Layer: 0
+  m_Name: Blue Tiger Graffiti NPC (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &235623727
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 4673461866156987543}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 235623726}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4673461866156987546}
+  - {fileID: 985672415}
+  m_Father: {fileID: 675879871}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &237845428
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6527,6 +6585,37 @@ Transform:
   m_Father: {fileID: 1959745195}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!1 &368680427
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 879544977875417746}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 368680428}
+  m_Layer: 0
+  m_Name: Black Dog Graffiti NPC (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &368680428
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 879544977875417746}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 368680427}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 879544977875417747}
+  m_Father: {fileID: 1682304449}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &377456385
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6626,6 +6715,22 @@ Transform:
   m_Father: {fileID: 250570707}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &393751226
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 879544977875417746}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 879544977875417747}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1001 &401075680
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9261,6 +9366,28 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 517059112}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &519468337 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4867614250175023453, guid: 763264513d044844a96a671ae469677d,
+    type: 3}
+  m_PrefabInstance: {fileID: 73980315}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &519468338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519468337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72fde59e69d7fc640a40ecf357f95e37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireKey: 323
+  useKey: 32
+  moveKey: 273
+  NPCKey: 304
 --- !u!1 &533292232
 GameObject:
   m_ObjectHideFlags: 0
@@ -10523,6 +10650,22 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 588358980}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &596592452
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 4673461866156987543}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 985672415}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1001 &597104528
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11740,12 +11883,21 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 633723720}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &634796872 stripped
+--- !u!4 &634796872
 Transform:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 3653705512244323128, guid: 0fe52a568b413274c90e93fbfe13688f,
     type: 3}
   m_PrefabInstance: {fileID: 3653705511769184368}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146851919}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1859911516}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &635571257
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13029,10 +13181,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 634796872}
-  - {fileID: 985672415}
-  - {fileID: 1545366129}
-  - {fileID: 219949592}
+  - {fileID: 1859911516}
+  - {fileID: 235623727}
+  - {fileID: 1815254027}
+  - {fileID: 2015143153}
   m_Father: {fileID: 1816894488}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13181,6 +13333,38 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 681235445}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &682878941
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 3049105413985416506}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 682878942}
+  m_Layer: 0
+  m_Name: Blue Flame Graffiti NPC (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &682878942
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 3049105413985416506}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682878941}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 3049105413985416510}
+  - {fileID: 3049105413985416507}
+  m_Father: {fileID: 1743653759}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &688068971
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16559,6 +16743,22 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 837847064}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &845911096
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 6817234675122252714}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1545366129}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1001 &860414110
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18749,12 +18949,21 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 985626106}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &985672415 stripped
+--- !u!4 &985672415
 Transform:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 4673461865985031752, guid: fc7be5beb2e08214db12cb8cb0dcf5d1,
     type: 3}
   m_PrefabInstance: {fileID: 4673461866156987543}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 596592452}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 235623727}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &987269485
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20123,6 +20332,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 12800000, guid: 5e68d7b85cc45964bb3f735957a49743,
         type: 3}
+    - target: {fileID: 394449856424552625, guid: 2600f8db4d9bf244993ff9113ce1bc58,
+        type: 3}
+      propertyPath: far clip plane
+      value: 900
+      objectReference: {fileID: 0}
+    - target: {fileID: 394449855127430567, guid: 2600f8db4d9bf244993ff9113ce1bc58,
+        type: 3}
+      propertyPath: m_sensitivity
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6194064796074031170, guid: 2600f8db4d9bf244993ff9113ce1bc58,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -20138,16 +20357,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 394449856424552625, guid: 2600f8db4d9bf244993ff9113ce1bc58,
+    - target: {fileID: 5451708371523778908, guid: 2600f8db4d9bf244993ff9113ce1bc58,
         type: 3}
-      propertyPath: far clip plane
-      value: 900
+      propertyPath: m_AnchoredPosition.y
+      value: 457
       objectReference: {fileID: 0}
-    - target: {fileID: 394449855127430567, guid: 2600f8db4d9bf244993ff9113ce1bc58,
+    - target: {fileID: 394449856415113649, guid: 2600f8db4d9bf244993ff9113ce1bc58,
         type: 3}
-      propertyPath: m_sensitivity
-      value: 5
-      objectReference: {fileID: 0}
+      propertyPath: renderModelPrefab
+      value: 
+      objectReference: {fileID: 5349773111936645743, guid: d3bd046f81ee6ba47aeb47cdb26a8e82,
+        type: 3}
     - target: {fileID: 4868047084772859499, guid: 2600f8db4d9bf244993ff9113ce1bc58,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -20198,31 +20418,20 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 6618886918636638360, guid: 2600f8db4d9bf244993ff9113ce1bc58,
-        type: 3}
-      propertyPath: top.icon
-      value: 
-      objectReference: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 2403267181678887549, guid: 2600f8db4d9bf244993ff9113ce1bc58,
         type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6618886918636638360, guid: 2600f8db4d9bf244993ff9113ce1bc58,
+        type: 3}
+      propertyPath: top.icon
+      value: 
+      objectReference: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 5158335642069625304, guid: 2600f8db4d9bf244993ff9113ce1bc58,
         type: 3}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 394449856415113649, guid: 2600f8db4d9bf244993ff9113ce1bc58,
-        type: 3}
-      propertyPath: renderModelPrefab
-      value: 
-      objectReference: {fileID: 5349773111936645743, guid: d3bd046f81ee6ba47aeb47cdb26a8e82,
-        type: 3}
-    - target: {fileID: 5451708371523778908, guid: 2600f8db4d9bf244993ff9113ce1bc58,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 457
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 394449855975065746, guid: 2600f8db4d9bf244993ff9113ce1bc58, type: 3}
@@ -21149,6 +21358,38 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1107448184}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1117289096
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 3779224411232742303}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1117289097}
+  m_Layer: 0
+  m_Name: Red Flame Graffiti NPC (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1117289097
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 3779224411232742303}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117289096}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 3779224411232742307}
+  - {fileID: 3779224411232742304}
+  m_Father: {fileID: 1743653759}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1133024989
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21254,6 +21495,22 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1133024989}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1146851919
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 3653705511769184368}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 634796872}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1161082731 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 995917634627882472, guid: ae40b969180d68d478a74b42cebdf1f1,
@@ -21556,6 +21813,17 @@ PrefabInstance:
     - target: {fileID: 940868878216783031, guid: 64884cb6a2e412248b74df2d9370e7a3,
         type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1300835513395620263, guid: 64884cb6a2e412248b74df2d9370e7a3,
+        type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: 248101d5a9ad3894fa8e88b3d95bb599,
+        type: 2}
+    - target: {fileID: 1300835513395620263, guid: 64884cb6a2e412248b74df2d9370e7a3,
+        type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 940868878216783030, guid: 64884cb6a2e412248b74df2d9370e7a3,
@@ -21611,17 +21879,6 @@ PrefabInstance:
     - target: {fileID: 940868878216783030, guid: 64884cb6a2e412248b74df2d9370e7a3,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1300835513395620263, guid: 64884cb6a2e412248b74df2d9370e7a3,
-        type: 3}
-      propertyPath: m_NavMeshData
-      value: 
-      objectReference: {fileID: 23800000, guid: 248101d5a9ad3894fa8e88b3d95bb599,
-        type: 2}
-    - target: {fileID: 1300835513395620263, guid: 64884cb6a2e412248b74df2d9370e7a3,
-        type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -23721,6 +23978,22 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1254407669}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1260303058
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 3779224411232742303}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3779224411232742304}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1001 &1261120474
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28954,12 +29227,21 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1046401443}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1545366129 stripped
+--- !u!4 &1545366129
 Transform:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 6817234673714807259, guid: 47c4b8c27ee070d41b198d1aa796e861,
     type: 3}
   m_PrefabInstance: {fileID: 6817234675122252714}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845911096}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1815254027}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1549772858
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31416,7 +31698,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9062416516349792143}
-  - {fileID: 879544977875417747}
+  - {fileID: 368680428}
   m_Father: {fileID: 330914993}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -32244,8 +32526,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1287386030}
-  - {fileID: 3779224411232742304}
-  - {fileID: 3049105413985416507}
+  - {fileID: 1117289097}
+  - {fileID: 682878942}
   m_Father: {fileID: 31095160}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -33582,6 +33864,38 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1814232123}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1815254026
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 6817234675122252714}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1815254027}
+  m_Layer: 0
+  m_Name: Orange Tiger Graffiti NPC (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1815254027
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 6817234675122252714}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815254026}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 6817234675122252717}
+  - {fileID: 1545366129}
+  m_Father: {fileID: 675879871}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1816894487
 GameObject:
   m_ObjectHideFlags: 0
@@ -34810,6 +35124,38 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1859765005}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1859911515
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 3653705511769184368}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1859911516}
+  m_Layer: 0
+  m_Name: Dragon Graffiti NPC (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1859911516
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 3653705511769184368}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1859911515}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 3653705511769184371}
+  - {fileID: 634796872}
+  m_Father: {fileID: 675879871}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1863794721
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36505,6 +36851,22 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1931817858}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1933917156
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 3049105413985416506}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3049105413985416507}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1001 &1939383412
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38090,6 +38452,38 @@ Transform:
   m_Father: {fileID: 250570707}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 60.925003, z: 0}
+--- !u!1 &2015143152
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 3997407172402723646}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2015143153}
+  m_Layer: 0
+  m_Name: Green Tiger Graffiti NPC (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2015143153
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 3997407172402723646}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015143152}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 3997407172402723649}
+  - {fileID: 219949592}
+  m_Father: {fileID: 675879871}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2016102840
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38779,6 +39173,7 @@ MonoBehaviour:
   upperLimit: 10
   distanceToCharacter: 0
   percent: 0
+  previousClosestCharacter: {fileID: 0}
   closestCharacter: {fileID: 0}
   bubbleCanvas: {fileID: 977914588}
   iconHeight: 3
@@ -40041,7 +40436,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1162439212}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
   m_Name: 
@@ -40325,12 +40720,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24ee2f1127fcc9448bf315e302efdc59, type: 3}
---- !u!4 &879544977875417747 stripped
+--- !u!4 &879544977875417747
 Transform:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 96338124841095905, guid: 24ee2f1127fcc9448bf315e302efdc59,
     type: 3}
   m_PrefabInstance: {fileID: 879544977875417746}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393751226}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 368680428}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1191249123592396207
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41943,18 +42347,40 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 4dc938c7cf5f5b54ab5536f3dc37a5f0, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 770f3b0190e683f4cbb8ebdbc3bb11ab, type: 3}
---- !u!4 &3049105413985416507 stripped
+--- !u!4 &3049105413985416507
 Transform:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 495622538981039015, guid: 770f3b0190e683f4cbb8ebdbc3bb11ab,
     type: 3}
   m_PrefabInstance: {fileID: 3049105413985416506}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &3049105413985416508 stripped
+  m_GameObject: {fileID: 1933917156}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 682878942}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3049105413985416508
 GameObject:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 7857355449446313927, guid: 770f3b0190e683f4cbb8ebdbc3bb11ab,
     type: 3}
   m_PrefabInstance: {fileID: 3049105413985416506}
   m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3049105413985416510}
+  - component: {fileID: 3049105413985416512}
+  - component: {fileID: 3049105413985416509}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!114 &3049105413985416509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41969,6 +42395,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conversationID: sg1zgleje4
   canActivate: 0
+--- !u!4 &3049105413985416510
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 3049105413985416506}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3049105413985416508}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 682878942}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &3049105413985416512
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -42148,11 +42588,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 675879871}
     m_Modifications:
-    - target: {fileID: 3653705512244323127, guid: 0fe52a568b413274c90e93fbfe13688f,
-        type: 3}
-      propertyPath: m_Name
-      value: Dragon Graffiti NPC
-      objectReference: {fileID: 0}
     - target: {fileID: 3653705512244323128, guid: 0fe52a568b413274c90e93fbfe13688f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -42208,14 +42643,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 100.992004
       objectReference: {fileID: 0}
+    - target: {fileID: 3653705512244323127, guid: 0fe52a568b413274c90e93fbfe13688f,
+        type: 3}
+      propertyPath: m_Name
+      value: Dragon Graffiti NPC
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fe52a568b413274c90e93fbfe13688f, type: 3}
---- !u!1 &3653705511769184369 stripped
+--- !u!1 &3653705511769184369
 GameObject:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 3653705512244323127, guid: 0fe52a568b413274c90e93fbfe13688f,
     type: 3}
   m_PrefabInstance: {fileID: 3653705511769184368}
   m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3653705511769184371}
+  - component: {fileID: 3653705511769184370}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!114 &3653705511769184370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42230,6 +42682,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conversationID: iv52g58nuk
   canActivate: 0
+--- !u!4 &3653705511769184371
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 3653705511769184368}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3653705511769184369}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1859911516}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3779224411232742303
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42304,18 +42770,40 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 7b964d027aa019f4aa0af1007016eceb, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2dfe73ac6e15a7448bb31360f275405a, type: 3}
---- !u!4 &3779224411232742304 stripped
+--- !u!4 &3779224411232742304
 Transform:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 8694581402409015519, guid: 2dfe73ac6e15a7448bb31360f275405a,
     type: 3}
   m_PrefabInstance: {fileID: 3779224411232742303}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &3779224411232742305 stripped
+  m_GameObject: {fileID: 1260303058}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1117289097}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3779224411232742305
 GameObject:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 8925007474485932814, guid: 2dfe73ac6e15a7448bb31360f275405a,
     type: 3}
   m_PrefabInstance: {fileID: 3779224411232742303}
   m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3779224411232742307}
+  - component: {fileID: 3779224411232742309}
+  - component: {fileID: 3779224411232742306}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!114 &3779224411232742306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42330,6 +42818,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conversationID: 8smfm4x0ni
   canActivate: 0
+--- !u!4 &3779224411232742307
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 3779224411232742303}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3779224411232742305}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1117289097}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &3779224411232742309
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -42439,11 +42941,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 675879871}
     m_Modifications:
-    - target: {fileID: 3997407172453830953, guid: 2457295182bc5604680d681dd03077ef,
-        type: 3}
-      propertyPath: m_Name
-      value: Green Tiger Graffiti NPC
-      objectReference: {fileID: 0}
     - target: {fileID: 3997407172453830950, guid: 2457295182bc5604680d681dd03077ef,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -42499,14 +42996,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3997407172453830953, guid: 2457295182bc5604680d681dd03077ef,
+        type: 3}
+      propertyPath: m_Name
+      value: Green Tiger Graffiti NPC
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2457295182bc5604680d681dd03077ef, type: 3}
---- !u!1 &3997407172402723647 stripped
+--- !u!1 &3997407172402723647
 GameObject:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 3997407172453830953, guid: 2457295182bc5604680d681dd03077ef,
     type: 3}
   m_PrefabInstance: {fileID: 3997407172402723646}
   m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3997407172402723649}
+  - component: {fileID: 3997407172402723648}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!114 &3997407172402723648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42521,6 +43035,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conversationID: 0vx4nqrbyv
   canActivate: 0
+--- !u!4 &3997407172402723649
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 3997407172402723646}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3997407172402723647}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2015143153}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4086798282551318172
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42864,11 +43392,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 675879871}
     m_Modifications:
-    - target: {fileID: 4673461865985031753, guid: fc7be5beb2e08214db12cb8cb0dcf5d1,
-        type: 3}
-      propertyPath: m_Name
-      value: Blue Tiger Graffiti NPC
-      objectReference: {fileID: 0}
     - target: {fileID: 4673461865985031752, guid: fc7be5beb2e08214db12cb8cb0dcf5d1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -42924,14 +43447,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4673461865985031753, guid: fc7be5beb2e08214db12cb8cb0dcf5d1,
+        type: 3}
+      propertyPath: m_Name
+      value: Blue Tiger Graffiti NPC
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc7be5beb2e08214db12cb8cb0dcf5d1, type: 3}
---- !u!1 &4673461866156987544 stripped
+--- !u!1 &4673461866156987544
 GameObject:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 4673461865985031753, guid: fc7be5beb2e08214db12cb8cb0dcf5d1,
     type: 3}
   m_PrefabInstance: {fileID: 4673461866156987543}
   m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4673461866156987546}
+  - component: {fileID: 4673461866156987545}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!114 &4673461866156987545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42946,6 +43486,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conversationID: mor92g9i55
   canActivate: 0
+--- !u!4 &4673461866156987546
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 4673461866156987543}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4673461866156987544}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 235623727}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4822978235673076150
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43616,11 +44170,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 675879871}
     m_Modifications:
-    - target: {fileID: 6817234673714807258, guid: 47c4b8c27ee070d41b198d1aa796e861,
-        type: 3}
-      propertyPath: m_Name
-      value: Orange Tiger Graffiti NPC
-      objectReference: {fileID: 0}
     - target: {fileID: 6817234673714807259, guid: 47c4b8c27ee070d41b198d1aa796e861,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -43676,14 +44225,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6817234673714807258, guid: 47c4b8c27ee070d41b198d1aa796e861,
+        type: 3}
+      propertyPath: m_Name
+      value: Orange Tiger Graffiti NPC
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47c4b8c27ee070d41b198d1aa796e861, type: 3}
---- !u!1 &6817234675122252715 stripped
+--- !u!1 &6817234675122252715
 GameObject:
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 6817234673714807258, guid: 47c4b8c27ee070d41b198d1aa796e861,
     type: 3}
   m_PrefabInstance: {fileID: 6817234675122252714}
   m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6817234675122252717}
+  - component: {fileID: 6817234675122252716}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!114 &6817234675122252716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43698,6 +44264,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conversationID: u4ecqdb5m9
   canActivate: 0
+--- !u!4 &6817234675122252717
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 6817234675122252714}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6817234675122252715}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1815254027}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &7634545670106113559
 PrefabInstance:
   m_ObjectHideFlags: 0

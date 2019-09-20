@@ -4,47 +4,52 @@ using UnityEngine;
 
 namespace MajorVRProj
 {
-    //this script goes on the building and turns it transparent
-    public class CorruptBuilding : MonoBehaviour
-    {
-        /*How a building transitions to corrupt
+	//this script goes on the building and turns it transparent
+	public class CorruptBuilding : MonoBehaviour
+	{
+		/*How a building transitions to corrupt
         1. Alphas to zero
         2. Colliders get disabled
         */
-        [SerializeField] float transitionTime = 0.5f;
+		[SerializeField] float transitionTime = 0.5f;
 
-        Material[] materials;
-        [SerializeField]
-        Renderer[] renderers;
-        MeshRenderer[] mr;
-        Collider col;   //Should only need one collider
-        void Awake()
-        {
-            //materials = GetComponentsInChildren<Material>();
-            renderers = GetComponentsInChildren<Renderer>();
-            mr = GetComponentsInChildren<MeshRenderer>();
-            col = GetComponentInChildren<Collider>();
-        }
+		Material[] materials;
+		[SerializeField]
+		Renderer[] renderers;
+		MeshRenderer[] mr;
+		Collider col;   //Should only need one collider
 
-        public void TransitionIn()      //transition into corrupt
-        {
-            StartCoroutine(TransitionRoutine(true));
-            //foreach (var o in mr)
-            //{
-            //    o.enabled = false;
-            //}
-            //col.enabled = false;
-        }
+		public bool Solved;
 
-        public void TransitionOut()     //transition into normal
-        {
-            StartCoroutine(TransitionRoutine(false));
-            //foreach (var o in mr)
-            //{
-            //    o.enabled = true;
-            //}
-            //col.enabled = true;
-        }
+		void Awake()
+		{
+			//materials = GetComponentsInChildren<Material>();
+			renderers = GetComponentsInChildren<Renderer>();
+			mr = GetComponentsInChildren<MeshRenderer>();
+			col = GetComponentInChildren<Collider>();
+		}
+
+		public void TransitionIn()      //transition into corrupt
+		{
+			if (Solved)
+				StartCoroutine(TransitionRoutine(true));
+			//foreach (var o in mr)
+			//{
+			//    o.enabled = false;
+			//}
+			//col.enabled = false;
+		}
+
+		public void TransitionOut()     //transition into normal
+		{
+			if (Solved)
+				StartCoroutine(TransitionRoutine(false));
+			//foreach (var o in mr)
+			//{
+			//    o.enabled = true;
+			//}
+			//col.enabled = true;
+		}
 
 		//Transition coroutine
 		//"forward" = true means it transition TO the corrupt. False means it transitions TO normal
@@ -86,8 +91,8 @@ namespace MajorVRProj
 			{
 				if (direction = true)
 				{
-					foreach(Renderer r in renderers)
-					r.enabled = false;
+					foreach (Renderer r in renderers)
+						r.enabled = false;
 				}
 				else
 				{
@@ -98,5 +103,5 @@ namespace MajorVRProj
 		}
 
 
-    }
+	}
 }
