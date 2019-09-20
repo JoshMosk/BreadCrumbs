@@ -289,7 +289,7 @@ public class DialogueManager : MonoBehaviour {
         isTyping = true;
        // bodyTextBox.text = bodyString;
 
-        if (characterName.Contains("Shadow")) {
+        if (characterName.Contains("NPC") || characterName.Contains("Shadow Creature")) {
             characterName = "Shadow Creature";
         }
 
