@@ -34950,6 +34950,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6039246937841562383, guid: 58a4416e9e206f244beaba090b7e62c7,
+        type: 3}
+      propertyPath: conversationID
+      value: fthl2dq87n
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58a4416e9e206f244beaba090b7e62c7, type: 3}
 --- !u!4 &1896603934 stripped
@@ -34964,20 +34969,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1896603933}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1896603936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1896603935}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37ca1ef5a2f114fd7b256bb25c805f9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  conversationID: fthl2dq87n
-  canActivate: 0
 --- !u!135 &1896603937
 SphereCollider:
   m_ObjectHideFlags: 0
