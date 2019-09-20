@@ -7,7 +7,7 @@ public class DialogueTrigger : MonoBehaviour {
 
     private void Update() {
 
-        if (DialogueManager.instance.m_input.NPCInteractDown || Input.GetKeyDown(KeyCode.Space)) {
+        if (DialogueManager.instance.m_input.NPCInteractUp || Input.GetKeyUp(KeyCode.Tab)) {
             if (DialogueManager.instance.cooldownTimer < 0 && canActivate && !DialogueManager.instance.inConversation) {
                 DialogueManager.instance.speakerObject = this.transform;
                 DialogueManager.instance.StartConversation(conversationID);

@@ -27,8 +27,9 @@ public class CorruptPlayer : MonoBehaviour
 	{
 		m_health = m_maxhealth;
 
-		playerRespawnPoint = GameObject.Find("playerRespawnPoint").transform;
-		characterRespawnPoint = GameObject.Find("characterRespawnPoint").transform;
+        // josh u suck
+		//playerRespawnPoint = GameObject.Find("playerRespawnPoint").transform;
+		//characterRespawnPoint = GameObject.Find("characterRespawnPoint").transform;
 
 		player = GameObject.Find("PlayerContainer").transform;
 		character = GameObject.Find("Lylah").transform;

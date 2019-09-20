@@ -90,7 +90,7 @@ public class DialogueManager : MonoBehaviour {
             panelObject.GetComponent<CanvasGroup>().alpha = 1f;
 
             // Determine if the user can go to the next dialogue in the conversation
-            if (m_input.NPCInteractDown || Input.GetKeyDown(KeyCode.Space)) {
+            if (m_input.NPCInteractDown || Input.GetKeyDown(KeyCode.Tab)) {
                     if (isTyping) isTyping = false;
                 else if (canSkip) FindNextNode();
             }
