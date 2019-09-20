@@ -287,7 +287,7 @@ public class DialogueManager : MonoBehaviour {
     IEnumerator TypeText(string characterName, string bodyString) {
 
         isTyping = true;
-       // bodyTextBox.text = bodyString;
+        bodyTextBox.text = bodyString;
 
         if (characterName.Contains("NPC") || characterName.Contains("Shadow Creature")) {
             characterName = "Shadow Creature";
@@ -311,6 +311,7 @@ public class DialogueManager : MonoBehaviour {
         // Temp lets just not have typed letters rn
 
         
+        /*
         bodyTextBox.text = "";
         bodyString = bodyString.Replace("…", "...");
 
@@ -330,7 +331,7 @@ public class DialogueManager : MonoBehaviour {
 
         }
 
-    
+    */
 
         isTyping = false;
         yield return new WaitForSeconds(.0f);
