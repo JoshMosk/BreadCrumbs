@@ -91,17 +91,17 @@ namespace MajorVRProj
 			//need to just have swap between two nav meshes
 			if(isCorrupted)
 			{
-				//uncorruptNav.enabled = false;
-				//corruptNav.enabled = true;
+				uncorruptNav.enabled = false;
+				corruptNav.enabled = true;
 
-				corruptNav.navMeshData = corruptData;
+				//corruptNav.navMeshData = corruptData;
 			}
 			if(!isCorrupted)
 			{
-				corruptNav.navMeshData = uncorruptData;
+				//corruptNav.navMeshData = uncorruptData;
 
-				//corruptNav.enabled = false;
-				//corruptNav.enabled = true;
+				corruptNav.enabled = false;
+				corruptNav.enabled = true;
 			}
 
         }
