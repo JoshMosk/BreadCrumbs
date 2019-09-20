@@ -50,8 +50,9 @@ public class DialogueManager : MonoBehaviour {
     public GameObject startPanel;
 
     public float cooldownTimer;
+    public float cooldownTimer222;
 
-	public MajorVRProj.CorruptBuilding puzzle1Building;
+    public MajorVRProj.CorruptBuilding puzzle1Building;
 	public MajorVRProj.CorruptBuilding puzzle2aBuilding;
 	public MajorVRProj.CorruptBuilding puzzle2bBuilding;
 	public MajorVRProj.CorruptBuilding puzzle3Building;
@@ -74,6 +75,7 @@ public class DialogueManager : MonoBehaviour {
     private void Update() {
 
         DialogueManager.instance.cooldownTimer -= Time.deltaTime;
+        DialogueManager.instance.cooldownTimer222 -= Time.deltaTime;
 
         if (inConversation) {
             transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(0.01124641f, 0.01124641f, 0.01124641f), 3f * Time.deltaTime);
@@ -97,8 +99,11 @@ public class DialogueManager : MonoBehaviour {
 
             // Determine if the user can go to the next dialogue in the conversation
             if (m_input.NPCInteractDown || Input.GetKeyDown(KeyCode.Tab)) {
+                if (cooldownTimer222 < 0f) {
+                    cooldownTimer222 = 1f;
                     if (isTyping) isTyping = false;
-                else if (canSkip) FindNextNode();
+                    else if (canSkip) FindNextNode();
+                }
             }
 
         } else panelObject.GetComponent<CanvasGroup>().alpha = 0f;
