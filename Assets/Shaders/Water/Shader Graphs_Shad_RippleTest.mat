@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Shader Graphs_Shad_RippleTest
+  m_Shader: {fileID: -6465566751694194690, guid: 255febefcdcf20b4582f3a71c24921bc,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap:
+    MotionVector: User
+  disabledShaderPasses:
+  - MOTIONVECTORS
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - Boolean_28050ACD: 1
+    - Vector1_1F5B28E3: -0.2
+    - Vector1_36A3FF1F: 0
+    - Vector1_98E4C28: 5.4
+    - Vector1_B80A9162: 0
+    - Vector1_BB1A1943: 308.52
+    - Vector1_C5232F05: 0.2
+    - Vector1_D8C511C: 0
+    - Vector1_F6DE54CC: 6.78
+    - _RippleAmplitude: 1
+    - _RippleAmplitude1: 1
+    - _RippleFrequency: 0.2
+    - _RippleOffsetX: 0.5
+    - _RippleOffsetX1: 0.5
+    - _RippleOffsetZ: 0
+    - _RippleOffsetZ1: 0
+    - _RippleScale: 0.2
+    - _RippleSpeed: 0
+    m_Colors:
+    - Vector2_65848C00: {r: 0.3, g: 0.3, b: 0, a: 0}
+    - Vector2_83A91F1D: {r: 0, g: 0, b: 0, a: 0}
+    - _RippleOffset1: {r: 0.5, g: 0, b: 0, a: 0}
+    - _RippleOffsetx1: {r: 0.5, g: 0, b: 0, a: 0}

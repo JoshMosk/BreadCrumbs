@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Shader Graphs_water6
+  m_Shader: {fileID: -6465566751694194690, guid: af0c31850ef27d648b08df81f0a537dc,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap:
+    MotionVector: User
+  disabledShaderPasses:
+  - MOTIONVECTORS
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _WaterAlbedoRelection_71A9A31E_CubemapA0E75002_3838365495:
+        m_Texture: {fileID: 8900000, guid: d3417bb56054de64db8389f786028d49, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_1BB11348: 0
+    - Vector1_84699AAC: 0
+    - Vector1_EAAB4560: 1
+    - _RippleOffsetX1: 0
+    - _RippleOffsetZ1: 0
+    m_Colors:
+    - Vector3_47F399D1: {r: 1, g: 1, b: 1, a: 0}
+    - Vector3_EBCCC6A: {r: -5, g: 0.1, b: 0.43, a: 0}
+    - Vector3_F5939418: {r: 0.25, g: 60, b: 2, a: 0}
+    - Vector4_2F5AF23D: {r: 0.6, g: 0.25, b: 1, a: 1}
+    - Vector4_3168EEFC: {r: 1, g: 1, b: 0.01, a: 20}
+    - Vector4_36989757: {r: 0.6, g: 1, b: 0.004, a: 13}
+    - Vector4_778F9491: {r: 2, g: 0.6, b: 0.0075, a: 10}
+    - Vector4_B0073FC4: {r: 0.75, g: 2, b: 0.009, a: 15}
+    - _RippleOffsetX1: {r: 0, g: 0, b: 0, a: 0}
