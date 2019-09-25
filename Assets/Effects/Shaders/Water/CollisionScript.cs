@@ -31,11 +31,11 @@ public class CollisionScript : MonoBehaviour
             if (rippleAmplitude[i] > 0)
 
             {
-                rend.material.SetFloat("RippleAmplitude" + (i + 1), rippleAmplitude[i] * 0.98f);  // over time ripple ruduces by 2% (0.98)
+                rend.material.SetFloat("_RippleAmplitude" + (i + 1), rippleAmplitude[i] * 0.98f);  // over time ripple ruduces by 2% (0.98)
             }
             if (rippleAmplitude[i] < 0.05)
             {
-                rend.material.SetFloat("RippleAmplitude" + (i + 1), 0);
+                rend.material.SetFloat("_RippleAmplitude" + (i + 1), 0);
             }
         }
     }
