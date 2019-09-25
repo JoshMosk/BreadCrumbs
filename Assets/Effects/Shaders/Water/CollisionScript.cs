@@ -29,7 +29,6 @@ public class CollisionScript : MonoBehaviour
 
             rippleAmplitude[i] = rend.material.GetFloat("_RippleAmplitude" + (i + 1));
             if (rippleAmplitude[i] > 0)
-
             {
                 rend.material.SetFloat("_RippleAmplitude" + (i + 1), rippleAmplitude[i] * 0.98f);  // over time ripple ruduces by 2% (0.98)
             }
@@ -54,10 +53,10 @@ public class CollisionScript : MonoBehaviour
             distanceX = this.transform.position.x - col.gameObject.transform.position.x;
             distanceZ = this.transform.position.z - col.gameObject.transform.position.z;
 
-            rend.material.SetFloat("_RippleOffsetX" + waveNumber, distanceX / Mesh.bounds.size.x * 2.5f);
-            rend.material.SetFloat("_RippleOffsetZ" + waveNumber, distanceZ / Mesh.bounds.size.z * 2.5f);
+            rend.material.SetFloat("_RippleOffsetX1" /*+ waveNumber*/, distanceX / Mesh.bounds.size.x * 2.5f);
+            rend.material.SetFloat("_RippleOffsetZ1" /*+ waveNumber*/, distanceZ / Mesh.bounds.size.z * 2.5f);
 
-            rend.material.SetFloat("_RippleAmplitude" + waveNumber, col.rigidbody.velocity.magnitude * magnitudeDivider);
+            rend.material.SetFloat("_RippleAmplitude1" /*+ waveNumber*/, col.rigidbody.velocity.magnitude * magnitudeDivider);
         }
 
     }
