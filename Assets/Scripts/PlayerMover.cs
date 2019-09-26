@@ -17,6 +17,9 @@ namespace MajorVRProj
         public float speed = 1f;
         public float lookspeed = 1f;
 
+		public GameObject target;
+
+
         void Start()
         {
             input = GetComponent<IInput>();
@@ -54,7 +57,13 @@ namespace MajorVRProj
 
 
             meshLylah.GetComponent<Animator>().SetFloat("Walking", score);
-        }
+
+			Debug.Log(agent.velocity.magnitude);
+			if (agent.velocity.magnitude == 0)
+			{
+				target.SetActive(false);
+			}
+		}
 
         void RayCastMove()
         {
@@ -82,7 +91,9 @@ namespace MajorVRProj
                     agent.SetDestination(hit.point);
                     m_line.SetPosition(0, m_rayPoint.position);
                     m_line.SetPosition(1, hit.point);
-                    
+
+					target.SetActive(true);
+					target.transform.position = hit.point;
                 }
 
             }

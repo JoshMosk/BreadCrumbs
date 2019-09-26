@@ -7,7 +7,7 @@ public class HandAnimController : MonoBehaviour
 	public Animator m_animator;
 	public IInput m_input;
 
-	public float transitionTime = 0.3f;
+	public float transitionTime = 0.2f;
 
 	float pointProgress;
 
