@@ -11,6 +11,11 @@ public class HandAnimController : MonoBehaviour
 
 	float pointProgress;
 
+	private void Start()
+	{
+		m_input = GetComponent<IInput>();
+	}
+
 	private void Update()
 	{
 		//m_animator.SetTrigger();
