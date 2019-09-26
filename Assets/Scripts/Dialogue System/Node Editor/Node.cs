@@ -115,6 +115,7 @@ public class Node {
                 nodeInfo.Add("outConnectionNumber", 1);
 
                 nodeFields.Add(new Dictionary<string, object> { { "name", "Speaker" }, { "kind", "Dropdown" }, { "id", "speaker" } });
+                nodeFields.Add(new Dictionary<string, object> { { "name", "Emotion" }, { "kind", "FullDropdown" }, { "id", "emotion" } });
                 nodeFields.Add(new Dictionary<string, object> { { "name", "Dialogue" }, { "kind", "LargeBox" }, { "id", "dialogue" } });
 
                 break;
@@ -187,6 +188,7 @@ public class Node {
                 nodeInfo.Add("outConnectionNumber", 4);
 
                 nodeFields.Add(new Dictionary<string, object> { { "name", "Speaker" }, { "kind", "Dropdown" }, { "id", "speaker" } });
+                nodeFields.Add(new Dictionary<string, object> { { "name", "Emotion" }, { "kind", "FullDropdown" }, { "id", "emotion" } });
                 nodeFields.Add(new Dictionary<string, object> { { "name", "Dialogue" }, { "kind", "LargeBox" }, { "id", "dialogue" } });
                 nodeFields.Add(new Dictionary<string, object> { { "name", "Option 1" }, { "kind", "SmallBox" }, { "id", "option1" } });
                 nodeFields.Add(new Dictionary<string, object> { { "name", "Option 2" }, { "kind", "SmallBox" }, { "id", "option2" } });
@@ -309,7 +311,7 @@ public class Node {
 
                 bool boolResult = BoolFromString(nodeData[idString]);
                 boolResult = GUILayout.Toggle(boolResult, new GUIContent());
-                nodeData[idString] = StringFromBool(boolResult); 
+                nodeData[idString] = StringFromBool(boolResult);
 
             } else if ((string)fieldDict["kind"] == "Dropdown") {
                 string idString = (string)fieldDict["id"];
@@ -334,6 +336,32 @@ public class Node {
                 if (selectedItem != "-") nodeData[idString] = selectedItem;
                 EditorGUILayout.EndHorizontal();
 
+            } else if ((string)fieldDict["kind"] == "FullDropdown") {
+                
+                string idString = (string)fieldDict["id"];
+                if (!nodeData.ContainsKey(idString)) nodeData[idString] = "";
+
+                List<string> dataList = new List<string>();
+                dataList.Add("Sad");
+                dataList.Add("Happy");
+                dataList.Add("Confused");
+                dataList.Add("Suprised");
+                dataList.Add("Angry");
+                dataList.Add("Worried");
+                dataList.Sort();
+                dataList.Insert(0, "Neutral");
+
+                GUILayout.Label(" " + fieldDict["name"], bodyStyle);
+                EditorGUILayout.BeginHorizontal();
+
+                int ind = 0;
+                if (nodeData[idString] != "") ind = dataList.IndexOf(nodeData[idString]);
+
+                string selectedItem = dataList[EditorGUILayout.Popup(ind, dataList.ToArray(), GUILayout.ExpandWidth(true))];
+                nodeData[idString] = selectedItem;
+
+                EditorGUILayout.EndHorizontal();
+                
             }
 
         }
