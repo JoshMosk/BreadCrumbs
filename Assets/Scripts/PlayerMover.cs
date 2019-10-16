@@ -12,13 +12,13 @@ namespace MajorVRProj
         NavMeshAgent agent;
         Camera cam;
         public Transform m_rayPoint;
-        LineRenderer m_line;
+        public LineRenderer m_line;
         public GameObject meshLylah;
         public float speed = 1f;
         public float lookspeed = 1f;
 
 		public GameObject target;
-
+		public HandAnimController handExtend;
 
         void Start()
         {
@@ -67,12 +67,7 @@ namespace MajorVRProj
 
         void RayCastMove()
         {
-			
 
-			if(input.pointAndClickDown)
-			{
-				m_line.enabled = true;
-			}
             //Move player to clicked position
             if (input.pointAndClick)
             {
@@ -88,12 +83,16 @@ namespace MajorVRProj
 
                 if(Physics.Raycast(ray, out RaycastHit hit, 500.0f))
                 {
-                    agent.SetDestination(hit.point);
-                    m_line.SetPosition(0, m_rayPoint.position);
-                    m_line.SetPosition(1, hit.point);
+					if (handExtend.pointProgress > 0.95f)		//point only when pointer finger has extended
+					{
+						agent.SetDestination(hit.point);
+						m_line.SetPosition(0, m_rayPoint.position);
+						m_line.SetPosition(1, hit.point);
 
-					target.SetActive(true);
-					target.transform.position = hit.point;
+						m_line.enabled = true;
+						target.SetActive(true);
+						target.transform.position = hit.point;
+					}
                 }
 
             }

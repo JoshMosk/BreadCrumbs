@@ -2689,16 +2689,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2054254498}
     m_Modifications:
-    - target: {fileID: 2698038201751305390, guid: 48cee8a1660a9f1438d16ff9a9365f0a,
-        type: 3}
-      propertyPath: rend
-      value: 
-      objectReference: {fileID: 183873734}
     - target: {fileID: 7105385324355759291, guid: 48cee8a1660a9f1438d16ff9a9365f0a,
         type: 3}
       propertyPath: m_Name
       value: Lylah
       objectReference: {fileID: 0}
+    - target: {fileID: 2698038201751305390, guid: 48cee8a1660a9f1438d16ff9a9365f0a,
+        type: 3}
+      propertyPath: rend
+      value: 
+      objectReference: {fileID: 183873734}
     - target: {fileID: 3286885023161820139, guid: 48cee8a1660a9f1438d16ff9a9365f0a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -34178,7 +34178,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1838346550}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

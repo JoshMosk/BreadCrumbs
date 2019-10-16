@@ -9,7 +9,7 @@ public class HandAnimController : MonoBehaviour
 
 	public float transitionTime = 0.2f;
 
-	float pointProgress;
+	public float pointProgress;
 
 	private void Start()
 	{
