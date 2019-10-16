@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LylahTransition : MonoBehaviour
 {
-	Renderer rend;
+	public Renderer rend;
 	CorruptPlayer corrupt;
 
 	public float m_transitionTime = 1.0f;
@@ -14,7 +14,7 @@ public class LylahTransition : MonoBehaviour
     void Start()
     {
 		corrupt = FindObjectOfType<CorruptPlayer>();
-		rend = GetComponent<Renderer>();
+		//rend = GetComponent<Renderer>();
     }
 
     // Update is called once per frame

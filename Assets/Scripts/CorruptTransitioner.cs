@@ -89,20 +89,23 @@ namespace MajorVRProj
         {
             //navmesh.BuildNavMesh();
 			//need to just have swap between two nav meshes
-			if(isCorrupted)
-			{
-				uncorruptNav.enabled = false;
-				corruptNav.enabled = true;
 
-				//corruptNav.navMeshData = corruptData;
-			}
-			if(!isCorrupted)
-			{
-				//corruptNav.navMeshData = uncorruptData;
+			//JUST STOP JOSH :'( I HATE NAVMESH, JUST USE NAV MESH OBSTACLES IN REAL TIME CAUSE THIS SHIT IS SO FUCKING STUPID
 
-				corruptNav.enabled = false;
-				corruptNav.enabled = true;
-			}
+			//if(isCorrupted)
+			//{
+			//	uncorruptNav.enabled = false;
+			//	corruptNav.enabled = true;
+
+			//	//corruptNav.navMeshData = corruptData;
+			//}
+			//if(!isCorrupted)
+			//{
+			//	//corruptNav.navMeshData = uncorruptData;
+
+			//	corruptNav.enabled = false;
+			//	corruptNav.enabled = true;
+			//}
 
         }
 

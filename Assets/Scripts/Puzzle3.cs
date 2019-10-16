@@ -10,7 +10,7 @@ public class Puzzle3 : MonoBehaviour
 	//puzzle triggers lamp post to turn green and the lamp will tell puzzle master that puzzle 3 is complete
 
 	public CorruptPlayer corrupt;
-	public GameObject lamp;
+	public PuzzleComplete puzzleCompleteLamp;
 
 	private void Start()
 	{
@@ -24,11 +24,13 @@ public class Puzzle3 : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if(corrupt.m_isCorrupt)
+		if (other.name == "Lylah")
 		{
-			if (other.name == "Lylah")
+			Debug.Log("well you kinda got it");
+			if (corrupt.m_isCorrupt)
 			{
-				lamp.GetComponent<Light>().color = Color.green;
+				Debug.Log("yay you actually got it");
+				puzzleCompleteLamp.CompletePuzzle();//.GetComponent<Light>().color = Color.green;
 			}
 		}
 	}

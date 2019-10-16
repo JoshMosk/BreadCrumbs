@@ -58,7 +58,7 @@ namespace MajorVRProj
 
             meshLylah.GetComponent<Animator>().SetFloat("Walking", score);
 
-			Debug.Log(agent.velocity.magnitude);
+			//Debug.Log(agent.velocity.magnitude);
 			if (agent.velocity.magnitude == 0)
 			{
 				target.SetActive(false);

@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class CorruptPlayer : MonoBehaviour
 {
+	public bool m_haveVisionLossThingy = false;
+
 	public bool m_isCorrupt;
 	public bool m_isDead;
 
@@ -55,13 +57,16 @@ public class CorruptPlayer : MonoBehaviour
 
 		if (corruptMeter != null)
 		{
+			if (m_haveVisionLossThingy)
+			{
 
 
-			//float a = corruptMeter.GetComponent<Material>().GetFloat("_DissolveSlider");
-			float t = m_health / m_maxhealth;
+				//float a = corruptMeter.GetComponent<Material>().GetFloat("_DissolveSlider");
+				float t = m_health / m_maxhealth;
 
 
-			corruptMeter.GetComponent<Renderer>().material.SetFloat("_DissolveSlider", Mathf.Lerp(0, 1, t));
+				corruptMeter.GetComponent<Renderer>().material.SetFloat("_DissolveSlider", Mathf.Lerp(0, 1, t));
+			}
 		}
 
 		if (m_isCorrupt)

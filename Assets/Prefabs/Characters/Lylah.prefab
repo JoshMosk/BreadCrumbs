@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 8945344091910078812}
   - component: {fileID: 5898905059325884574}
   - component: {fileID: 963262090716363602}
+  - component: {fileID: 2698038201751305390}
   m_Layer: 0
   m_Name: Lylah
   m_TagString: Untagged
@@ -101,6 +102,7 @@ MonoBehaviour:
   meshLylah: {fileID: 0}
   speed: 1
   lookspeed: 1
+  target: {fileID: 0}
 --- !u!54 &4260035437440813055
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -260,6 +262,19 @@ MonoBehaviour:
   name: 
   fontSize: 8
   labelHeight: 1
+--- !u!114 &2698038201751305390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7105385324355759291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ef677cb3715e547ab55389078d1d87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_transitionTime: 1
 --- !u!1001 &8303636944202294217
 PrefabInstance:
   m_ObjectHideFlags: 0
