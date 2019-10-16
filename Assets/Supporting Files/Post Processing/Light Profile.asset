@@ -112,6 +112,7 @@ MonoBehaviour:
   - {fileID: -2536010150358157235}
   - {fileID: 3661800098475624765}
   - {fileID: -4998340164948649578}
+  - {fileID: 1694335583012924422}
 --- !u!114 &114881145209734036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,6 +185,51 @@ MonoBehaviour:
   anamorphic:
     m_OverrideState: 0
     m_Value: 1
+--- !u!114 &1694335583012924422
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56b145d2b9ee1ac4f846968484e7485a, type: 3}
+  m_Name: ContactShadows
+  m_EditorClassIdentifier: 
+  active: 1
+  m_AdvancedMode: 0
+  enable:
+    m_OverrideState: 1
+    m_Value: 1
+  length:
+    m_OverrideState: 0
+    m_Value: 0.15
+    min: 0
+    max: 1
+  opacity:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+    max: 1
+  distanceScaleFactor:
+    m_OverrideState: 0
+    m_Value: 0.5
+    min: 0
+    max: 1
+  maxDistance:
+    m_OverrideState: 0
+    m_Value: 50
+    min: 0
+  fadeDistance:
+    m_OverrideState: 0
+    m_Value: 5
+    min: 0
+  sampleCount:
+    m_OverrideState: 0
+    m_Value: 8
+    min: 4
+    max: 64
 --- !u!114 &3661800098475624765
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -247,7 +293,7 @@ MonoBehaviour:
     max: 4
   cascadeShadowSplit0:
     m_OverrideState: 1
-    m_Value: 0.000057999998
+    m_Value: 0
   cascadeShadowSplit1:
     m_OverrideState: 1
     m_Value: 0.094307095
@@ -296,7 +342,7 @@ MonoBehaviour:
     max: 1
   maxFogDistance:
     m_OverrideState: 1
-    m_Value: 3.31
+    m_Value: 7.6
     min: 0
   mipFogMaxMip:
     m_OverrideState: 1
@@ -326,7 +372,7 @@ MonoBehaviour:
     m_Value: 0
   meanHeight:
     m_OverrideState: 1
-    m_Value: 10
+    m_Value: 200
   anisotropy:
     m_OverrideState: 1
     m_Value: 0
