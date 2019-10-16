@@ -25,7 +25,6 @@ namespace MajorVRProj
             input = GetComponent<IInput>();
             agent = GetComponent<NavMeshAgent>();
             cam = FindObjectOfType<Camera>();
-            m_line = GetComponent<LineRenderer>();
 
 			if(m_line != null)
 			{
