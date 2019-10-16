@@ -59,6 +59,8 @@ public class DialogueManager : MonoBehaviour {
 	public MajorVRProj.CorruptBuilding puzzle4Building;
 	public MajorVRProj.CorruptBuilding puzzle5Building;
 
+	public bool poojaMode = true;
+
 	private void Start() {
 
         // Set up the multiple choice buttons
@@ -291,7 +293,14 @@ public class DialogueManager : MonoBehaviour {
 
     IEnumerator TypeText(string characterName, string bodyString) {
 
-        isTyping = true;
+		if (poojaMode)
+		{
+			string[] poo = { "Pooja, what is this behaviour", "I'm sorry I kicked it by mistake", "You do not tell me what to do", "Do you want it? Cause you're askin for it. You're dying for it.", "Get off my back", "Stop mooching off me", "I don't want to talk to you", "IM SICK OF THIS. YOU'RE GANGING UP AND TORTURING ME" };
+			bodyString = poo[Random.Range(0, poo.Length)];
+			characterName = "Pooja";
+		}
+
+		isTyping = true;
         bodyTextBox.text = bodyString;
 
         if (characterName.Contains("NPC") || characterName.Contains("Shadow Creature")) {
