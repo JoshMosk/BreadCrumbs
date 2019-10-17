@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Valve.VR;
 public class HandAnimController : MonoBehaviour
 {
 	public Animator m_animator;
 	public IInput m_input;
+
+	public SteamVR_Input_Sources m_inputSources;
 
 	public float transitionTime = 0.2f;
 
@@ -14,13 +16,16 @@ public class HandAnimController : MonoBehaviour
 	private void Start()
 	{
 		m_input = GetComponent<IInput>();
+
+		FindObjectOfType<MajorVRProj.PlayerMover>().HandAnim = this;
 	}
 
 	private void Update()
 	{
 		//m_animator.SetTrigger();
 
-		if(m_input.pointAndClick)
+		//if(m_input.pointAndClick)
+		if (SteamVR_Actions._default.PointAndClick.GetState(m_inputSources) == true)
 		{
 			pointProgress += Time.deltaTime / transitionTime;
 		}

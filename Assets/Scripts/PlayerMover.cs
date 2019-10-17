@@ -18,7 +18,7 @@ namespace MajorVRProj
         public float lookspeed = 1f;
 
 		public GameObject target;
-		public HandAnimController handExtend;
+		public HandAnimController HandAnim;
 
         void Start()
         {
@@ -82,7 +82,7 @@ namespace MajorVRProj
 
                 if(Physics.Raycast(ray, out RaycastHit hit, 500.0f))
                 {
-					if (handExtend.pointProgress > 0.95f)		//point only when pointer finger has extended
+					if (HandAnim.pointProgress > 0.95f)		//point only when pointer finger has extended
 					{
 						agent.SetDestination(hit.point);
 						m_line.SetPosition(0, m_rayPoint.position);
