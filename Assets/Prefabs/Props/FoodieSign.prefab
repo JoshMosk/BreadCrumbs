@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &9177453316531641065
 Transform:
@@ -41,6 +41,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: c3ac141f324163640a5d60b99c9cd74d, type: 3}
       propertyPath: m_Name
       value: Mesh_Sign_Foodle
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: c3ac141f324163640a5d60b99c9cd74d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c3ac141f324163640a5d60b99c9cd74d, type: 3}
       propertyPath: m_LocalPosition.x

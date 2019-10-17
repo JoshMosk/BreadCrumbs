@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 3486378388936131898}
   m_Layer: 0
-  m_Name: BottomWall_009_FoodWindow_Short
+  m_Name: BottomWall_009_FoodWindow_Short_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &3486378388936131898
 Transform:
@@ -39,6 +39,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3486378388936131898}
     m_Modifications:
+    - target: {fileID: 100000, guid: 5b2cca5f392aee04ab80f6c42905606b, type: 3}
+      propertyPath: m_Name
+      value: Mesh_Building_BottomWindowAndFood_S_003
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 5b2cca5f392aee04ab80f6c42905606b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5b2cca5f392aee04ab80f6c42905606b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -83,10 +91,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 5b2cca5f392aee04ab80f6c42905606b, type: 3}
-      propertyPath: m_Name
-      value: Mesh_Building_BottomWindowAndFood_S_003
-      objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 5b2cca5f392aee04ab80f6c42905606b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -106,10 +110,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3486378388936131898}
     m_Modifications:
+    - target: {fileID: 273961878420356891, guid: 102174b765d415c4c821a7c138c8d3c5,
+        type: 3}
+      propertyPath: m_Name
+      value: Mesh_Building_Window_001
+      objectReference: {fileID: 0}
     - target: {fileID: 273961878420357092, guid: 102174b765d415c4c821a7c138c8d3c5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.237
+      value: -0.231
       objectReference: {fileID: 0}
     - target: {fileID: 273961878420357092, guid: 102174b765d415c4c821a7c138c8d3c5,
         type: 3}
@@ -119,7 +128,7 @@ PrefabInstance:
     - target: {fileID: 273961878420357092, guid: 102174b765d415c4c821a7c138c8d3c5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.022
+      value: 0.157
       objectReference: {fileID: 0}
     - target: {fileID: 273961878420357092, guid: 102174b765d415c4c821a7c138c8d3c5,
         type: 3}
@@ -164,17 +173,12 @@ PrefabInstance:
     - target: {fileID: 273961878420357092, guid: 102174b765d415c4c821a7c138c8d3c5,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.1
+      value: 1.11
       objectReference: {fileID: 0}
     - target: {fileID: 273961878420357092, guid: 102174b765d415c4c821a7c138c8d3c5,
         type: 3}
       propertyPath: m_LocalScale.y
       value: 1.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 273961878420356891, guid: 102174b765d415c4c821a7c138c8d3c5,
-        type: 3}
-      propertyPath: m_Name
-      value: Mesh_Building_Window_001
       objectReference: {fileID: 0}
     - target: {fileID: 5095816582842700991, guid: 102174b765d415c4c821a7c138c8d3c5,
         type: 3}
