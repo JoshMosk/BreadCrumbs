@@ -8,13 +8,16 @@ public class Puzzle3 : MonoBehaviour
 	//new system
 	//when player is in the light while in corrupt unlocks puzzle
 	//puzzle triggers lamp post to turn green and the lamp will tell puzzle master that puzzle 3 is complete
+	//DONE
 
 	public CorruptPlayer corrupt;
 	public PuzzleComplete puzzleCompleteLamp;
+	public GameObject lylahShadow;
 
 	private void Start()
 	{
 		corrupt = FindObjectOfType<CorruptPlayer>();
+		lylahShadow.SetActive(false);
 	}
 
 	private void Update()
@@ -30,7 +33,8 @@ public class Puzzle3 : MonoBehaviour
 			if (corrupt.m_isCorrupt)
 			{
 				Debug.Log("yay you actually got it");
-				puzzleCompleteLamp.CompletePuzzle();//.GetComponent<Light>().color = Color.green;
+				puzzleCompleteLamp.CompletePuzzle();
+				lylahShadow.SetActive(true);
 			}
 		}
 	}
