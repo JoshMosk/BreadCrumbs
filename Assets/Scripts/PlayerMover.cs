@@ -11,6 +11,7 @@ namespace MajorVRProj
         IInput input;
         NavMeshAgent agent;
         Camera cam;
+
         public Transform m_rayPoint;
         public LineRenderer m_line;
         public GameObject meshLylah;
@@ -77,20 +78,21 @@ namespace MajorVRProj
                 //}
 
                 Ray ray = new Ray(m_rayPoint.position, m_rayPoint.forward);
-                    //Debug.Log("heyoooooo");
-                    Debug.DrawRay(ray.origin, ray.GetPoint(300));
+				//Debug.Log("heyoooooo");
+				Debug.DrawRay(ray.origin, ray.GetPoint(300));
 
-                if(Physics.Raycast(ray, out RaycastHit hit, 500.0f))
+                if(Physics.Raycast(ray, out RaycastHit hit, (float)500.0f))
                 {
 					if (HandAnim.pointProgress > 0.95f)		//point only when pointer finger has extended
 					{
-						agent.SetDestination(hit.point);
-						m_line.SetPosition(0, m_rayPoint.position);
-						m_line.SetPosition(1, hit.point);
+						agent.SetDestination(hit.point);		//set target destination
 
-						m_line.enabled = true;
-						target.SetActive(true);
-						target.transform.position = hit.point;
+						m_line.SetPosition(0, m_rayPoint.position);		//set line rend
+						m_line.SetPosition(1, hit.point);		//set line rend
+						m_line.enabled = true;		//enable line rend
+
+						target.transform.position = hit.point;		//set target visual pos
+						target.SetActive(true);		//enable target visual
 					}
                 }
 

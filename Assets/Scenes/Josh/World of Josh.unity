@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.019627318, g: 0.026234496, b: 0.042845607, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2694,11 +2694,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lylah
       objectReference: {fileID: 0}
-    - target: {fileID: 2698038201751305390, guid: 48cee8a1660a9f1438d16ff9a9365f0a,
-        type: 3}
-      propertyPath: rend
-      value: 
-      objectReference: {fileID: 183873734}
     - target: {fileID: 3286885023161820139, guid: 48cee8a1660a9f1438d16ff9a9365f0a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2774,11 +2769,6 @@ PrefabInstance:
       propertyPath: m_Speed
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 8945344091910078812, guid: 48cee8a1660a9f1438d16ff9a9365f0a,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 963262090716363602, guid: 48cee8a1660a9f1438d16ff9a9365f0a,
         type: 3}
       propertyPath: name
@@ -2839,11 +2829,21 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 16
       objectReference: {fileID: 0}
+    - target: {fileID: 8945344091910078812, guid: 48cee8a1660a9f1438d16ff9a9365f0a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3911029934023592147, guid: 48cee8a1660a9f1438d16ff9a9365f0a,
         type: 3}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2698038201751305390, guid: 48cee8a1660a9f1438d16ff9a9365f0a,
+        type: 3}
+      propertyPath: rend
+      value: 
+      objectReference: {fileID: 183873734}
     m_RemovedComponents:
     - {fileID: 963262090716363602, guid: 48cee8a1660a9f1438d16ff9a9365f0a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 48cee8a1660a9f1438d16ff9a9365f0a, type: 3}
@@ -8486,6 +8486,82 @@ Transform:
   m_Father: {fileID: 860992263}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &486702014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df29e7cc05fbec4aa43e06ea875565d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  m_AdvancedMode: 0
+  rotation:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 360
+  skyIntensityMode:
+    m_OverrideState: 0
+    m_Value: 0
+  exposure:
+    m_OverrideState: 0
+    m_Value: 0
+  multiplier:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+  upperHemisphereLuxValue:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+  desiredLuxValue:
+    m_OverrideState: 0
+    m_Value: 20000
+  updateMode:
+    m_OverrideState: 0
+    m_Value: 0
+  updatePeriod:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+  includeSunInBaking:
+    m_OverrideState: 0
+    m_Value: 0
+  sunSize:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 1
+  sunSizeConvergence:
+    m_OverrideState: 0
+    m_Value: 6.47
+    min: 1
+    max: 10
+  atmosphereThickness:
+    m_OverrideState: 0
+    m_Value: 0.63
+    min: 0
+    max: 5
+  skyTint:
+    m_OverrideState: 0
+    m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    hdr: 0
+    showAlpha: 1
+    showEyeDropper: 1
+  groundColor:
+    m_OverrideState: 0
+    m_Value: {r: 0.369, g: 0.349, b: 0.341, a: 1}
+    hdr: 0
+    showAlpha: 1
+    showEyeDropper: 1
+  enableSunDisk:
+    m_OverrideState: 0
+    m_Value: 1
 --- !u!1001 &498345037
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20044,6 +20120,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 12800000, guid: 5e68d7b85cc45964bb3f735957a49743,
         type: 3}
+    - target: {fileID: 394449856424552625, guid: 2600f8db4d9bf244993ff9113ce1bc58,
+        type: 3}
+      propertyPath: far clip plane
+      value: 900
+      objectReference: {fileID: 0}
+    - target: {fileID: 394449855127430567, guid: 2600f8db4d9bf244993ff9113ce1bc58,
+        type: 3}
+      propertyPath: m_sensitivity
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6194064796074031170, guid: 2600f8db4d9bf244993ff9113ce1bc58,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -20059,16 +20145,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 394449856424552625, guid: 2600f8db4d9bf244993ff9113ce1bc58,
+    - target: {fileID: 5451708371523778908, guid: 2600f8db4d9bf244993ff9113ce1bc58,
         type: 3}
-      propertyPath: far clip plane
-      value: 900
+      propertyPath: m_AnchoredPosition.y
+      value: 457
       objectReference: {fileID: 0}
-    - target: {fileID: 394449855127430567, guid: 2600f8db4d9bf244993ff9113ce1bc58,
+    - target: {fileID: 394449856415113649, guid: 2600f8db4d9bf244993ff9113ce1bc58,
         type: 3}
-      propertyPath: m_sensitivity
-      value: 5
-      objectReference: {fileID: 0}
+      propertyPath: renderModelPrefab
+      value: 
+      objectReference: {fileID: 5349773111936645743, guid: d3bd046f81ee6ba47aeb47cdb26a8e82,
+        type: 3}
     - target: {fileID: 4868047084772859499, guid: 2600f8db4d9bf244993ff9113ce1bc58,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -20119,31 +20206,20 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 6618886918636638360, guid: 2600f8db4d9bf244993ff9113ce1bc58,
-        type: 3}
-      propertyPath: top.icon
-      value: 
-      objectReference: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 2403267181678887549, guid: 2600f8db4d9bf244993ff9113ce1bc58,
         type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6618886918636638360, guid: 2600f8db4d9bf244993ff9113ce1bc58,
+        type: 3}
+      propertyPath: top.icon
+      value: 
+      objectReference: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 5158335642069625304, guid: 2600f8db4d9bf244993ff9113ce1bc58,
         type: 3}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 394449856415113649, guid: 2600f8db4d9bf244993ff9113ce1bc58,
-        type: 3}
-      propertyPath: renderModelPrefab
-      value: 
-      objectReference: {fileID: 5349773111936645743, guid: d3bd046f81ee6ba47aeb47cdb26a8e82,
-        type: 3}
-    - target: {fileID: 5451708371523778908, guid: 2600f8db4d9bf244993ff9113ce1bc58,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 457
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 394449855975065746, guid: 2600f8db4d9bf244993ff9113ce1bc58, type: 3}
@@ -21241,6 +21317,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   corrupt: {fileID: 1199244471}
   puzzleCompleteLamp: {fileID: 1149523657}
+  lylahShadow: {fileID: 0}
 --- !u!65 &1149523659
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21614,6 +21691,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 23800000, guid: 58118a6db83b4484babf3b0aa0cbae16,
         type: 2}
+    - target: {fileID: 1300835513395620263, guid: 64884cb6a2e412248b74df2d9370e7a3,
+        type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: c48533f3ab49c924e824126b78e56328,
+        type: 2}
     - target: {fileID: 940868878216783030, guid: 64884cb6a2e412248b74df2d9370e7a3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -21669,12 +21752,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1300835513395620263, guid: 64884cb6a2e412248b74df2d9370e7a3,
-        type: 3}
-      propertyPath: m_NavMeshData
-      value: 
-      objectReference: {fileID: 23800000, guid: c48533f3ab49c924e824126b78e56328,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64884cb6a2e412248b74df2d9370e7a3, type: 3}
 --- !u!4 &1162439213 stripped
@@ -39400,8 +39477,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Profile: {fileID: 11400000, guid: 04c84591b6fda264b898b89c94086a71, type: 2}
   m_StaticLightingSkyUniqueID: 2
-  m_SkySettings: {fileID: 0}
-  m_SkySettingsFromProfile: {fileID: 0}
+  m_SkySettings: {fileID: 486702014}
+  m_SkySettingsFromProfile: {fileID: 8693995840437395178, guid: 04c84591b6fda264b898b89c94086a71,
+    type: 2}
 --- !u!114 &2089208345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44443,7 +44521,17 @@ PrefabInstance:
     - target: {fileID: 1388828845340805615, guid: a97876bc09818254aa84958a3c343d7a,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4577885383625243081, guid: a97876bc09818254aa84958a3c343d7a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5577459087292806936, guid: a97876bc09818254aa84958a3c343d7a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4923484065254197759, guid: a97876bc09818254aa84958a3c343d7a, type: 3}
