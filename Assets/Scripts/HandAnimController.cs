@@ -17,7 +17,10 @@ public class HandAnimController : MonoBehaviour
 	{
 		m_input = GetComponent<IInput>();
 
-		FindObjectOfType<MajorVRProj.PlayerMover>().HandAnim = this;
+		if (m_inputSources == SteamVR_Input_Sources.RightHand)
+		{
+			FindObjectOfType<MajorVRProj.PlayerMover>().HandAnim = this;
+		}
 	}
 
 	private void Update()
