@@ -10,6 +10,7 @@ public class RadialMenu : MonoBehaviour
 	public Transform m_arrow;
 
 	public IInput m_input;
+	public float inputTimer;
 
 	[Header("Events")]
 	public RadialSection top = null;
@@ -31,6 +32,7 @@ public class RadialMenu : MonoBehaviour
 	private void Start()
 	{
 		m_input = GetComponent<IInput>();
+		inputTimer = 1.0f;
 	}
 
 	private void CreateSections()
@@ -49,6 +51,8 @@ public class RadialMenu : MonoBehaviour
 
 	private void Update()
 	{
+		inputTimer -= Time.deltaTime;
+
 		SetTouchPos(m_input.TouchPadPos);
 
 		Vector2 direction = Vector2.zero + touchPos;
@@ -62,7 +66,11 @@ public class RadialMenu : MonoBehaviour
 
 		if(m_input.NPCInteractUp && DialogueManager.instance.isMultipleChoice)
 		{
-			ActivateHighlightedSections();
+			if(inputTimer <= 0.0f)
+			{
+				inputTimer = 1.0f;
+				ActivateHighlightedSections();
+			}
 		}
 	}
 
