@@ -73,11 +73,13 @@ public class DialolgueIcon : MonoBehaviour {
 
             DialogueTrigger comp = currentCharacter.GetComponent<DialogueTrigger>();
             if (comp != null) {
-                Vector3 t = currentCharacter.transform.position - transform.position;
-                float dist = t.x * t.x + t.y * t.y + t.z * t.z;  // Same as "= t.sqrMagnitude;" but faster
-                if (dist < minDist) {
-                    character = comp;
-                    minDist = dist;
+                if (!comp.autoStart) {
+                    Vector3 t = currentCharacter.transform.position - transform.position;
+                    float dist = t.x * t.x + t.y * t.y + t.z * t.z;  // Same as "= t.sqrMagnitude;" but faster
+                    if (dist < minDist) {
+                        character = comp;
+                        minDist = dist;
+                    }
                 }
             }
         }

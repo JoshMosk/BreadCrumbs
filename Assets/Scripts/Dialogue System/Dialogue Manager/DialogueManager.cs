@@ -50,7 +50,9 @@ public class DialogueManager : MonoBehaviour {
     public GameObject startPanel;
 
     public float cooldownTimer;
-    public float cooldownTimer222;
+    public float cooldownTimerNextNode;
+
+    public bool isMultipleChoice;
 
     public MajorVRProj.CorruptBuilding puzzle1Building;
 	public MajorVRProj.CorruptBuilding puzzle2aBuilding;
@@ -77,12 +79,12 @@ public class DialogueManager : MonoBehaviour {
     private void Update() {
 
         DialogueManager.instance.cooldownTimer -= Time.deltaTime;
-        DialogueManager.instance.cooldownTimer222 -= Time.deltaTime;
+        DialogueManager.instance.cooldownTimerNextNode -= Time.deltaTime;
 
         if (inConversation) {
-            transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(0.01124641f, 0.01124641f, 0.01124641f), 3f * Time.deltaTime);
+            transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(0.01124641f, 0.01124641f, 0.01124641f), 2f * Time.deltaTime);
         } else {
-            transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(0, 0, 0), 3f * Time.deltaTime);
+            transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(0, 0, 0), 2f * Time.deltaTime);
         }
 
         if (isWorldSpace) {
@@ -101,10 +103,14 @@ public class DialogueManager : MonoBehaviour {
 
             // Determine if the user can go to the next dialogue in the conversation
             if (m_input.NPCInteractDown || Input.GetKeyDown(KeyCode.Tab)) {
-                if (cooldownTimer222 < 0f) {
-                    cooldownTimer222 = 1f;
-                    if (isTyping) isTyping = false;
-                    else if (canSkip) FindNextNode();
+                if (cooldownTimerNextNode <= 0f) {
+                    cooldownTimerNextNode = 1f;
+
+                    // if (isTyping) isTyping = false;
+                    // else if (canSkip)
+                    FindNextNode();
+                    
+
                 }
             }
 
@@ -196,7 +202,6 @@ public class DialogueManager : MonoBehaviour {
 
                 foreach (Node currentDict in loadedData.dataList) {
                     if (currentDict.nodeID == currentLink.inPointID) {
-
                         selectedOption = 1;
                         currentNode = currentDict;
                         ProcessNode();
@@ -234,6 +239,8 @@ public class DialogueManager : MonoBehaviour {
 
 
         } else if (currentNode.nodeType == Node.NodeType.DialogueNode) {
+            Debug.Log("Process (Dialogue)");
+
             currentEnumerator = StartCoroutine(TypeText((string)currentNode.nodeData["speaker"], (string)currentNode.nodeData["dialogue"]));
           //  foreach (DialogueCharacter currentCharacter in FindObjectsOfType<DialogueCharacter>()) if (currentCharacter.name == (string)currentNode.nodeData["speaker"]) speakerObject = currentCharacter.gameObject.transform;
 
@@ -275,6 +282,7 @@ public class DialogueManager : MonoBehaviour {
         }
         else if (currentNode.nodeType == Node.NodeType.GetBooleanNode)
         {
+            Debug.Log("Process (Get Bool)");
             bool blackboardBool = GetBlackboardVariable(currentNode.nodeData["blackboard"], currentNode.nodeData["variable"]);
             if (blackboardBool) selectedOption = 1;
             else selectedOption = 2;
@@ -283,6 +291,8 @@ public class DialogueManager : MonoBehaviour {
 
         }
         else if (currentNode.nodeType == Node.NodeType.EndNode) {
+
+            Debug.Log("Process (End)");
             cooldownTimer = 1f;
             inConversation = false;
             DialolgueIcon.instance.SetVisible(true);
@@ -348,11 +358,11 @@ public class DialogueManager : MonoBehaviour {
     */
 
         isTyping = false;
-        yield return new WaitForSeconds(.0f);
+        yield return new WaitForSeconds(.01f);
     }
 
     void ShowMultipleChoice(int optionCount) {
-
+        isMultipleChoice = true;
         if (optionCount >= 1) option1Button.gameObject.SetActive(true);
         if (optionCount >= 2) option2Button.gameObject.SetActive(true);
         if (optionCount >= 3) option3Button.gameObject.SetActive(true);
@@ -367,7 +377,7 @@ public class DialogueManager : MonoBehaviour {
     }
 
     void HideMultipleChoice() {
-
+        isMultipleChoice = false;
         option1Button.gameObject.SetActive(false);
         option2Button.gameObject.SetActive(false);
         option3Button.gameObject.SetActive(false);

@@ -60,7 +60,7 @@ public class RadialMenu : MonoBehaviour
 		SetSelectionRotation(rot);
 		SetSelectedEvent(rot);
 
-		if(m_input.NPCInteractUp)
+		if(m_input.NPCInteractUp && DialogueManager.instance.isMultipleChoice)
 		{
 			ActivateHighlightedSections();
 		}
