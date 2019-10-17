@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3486378388936131898}
   m_Layer: 0
-  m_Name: BottomWall_004_DoorGarage_Long
+  m_Name: BottomWall_004_DoorGarage_Long_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52,12 +52,12 @@ PrefabInstance:
     - target: {fileID: 9085515033773326967, guid: 6bdcfa6410e320344875d5b196595f23,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.000000016689
       objectReference: {fileID: 0}
     - target: {fileID: 9085515033773326967, guid: 6bdcfa6410e320344875d5b196595f23,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.002
+      value: 0.04013
       objectReference: {fileID: 0}
     - target: {fileID: 9085515033773326967, guid: 6bdcfa6410e320344875d5b196595f23,
         type: 3}
@@ -119,6 +119,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3486378388936131898}
     m_Modifications:
+    - target: {fileID: 100000, guid: 1a6f91c22ab52e84a81eb12cc2aeb772, type: 3}
+      propertyPath: m_Name
+      value: Mesh_Building_BottomDoorAndGarage_L_003
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1a6f91c22ab52e84a81eb12cc2aeb772, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -162,10 +166,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 1a6f91c22ab52e84a81eb12cc2aeb772, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 1a6f91c22ab52e84a81eb12cc2aeb772, type: 3}
-      propertyPath: m_Name
-      value: Mesh_Building_BottomDoorAndGarage_L_003
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 1a6f91c22ab52e84a81eb12cc2aeb772, type: 3}
       propertyPath: m_Materials.Array.data[0]
