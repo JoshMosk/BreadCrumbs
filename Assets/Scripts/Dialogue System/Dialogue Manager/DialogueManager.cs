@@ -54,12 +54,9 @@ public class DialogueManager : MonoBehaviour {
 
     public bool isMultipleChoice;
 
-    public MajorVRProj.CorruptBuilding puzzle1Building;
-	public MajorVRProj.CorruptBuilding puzzle2aBuilding;
-	public MajorVRProj.CorruptBuilding puzzle2bBuilding;
-	public MajorVRProj.CorruptBuilding puzzle3Building;
-	public MajorVRProj.CorruptBuilding puzzle4Building;
-	public MajorVRProj.CorruptBuilding puzzle5Building;
+	public PuzzleComplete puzzle1Completed;
+	public PuzzleComplete puzzle2Completed;
+	public PuzzleComplete puzzle3Completed;
 
 	public bool poojaMode = true;
 
@@ -219,20 +216,17 @@ public class DialogueManager : MonoBehaviour {
 
         if (currentNode.nodeType == Node.NodeType.BroadcastNode) {
 
-            if (currentNode.nodeData["event"] == "Puzzle1Complete") {
-				puzzle1Building.Solved = true;
+            if (currentNode.nodeData["event"] == "Puzzle1Complete")
+			{
+				puzzle1Completed.CompletePuzzle();
             }
-			if (currentNode.nodeData["event"] == "Puzzle2aComplete")
+			if (currentNode.nodeData["event"] == "Puzzle2Complete")
 			{
-				puzzle2aBuilding.Solved = true;
-			}
-			if (currentNode.nodeData["event"] == "Puzzle2bComplete")
-			{
-				puzzle2bBuilding.Solved = true;
+				puzzle2Completed.CompletePuzzle();
 			}
 			if (currentNode.nodeData["event"] == "Puzzle3Complete")
 			{
-				puzzle3Building.Solved = true;
+				puzzle3Completed.CompletePuzzle();
 			}
 
 			FindNextNode();

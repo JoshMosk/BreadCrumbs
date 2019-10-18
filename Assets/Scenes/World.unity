@@ -4725,6 +4725,52 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 253827430}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &255446222
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 255446224}
+  - component: {fileID: 255446223}
+  m_Layer: 0
+  m_Name: puzzle3(dragon)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &255446223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255446222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60ff271e264b6b54f91068eb2480c4dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_puzzleIncompleteColour: {r: 1, g: 0, b: 0, a: 0}
+  m_puzzleCompleteColour: {r: 0.04460168, g: 1, b: 0, a: 0}
+  m_light: {fileID: 640751392}
+--- !u!4 &255446224
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255446222}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -49.38, y: 0, z: -37.63}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &255865406
 GameObject:
   m_ObjectHideFlags: 0
@@ -6549,6 +6595,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 365125735}
   m_PrefabAsset: {fileID: 0}
+--- !u!108 &365125737 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 3933385446828593179, guid: fbbdc1eba42830a469eb6483cf45adba,
+    type: 3}
+  m_PrefabInstance: {fileID: 365125735}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &368280083
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8125,6 +8177,12 @@ PrefabInstance:
 --- !u!4 &431380540 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5002777923048168412, guid: fbbdc1eba42830a469eb6483cf45adba,
+    type: 3}
+  m_PrefabInstance: {fileID: 431380539}
+  m_PrefabAsset: {fileID: 0}
+--- !u!108 &431380541 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 3933385446828593179, guid: fbbdc1eba42830a469eb6483cf45adba,
     type: 3}
   m_PrefabInstance: {fileID: 431380539}
   m_PrefabAsset: {fileID: 0}
@@ -12952,6 +13010,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 640751390}
   m_PrefabAsset: {fileID: 0}
+--- !u!108 &640751392 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 3933385446828593179, guid: fbbdc1eba42830a469eb6483cf45adba,
+    type: 3}
+  m_PrefabInstance: {fileID: 640751390}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &642117865
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15411,6 +15475,82 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 767043442}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &772720463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df29e7cc05fbec4aa43e06ea875565d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  m_AdvancedMode: 0
+  rotation:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 360
+  skyIntensityMode:
+    m_OverrideState: 0
+    m_Value: 0
+  exposure:
+    m_OverrideState: 0
+    m_Value: 0
+  multiplier:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+  upperHemisphereLuxValue:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+  desiredLuxValue:
+    m_OverrideState: 0
+    m_Value: 20000
+  updateMode:
+    m_OverrideState: 0
+    m_Value: 0
+  updatePeriod:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+  includeSunInBaking:
+    m_OverrideState: 0
+    m_Value: 0
+  sunSize:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 1
+  sunSizeConvergence:
+    m_OverrideState: 0
+    m_Value: 6.47
+    min: 1
+    max: 10
+  atmosphereThickness:
+    m_OverrideState: 0
+    m_Value: 0.63
+    min: 0
+    max: 5
+  skyTint:
+    m_OverrideState: 0
+    m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    hdr: 0
+    showAlpha: 1
+    showEyeDropper: 1
+  groundColor:
+    m_OverrideState: 0
+    m_Value: {r: 0.369, g: 0.349, b: 0.341, a: 1}
+    hdr: 0
+    showAlpha: 1
+    showEyeDropper: 1
+  enableSunDisk:
+    m_OverrideState: 0
+    m_Value: 1
 --- !u!1001 &784155052
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20699,6 +20839,21 @@ PrefabInstance:
       propertyPath: poojaMode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6194064795507497394, guid: 2600f8db4d9bf244993ff9113ce1bc58,
+        type: 3}
+      propertyPath: puzzle1Completed
+      value: 
+      objectReference: {fileID: 2062501557}
+    - target: {fileID: 6194064795507497394, guid: 2600f8db4d9bf244993ff9113ce1bc58,
+        type: 3}
+      propertyPath: puzzle2Completed
+      value: 
+      objectReference: {fileID: 1772931441}
+    - target: {fileID: 6194064795507497394, guid: 2600f8db4d9bf244993ff9113ce1bc58,
+        type: 3}
+      propertyPath: puzzle3Completed
+      value: 
+      objectReference: {fileID: 255446223}
     - target: {fileID: 6194064795507497398, guid: 2600f8db4d9bf244993ff9113ce1bc58,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -25283,6 +25438,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3312359573273356598, guid: 816847d2d0ff7b547ae09b125fa39d6d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5274921034807204133, guid: 816847d2d0ff7b547ae09b125fa39d6d,
         type: 3}
       propertyPath: m_IsActive
@@ -25317,11 +25477,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[0].m_Overridden
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3312359573273356598, guid: 816847d2d0ff7b547ae09b125fa39d6d,
-        type: 3}
-      propertyPath: m_Layer
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 816847d2d0ff7b547ae09b125fa39d6d, type: 3}
@@ -34854,6 +35009,52 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1770013613}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1772931440
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1772931442}
+  - component: {fileID: 1772931441}
+  m_Layer: 0
+  m_Name: Puzzle2(flame)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1772931441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772931440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60ff271e264b6b54f91068eb2480c4dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_puzzleIncompleteColour: {r: 1, g: 0, b: 0, a: 0}
+  m_puzzleCompleteColour: {r: 0, g: 1, b: 0.003575325, a: 0}
+  m_light: {fileID: 431380541}
+--- !u!4 &1772931442
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772931440}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.28, y: 0, z: 17.64}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1780828525
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37314,82 +37515,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 4
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1897550090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3df29e7cc05fbec4aa43e06ea875565d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  active: 1
-  m_AdvancedMode: 0
-  rotation:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 360
-  skyIntensityMode:
-    m_OverrideState: 0
-    m_Value: 0
-  exposure:
-    m_OverrideState: 0
-    m_Value: 0
-  multiplier:
-    m_OverrideState: 0
-    m_Value: 1
-    min: 0
-  upperHemisphereLuxValue:
-    m_OverrideState: 0
-    m_Value: 1
-    min: 0
-  desiredLuxValue:
-    m_OverrideState: 0
-    m_Value: 20000
-  updateMode:
-    m_OverrideState: 0
-    m_Value: 0
-  updatePeriod:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-  includeSunInBaking:
-    m_OverrideState: 0
-    m_Value: 0
-  sunSize:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 1
-  sunSizeConvergence:
-    m_OverrideState: 0
-    m_Value: 6.47
-    min: 1
-    max: 10
-  atmosphereThickness:
-    m_OverrideState: 0
-    m_Value: 0.63
-    min: 0
-    max: 5
-  skyTint:
-    m_OverrideState: 0
-    m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    hdr: 0
-    showAlpha: 1
-    showEyeDropper: 1
-  groundColor:
-    m_OverrideState: 0
-    m_Value: {r: 0.369, g: 0.349, b: 0.341, a: 1}
-    hdr: 0
-    showAlpha: 1
-    showEyeDropper: 1
-  enableSunDisk:
-    m_OverrideState: 0
-    m_Value: 1
 --- !u!1001 &1900963094
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40694,6 +40819,52 @@ MonoBehaviour:
   bubbleCanvas: {fileID: 977914588}
   iconHeight: 3
   initialScale: {x: 0, y: 0, z: 0}
+--- !u!1 &2062501556
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2062501558}
+  - component: {fileID: 2062501557}
+  m_Layer: 0
+  m_Name: Puzzle1(eyes)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2062501557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062501556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60ff271e264b6b54f91068eb2480c4dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_puzzleIncompleteColour: {r: 1, g: 0, b: 0, a: 0}
+  m_puzzleCompleteColour: {r: 0.040349483, g: 1, b: 0, a: 0}
+  m_light: {fileID: 365125737}
+--- !u!4 &2062501558
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062501556}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -47.08, y: 0, z: 14.23}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2063477756
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41201,7 +41372,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Profile: {fileID: 11400000, guid: 04c84591b6fda264b898b89c94086a71, type: 2}
   m_StaticLightingSkyUniqueID: 2
-  m_SkySettings: {fileID: 1897550090}
+  m_SkySettings: {fileID: 772720463}
   m_SkySettingsFromProfile: {fileID: 8693995840437395178, guid: 04c84591b6fda264b898b89c94086a71,
     type: 2}
 --- !u!114 &2089208345
@@ -41966,8 +42137,9 @@ GameObject:
   - component: {fileID: 2136005075}
   - component: {fileID: 2136005074}
   - component: {fileID: 2136005073}
+  - component: {fileID: 2136005076}
   m_Layer: 0
-  m_Name: Puzzle3
+  m_Name: Puzzle4(shadow)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42011,12 +42183,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2136005072}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.15, y: 1.79, z: -37.91}
+  m_LocalPosition: {x: 12.15, y: 1.12, z: -35.618}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &2136005076
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136005072}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.15
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2138165980
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43235,15 +43420,15 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.025000008
       objectReference: {fileID: 0}
-    - target: {fileID: 581836054249123187, guid: 591d118e04ab19749a623472b816d0aa,
-        type: 3}
-      propertyPath: conversationID
-      value: y4k042yhf5
-      objectReference: {fileID: 0}
     - target: {fileID: 83245235757503380, guid: 591d118e04ab19749a623472b816d0aa,
         type: 3}
       propertyPath: m_Layer
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 581836054249123187, guid: 591d118e04ab19749a623472b816d0aa,
+        type: 3}
+      propertyPath: conversationID
+      value: y4k042yhf5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 591d118e04ab19749a623472b816d0aa, type: 3}
@@ -44025,6 +44210,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7634545670106113564, guid: 9872d2404834b8b4c934c33301cd3b3a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 516313545827995178, guid: 9872d2404834b8b4c934c33301cd3b3a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9872d2404834b8b4c934c33301cd3b3a, type: 3}
