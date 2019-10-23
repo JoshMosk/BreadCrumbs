@@ -18,6 +18,7 @@ Material:
     MotionVector: User
   disabledShaderPasses:
   - MOTIONVECTORS
+  - TransparentBackface
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -42,14 +43,50 @@ Material:
     - Vector1_4BA3D3B: 1
     - Vector1_6CBF1B0D: 2.09
     - Vector1_98659612: 0
+    - Vector1_9B9B3AB4: 11
     - Vector1_9C1CEC14: 1.76
     - Vector1_9F943385: 1.4
     - Vector1_B452779B: 0
     - Vector1_C0C1E4FD: 7.8
     - Vector1_C879A209: 1
     - Vector1_F8260FC4: 1
+    - _AlphaCutoff: 0.5
+    - _AlphaCutoffEnable: 0
+    - _AlphaDstBlend: 0
+    - _AlphaSrcBlend: 1
+    - _BlendMode: 0
+    - _CullMode: 2
+    - _CullModeForward: 2
+    - _DoubleSidedEnable: 0
+    - _DoubleSidedNormalMode: 2
+    - _DstBlend: 0
+    - _ReceivesSSR: 0
+    - _RenderQueueType: 1
+    - _RequireSplitLighting: 0
+    - _SrcBlend: 1
+    - _StencilRef: 0
+    - _StencilRefDepth: 32
+    - _StencilRefDistortionVec: 64
+    - _StencilRefGBuffer: 2
+    - _StencilRefMV: 160
+    - _StencilWriteMask: 3
+    - _StencilWriteMaskDepth: 48
+    - _StencilWriteMaskDistortionVec: 64
+    - _StencilWriteMaskGBuffer: 3
+    - _StencilWriteMaskMV: 176
+    - _SurfaceType: 0
+    - _TransparentBackfaceEnable: 0
+    - _TransparentCullMode: 2
+    - _TransparentSortPriority: 0
+    - _UseShadowThreshold: 0
+    - _ZTestDepthEqualForOpaque: 3
+    - _ZTestGBuffer: 4
+    - _ZTestTransparent: 4
+    - _ZWrite: 1
     m_Colors:
     - Color_2C8D5058: {r: 1, g: 0, b: 0, a: 0}
     - Color_5E2CF8E8: {r: 8.574187, g: 0, b: 6.3886104, a: 0}
     - Color_EE9497D2: {r: 1, g: 0, b: 0.96482706, a: 0}
     - Color_EED5FBE: {r: 1.2862746, g: 0, b: 5.992157, a: 0}
+    - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
+    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
