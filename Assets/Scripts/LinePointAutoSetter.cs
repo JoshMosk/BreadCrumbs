@@ -7,6 +7,11 @@ public class LinePointAutoSetter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-		FindObjectOfType<MajorVRProj.PlayerMover>().m_rayPoint = this.transform; 
+		DoTheThing();
     }
+
+	public void DoTheThing()
+	{
+		FindObjectOfType<MajorVRProj.PlayerMover>().m_rayPoint = this.transform;
+	}
 }

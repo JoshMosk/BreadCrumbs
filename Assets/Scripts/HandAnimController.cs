@@ -48,4 +48,12 @@ public class HandAnimController : MonoBehaviour
 
 		m_animator.SetFloat("pointFloat", pointProgress);
 	}
+
+	public void DoTheThing()
+	{
+		if (m_inputSources == SteamVR_Input_Sources.RightHand)
+		{
+			FindObjectOfType<MajorVRProj.PlayerMover>().HandAnim = this;
+		}
+	}
 }
