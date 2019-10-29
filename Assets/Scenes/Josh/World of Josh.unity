@@ -8,8 +8,9 @@ OcclusionCullingSettings:
     smallestOccluder: 5
     smallestHole: 0.25
     backfaceThreshold: 100
-  m_SceneGUID: 00000000000000000000000000000000
-  m_OcclusionCullingData: {fileID: 0}
+  m_SceneGUID: 30a79dec23688094bb94f95060c64f10
+  m_OcclusionCullingData: {fileID: 36300000, guid: de700c45c61bf004cad0078a7061eebb,
+    type: 2}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
@@ -8486,82 +8487,6 @@ Transform:
   m_Father: {fileID: 860992263}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &486702014
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3df29e7cc05fbec4aa43e06ea875565d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  active: 1
-  m_AdvancedMode: 0
-  rotation:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 360
-  skyIntensityMode:
-    m_OverrideState: 0
-    m_Value: 0
-  exposure:
-    m_OverrideState: 0
-    m_Value: 0
-  multiplier:
-    m_OverrideState: 0
-    m_Value: 1
-    min: 0
-  upperHemisphereLuxValue:
-    m_OverrideState: 0
-    m_Value: 1
-    min: 0
-  desiredLuxValue:
-    m_OverrideState: 0
-    m_Value: 20000
-  updateMode:
-    m_OverrideState: 0
-    m_Value: 0
-  updatePeriod:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-  includeSunInBaking:
-    m_OverrideState: 0
-    m_Value: 0
-  sunSize:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 1
-  sunSizeConvergence:
-    m_OverrideState: 0
-    m_Value: 6.47
-    min: 1
-    max: 10
-  atmosphereThickness:
-    m_OverrideState: 0
-    m_Value: 0.63
-    min: 0
-    max: 5
-  skyTint:
-    m_OverrideState: 0
-    m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    hdr: 0
-    showAlpha: 1
-    showEyeDropper: 1
-  groundColor:
-    m_OverrideState: 0
-    m_Value: {r: 0.369, g: 0.349, b: 0.341, a: 1}
-    hdr: 0
-    showAlpha: 1
-    showEyeDropper: 1
-  enableSunDisk:
-    m_OverrideState: 0
-    m_Value: 1
 --- !u!1001 &498345037
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16440,6 +16365,82 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &831361830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df29e7cc05fbec4aa43e06ea875565d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  m_AdvancedMode: 0
+  rotation:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 360
+  skyIntensityMode:
+    m_OverrideState: 0
+    m_Value: 0
+  exposure:
+    m_OverrideState: 0
+    m_Value: 0
+  multiplier:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+  upperHemisphereLuxValue:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+  desiredLuxValue:
+    m_OverrideState: 0
+    m_Value: 20000
+  updateMode:
+    m_OverrideState: 0
+    m_Value: 0
+  updatePeriod:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+  includeSunInBaking:
+    m_OverrideState: 0
+    m_Value: 0
+  sunSize:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 1
+  sunSizeConvergence:
+    m_OverrideState: 0
+    m_Value: 6.47
+    min: 1
+    max: 10
+  atmosphereThickness:
+    m_OverrideState: 0
+    m_Value: 0.63
+    min: 0
+    max: 5
+  skyTint:
+    m_OverrideState: 0
+    m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    hdr: 0
+    showAlpha: 1
+    showEyeDropper: 1
+  groundColor:
+    m_OverrideState: 0
+    m_Value: {r: 0.369, g: 0.349, b: 0.341, a: 1}
+    hdr: 0
+    showAlpha: 1
+    showEyeDropper: 1
+  enableSunDisk:
+    m_OverrideState: 0
+    m_Value: 1
 --- !u!1001 &832912417
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24380,6 +24381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conversationID: e52qhlditp
   canActivate: 0
+  autoStart: 0
 --- !u!135 &1287386035
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -31050,6 +31052,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conversationID: ma19rnolce
   canActivate: 0
+  autoStart: 0
 --- !u!1001 &1632907778
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35912,6 +35915,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conversationID: fthl2dq87n
   canActivate: 0
+  autoStart: 0
 --- !u!135 &1896603937
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -36400,6 +36404,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conversationID: e2c05zo7rk
   canActivate: 0
+  autoStart: 0
 --- !u!1001 &1921885331
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39477,7 +39482,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Profile: {fileID: 11400000, guid: 04c84591b6fda264b898b89c94086a71, type: 2}
   m_StaticLightingSkyUniqueID: 2
-  m_SkySettings: {fileID: 486702014}
+  m_SkySettings: {fileID: 831361830}
   m_SkySettingsFromProfile: {fileID: 8693995840437395178, guid: 04c84591b6fda264b898b89c94086a71,
     type: 2}
 --- !u!114 &2089208345
@@ -42303,6 +42308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conversationID: sg1zgleje4
   canActivate: 0
+  autoStart: 0
 --- !u!4 &3049105413985416510
 Transform:
   m_ObjectHideFlags: 0
@@ -42590,6 +42596,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conversationID: iv52g58nuk
   canActivate: 0
+  autoStart: 0
 --- !u!4 &3653705511769184371
 Transform:
   m_ObjectHideFlags: 0
@@ -42726,6 +42733,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conversationID: 8smfm4x0ni
   canActivate: 0
+  autoStart: 0
 --- !u!4 &3779224411232742307
 Transform:
   m_ObjectHideFlags: 0
@@ -42842,6 +42850,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conversationID: e2zolk4dsn
   canActivate: 0
+  autoStart: 0
 --- !u!1001 &3997407172402723646
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42943,6 +42952,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conversationID: 0vx4nqrbyv
   canActivate: 0
+  autoStart: 0
 --- !u!4 &3997407172402723649
 Transform:
   m_ObjectHideFlags: 0
@@ -43394,6 +43404,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conversationID: mor92g9i55
   canActivate: 0
+  autoStart: 0
 --- !u!4 &4673461866156987546
 Transform:
   m_ObjectHideFlags: 0
@@ -43872,6 +43883,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conversationID: 49ki206wyb
   canActivate: 0
+  autoStart: 0
 --- !u!135 &5564408450517944190
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -44172,6 +44184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conversationID: u4ecqdb5m9
   canActivate: 0
+  autoStart: 0
 --- !u!4 &6817234675122252717
 Transform:
   m_ObjectHideFlags: 0
@@ -44285,6 +44298,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conversationID: rr4a52mi4m
   canActivate: 0
+  autoStart: 0
 --- !u!135 &7634545670106113564
 SphereCollider:
   m_ObjectHideFlags: 0

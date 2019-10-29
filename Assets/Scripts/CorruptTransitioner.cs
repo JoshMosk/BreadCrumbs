@@ -51,11 +51,13 @@ namespace MajorVRProj
 
         void Start()
         {
-            //Linear intensity must be active if you're modifying light color temps
-            // GraphicsSettings.lightsUseLinearIntensity = true;
-            // GraphicsSettings.lightsUseColorTemperature = true;
+			Application.targetFrameRate = 120;
 
-            m_transitionLights.AddRange(FindObjectsOfType<LightTransition>());
+			//Linear intensity must be active if you're modifying light color temps
+			// GraphicsSettings.lightsUseLinearIntensity = true;
+			// GraphicsSettings.lightsUseColorTemperature = true;
+
+			m_transitionLights.AddRange(FindObjectsOfType<LightTransition>());
 
             //OnCorrupted.AddListener(RebakeNavMesh);
             //OnNormal.AddListener(RebakeNavMesh);

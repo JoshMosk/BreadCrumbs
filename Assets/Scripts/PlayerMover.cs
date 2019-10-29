@@ -10,9 +10,9 @@ namespace MajorVRProj
         [SerializeField]
         IInput input;
         NavMeshAgent agent;
-        Camera cam;
 
         public Transform m_rayPoint;
+		public string m_rayPointName = "JNT_VRHands_IndexFinger_004_R";
         public LineRenderer m_line;
         public GameObject meshLylah;
         public float speed = 1f;
@@ -25,7 +25,6 @@ namespace MajorVRProj
         {
             input = GetComponent<IInput>();
             agent = GetComponent<NavMeshAgent>();
-            cam = FindObjectOfType<Camera>();
 
 			if(m_line != null)
 			{
