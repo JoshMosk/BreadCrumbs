@@ -7,22 +7,22 @@ public class DialogueTrigger : MonoBehaviour {
 
     public bool autoStart = false;
 
-
+    DialogueManager dialogue;
     private void Start() {
+        dialogue = DialogueManager.instance;
 
         if (autoStart) {
-            DialogueManager.instance.speakerObject = this.transform;
-            DialogueManager.instance.StartConversation(conversationID);
+            dialogue.speakerObject = this.transform;
+            dialogue.StartConversation(conversationID);
         }
-
     }
 
     private void Update() {
         if (!autoStart) {
-            if (DialogueManager.instance.m_input.NPCInteractUp || Input.GetKeyUp(KeyCode.Tab)) {
-                if (DialogueManager.instance.cooldownTimer < 0 && canActivate && !DialogueManager.instance.inConversation) {
-                    DialogueManager.instance.speakerObject = this.transform;
-                    DialogueManager.instance.StartConversation(conversationID);
+            if (dialogue.m_input.NPCInteractUp || Input.GetKeyUp(KeyCode.Tab)) {
+                if (dialogue.cooldownTimer < 0 && canActivate && !dialogue.inConversation) {
+                    dialogue.speakerObject = this.transform;
+                    dialogue.StartConversation(conversationID);
                 }
             }
         }
