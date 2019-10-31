@@ -8,6 +8,7 @@ namespace MajorVRProj
         [SerializeField] float transitionTime = 2f;
 
         new Light light;
+
         void Awake()
         {
             light = GetComponent<Light>();

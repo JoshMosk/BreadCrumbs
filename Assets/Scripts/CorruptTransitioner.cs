@@ -128,13 +128,17 @@ namespace MajorVRProj
         {
             if (isCorrupted)
             {
-                volume.profile = darkVolume;
+                if(volume != null)
+                    volume.profile = darkVolume;
+
 				foreach (LightTransition l in m_transitionLights)
 					l.m_isCorrupt = true;
             }
             else
             {
-                volume.profile = lightVolume;
+                if (volume != null)
+                    volume.profile = lightVolume;
+
 				foreach (LightTransition l in m_transitionLights)
 					l.m_isCorrupt = false;
 			}

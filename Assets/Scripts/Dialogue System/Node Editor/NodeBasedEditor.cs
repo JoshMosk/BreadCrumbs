@@ -3,6 +3,7 @@ using UnityEditor;
 using System.Collections.Generic;
 using System.IO;
 
+#if (UNITY_EDITOR) 
 public class NodeBasedEditor : EditorWindow {
 
     public static NodeBasedEditor Instance { get; private set; }
@@ -434,3 +435,4 @@ public class NodeBasedEditor : EditorWindow {
     }
 
 }
+#endif 

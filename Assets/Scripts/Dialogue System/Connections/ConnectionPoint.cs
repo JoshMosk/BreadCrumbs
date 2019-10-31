@@ -54,10 +54,11 @@ public class ConnectionPoint {
                 break;
         }
 
-
+#if (UNITY_EDITOR)
         // Draw the button on the window.
         switch (connectionType) {
             case ConnectionPointType.In:
+
                 GUIStyle inStyle = new GUIStyle();
                 inStyle.normal.background = EditorGUIUtility.Load("builtin skins/darkskin/images/btn left.png") as Texture2D;
                 inStyle.active.background = EditorGUIUtility.Load("builtin skins/darkskin/images/btn left on.png") as Texture2D;
@@ -74,7 +75,7 @@ public class ConnectionPoint {
                 break;
 
         }
-
+#endif
     }
 
 }

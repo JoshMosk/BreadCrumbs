@@ -59,7 +59,7 @@ public class Node {
         for (var i = 0; i < (int)GetNodeInfo(nodeType)["inConnectionNumber"]; i++) inPoints.Add(new ConnectionPoint(this, ConnectionPoint.ConnectionPointType.In, OnClickPoint, nodeType, i + 1, (int)GetNodeInfo(nodeType)["inConnectionNumber"]));
         for (var i = 0; i < (int)GetNodeInfo(nodeType)["outConnectionNumber"]; i++) outPoints.Add(new ConnectionPoint(this, ConnectionPoint.ConnectionPointType.Out, OnClickPoint, nodeType, i + 1, (int)GetNodeInfo(nodeType)["outConnectionNumber"]));
 
-
+#if (UNITY_EDITOR)
         // Create the style of the node for selected and unselected
         defaultNodeStyle = new GUIStyle();
         defaultNodeStyle.border = new RectOffset(12, 12, 12, 12);
@@ -72,6 +72,7 @@ public class Node {
 
         // Set the current style to unselected
         style = defaultNodeStyle;
+#endif
         OnRemoveNode = OnClickRemoveNode;
 
     }
@@ -231,7 +232,7 @@ public class Node {
     }
 
     public void Draw() {
-
+#if (UNITY_EDITOR)
         // Draw all of the connection points onto the node
         foreach (ConnectionPoint inPoint in inPoints) {
             inPoint.Draw();
@@ -370,11 +371,11 @@ public class Node {
 
         GUILayout.EndScrollView();
         GUILayout.EndArea();
-
+#endif
     }
 
     public bool ProcessEvents(Event currentEvent) {
-
+#if (UNITY_EDITOR)
         // Process what happens when the mouse is clicked
         switch (currentEvent.type) {
             case EventType.MouseDown:
@@ -422,18 +423,18 @@ public class Node {
                 }
                 break;
         }
-
+#endif
         return false;
 
     }
 
     private void ProcessContextMenu() {
-
+#if (UNITY_EDITOR)
         // Create the right click menu to remove a node
         GenericMenu genericMenu = new GenericMenu();
         genericMenu.AddItem(new GUIContent("Remove"), false, OnClickRemoveNode);
         genericMenu.ShowAsContext();
-
+#endif
     }
 
     private void OnClickRemoveNode() {
@@ -451,7 +452,7 @@ public class Node {
     }
 
     public void Drag(Vector2 delta) {
-
+#if (UNITY_EDITOR)
         actualNodeRect.position += delta;
 
         float snapRange = 15f;
@@ -503,7 +504,7 @@ public class Node {
         }
 
         nodeRect.position = new Vector2(desiredX, desiredY);
-
+#endif
     }
 
     public void MoveTo(Vector2 delta) {

@@ -23,7 +23,9 @@ public class DialogueCharacter : MonoBehaviour {
         style.fontSize = fontSize;
         style.normal.background = targetTexture;
         style.alignment = TextAnchor.MiddleCenter;
+#if (UNITY_EDITOR) 
         Handles.Label(new Vector3(transform.position.x, transform.position.y + labelHeight, transform.position.z), name, style);
+#endif
 
     }
 
