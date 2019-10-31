@@ -31,14 +31,11 @@ public class IKHeadMove : MonoBehaviour {
 
     private void Update() {
 
-        GetClosestCharacter(Physics.OverlapSphere(transform.position, 1000f), 1000f);
-
-        if (poiList.Count != 0) {
-
             macroLookTimer -= Time.deltaTime;
             microLookTimer -= Time.deltaTime;
 
             if (macroLookTimer <= 0f) {
+                GetClosestCharacter(Physics.OverlapSphere(transform.position, 100f), 100f);
                 macroTarget = poiList[Random.Range(0, poiList.Count)].gameObject.transform;
                 macroLookTimer = Random.Range(macroSmall, macroBig);
             }
@@ -49,8 +46,6 @@ public class IKHeadMove : MonoBehaviour {
             }
 
             lookObject.transform.position = Vector3.Lerp(lookObject.transform.position, microTarget, Time.deltaTime * macroSpeed);
-        }
-        
     }
 
     private void GetClosestCharacter(Collider[] characters, float radius) {
