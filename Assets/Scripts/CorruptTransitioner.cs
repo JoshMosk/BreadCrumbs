@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Rendering;
+using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.Events;
 namespace MajorVRProj
 {
@@ -20,11 +20,16 @@ namespace MajorVRProj
         [SerializeField] LightSettings darkSettings;
         //[SerializeField] NavMeshSurface navmesh;
 
-        [SerializeField] Volume volume;
-        [SerializeField] VolumeProfile lightVolume;
-        [SerializeField] VolumeProfile darkVolume;
+        [SerializeField] PostProcessVolume volume;
+        [SerializeField] float uncorruptTint;
+        [SerializeField] float corruptTint;
+        [SerializeField] float uncorruptTemperature;
+        [SerializeField] float corruptTemperature;
 
-		public NavMeshSurface uncorruptNav;
+        //[SerializeField] VolumeProfile lightVolume;
+        //[SerializeField] VolumeProfile darkVolume;
+
+        public NavMeshSurface uncorruptNav;
 		public NavMeshSurface corruptNav;
 
 		public NavMeshData uncorruptData;
@@ -93,6 +98,7 @@ namespace MajorVRProj
 			//need to just have swap between two nav meshes
 
 			//JUST STOP JOSH :'( I HATE NAVMESH, JUST USE NAV MESH OBSTACLES IN REAL TIME CAUSE THIS SHIT IS SO FUCKING STUPID
+            //to josh, the above message was written by yourself dont act suprised now
 
 			//if(isCorrupted)
 			//{
@@ -128,8 +134,15 @@ namespace MajorVRProj
         {
             if (isCorrupted)
             {
-                if(volume != null)
-                    volume.profile = darkVolume;
+                if (volume != null)
+                {
+                    //volume.profile = darkVolume;
+                    PostProcessEffectSettings temp;
+                    //JM:STARTHERE
+                    //volume.profile.TryGetSettings<ColorGrading>()
+                }
+                else
+                    Debug.LogError("hey idiot set your volume bitch");
 
 				foreach (LightTransition l in m_transitionLights)
 					l.m_isCorrupt = true;
@@ -137,9 +150,14 @@ namespace MajorVRProj
             else
             {
                 if (volume != null)
-                    volume.profile = lightVolume;
+                {
+                    //volume.profile = lightVolume;
 
-				foreach (LightTransition l in m_transitionLights)
+                }
+                else
+                    Debug.LogError("hey idiot set your volume bitch");
+
+                foreach (LightTransition l in m_transitionLights)
 					l.m_isCorrupt = false;
 			}
         }
