@@ -30,6 +30,8 @@ public class ConnectionPoint {
 
     }
 
+#if (UNITY_EDITOR)
+
     public void Draw() {
 
         rect = new Rect(0, 0, 10f, 25f);
@@ -54,7 +56,7 @@ public class ConnectionPoint {
                 break;
         }
 
-#if (UNITY_EDITOR)
+
         // Draw the button on the window.
         switch (connectionType) {
             case ConnectionPointType.In:
@@ -75,7 +77,8 @@ public class ConnectionPoint {
                 break;
 
         }
-#endif
     }
+
+#endif
 
 }

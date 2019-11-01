@@ -2,9 +2,8 @@
 
 public class DialogueTrigger : MonoBehaviour {
 
-    public string conversationID;
     public bool canActivate;
-
+    public string conversationID;
     public bool autoStart = false;
 
     DialogueManager dialogue;
