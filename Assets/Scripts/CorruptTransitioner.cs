@@ -16,28 +16,36 @@ namespace MajorVRProj
         int currentLSIdx = 0;   //Current light setting index
 
         [Header("The Corrupt")]
-        [SerializeField] LightSettings lightSettings;
-        [SerializeField] LightSettings darkSettings;
+        //[SerializeField] LightSettings lightSettings;
+        //[SerializeField] LightSettings darkSettings;
         //[SerializeField] NavMeshSurface navmesh;
 
         [SerializeField] PostProcessVolume volume;
-        [SerializeField] float uncorruptTint;
-        [SerializeField] float corruptTint;
-        [SerializeField] float uncorruptTemperature;
-        [SerializeField] float corruptTemperature;
+		[SerializeField]ColorGrading colGrad;
+		[Range(-100, 100)]
+		[SerializeField] float uncorruptTint;
+		[Range(-100, 100)]
+		[SerializeField] float corruptTint;
+		[Range(-100, 100)]
+		[SerializeField] float uncorruptTemperature;
+		[Range(-100, 100)]
+		[SerializeField] float corruptTemperature;
+		[SerializeField] float volTransitionTime = 1f;
+		float volProgress;
 
-        //[SerializeField] VolumeProfile lightVolume;
-        //[SerializeField] VolumeProfile darkVolume;
+		//[SerializeField] VolumeProfile lightVolume;
+		//[SerializeField] VolumeProfile darkVolume;
 
-        public NavMeshSurface uncorruptNav;
-		public NavMeshSurface corruptNav;
+		//public NavMeshSurface uncorruptNav;
+		//public NavMeshSurface corruptNav;
 
-		public NavMeshData uncorruptData;
-		public NavMeshData corruptData;
+		//public NavMeshData uncorruptData;
+		//public NavMeshData corruptData;
 
 		List<LightTransition> m_transitionLights = new List<LightTransition>();
 
         [SerializeField] bool isCorrupted = false;
+		
 
         [SerializeField] UnityEvent OnCorrupted, OnNormal;
 
@@ -48,7 +56,7 @@ namespace MajorVRProj
         void Awake()
         {
             input = GetComponent<IInput>();
-
+			
             //Make sure there is atleast one light setting
             if (dbLightSettings.Count <= 0)
                 throw new System.NotImplementedException();
@@ -70,9 +78,10 @@ namespace MajorVRProj
             HandleLightTransitions();
             HandleParticleEffects();
 
+			volume.profile.TryGetSettings(out colGrad);
 			//foreach (GameObject g in GameObject.FindObjectsOfType(typeof(LightTransition)))
 			//	m_transitionLights.Add(g.GetComponent<LightTransition>());
-        }
+		}
 
         void Update()
         {
@@ -85,11 +94,12 @@ namespace MajorVRProj
                 }
 
                 ToggleCorruption();
-                HandleLightTransitions();
+                //HandleLightTransitions();
                 HandleParticleEffects();
                 HandleDialogue();
 				RebakeNavMesh();
             }
+			HandleLightTransitions();		//this ones here cause it lerps
         }
 
         void RebakeNavMesh()
@@ -132,35 +142,43 @@ namespace MajorVRProj
 
         void HandleLightTransitions()
         {
-            if (isCorrupted)
-            {
-                if (volume != null)
-                {
-                    //volume.profile = darkVolume;
-                    PostProcessEffectSettings temp;
-                    //JM:STARTHERE
-                    //volume.profile.TryGetSettings<ColorGrading>()
-                }
-                else
-                    Debug.LogError("hey idiot set your volume bitch");
+			if (isCorrupted)
+			{
+				volProgress += Time.deltaTime / volTransitionTime;
 
 				foreach (LightTransition l in m_transitionLights)
 					l.m_isCorrupt = true;
-            }
-            else
-            {
-                if (volume != null)
-                {
-                    //volume.profile = lightVolume;
+			}
+			else
+			{
+				volProgress -= Time.deltaTime / volTransitionTime;
 
-                }
-                else
-                    Debug.LogError("hey idiot set your volume bitch");
-
-                foreach (LightTransition l in m_transitionLights)
+				foreach (LightTransition l in m_transitionLights)
 					l.m_isCorrupt = false;
 			}
-        }
+
+			if(volProgress > 1)
+			{
+				volProgress = 1;
+			}
+			else if(volProgress < 0)
+			{
+				volProgress = 0;
+			}
+
+			if (volume != null)
+			{
+				volume.profile.TryGetSettings(out colGrad);
+
+				colGrad.tint.value = Mathf.Lerp(uncorruptTint, corruptTint, volProgress);
+				colGrad.temperature.value = Mathf.Lerp(uncorruptTemperature, corruptTemperature, volProgress);
+				
+				colGrad.temperature.value = uncorruptTemperature;
+			}
+			else
+				Debug.LogError("hey idiot set your volume bitch");
+
+		}
 
         void HandleDialogue()
         {
