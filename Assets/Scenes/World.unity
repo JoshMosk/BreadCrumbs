@@ -4696,6 +4696,7 @@ Transform:
   - {fileID: 2012097307}
   - {fileID: 503265206}
   - {fileID: 982642448}
+  - {fileID: 845323393}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -17793,6 +17794,81 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 844135132}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &845323392
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 845323393}
+  - component: {fileID: 845323395}
+  - component: {fileID: 845323394}
+  m_Layer: 0
+  m_Name: Terrain (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &845323393
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845323392}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -500, y: -128.71, z: -500}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 250570707}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!154 &845323394
+TerrainCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845323392}
+  m_Material: {fileID: 0}
+  m_Enabled: 1
+  m_TerrainData: {fileID: 15600000, guid: 11d5a45660e10d045b322776832215b3, type: 2}
+  m_EnableTreeColliders: 1
+--- !u!218 &845323395
+Terrain:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845323392}
+  m_Enabled: 1
+  serializedVersion: 5
+  m_TerrainData: {fileID: 15600000, guid: 11d5a45660e10d045b322776832215b3, type: 2}
+  m_TreeDistance: 5000
+  m_TreeBillboardDistance: 50
+  m_TreeCrossFadeLength: 5
+  m_TreeMaximumFullLODCount: 50
+  m_DetailObjectDistance: 80
+  m_DetailObjectDensity: 1
+  m_HeightmapPixelError: 5
+  m_SplatMapDistance: 1000
+  m_HeightmapMaximumLOD: 0
+  m_ShadowCastingMode: 0
+  m_DrawHeightmap: 1
+  m_DrawInstanced: 1
+  m_DrawTreesAndFoliage: 1
+  m_ReflectionProbeUsage: 1
+  m_MaterialTemplate: {fileID: 2100000, guid: e778ec5b09a051b46b6a62e291c4d3fd, type: 2}
+  m_BakeLightProbesForTrees: 1
+  m_PreserveTreePrototypeLayers: 0
+  m_DeringLightProbesForTrees: 1
+  m_ScaleInLightmap: 0.67
+  m_LightmapParameters: {fileID: 15201, guid: 0000000000000000f000000000000000, type: 0}
+  m_GroupingID: 0
+  m_AllowAutoConnect: 1
 --- !u!1001 &858177538
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18685,7 +18761,7 @@ PrefabInstance:
     - target: {fileID: 5668310649886321928, guid: 6008f964c9587c74396ee91a806f9f68,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5668310649886321928, guid: 6008f964c9587c74396ee91a806f9f68,
         type: 3}
@@ -23162,7 +23238,7 @@ PrefabInstance:
     - target: {fileID: 3294123594773851695, guid: ad6ea705dcbdb554d93683b7e8dc3828,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3294123594773851695, guid: ad6ea705dcbdb554d93683b7e8dc3828,
         type: 3}
@@ -27859,7 +27935,7 @@ PrefabInstance:
     - target: {fileID: 606345681503295299, guid: 4d1e5927a2c05d549bc249b96c0c3a53,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 606345681503295299, guid: 4d1e5927a2c05d549bc249b96c0c3a53,
         type: 3}
@@ -29385,7 +29461,7 @@ PrefabInstance:
     - target: {fileID: 1874043390229551834, guid: f1c36d37b2b62be40a2976cba864a6c4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1874043390229551834, guid: f1c36d37b2b62be40a2976cba864a6c4,
         type: 3}
