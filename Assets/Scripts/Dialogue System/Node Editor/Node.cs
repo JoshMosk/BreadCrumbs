@@ -31,6 +31,7 @@ public class Node {
     public string nodeID = "";
     private Vector2 scrollPosition;
     public string uniqueIDString = "";
+    public Dictionary<string, object> nodeInfo;
 
     private GUIStyle style;
     private GUIStyle defaultNodeStyle;
@@ -52,12 +53,24 @@ public class Node {
         // Set up the height and connection points
         this.nodeType = nodeType;
 
-        if (isCentered) nodeRect = new Rect(position.x - ((float)GetNodeInfo(nodeType)["width"]/2), position.y - ((float)GetNodeInfo(nodeType)["height"] / 2), (float)GetNodeInfo(nodeType)["width"], (float)GetNodeInfo(nodeType)["height"]);
-        else nodeRect = new Rect(position.x, position.y, (float)GetNodeInfo(nodeType)["width"], (float)GetNodeInfo(nodeType)["height"]);
+        // Create a unique ID for this node
+        if (uniqueIDString.Length == 0) {
+            uniqueIDString = "";
+            string glyphs = "abcdefghijklmnopqrstuvwxyz0123456789";
+            for (int i = 0; i < 10; i++) uniqueIDString += glyphs[Random.Range(0, glyphs.Length)];
+            nodeData["uniqueID"] = uniqueIDString;
+        }
+
+        nodeInfo = NodeInfo.GetInfo(nodeType, nodeData["uniqueID"]);
+
+        if (isCentered) nodeRect = new Rect(position.x - ((float)nodeInfo["width"]/2), position.y - ((float)nodeInfo["height"] / 2), (float)nodeInfo["width"], (float)nodeInfo["height"]);
+        else nodeRect = new Rect(position.x, position.y, (float)nodeInfo["width"], (float)nodeInfo["height"]);
 
         actualNodeRect = nodeRect;
-        for (var i = 0; i < (int)GetNodeInfo(nodeType)["inConnectionNumber"]; i++) inPoints.Add(new ConnectionPoint(this, ConnectionPoint.ConnectionPointType.In, OnClickPoint, nodeType, i + 1, (int)GetNodeInfo(nodeType)["inConnectionNumber"]));
-        for (var i = 0; i < (int)GetNodeInfo(nodeType)["outConnectionNumber"]; i++) outPoints.Add(new ConnectionPoint(this, ConnectionPoint.ConnectionPointType.Out, OnClickPoint, nodeType, i + 1, (int)GetNodeInfo(nodeType)["outConnectionNumber"]));
+        for (var i = 0; i < (int)nodeInfo["inConnectionNumber"]; i++) inPoints.Add(new ConnectionPoint(this, ConnectionPoint.ConnectionPointType.In, OnClickPoint, nodeType, i + 1, (int)nodeInfo["inConnectionNumber"]));
+        for (var i = 0; i < (int)nodeInfo["outConnectionNumber"]; i++) outPoints.Add(new ConnectionPoint(this, ConnectionPoint.ConnectionPointType.Out, OnClickPoint, nodeType, i + 1, (int)nodeInfo["outConnectionNumber"]));
+
+        OnRemoveNode = OnClickRemoveNode;
 
 #if (UNITY_EDITOR)
         // Create the style of the node for selected and unselected
@@ -69,183 +82,29 @@ public class Node {
         selectedNodeStyle.border = new RectOffset(12, 12, 12, 12);
         selectedNodeStyle.normal.background = EditorGUIUtility.Load("builtin skins/darkskin/images/node0 on.png") as Texture2D;
 
-
         // Set the current style to unselected
         style = defaultNodeStyle;
 #endif
-        OnRemoveNode = OnClickRemoveNode;
+        
+    }
+    private void OnClickRemoveNode() {
+
+        // When the user pressed 'Remove', get rid of the node
+        OnRemoveNode(this);
 
     }
 
-    public Dictionary<string, object> GetNodeInfo(NodeType currentType) {
-
-        // Create a unique ID for this node if it has not already been made
-        if (uniqueIDString.Length == 0) {
-            uniqueIDString = "";
-            string glyphs = "abcdefghijklmnopqrstuvwxyz0123456789";
-            for (int i = 0; i < 10; i++) uniqueIDString += glyphs[Random.Range(0, glyphs.Length)];
-            nodeData["uniqueID"] = uniqueIDString;
-        }
-
-        // Setup each kind of node and its details
-        nodeFields = new List<Dictionary<string, object>>();
-        Dictionary<string, object> nodeInfo = new Dictionary<string, object>();
-        switch (currentType) {
-            case NodeType.ConversationNode:
-
-                nodeInfo.Add("name", "Conversation");
-                nodeInfo.Add("description", "Begins a new thread of dialogue nodes");
-                nodeInfo.Add("height", 138f);
-                nodeInfo.Add("width", 180f);
-                nodeInfo.Add("inConnectionNumber", 0);
-                nodeInfo.Add("outConnectionNumber", 1);
-
-                nodeFields.Add(new Dictionary<string, object> { { "name", "Name" }, { "kind", "SmallBox" }, { "id", "name" } });
-                nodeFields.Add(new Dictionary<string, object> { {"name", "ID: " + uniqueIDString }, { "kind", "Copy" }, { "id", "uniqueID" } });
-
-                break;
-
-
-            case NodeType.DialogueNode:
-
-                nodeInfo.Add("name", "Dialogue");
-                nodeInfo.Add("description", "Defines a speach bubble in a conversation");
-                nodeInfo.Add("height", 200f);
-                nodeInfo.Add("width", 200f);
-                nodeInfo.Add("inConnectionNumber", 1);
-                nodeInfo.Add("outConnectionNumber", 1);
-
-                nodeFields.Add(new Dictionary<string, object> { { "name", "Speaker" }, { "kind", "Dropdown" }, { "id", "speaker" } });
-                nodeFields.Add(new Dictionary<string, object> { { "name", "Emotion" }, { "kind", "FullDropdown" }, { "id", "emotion" } });
-                nodeFields.Add(new Dictionary<string, object> { { "name", "Dialogue" }, { "kind", "LargeBox" }, { "id", "dialogue" } });
-
-                break;
-
-
-            case NodeType.CommentNode:
-
-                nodeInfo.Add("name", "Comment");
-                nodeInfo.Add("description", "Can be used to describe a conversation");
-                nodeInfo.Add("height", 150f);
-                nodeInfo.Add("width", 200f);
-                nodeInfo.Add("inConnectionNumber", 0);
-                nodeInfo.Add("outConnectionNumber", 0);
-
-                nodeFields.Add(new Dictionary<string, object> { { "name", "" }, { "kind", "LargeBox" }, { "id", "comment" } });
-
-                break;
-
-
-            case NodeType.EndNode:
-
-                nodeInfo.Add("name", "End Conversation");
-                nodeInfo.Add("description", "Concludes the preceding conversation");
-                nodeInfo.Add("height", 57f);
-                nodeInfo.Add("width", 160f);
-                nodeInfo.Add("inConnectionNumber", 1);
-                nodeInfo.Add("outConnectionNumber", 0);
-
-                break;
-
-
-            case NodeType.GetBooleanNode:
-
-                nodeInfo.Add("name", "Get Boolean");
-                nodeInfo.Add("description", "Returns true or false based on a blackboard value");
-                nodeInfo.Add("height", 135f);
-                nodeInfo.Add("width", 200f);
-                nodeInfo.Add("inConnectionNumber", 1);
-                nodeInfo.Add("outConnectionNumber", 2);
-
-                nodeFields.Add(new Dictionary<string, object> { { "name", "Blackboard" }, { "kind", "Dropdown" }, { "id", "blackboard" } });
-                nodeFields.Add(new Dictionary<string, object> { { "name", "Variable" }, { "kind", "Dropdown" }, { "id", "variable" } });
-
-                break;
-
-
-            case NodeType.SetBooleanNode:
-
-                nodeInfo.Add("name", "Set Boolean");
-                nodeInfo.Add("description", "Changes a boolean variable on the specified blackboard");
-                nodeInfo.Add("height", 170f);
-                nodeInfo.Add("width", 200f);
-                nodeInfo.Add("inConnectionNumber", 1);
-                nodeInfo.Add("outConnectionNumber", 1);
-
-                nodeFields.Add(new Dictionary<string, object> { { "name", "Blackboard" }, { "kind", "Dropdown" }, { "id", "blackboard" } });
-                nodeFields.Add(new Dictionary<string, object> { { "name", "Variable" }, { "kind", "Dropdown" }, { "id", "variable" } });
-                nodeFields.Add(new Dictionary<string, object> { { "name", "Value" }, { "kind", "Box" }, { "id", "value" } });
-
-                break;
-
-
-            case NodeType.MultipleChoiceNode:
-
-                nodeInfo.Add("name", "Multiple Choice");
-                nodeInfo.Add("description", "Allows different options for the player to choose from");
-                nodeInfo.Add("height", 350f);
-                nodeInfo.Add("width", 200f);
-                nodeInfo.Add("inConnectionNumber", 1);
-                nodeInfo.Add("outConnectionNumber", 4);
-
-                nodeFields.Add(new Dictionary<string, object> { { "name", "Speaker" }, { "kind", "Dropdown" }, { "id", "speaker" } });
-                nodeFields.Add(new Dictionary<string, object> { { "name", "Emotion" }, { "kind", "FullDropdown" }, { "id", "emotion" } });
-                nodeFields.Add(new Dictionary<string, object> { { "name", "Dialogue" }, { "kind", "LargeBox" }, { "id", "dialogue" } });
-                nodeFields.Add(new Dictionary<string, object> { { "name", "Option 1" }, { "kind", "SmallBox" }, { "id", "option1" } });
-                nodeFields.Add(new Dictionary<string, object> { { "name", "Option 2" }, { "kind", "SmallBox" }, { "id", "option2" } });
-                nodeFields.Add(new Dictionary<string, object> { { "name", "Option 3" }, { "kind", "SmallBox" }, { "id", "option3" } });
-                nodeFields.Add(new Dictionary<string, object> { { "name", "Option 4" }, { "kind", "SmallBox" }, { "id", "option4" } });
-
-                break;
-
-
-            case NodeType.RandomNode:
-
-                nodeInfo.Add("name", "Random");
-                nodeInfo.Add("description", "Picks a random node");
-                nodeInfo.Add("height", 57f);
-                nodeInfo.Add("width", 150f);
-                nodeInfo.Add("inConnectionNumber", 1);
-                nodeInfo.Add("outConnectionNumber", 1);
-
-                break;
-
-
-            case NodeType.BroadcastNode:
-
-                nodeInfo.Add("name", "Broadcast");
-                nodeInfo.Add("description", "Calls custom scripting");
-                nodeInfo.Add("height", 100f);
-                nodeInfo.Add("width", 200f);
-                nodeInfo.Add("inConnectionNumber", 1);
-                nodeInfo.Add("outConnectionNumber", 1);
-
-                nodeFields.Add(new Dictionary<string, object> { { "name", "Event" }, { "kind", "SmallBox" }, { "id", "event" } });
-
-                break;
-
-
-        }
-
-        return nodeInfo;
-
-    }
+#if (UNITY_EDITOR)
 
     public void Draw() {
-#if (UNITY_EDITOR)
+
         // Draw all of the connection points onto the node
-        foreach (ConnectionPoint inPoint in inPoints) {
-            inPoint.Draw();
-        }
-
-        foreach (ConnectionPoint outPoint in outPoints) {
-            outPoint.Draw();
-        }
-
+        foreach (ConnectionPoint inPoint in inPoints) inPoint.Draw();
+        foreach (ConnectionPoint outPoint in outPoints) outPoint.Draw();
 
         // Create the node and set up the scroll view
         float insets = 20f;
-        //GUI.Box(nodeRect, new GUIContent("", (string)GetNodeInfo(nodeType)["description"]), style);
+        //GUI.Box(nodeRect, new GUIContent("", (string)NodeInfo.GetInfo(nodeType)["description"]), style);
         GUI.Box(nodeRect, new GUIContent(""), style);
         GUILayout.BeginArea(new Rect(nodeRect.x + insets, nodeRect.y + insets, nodeRect.width - (insets * 2), nodeRect.height - (insets * 2)));
         scrollPosition = GUILayout.BeginScrollView(scrollPosition, GUILayout.Width(nodeRect.width - (insets * 2)), GUILayout.Height(nodeRect.height - (insets * 2)));
@@ -256,7 +115,7 @@ public class Node {
         titleStyle.normal.textColor = Color.white;
         titleStyle.fontStyle = FontStyle.Bold;
         titleStyle.alignment = TextAnchor.MiddleLeft;
-        if ((string)GetNodeInfo(nodeType)["name"] == "End Conversation" || (string)GetNodeInfo(nodeType)["name"] == "Random") titleStyle.alignment = TextAnchor.MiddleCenter;
+        if ((string)nodeInfo["name"] == "End Conversation" || (string)nodeInfo["name"] == "Random") titleStyle.alignment = TextAnchor.MiddleCenter;
         titleStyle.fontSize = 10;
 
         GUIStyle bodyStyle = new GUIStyle();
@@ -268,15 +127,15 @@ public class Node {
         smallStyle.normal.textColor = Color.gray;
         smallStyle.fontStyle = FontStyle.Normal;
         smallStyle.alignment = TextAnchor.MiddleLeft;
-        if ((string)GetNodeInfo(nodeType)["name"] == "End Conversation" || (string)GetNodeInfo(nodeType)["name"] == "Random") smallStyle.alignment = TextAnchor.MiddleCenter;
+        if ((string)nodeInfo["name"] == "End Conversation" || (string)nodeInfo["name"] == "Random") smallStyle.alignment = TextAnchor.MiddleCenter;
         smallStyle.fontSize = 9;
 
         GUI.skin.textField.fontSize = 11;
 
 
         // Add all of the fields to the node
-        if ((string)GetNodeInfo(nodeType)["name"] == "End Conversation" || (string)GetNodeInfo(nodeType)["name"] == "Random") GUILayout.Label("" + (string)GetNodeInfo(nodeType)["name"], titleStyle);
-        else GUILayout.Label(" " + (string)GetNodeInfo(nodeType)["name"], titleStyle);
+        if ((string)nodeInfo["name"] == "End Conversation" || (string)nodeInfo["name"] == "Random") GUILayout.Label("" + (string)nodeInfo["name"], titleStyle);
+        else GUILayout.Label(" " + (string)nodeInfo["name"], titleStyle);
         GUILayout.Space(3);
 
         foreach (Dictionary<string, object> fieldDict in nodeFields) {
@@ -371,11 +230,10 @@ public class Node {
 
         GUILayout.EndScrollView();
         GUILayout.EndArea();
-#endif
+
     }
 
     public bool ProcessEvents(Event currentEvent) {
-#if (UNITY_EDITOR)
         // Process what happens when the mouse is clicked
         switch (currentEvent.type) {
             case EventType.MouseDown:
@@ -423,24 +281,16 @@ public class Node {
                 }
                 break;
         }
-#endif
         return false;
 
     }
 
     private void ProcessContextMenu() {
-#if (UNITY_EDITOR)
+
         // Create the right click menu to remove a node
         GenericMenu genericMenu = new GenericMenu();
         genericMenu.AddItem(new GUIContent("Remove"), false, OnClickRemoveNode);
         genericMenu.ShowAsContext();
-#endif
-    }
-
-    private void OnClickRemoveNode() {
-
-        // When the user pressed 'Remove', get rid of the node
-        OnRemoveNode(this);
 
     }
 
@@ -452,7 +302,7 @@ public class Node {
     }
 
     public void Drag(Vector2 delta) {
-#if (UNITY_EDITOR)
+
         actualNodeRect.position += delta;
 
         float snapRange = 15f;
@@ -504,7 +354,7 @@ public class Node {
         }
 
         nodeRect.position = new Vector2(desiredX, desiredY);
-#endif
+
     }
 
     public void MoveTo(Vector2 delta) {
@@ -517,10 +367,11 @@ public class Node {
 
     }
 
+#endif
+
     public static string StringFromBool(bool boolValue) {
         if (boolValue) return "True";
         else return "False";
-
     }
 
     public static bool BoolFromString(string stringValue) {

@@ -10,6 +10,7 @@ public class DialogueCharacter : MonoBehaviour {
     public int fontSize = 8;
     public float labelHeight = 1f;
 
+#if (UNITY_EDITOR)
 
     void OnDrawGizmos() {
 
@@ -23,10 +24,11 @@ public class DialogueCharacter : MonoBehaviour {
         style.fontSize = fontSize;
         style.normal.background = targetTexture;
         style.alignment = TextAnchor.MiddleCenter;
-#if (UNITY_EDITOR) 
+
         Handles.Label(new Vector3(transform.position.x, transform.position.y + labelHeight, transform.position.z), name, style);
-#endif
 
     }
+
+#endif
 
 }

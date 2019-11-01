@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 
 #if (UNITY_EDITOR) 
+
 public class NodeBasedEditor : EditorWindow {
 
     public static NodeBasedEditor Instance { get; private set; }
@@ -66,7 +67,6 @@ public class NodeBasedEditor : EditorWindow {
         GetWindow<NodeBasedEditor>().SaveData();
 
     }
-
 
     private void OnEnable() {
 
@@ -153,7 +153,6 @@ public class NodeBasedEditor : EditorWindow {
             case EventType.MouseDown:
             
                 if (currentEvent.button == 0) {
-
                     if (selectedOutPoint != null) ProcessContextMenu(currentEvent.mousePosition);
                     else ClearConnectionSelection();
 
@@ -174,7 +173,6 @@ public class NodeBasedEditor : EditorWindow {
                 }
 
                 break;
-
         }
 
     }
@@ -238,10 +236,7 @@ public class NodeBasedEditor : EditorWindow {
     private void OnClickAddNode(Vector2 mousePosition, Node.NodeType nodeType) {
 
         Vector2 nodePos = mousePosition;
-        if (selectedOutPoint != null) {
-            Debug.Log((float)selectedOutPoint.parentNode.GetNodeInfo(nodeType)["width"]);
-            nodePos = new Vector2(mousePosition.x + ((float)selectedOutPoint.parentNode.GetNodeInfo(nodeType)["width"]/2), mousePosition.y);
-        }
+        if (selectedOutPoint != null) nodePos = new Vector2(mousePosition.x + ((float)selectedOutPoint.parentNode.nodeInfo["width"]/2), mousePosition.y);
 
         // Create a new node and add it to the list of exisiting nodes
         if (nodes == null) nodes = new List<Node>();
@@ -362,14 +357,11 @@ public class NodeBasedEditor : EditorWindow {
                 Node newNode = new Node(new Vector2(currentDict.actualNodeRect.position.x, currentDict.actualNodeRect.position.y), OnClickPoint, OnClickRemoveNode, currentDict.nodeType, false) {
                     nodeID = currentDict.nodeID,
                     uniqueIDString = currentDict.uniqueIDString,
-                    
                 };
 
                 foreach (string key in currentDict.nodeData.Keys) {
                     newNode.nodeData[key] = currentDict.nodeData[key];
                 }
-
-
 
                 nodes.Add(newNode);
             }
@@ -413,6 +405,7 @@ public class NodeBasedEditor : EditorWindow {
     }
 
     public void ScrollToNode(float nodeX, float nodeY) {
+
         float windowCenterX = (position.width / 2) - nodeX;
         float windowCenterY = (position.height / 2) - nodeY;
         Vector2 nodePos = new Vector2(windowCenterX, windowCenterY);
@@ -435,4 +428,5 @@ public class NodeBasedEditor : EditorWindow {
     }
 
 }
+
 #endif 

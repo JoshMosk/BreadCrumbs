@@ -7,60 +7,50 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour {
 
     public static DialogueManager instance;
-
     void Awake() {
         if (instance != null) return;
         instance = this;
     }
 
-    [Header("Blackboards")]
-    public string fileName;
+    [Header("Conversation")]
+    public string conversationID;
+    public Transform speakerObject;
     public Dictionary<string, Dictionary<string, bool>> blackboards = new Dictionary<string, Dictionary<string, bool>>();
 
-    [Header("User Interface")]
+    [Header("Interface")]
     public Text speakerTextBox;
     public Text bodyTextBox;
     public GameObject panelObject;
+    private CanvasGroup canvGroup;
 
-    [Header("Multiple Choice")]
+    [Header("Input")]
+    public IInput m_input;
+    private int selectedOption;
     public Button option1Button;
     public Button option2Button;
     public Button option3Button;
     public Button option4Button;
     public GameObject indicatorArrow;
 
+    [Header("Puzzles")]
+    public PuzzleComplete puzzle1Completed;
+    public PuzzleComplete puzzle2Completed;
+    public PuzzleComplete puzzle3Completed;
 
-    private int selectedOption;
-    public string conversationID;
-    public Transform speakerObject;
-
-    private bool canSkip = true;
-    private bool isTyping = false;
+    [Header("Status")]
+    public bool canSkip = true;
+    public bool isTyping = false;
+    public bool isWorldSpace = true;
     public bool inConversation = false;
+    public bool isMultipleChoice = false;
 
     private Node currentNode;
     private JSONList loadedData;
+    private Coroutine currentEnumerator;
+    [HideInInspector] public float cooldownTimer;
+    [HideInInspector] public float cooldownTimerNextNode;
 
-    Coroutine currentEnumerator;
-
-    public IInput m_input;
-
-    public bool isWorldSpace;
-
-    public GameObject startPanel;
-
-    public float cooldownTimer;
-    public float cooldownTimerNextNode;
-
-    public bool isMultipleChoice;
-
-	public PuzzleComplete puzzle1Completed;
-	public PuzzleComplete puzzle2Completed;
-	public PuzzleComplete puzzle3Completed;
-
-	public bool poojaMode = true;
-
-	private void Start() {
+    private void Start() {
 
         // Set up the multiple choice buttons
         option1Button.onClick.AddListener(delegate { SelectOption(1); });
@@ -70,33 +60,28 @@ public class DialogueManager : MonoBehaviour {
         HideMultipleChoice();
 
         m_input = GetComponent<IInput>();
-
+        canvGroup = panelObject.GetComponent<CanvasGroup>();
     }
 
     private void Update() {
 
-        DialogueManager.instance.cooldownTimer -= Time.deltaTime;
-        DialogueManager.instance.cooldownTimerNextNode -= Time.deltaTime;
+        cooldownTimer -= Time.deltaTime;
+        cooldownTimerNextNode -= Time.deltaTime;
 
-        if (inConversation) {
-            transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(0.01124641f, 0.01124641f, 0.01124641f), 2f * Time.deltaTime);
-        } else {
-            transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(0, 0, 0), 2f * Time.deltaTime);
-        }
+        if (inConversation) transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(0.01124641f, 0.01124641f, 0.01124641f), 1f * Time.deltaTime);
+        else transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(0, 0, 0), 1f * Time.deltaTime);
 
         if (isWorldSpace) {
             transform.LookAt(Camera.main.transform, Vector3.up);
-          //  transform.localEulerAngles = Vector3.Lerp(transform.localEulerAngles, new Vector3(0, transform.localEulerAngles.y + 180, 0), .5f * Time.deltaTime);
             transform.localEulerAngles = new Vector3(0, transform.localEulerAngles.y + 180, 0);
             if (speakerObject) {
-                // transform.position = Vector3.Lerp(transform.position, , .5f * Time.deltaTime);
                 transform.position = new Vector3(speakerObject.transform.position.x, speakerObject.transform.position.y + 6f, speakerObject.transform.position.z);
             }
         }
 
         // Show and hide the dialogue box
         if (inConversation) {
-            panelObject.GetComponent<CanvasGroup>().alpha = 1f;
+            canvGroup.alpha = 1f;
 
             // Determine if the user can go to the next dialogue in the conversation
             if (m_input.NPCInteractDown || Input.GetKeyDown(KeyCode.Tab)) {
@@ -107,14 +92,12 @@ public class DialogueManager : MonoBehaviour {
                     // else if (canSkip)
                     FindNextNode();
                     
-
                 }
             }
 
-        } else panelObject.GetComponent<CanvasGroup>().alpha = 0f;
+        } else canvGroup.alpha = 0f;
 
     }
-
 
     public void SetBlackboardVariable(string blackboard, string variable, bool value) {
 
@@ -127,10 +110,7 @@ public class DialogueManager : MonoBehaviour {
         } else {
 
             // There is no stored data, set it up as new
-            Dictionary<string, bool> newDict = new Dictionary<string, bool> {
-                { variable, value }
-            };
-            blackboards.Add(blackboard, newDict);
+            blackboards.Add(blackboard, new Dictionary<string, bool> { { variable, value } });
 
         }
 
@@ -172,12 +152,7 @@ public class DialogueManager : MonoBehaviour {
             }
         }
 
-        loadedData = new JSONList {
-            dataList = nodes,
-            connectionList = JSONConnectDict
-        };
-
-     //   loadedData = JsonUtility.FromJson<JSONList>(File.ReadAllText(Application.streamingAssetsPath + "/" + fileName + ".json"));
+        loadedData = new JSONList {dataList = nodes, connectionList = JSONConnectDict};
 
         // Loop through each node in the file to find the conversation
         foreach (Node currentDict in loadedData.dataList) {
@@ -216,32 +191,17 @@ public class DialogueManager : MonoBehaviour {
 
         if (currentNode.nodeType == Node.NodeType.BroadcastNode) {
 
-            if (currentNode.nodeData["event"] == "Puzzle1Complete")
-			{
-				puzzle1Completed.CompletePuzzle();
-            }
-			if (currentNode.nodeData["event"] == "Puzzle2Complete")
-			{
-				puzzle2Completed.CompletePuzzle();
-			}
-			if (currentNode.nodeData["event"] == "Puzzle3Complete")
-			{
-				puzzle3Completed.CompletePuzzle();
-			}
-
+            if (currentNode.nodeData["event"] == "Puzzle1Complete") puzzle1Completed.CompletePuzzle();
+			if (currentNode.nodeData["event"] == "Puzzle2Complete") puzzle2Completed.CompletePuzzle();
+            if (currentNode.nodeData["event"] == "Puzzle3Complete") puzzle3Completed.CompletePuzzle();
 			FindNextNode();
 
-
         } else if (currentNode.nodeType == Node.NodeType.DialogueNode) {
-            Debug.Log("Process (Dialogue)");
-
             currentEnumerator = StartCoroutine(TypeText((string)currentNode.nodeData["speaker"], (string)currentNode.nodeData["dialogue"]));
-          //  foreach (DialogueCharacter currentCharacter in FindObjectsOfType<DialogueCharacter>()) if (currentCharacter.name == (string)currentNode.nodeData["speaker"]) speakerObject = currentCharacter.gameObject.transform;
 
         } else if (currentNode.nodeType == Node.NodeType.MultipleChoiceNode) {
             canSkip = false;
             currentEnumerator = StartCoroutine(TypeText((string)currentNode.nodeData["speaker"], (string)currentNode.nodeData["dialogue"]));
-          //  foreach (DialogueCharacter currentCharacter in FindObjectsOfType<DialogueCharacter>()) if (currentCharacter.name == (string)currentNode.nodeData["speaker"]) speakerObject = currentCharacter.gameObject.transform;
 
             int optionNumbers = 0;
             if (currentNode.nodeData["option1"].Length != 0) optionNumbers++;
@@ -254,7 +214,6 @@ public class DialogueManager : MonoBehaviour {
             option2Button.GetComponentInChildren<Text>().text = (string)currentNode.nodeData["option2"];
             option3Button.GetComponentInChildren<Text>().text = (string)currentNode.nodeData["option3"];
             option4Button.GetComponentInChildren<Text>().text = (string)currentNode.nodeData["option4"];
-
 
         } else if (currentNode.nodeType == Node.NodeType.SetBooleanNode) {
             instance.SetBlackboardVariable((string)currentNode.nodeData["blackboard"], (string)currentNode.nodeData["variable"], Node.BoolFromString(currentNode.nodeData["value"]));
@@ -272,37 +231,22 @@ public class DialogueManager : MonoBehaviour {
                 }
             }
 
-
-        }
-        else if (currentNode.nodeType == Node.NodeType.GetBooleanNode)
-        {
-            Debug.Log("Process (Get Bool)");
+        } else if (currentNode.nodeType == Node.NodeType.GetBooleanNode) {
             bool blackboardBool = GetBlackboardVariable(currentNode.nodeData["blackboard"], currentNode.nodeData["variable"]);
             if (blackboardBool) selectedOption = 1;
             else selectedOption = 2;
             FindNextNode();
 
 
-        }
-        else if (currentNode.nodeType == Node.NodeType.EndNode) {
-
-            Debug.Log("Process (End)");
+        } else if (currentNode.nodeType == Node.NodeType.EndNode) {
             cooldownTimer = 1f;
             inConversation = false;
             DialolgueIcon.instance.SetVisible(true);
-
 
         }
     }
 
     IEnumerator TypeText(string characterName, string bodyString) {
-
-		if (poojaMode)
-		{
-			string[] poo = { "Pooja, what is this behaviour", "I'm sorry I kicked it by mistake", "You do not tell me what to do", "Do you want it? Cause you're askin for it. You're dying for it.", "Get off my back", "Stop mooching off me", "I don't want to talk to you", "IM SICK OF THIS. YOU'RE GANGING UP AND TORTURING ME" };
-			bodyString = poo[Random.Range(0, poo.Length)];
-			characterName = "Pooja";
-		}
 
 		isTyping = true;
         bodyTextBox.text = bodyString;
@@ -313,22 +257,6 @@ public class DialogueManager : MonoBehaviour {
 
         speakerTextBox.text = characterName;
 
-        /*
-        TextGenerator speakerTextGen = new TextGenerator();
-        TextGenerationSettings speakerGenerationSettings = speakerTextBox.GetGenerationSettings(speakerTextBox.rectTransform.rect.size);
-
-        TextGenerator bodyTextGen = new TextGenerator();
-        TextGenerationSettings bodyGenerationSettings = bodyTextBox.GetGenerationSettings(bodyTextBox.rectTransform.rect.size);
-
-        float speakerHeight = speakerTextGen.GetPreferredWidth(characterName, speakerGenerationSettings);
-        float bodyHeight = bodyTextGen.GetPreferredHeight(bodyString, bodyGenerationSettings);
-        */
-       // Debug.Log("Text size " + (speakerHeight + bodyHeight));
-
-
-        // Temp lets just not have typed letters rn
-
-        
         /*
         bodyTextBox.text = "";
         bodyString = bodyString.Replace("…", "...");
@@ -362,11 +290,6 @@ public class DialogueManager : MonoBehaviour {
         if (optionCount >= 3) option3Button.gameObject.SetActive(true);
         if (optionCount >= 4) option4Button.gameObject.SetActive(true);
         indicatorArrow.SetActive(true);
-
-       // option1Button.gameObject.transform.localPosition = new Vector3(730, 170 + (90 * (optionCount - 1)), 0);
-       // option2Button.gameObject.transform.localPosition = new Vector3(730, 170 + (90 * (optionCount - 2)), 0);
-       // option3Button.gameObject.transform.localPosition = new Vector3(730, 170 + (90 * (optionCount - 3)), 0);
-       // option4Button.gameObject.transform.localPosition = new Vector3(730, 170 + (90 * (optionCount - 4)), 0);
 
     }
 
