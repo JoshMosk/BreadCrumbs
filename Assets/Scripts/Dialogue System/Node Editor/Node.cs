@@ -62,6 +62,7 @@ public class Node {
         }
 
         nodeInfo = NodeInfo.GetInfo(nodeType, nodeData["uniqueID"]);
+        nodeFields = NodeInfo.GetFields(nodeType, nodeData["uniqueID"]);
 
         if (isCentered) nodeRect = new Rect(position.x - ((float)nodeInfo["width"]/2), position.y - ((float)nodeInfo["height"] / 2), (float)nodeInfo["width"], (float)nodeInfo["height"]);
         else nodeRect = new Rect(position.x, position.y, (float)nodeInfo["width"], (float)nodeInfo["height"]);
@@ -85,7 +86,6 @@ public class Node {
         // Set the current style to unselected
         style = defaultNodeStyle;
 #endif
-        
     }
     private void OnClickRemoveNode() {
 
@@ -109,6 +109,8 @@ public class Node {
         GUILayout.BeginArea(new Rect(nodeRect.x + insets, nodeRect.y + insets, nodeRect.width - (insets * 2), nodeRect.height - (insets * 2)));
         scrollPosition = GUILayout.BeginScrollView(scrollPosition, GUILayout.Width(nodeRect.width - (insets * 2)), GUILayout.Height(nodeRect.height - (insets * 2)));
 
+        nodeInfo = NodeInfo.GetInfo(nodeType, nodeData["uniqueID"]);
+        nodeFields = NodeInfo.GetFields(nodeType, nodeData["uniqueID"]);
 
         // Make the text styles
         GUIStyle titleStyle = new GUIStyle();
