@@ -11,6 +11,7 @@ public class RadialMenu : MonoBehaviour
 
 	public IInput m_input;
 	public float inputTimer;
+	public DialogueManager dialogue;
 
 	[Header("Events")]
 	public RadialSection top = null;
@@ -31,6 +32,7 @@ public class RadialMenu : MonoBehaviour
 
 	private void Start()
 	{
+		dialogue = GameObject.FindObjectOfType<DialogueManager>();
 		m_input = GetComponent<IInput>();
 		inputTimer = 1.0f;
 	}
@@ -64,11 +66,11 @@ public class RadialMenu : MonoBehaviour
 		SetSelectionRotation(rot);
 		SetSelectedEvent(rot);
 
-		if(m_input.NPCInteractUp && DialogueManager.instance.isMultipleChoice)
+		if(m_input.NPCInteractDown && DialogueManager.instance.isMultipleChoice)
 		{
-			if(inputTimer <= 0.0f)
+			if(dialogue.cooldownTimerNextNode <= 0.0f)
 			{
-				inputTimer = 1.0f;
+				dialogue.cooldownTimerNextNode = 1.0f;
 				ActivateHighlightedSections();
 			}
 		}
@@ -95,15 +97,15 @@ public class RadialMenu : MonoBehaviour
 
 	private void SetArrowRot()
 	{
-		//m_arrow.localRotation = Quaternion.LookRotation(Vector3.forward, m_cursorTranform.position);
+		//m_arrow.localRotation = Quaternion.LookRotation(Vector3.forward, m_cursorTranform.position); //doesnt work
 
 		//m_arrow.LookAt(m_cursorTranform, /*m_arrow.parent.transform.forward * -1*/ new Vector3(0, 0, -1));
 
 		Vector2 direction = m_cursorTranform.position - m_arrow.position;
 		float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-		m_arrow.localRotation = Quaternion.AngleAxis(angle, /*transform.parent.forward);*/ Vector3.forward);		//make the forward be the parents forward
+		//m_arrow.localRotation = Quaternion.AngleAxis(angle, transform.parent.forward);// Vector3.forward);		//make the forward be the parents forward		//doesnt work
 		
-		//m_arrow.rotation = Quaternion.Euler(m_arrow.rotation.eulerAngles.x, 0, m_arrow.rotation.eulerAngles.z); //new Vector3(0, 0, m_arrow.rotation.z);
+		m_arrow.rotation = Quaternion.Euler(m_arrow.rotation.eulerAngles.x, 0, m_arrow.rotation.eulerAngles.z); //new Vector3(0, 0, m_arrow.rotation.z);
 
         //m_arrow.rotation = Quaternion.LookRotation(m_cursorTranform.position - m_arrow.position);
     }

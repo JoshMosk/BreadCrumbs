@@ -15,9 +15,9 @@ public class DebugBounds : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.DrawLine(new Vector3(drag.m_minBounds.x, 10, drag.m_maxBounds.y), new Vector3(drag.m_maxBounds.x, 10, drag.m_maxBounds.y));//line from top left to top right
-        Debug.DrawLine(new Vector3(drag.m_maxBounds.x, 10, drag.m_maxBounds.y), new Vector3(drag.m_maxBounds.x, 10, drag.m_minBounds.y));//line from top left to bottom right
-        Debug.DrawLine(new Vector3(drag.m_maxBounds.x, 10, drag.m_minBounds.y), new Vector3(drag.m_minBounds.x, 10, drag.m_minBounds.y));//line from bottom right to bottom left
-        Debug.DrawLine(new Vector3(drag.m_minBounds.x, 10, drag.m_minBounds.y), new Vector3(drag.m_minBounds.x, 10, drag.m_maxBounds.y));//line from bottom left to top left
+        Debug.DrawLine(new Vector3(drag.m_minBounds.x, 10, drag.m_maxBounds.y), new Vector3(drag.m_maxBounds.x, 10, drag.m_maxBounds.y), Color.yellow);//line from top left to top right
+        Debug.DrawLine(new Vector3(drag.m_maxBounds.x, 10, drag.m_maxBounds.y), new Vector3(drag.m_maxBounds.x, 10, drag.m_minBounds.y), Color.yellow);//line from top left to bottom right
+        Debug.DrawLine(new Vector3(drag.m_maxBounds.x, 10, drag.m_minBounds.y), new Vector3(drag.m_minBounds.x, 10, drag.m_minBounds.y), Color.yellow);//line from bottom right to bottom left
+        Debug.DrawLine(new Vector3(drag.m_minBounds.x, 10, drag.m_minBounds.y), new Vector3(drag.m_minBounds.x, 10, drag.m_maxBounds.y), Color.yellow);//line from bottom left to top left
     }
 }

@@ -1707,7 +1707,7 @@ PrefabInstance:
         type: 3}
       propertyPath: corruptNav
       value: 
-      objectReference: {fileID: 593166097}
+      objectReference: {fileID: 0}
     - target: {fileID: 4867614250175023451, guid: 763264513d044844a96a671ae469677d,
         type: 3}
       propertyPath: uncorruptData
@@ -11335,18 +11335,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 588358980}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &593166097 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1300835513395620263, guid: 64884cb6a2e412248b74df2d9370e7a3,
-    type: 3}
-  m_PrefabInstance: {fileID: 1162439212}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &595618996
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23607,7 +23595,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_NavMeshData
       value: 
-      objectReference: {fileID: 23800000, guid: 813d622e460daa041b7058c324c989c7,
+      objectReference: {fileID: 23800000, guid: 2dbc59ae834762f4dbbb9621a22d08e7,
         type: 2}
     - target: {fileID: 1300835513395620263, guid: 64884cb6a2e412248b74df2d9370e7a3,
         type: 3}
@@ -23670,7 +23658,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1300835513395620263, guid: 64884cb6a2e412248b74df2d9370e7a3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 64884cb6a2e412248b74df2d9370e7a3, type: 3}
 --- !u!4 &1162439213 stripped
 Transform:
@@ -44149,7 +44138,7 @@ PrefabInstance:
     - target: {fileID: 999079818407939692, guid: e386cbb05d913074baff93575c6a37b3,
         type: 3}
       propertyPath: m_Layer
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 999079818407939693, guid: e386cbb05d913074baff93575c6a37b3,
         type: 3}
