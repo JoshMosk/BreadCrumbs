@@ -29,8 +29,14 @@ public class DragMovement : MonoBehaviour
         if (m_input.dragMovement)
         {
             Vector3 pointDiff = m_dragPoint.localPosition - m_prevPoint;
+			pointDiff.y = 0;
 
-            pointDiff.y = 0;
+			Ray ray = new Ray(transform.position + new Vector3(0,10,0), Vector3.down);
+
+			if (Physics.Raycast(ray, out RaycastHit hit, (float)500.0f, LayerMask.GetMask("Ground"),QueryTriggerInteraction.Collide))
+			{
+				transform.position = new Vector3(transform.position.x, hit.point.y, transform.position.z);
+			}
 
             transform.position -= pointDiff * m_sensitivity;
         }
