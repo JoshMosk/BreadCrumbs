@@ -101,13 +101,15 @@ public class RadialMenu : MonoBehaviour
 
 		//m_arrow.LookAt(m_cursorTranform, /*m_arrow.parent.transform.forward * -1*/ new Vector3(0, 0, -1));
 
-		Vector2 direction = m_cursorTranform.position - m_arrow.position;
+		Vector2 direction = m_cursorTranform.localPosition /*- m_arrow.position*/;
 		float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-		//m_arrow.localRotation = Quaternion.AngleAxis(angle, transform.parent.forward);// Vector3.forward);		//make the forward be the parents forward		//doesnt work
-		
-		m_arrow.rotation = Quaternion.Euler(m_arrow.rotation.eulerAngles.x, 0, m_arrow.rotation.eulerAngles.z); //new Vector3(0, 0, m_arrow.rotation.z);
+		m_arrow.localRotation = Quaternion.AngleAxis(angle, /*transform.parent.forward);*/ Vector3.forward);        //make the forward be the parents forward		//doesnt work
 
-        //m_arrow.rotation = Quaternion.LookRotation(m_cursorTranform.position - m_arrow.position);
+		Debug.Log(m_cursorTranform.localPosition);
+
+		//m_arrow.rotation = Quaternion.Euler(m_arrow.rotation.eulerAngles.x, 0, m_arrow.rotation.eulerAngles.z); //new Vector3(0, 0, m_arrow.rotation.z);
+
+        //m_arrow.rotation = Quaternion.LookRotation(m_cursorTranform.position - m_arrow.position);		//doesnt work
     }
 
 	public void SetTouchPos(Vector2 newValue)
