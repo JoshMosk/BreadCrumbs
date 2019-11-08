@@ -6,12 +6,17 @@ public class EpiloguePlayerPosReset : MonoBehaviour
 {
 	GameObject player;
 
-	//need to reset raypoint in player mover and target in player mover
+	Material playerFadeEffect;
 
-    // Start is called before the first frame update
+	float progress = 1.0f;
+	public float transitionTime = 0.5f;
+
+	//reset raypoint in player mover and target in player mover
     void Start()
     {
 		player = GameObject.Find("Player");
+
+		playerFadeEffect = GameObject.Find("SceneFadeEffect").GetComponent<Material>();
 
 		FindObjectOfType<LinePointAutoSetter>().DoTheThing();
 		HandAnimController[] hand = FindObjectsOfType<HandAnimController>();
@@ -19,11 +24,14 @@ public class EpiloguePlayerPosReset : MonoBehaviour
 		{
 			h.DoTheThing();
 		}
-    }
 
-    // Update is called once per frame
+		player.transform.position = this.transform.position;
+	}
+
     void Update()
     {
-		player.transform.position = this.transform.position;
+		progress -= Time.deltaTime / transitionTime;
+
+		playerFadeEffect.SetFloat("_DissolveSlider", progress);
     }
 }
