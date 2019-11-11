@@ -10,7 +10,6 @@ public class RadialMenu : MonoBehaviour
 	public Transform m_arrow;
 
 	public IInput m_input;
-	public float inputTimer;
 	public DialogueManager dialogue;
 
 	[Header("Events")]
@@ -34,7 +33,6 @@ public class RadialMenu : MonoBehaviour
 	{
 		dialogue = GameObject.FindObjectOfType<DialogueManager>();
 		m_input = GetComponent<IInput>();
-		inputTimer = 1.0f;
 	}
 
 	private void CreateSections()
@@ -53,25 +51,23 @@ public class RadialMenu : MonoBehaviour
 
 	private void Update()
 	{
-		inputTimer -= Time.deltaTime;
+		SetTouchPos(m_input.TouchPadPos);       //get touch pad pos
 
-		SetTouchPos(m_input.TouchPadPos);
+		Vector2 direction = Vector2.zero + touchPos;        //idk
+		float rot = GetDegree(direction);       //gets the degree of rotation
 
-		Vector2 direction = Vector2.zero + touchPos;
-		float rot = GetDegree(direction);
+		SetCursorPos();     //sets cursor pos
+		SetArrowRot();      //sets arrow pos
 
-		SetCursorPos();
-		SetArrowRot();
+		SetSelectionRotation(rot);      //finds out which option is selected
+		SetSelectedEvent(rot);      //sets the event of said option
 
-		SetSelectionRotation(rot);
-		SetSelectedEvent(rot);
-
-		if(m_input.NPCInteractDown && DialogueManager.instance.isMultipleChoice)
+		if(m_input.NPCInteractDown && DialogueManager.instance.isMultipleChoice)        //if input is down and mchoice is active in convo
 		{
-			if(dialogue.cooldownTimerNextNode <= 0.0f)
+			if(dialogue.cooldownTimerNextNode <= 0.0f)      //if cooldown is done
 			{
-				dialogue.cooldownTimerNextNode = 1.0f;
-				ActivateHighlightedSections();
+				dialogue.cooldownTimerNextNode = 1.0f;      //reset cooldown
+				ActivateHighlightedSections();      //press button
 			}
 		}
 	}
@@ -79,8 +75,7 @@ public class RadialMenu : MonoBehaviour
 	private float GetDegree(Vector2 dir)
 	{
 		float value = Mathf.Atan2(dir.x, dir.y);
-
-		value *= Mathf.Rad2Deg;
+        value *= Mathf.Rad2Deg;
 
 		if(value < 0)		//so instead of -180 to 180 is 0 to 360
 		{
@@ -97,19 +92,10 @@ public class RadialMenu : MonoBehaviour
 
 	private void SetArrowRot()
 	{
-		//m_arrow.localRotation = Quaternion.LookRotation(Vector3.forward, m_cursorTranform.position); //doesnt work
-
-		//m_arrow.LookAt(m_cursorTranform, /*m_arrow.parent.transform.forward * -1*/ new Vector3(0, 0, -1));
-
-		Vector2 direction = m_cursorTranform.localPosition /*- m_arrow.position*/;
+		Vector2 direction = m_cursorTranform.localPosition;
 		float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-		m_arrow.localRotation = Quaternion.AngleAxis(angle, /*transform.parent.forward);*/ Vector3.forward);        //make the forward be the parents forward		//doesnt work
+		m_arrow.localRotation = Quaternion.AngleAxis(angle, Vector3.forward);        //make the forward be the parents forward		//doesnt work
 
-		Debug.Log(m_cursorTranform.localPosition);
-
-		//m_arrow.rotation = Quaternion.Euler(m_arrow.rotation.eulerAngles.x, 0, m_arrow.rotation.eulerAngles.z); //new Vector3(0, 0, m_arrow.rotation.z);
-
-        //m_arrow.rotation = Quaternion.LookRotation(m_cursorTranform.position - m_arrow.position);		//doesnt work
     }
 
 	public void SetTouchPos(Vector2 newValue)
@@ -141,7 +127,8 @@ public class RadialMenu : MonoBehaviour
 	{
 		int index = GetNearestIncrement(currentRotation);
 
-		if (index == 4)
+        //if we want to have yes or no i thing it needs to be done here
+        if (index == 4)
 			index = 0;
 
 		highlightedSection = radialSections[index];

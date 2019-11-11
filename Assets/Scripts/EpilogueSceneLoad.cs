@@ -10,7 +10,7 @@ public class EpilogueSceneLoad : MonoBehaviour
 	public PuzzleComplete puzzle3Complete;
 	public PuzzleComplete puzzle4Complete;
 
-	Material playerFadeEffect;
+	Renderer playerFadeEffect;
 	bool startSceneLoad;
 
 	public float transitionTime = 1.5f;
@@ -18,7 +18,7 @@ public class EpilogueSceneLoad : MonoBehaviour
 
 	private void Start()
 	{
-		playerFadeEffect = GameObject.Find("SceneFadeEffect").GetComponent<Material>();
+        StartCoroutine(SetPlayerFade());
 	}
 
 	private void OnTriggerEnter(Collider other)
@@ -56,7 +56,8 @@ public class EpilogueSceneLoad : MonoBehaviour
 			progress = 0;
 		}
 
-		playerFadeEffect.SetFloat("_DissolveSlider", progress);
+        //if (playerFadeEffect != null)
+		playerFadeEffect.material.SetFloat("_DissolveSlider", progress);
 
 		if (progress == 1.0f)
 		{
@@ -64,4 +65,15 @@ public class EpilogueSceneLoad : MonoBehaviour
 		}
 
 	}
+
+    IEnumerator SetPlayerFade()
+    {
+        while (playerFadeEffect == null)
+        {
+            playerFadeEffect = GameObject.Find("SceneFadeEffect").GetComponent<Renderer>();
+
+            yield return new WaitForSeconds(5.0f);
+        }
+
+    }
 }

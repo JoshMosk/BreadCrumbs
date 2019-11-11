@@ -62,6 +62,26 @@ namespace MajorVRProj
 			{
 				target.SetActive(false);
 			}
+            //TODO:find out where the corners end, does it include player pos and does it include the dest, does it update or 
+            //do i have to force it using agent.CalculatePath?
+            else
+            {
+                Vector3 startPoint;
+                Vector3 endPoint;
+
+                Debug.DrawLine(agent.transform.position, agent.path.corners[0], Color.blue);
+
+                for (int i = 0; i < agent.path.corners.Length - 1; i++)
+                {
+                    startPoint = agent.path.corners[i];
+                    endPoint = agent.path.corners[i + 1];
+
+                    Debug.DrawLine(startPoint, endPoint, Color.red);
+                }
+
+                Debug.DrawLine(agent.pathEndPosition, agent.destination, Color.blue);
+                
+            }
 		}
 
         void RayCastMove()
@@ -88,9 +108,9 @@ namespace MajorVRProj
 
 						m_line.SetPosition(0, m_rayPoint.position);		//set line rend
 						m_line.SetPosition(1, hit.point);		//set line rend
-						m_line.enabled = true;		//enable line rend
+						m_line.enabled = true;      //enable line rend
 
-						target.transform.position = hit.point;		//set target visual pos
+                        target.transform.position = agent.destination;//hit.point;		//set target visual pos
 						target.SetActive(true);		//enable target visual
 					}
                 }
