@@ -30,8 +30,10 @@ public class EpiloguePlayerPosReset : MonoBehaviour
 
     void Update()
     {
-		progress -= Time.deltaTime / transitionTime;
-
-		playerFadeEffect.SetFloat("_DissolveSlider", progress);
+        if(progress >= 0)
+        {
+            progress -= Time.deltaTime / transitionTime;
+            playerFadeEffect.SetFloat("_DissolveSlider", progress);
+        }
     }
 }

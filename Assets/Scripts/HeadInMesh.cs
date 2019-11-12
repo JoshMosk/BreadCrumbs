@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class HeadInMesh : MonoBehaviour
 {
-
-    Renderer mat;
+    
+    public Renderer mat;
 
     public float transitionTime = 0.2f;
     float progress;
@@ -24,7 +24,8 @@ public class HeadInMesh : MonoBehaviour
 
     private void Start()
     {
-        mat = GetComponent<Renderer>();
+        if (mat == null)
+            mat = GetComponent<Renderer>();
     }
 
     private void Update()
