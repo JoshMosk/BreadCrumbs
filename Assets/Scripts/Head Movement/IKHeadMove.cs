@@ -4,52 +4,69 @@ using UnityEngine;
 
 public class IKHeadMove : MonoBehaviour {
 
-    Animator anim;
-    public float minDist = 250f;
+
+    [Header("Setup")]
     public GameObject lookObject;
-    
-    public List<PointOfInterest> poiList = new List<PointOfInterest>();
+    public float searchDistance = 250f;
+    public List<PointOfInterest> pointsOfInterest = new List<PointOfInterest>();
+    private Animator anim;
 
-    public float macroLookTimer;
-    public float macroSpeed = 2f;
-    public Transform macroTarget;
 
-    public float microLookTimer;
-    public float microSpeed = 1f;
-    public Vector3 microTarget;
-    public float microSphere = 3;
+    [Header("Speed")]
+    public float moveSpeedHigh;
+    public float moveSpeedLow;
 
-    public float microSmall = 2;
-    public float microBig = 7;
-    public float macroSmall = 2;
-    public float macroBig = 20;
 
+    [Header("Large Head Movements")]
+    public float macroSmall;
+    public float macroBig;
+
+    private float macroLookTimer;
+    private Transform macroTarget;
+
+
+    [Header("Small Head Movements")]
+    public float microSmall;
+    public float microBig;
+
+    public float microSphere;
+
+    private float microLookTimer;
+    private Vector3 microTarget;
+
+    DialogueManager dialogueMan;
 
     void Start() {
         anim = GetComponent<Animator>();
+        dialogueMan = DialogueManager.instance;
     }
 
     private void Update() {
 
-            macroLookTimer -= Time.deltaTime;
-            microLookTimer -= Time.deltaTime;
+        macroLookTimer -= Time.deltaTime;
+        microLookTimer -= Time.deltaTime;
 
-            if (macroLookTimer <= 0f) {
-                GetClosestCharacter(Physics.OverlapSphere(transform.position, 100f), 100f);
-                macroTarget = poiList[Random.Range(0, poiList.Count)].gameObject.transform;
-                macroLookTimer = Random.Range(macroSmall, macroBig);
-            }
+        if (DialogueManager.instance.inConversation) {
+            macroTarget = dialogueMan.speakerObject;
 
-            if (microLookTimer <= 0f) {
-                microTarget = (macroTarget.position + macroTarget.GetComponent<PointOfInterest>().offset) + (Random.insideUnitSphere * microSphere);
-                microLookTimer = Random.Range(microSmall, microBig);
-            }
+        } else if (macroLookTimer <= 0f) {
+            GetClosestCharacter(Physics.OverlapSphere(transform.position, 100f), 100f);
+            macroTarget = pointsOfInterest[Random.Range(0, pointsOfInterest.Count)].gameObject.transform;
+            macroLookTimer = Random.Range(macroSmall, macroBig);
+        }
 
-            lookObject.transform.position = Vector3.Lerp(lookObject.transform.position, microTarget, Time.deltaTime * macroSpeed);
+        if (microLookTimer <= 0f) {
+            microTarget = (macroTarget.position + macroTarget.GetComponent<PointOfInterest>().offset) + (Random.insideUnitSphere * microSphere);
+            microLookTimer = Random.Range(microSmall, microBig);
+        }
+
+        if (microTarget.y <= 0f) microTarget.y = 3f;
+
+        lookObject.transform.position = Vector3.Lerp(lookObject.transform.position, microTarget, Time.deltaTime * Random.Range(moveSpeedLow, moveSpeedHigh));
     }
 
     private void GetClosestCharacter(Collider[] characters, float radius) {
-        poiList = new List<PointOfInterest>();
+        pointsOfInterest = new List<PointOfInterest>();
         foreach (Collider currentCharacter in characters) {
             if (currentCharacter.gameObject == gameObject)
                 continue;
@@ -57,27 +74,24 @@ public class IKHeadMove : MonoBehaviour {
             PointOfInterest comp = currentCharacter.GetComponent<PointOfInterest>();
             if (comp != null) {
                 Vector3 t = currentCharacter.transform.position - transform.position;
-                float dist = t.x * t.x + t.y * t.y + t.z * t.z;  // Same as "= t.sqrMagnitude;" but faster
-                if (dist < minDist) {
-                    poiList.Add(comp);
+                float dist = t.x * t.x + t.y * t.y + t.z * t.z;
+                if (dist < searchDistance) {
+                    pointsOfInterest.Add(comp);
                 }
             }
         }
     }
 
     private void OnAnimatorIK(int layerIndex) {
-        if (macroTarget && poiList.Count != 0) {
-            anim.SetLookAtPosition(lookObject.transform.position);
-            anim.SetLookAtWeight(1f);
-        }
+        anim.SetLookAtWeight(1f);
+        if (macroTarget && pointsOfInterest.Count != 0) anim.SetLookAtPosition(lookObject.transform.position);
     }
 
     void OnDrawGizmosSelected() {
-        // Draw a yellow sphere at the transform's position
         Gizmos.color = Color.blue;
-        Gizmos.DrawSphere(lookObject.transform.position, .1f);
+        Gizmos.DrawWireSphere(lookObject.transform.position, .1f);
 
-      //  Gizmos.color = Color.green;
-     //   Gizmos.DrawWireSphere(macroTarget.transform.position, spherewsie);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(macroTarget.transform.position + macroTarget.GetComponent<PointOfInterest>().offset, microSphere * 2);
     }
 }
