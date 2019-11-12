@@ -11,10 +11,11 @@ public class EpilogueSceneLoad : MonoBehaviour
 	public PuzzleComplete puzzle4Complete;
 
 	Renderer playerFadeEffect;
-	bool startSceneLoad;
+	bool sceneLoadEnabled;
 
 	public float transitionTime = 1.5f;
 	float progress;
+    bool loadStarted;
 
 	private void Start()
 	{
@@ -27,7 +28,7 @@ public class EpilogueSceneLoad : MonoBehaviour
 		{
 			if (puzzle1Complete.m_puzzleComplete == true || puzzle2Complete.m_puzzleComplete == true || puzzle3Complete.m_puzzleComplete == true || puzzle4Complete.m_puzzleComplete == true)
 			{
-				startSceneLoad = true;
+				sceneLoadEnabled = true;
 			}
 		}
 
@@ -38,7 +39,7 @@ public class EpilogueSceneLoad : MonoBehaviour
 	{
 		//when triggered start anim, once anim complete load scene, then un anim once loaded
 
-		if (startSceneLoad == true)
+		if (sceneLoadEnabled == true)
 		{
 			progress += Time.deltaTime / transitionTime;
 		}
@@ -61,7 +62,11 @@ public class EpilogueSceneLoad : MonoBehaviour
 
 		if (progress == 1.0f)
 		{
-			SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+            if (loadStarted == false)
+            {
+                SceneManager.LoadSceneAsync(1);
+                loadStarted = true;
+            }
 		}
 
 	}
