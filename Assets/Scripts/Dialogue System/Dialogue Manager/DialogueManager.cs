@@ -50,6 +50,16 @@ public class DialogueManager : MonoBehaviour {
     [HideInInspector] public float cooldownTimer;
     [HideInInspector] public float cooldownTimerNextNode;
 
+    private float bodyH;
+    public float sizeOffset;
+    private RectTransform rectt;
+    public float lerpSize;
+    public float lerpSpeed;
+
+    public AudioClip[] dialogueClips;
+    public Dictionary<string, AudioClip> audidict = new Dictionary<string, AudioClip>();
+    public AudioSource aSource;
+
     private void Start() {
 
         // Set up the multiple choice buttons
@@ -61,6 +71,14 @@ public class DialogueManager : MonoBehaviour {
 
         m_input = GetComponent<IInput>();
         canvGroup = panelObject.GetComponent<CanvasGroup>();
+
+        rectt = panelObject.gameObject.GetComponent<RectTransform>();
+
+        foreach (AudioClip aud in dialogueClips) {
+            audidict[aud.name] = aud;
+        }
+
+        dialogueClips = null;
     }
 
     private void Update() {
@@ -68,8 +86,8 @@ public class DialogueManager : MonoBehaviour {
         cooldownTimer -= Time.deltaTime;
         cooldownTimerNextNode -= Time.deltaTime;
 
-        if (inConversation) transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(0.01124641f, 0.01124641f, 0.01124641f), .2f * Time.deltaTime);
-        else transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(0, 0, 0), .2f * Time.deltaTime);
+        if (inConversation) transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(0.01124641f, 0.01124641f, 0.01124641f), 2f * Time.deltaTime);
+        else transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(0, 0, 0), 2f * Time.deltaTime);
 
         if (isWorldSpace) {
             transform.LookAt(Camera.main.transform, Vector3.up);
@@ -78,6 +96,9 @@ public class DialogueManager : MonoBehaviour {
                 transform.position = new Vector3(speakerObject.transform.position.x, speakerObject.transform.position.y + 6f, speakerObject.transform.position.z);
             }
         }
+
+        lerpSize = Mathf.Lerp(lerpSize, bodyH + sizeOffset, lerpSpeed / Time.deltaTime);
+        rectt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, lerpSize);
 
         // Show and hide the dialogue box
         if (inConversation) {
@@ -88,9 +109,8 @@ public class DialogueManager : MonoBehaviour {
                 if (cooldownTimerNextNode <= 0f) {
                     cooldownTimerNextNode = 1f;
 
-                    // if (isTyping) isTyping = false;
-                    // else if (canSkip)
-                    FindNextNode();
+                     if (isTyping) isTyping = false;
+                     else if (canSkip) FindNextNode();
                     
                 }
             }
@@ -197,11 +217,11 @@ public class DialogueManager : MonoBehaviour {
 			FindNextNode();
 
         } else if (currentNode.nodeType == Node.NodeType.DialogueNode) {
-            currentEnumerator = StartCoroutine(TypeText((string)currentNode.nodeData["speaker"], (string)currentNode.nodeData["dialogue"]));
+            currentEnumerator = StartCoroutine(TypeText((string)currentNode.nodeData["speaker"], (string)currentNode.nodeData["dialogue"], (string)currentNode.nodeData["emotion"]));
 
         } else if (currentNode.nodeType == Node.NodeType.MultipleChoiceNode) {
             canSkip = false;
-            currentEnumerator = StartCoroutine(TypeText((string)currentNode.nodeData["speaker"], (string)currentNode.nodeData["dialogue"]));
+            currentEnumerator = StartCoroutine(TypeText((string)currentNode.nodeData["speaker"], (string)currentNode.nodeData["dialogue"], (string)currentNode.nodeData["emotion"]));
 
             int optionNumbers = 0;
             if (currentNode.nodeData["option1"].Length != 0) optionNumbers++;
@@ -246,10 +266,12 @@ public class DialogueManager : MonoBehaviour {
         }
     }
 
-    IEnumerator TypeText(string characterName, string bodyString) {
+    IEnumerator TypeText(string characterName, string bodyString, string emotionString) {
+
+        PlaySound(characterName, emotionString);
 
 		isTyping = true;
-        bodyTextBox.text = bodyString;
+        //bodyTextBox.text = bodyString;
 
         if (characterName.Contains("NPC") || characterName.Contains("Shadow Creature")) {
             characterName = "Shadow Creature";
@@ -257,14 +279,18 @@ public class DialogueManager : MonoBehaviour {
 
         speakerTextBox.text = characterName;
 
-        /*
+        TextGenerator textGen = new TextGenerator();
+        TextGenerationSettings generationSettings = bodyTextBox.GetGenerationSettings(bodyTextBox.rectTransform.rect.size);
+
         bodyTextBox.text = "";
         bodyString = bodyString.Replace("…", "...");
 
         foreach (char letter in bodyString) {
 
-            if (isTyping == false) bodyTextBox.text = bodyString;
-            else {
+            if (isTyping == false) {
+                bodyTextBox.text = bodyString;
+                bodyH = textGen.GetPreferredHeight(bodyTextBox.text, generationSettings);
+            } else {
 
                 bodyTextBox.text += letter;
                 if (letter == ".".ToCharArray()[0]) yield return new WaitForSeconds(.1f);
@@ -273,14 +299,29 @@ public class DialogueManager : MonoBehaviour {
                 else if (letter == "?".ToCharArray()[0]) yield return new WaitForSeconds(.5f);
                 else yield return new WaitForSeconds(.01f);
 
+                bodyH = textGen.GetPreferredHeight(bodyTextBox.text, generationSettings);
+
             }
 
         }
 
-    */
-
         isTyping = false;
-        yield return new WaitForSeconds(.01f);
+    }
+
+    void PlaySound(string characterN, string emotion) {
+
+        List<AudioClip> soundDi = new List<AudioClip>();
+        foreach (string keys in audidict.Keys) {
+            if (keys.Contains(characterN) && keys.Contains(emotion)) {
+                soundDi.Add(audidict[keys]);
+            }
+        }
+
+        if (soundDi.Count != 0) {
+            aSource.clip = soundDi[Random.Range(0, soundDi.Count)] as AudioClip;
+            aSource.Play();
+        }
+
     }
 
     void ShowMultipleChoice(int optionCount) {

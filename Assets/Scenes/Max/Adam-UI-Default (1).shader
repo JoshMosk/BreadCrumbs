@@ -22,7 +22,7 @@ Shader "UI/Default-Max"
     {
         Tags
         {
-            "Queue"= "Overlay"
+            "Queue"= "Overlay+1"
             "IgnoreProjector"="True"
             "RenderType"="Transparent"
             "PreviewType"="Plane"
