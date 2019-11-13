@@ -55,14 +55,18 @@ public class IKHeadMove : MonoBehaviour {
             macroLookTimer = Random.Range(macroSmall, macroBig);
         }
 
-        if (microLookTimer <= 0f) {
-            microTarget = (macroTarget.position + macroTarget.GetComponent<PointOfInterest>().offset) + (Random.insideUnitSphere * microSphere);
-            microLookTimer = Random.Range(microSmall, microBig);
+        if (macroTarget) {
+
+            if (microLookTimer <= 0f) {
+                if (macroTarget.GetComponent<PointOfInterest>()) microTarget = (macroTarget.position + macroTarget.GetComponent<PointOfInterest>().offset) + (Random.insideUnitSphere * microSphere);
+                else microTarget = (macroTarget.position) + (Random.insideUnitSphere * microSphere);
+                microLookTimer = Random.Range(microSmall, microBig);
+            }
+
+            if (microTarget.y <= 0f) microTarget.y = 3f;
+
+            lookObject.transform.position = Vector3.Lerp(lookObject.transform.position, microTarget, Time.deltaTime * Random.Range(moveSpeedLow, moveSpeedHigh));
         }
-
-        if (microTarget.y <= 0f) microTarget.y = 3f;
-
-        lookObject.transform.position = Vector3.Lerp(lookObject.transform.position, microTarget, Time.deltaTime * Random.Range(moveSpeedLow, moveSpeedHigh));
     }
 
     private void GetClosestCharacter(Collider[] characters, float radius) {
