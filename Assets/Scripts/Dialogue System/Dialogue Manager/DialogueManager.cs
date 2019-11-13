@@ -60,6 +60,10 @@ public class DialogueManager : MonoBehaviour {
     public Dictionary<string, AudioClip> audidict = new Dictionary<string, AudioClip>();
     public AudioSource aSource;
 
+    public Area1ChildCorrect child1;
+    public Area1ChildCorrect child2;
+    public Area1ChildCorrect child3;
+
     private void Start() {
 
         // Set up the multiple choice buttons
@@ -214,7 +218,17 @@ public class DialogueManager : MonoBehaviour {
             if (currentNode.nodeData["event"] == "Puzzle1Complete") puzzle1Completed.CompletePuzzle();
 			if (currentNode.nodeData["event"] == "Puzzle2Complete") puzzle2Completed.CompletePuzzle();
             if (currentNode.nodeData["event"] == "Puzzle3Complete") puzzle3Completed.CompletePuzzle();
-			FindNextNode();
+
+            if (currentNode.nodeData["event"] == "Child1On") child1.ChildCorrect();
+            else if (currentNode.nodeData["event"] == "Child1Off") child1.ChildIncorrect();
+
+            if (currentNode.nodeData["event"] == "Child2On") child2.ChildCorrect();
+            else if (currentNode.nodeData["event"] == "Child2Off") child2.ChildIncorrect();
+
+            if (currentNode.nodeData["event"] == "Child2On") child3.ChildCorrect();
+            else if (currentNode.nodeData["event"] == "Child2Off") child3.ChildIncorrect();
+
+            FindNextNode();
 
         } else if (currentNode.nodeType == Node.NodeType.DialogueNode) {
             currentEnumerator = StartCoroutine(TypeText((string)currentNode.nodeData["speaker"], (string)currentNode.nodeData["dialogue"], (string)currentNode.nodeData["emotion"]));
