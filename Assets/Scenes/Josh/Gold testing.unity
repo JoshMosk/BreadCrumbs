@@ -27,7 +27,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 15f2ce356d0046440a60e5d609564ca2, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: bea6bd1589e224815b2d82729e50a916, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -3882,6 +3882,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 408221815}
     m_Modifications:
+    - target: {fileID: 4129536643578577423, guid: babbd985e33f66748a9014faed169e96,
+        type: 3}
+      propertyPath: m_Name
+      value: Plank_004
+      objectReference: {fileID: 0}
     - target: {fileID: 9177453316531641065, guid: babbd985e33f66748a9014faed169e96,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3956,11 +3961,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90.00001
-      objectReference: {fileID: 0}
-    - target: {fileID: 4129536643578577423, guid: babbd985e33f66748a9014faed169e96,
-        type: 3}
-      propertyPath: m_Name
-      value: Plank_004
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: babbd985e33f66748a9014faed169e96, type: 3}
@@ -5454,6 +5454,26 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 289512537}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &292470804 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 394449856426200719, guid: 2600f8db4d9bf244993ff9113ce1bc58,
+    type: 3}
+  m_PrefabInstance: {fileID: 1046401443}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &292470808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292470804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6d538f5d66fd974293d61f0507da76d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 1932559714}
+  transitionTime: 0.2
 --- !u!1 &295783501
 GameObject:
   m_ObjectHideFlags: 19
@@ -5699,6 +5719,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 871079116}
     m_Modifications:
+    - target: {fileID: 4129536643578577423, guid: f360dc03073153b4aacd2329c52dfb79,
+        type: 3}
+      propertyPath: m_Name
+      value: Plank_003
+      objectReference: {fileID: 0}
     - target: {fileID: 9177453316531641065, guid: f360dc03073153b4aacd2329c52dfb79,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5758,11 +5783,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.x
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4129536643578577423, guid: f360dc03073153b4aacd2329c52dfb79,
-        type: 3}
-      propertyPath: m_Name
-      value: Plank_003
       objectReference: {fileID: 0}
     - target: {fileID: 6457472945515528901, guid: f360dc03073153b4aacd2329c52dfb79,
         type: 3}
@@ -7057,6 +7077,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 871079116}
     m_Modifications:
+    - target: {fileID: 7495408074670322854, guid: 9e5a947f876234e42a8b4ece7f9d8895,
+        type: 3}
+      propertyPath: m_Name
+      value: Wood Pallet 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3252919974703830484, guid: 9e5a947f876234e42a8b4ece7f9d8895,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7111,11 +7136,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90.00001
-      objectReference: {fileID: 0}
-    - target: {fileID: 7495408074670322854, guid: 9e5a947f876234e42a8b4ece7f9d8895,
-        type: 3}
-      propertyPath: m_Name
-      value: Wood Pallet 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e5a947f876234e42a8b4ece7f9d8895, type: 3}
@@ -7901,6 +7921,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 871079116}
     m_Modifications:
+    - target: {fileID: 7495408074670322854, guid: 9e5a947f876234e42a8b4ece7f9d8895,
+        type: 3}
+      propertyPath: m_Name
+      value: Wood Pallet 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3252919974703830484, guid: 9e5a947f876234e42a8b4ece7f9d8895,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7955,11 +7980,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90.00001
-      objectReference: {fileID: 0}
-    - target: {fileID: 7495408074670322854, guid: 9e5a947f876234e42a8b4ece7f9d8895,
-        type: 3}
-      propertyPath: m_Name
-      value: Wood Pallet 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e5a947f876234e42a8b4ece7f9d8895, type: 3}
@@ -12985,6 +13005,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2080372292}
     m_Modifications:
+    - target: {fileID: 4129536643578577423, guid: 1bbf3cc2809346d4ba4f6a329726a940,
+        type: 3}
+      propertyPath: m_Name
+      value: Plank_001 (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 9177453316531641065, guid: 1bbf3cc2809346d4ba4f6a329726a940,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13054,11 +13079,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.025
-      objectReference: {fileID: 0}
-    - target: {fileID: 4129536643578577423, guid: 1bbf3cc2809346d4ba4f6a329726a940,
-        type: 3}
-      propertyPath: m_Name
-      value: Plank_001 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 363853345327284053, guid: 1bbf3cc2809346d4ba4f6a329726a940,
         type: 3}
@@ -14666,6 +14686,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2080372292}
     m_Modifications:
+    - target: {fileID: 4129536643578577423, guid: 1bbf3cc2809346d4ba4f6a329726a940,
+        type: 3}
+      propertyPath: m_Name
+      value: Plank_001
+      objectReference: {fileID: 0}
     - target: {fileID: 9177453316531641065, guid: 1bbf3cc2809346d4ba4f6a329726a940,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14735,11 +14760,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.x
       value: 0.025000008
-      objectReference: {fileID: 0}
-    - target: {fileID: 4129536643578577423, guid: 1bbf3cc2809346d4ba4f6a329726a940,
-        type: 3}
-      propertyPath: m_Name
-      value: Plank_001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bbf3cc2809346d4ba4f6a329726a940, type: 3}
@@ -16255,6 +16275,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 46921121}
     m_Modifications:
+    - target: {fileID: 4129536643578577423, guid: f360dc03073153b4aacd2329c52dfb79,
+        type: 3}
+      propertyPath: m_Name
+      value: Plank_003 (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 9177453316531641065, guid: f360dc03073153b4aacd2329c52dfb79,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16309,11 +16334,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 270
-      objectReference: {fileID: 0}
-    - target: {fileID: 4129536643578577423, guid: f360dc03073153b4aacd2329c52dfb79,
-        type: 3}
-      propertyPath: m_Name
-      value: Plank_003 (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f360dc03073153b4aacd2329c52dfb79, type: 3}
@@ -16663,6 +16683,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 871079116}
     m_Modifications:
+    - target: {fileID: 4129536643578577423, guid: 68d3410a2b8d08c40b099b278c097998,
+        type: 3}
+      propertyPath: m_Name
+      value: Plank_002
+      objectReference: {fileID: 0}
     - target: {fileID: 9177453316531641065, guid: 68d3410a2b8d08c40b099b278c097998,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16717,11 +16742,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90.00001
-      objectReference: {fileID: 0}
-    - target: {fileID: 4129536643578577423, guid: 68d3410a2b8d08c40b099b278c097998,
-        type: 3}
-      propertyPath: m_Name
-      value: Plank_002
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68d3410a2b8d08c40b099b278c097998, type: 3}
@@ -17311,6 +17331,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2080372292}
     m_Modifications:
+    - target: {fileID: 4129536643578577423, guid: 68d3410a2b8d08c40b099b278c097998,
+        type: 3}
+      propertyPath: m_Name
+      value: Plank_002
+      objectReference: {fileID: 0}
     - target: {fileID: 9177453316531641065, guid: 68d3410a2b8d08c40b099b278c097998,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17380,11 +17405,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.025
-      objectReference: {fileID: 0}
-    - target: {fileID: 4129536643578577423, guid: 68d3410a2b8d08c40b099b278c097998,
-        type: 3}
-      propertyPath: m_Name
-      value: Plank_002
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68d3410a2b8d08c40b099b278c097998, type: 3}
@@ -18442,6 +18462,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 871079116}
     m_Modifications:
+    - target: {fileID: 4129536643578577423, guid: babbd985e33f66748a9014faed169e96,
+        type: 3}
+      propertyPath: m_Name
+      value: Plank_004
+      objectReference: {fileID: 0}
     - target: {fileID: 9177453316531641065, guid: babbd985e33f66748a9014faed169e96,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -18496,11 +18521,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -74.347
-      objectReference: {fileID: 0}
-    - target: {fileID: 4129536643578577423, guid: babbd985e33f66748a9014faed169e96,
-        type: 3}
-      propertyPath: m_Name
-      value: Plank_004
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: babbd985e33f66748a9014faed169e96, type: 3}
@@ -19072,6 +19092,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 600952583}
     m_Modifications:
+    - target: {fileID: 4129536643578577423, guid: 1bbf3cc2809346d4ba4f6a329726a940,
+        type: 3}
+      propertyPath: m_Name
+      value: Plank_001 (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 9177453316531641065, guid: 1bbf3cc2809346d4ba4f6a329726a940,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -19127,11 +19152,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -5.8040004
       objectReference: {fileID: 0}
-    - target: {fileID: 4129536643578577423, guid: 1bbf3cc2809346d4ba4f6a329726a940,
-        type: 3}
-      propertyPath: m_Name
-      value: Plank_001 (1)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bbf3cc2809346d4ba4f6a329726a940, type: 3}
 --- !u!4 &928514257 stripped
@@ -19185,6 +19205,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 408221815}
     m_Modifications:
+    - target: {fileID: 4129536643578577423, guid: f360dc03073153b4aacd2329c52dfb79,
+        type: 3}
+      propertyPath: m_Name
+      value: Plank_003
+      objectReference: {fileID: 0}
     - target: {fileID: 9177453316531641065, guid: f360dc03073153b4aacd2329c52dfb79,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -19239,11 +19264,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90.00001
-      objectReference: {fileID: 0}
-    - target: {fileID: 4129536643578577423, guid: f360dc03073153b4aacd2329c52dfb79,
-        type: 3}
-      propertyPath: m_Name
-      value: Plank_003
       objectReference: {fileID: 0}
     - target: {fileID: 6457472945515528901, guid: f360dc03073153b4aacd2329c52dfb79,
         type: 3}
@@ -20886,6 +20906,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2080372292}
     m_Modifications:
+    - target: {fileID: 4129536643578577423, guid: 1bbf3cc2809346d4ba4f6a329726a940,
+        type: 3}
+      propertyPath: m_Name
+      value: Plank_001 (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 9177453316531641065, guid: 1bbf3cc2809346d4ba4f6a329726a940,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -20955,11 +20980,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.025000006
-      objectReference: {fileID: 0}
-    - target: {fileID: 4129536643578577423, guid: 1bbf3cc2809346d4ba4f6a329726a940,
-        type: 3}
-      propertyPath: m_Name
-      value: Plank_001 (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bbf3cc2809346d4ba4f6a329726a940, type: 3}
@@ -21767,6 +21787,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3f8fc94d3c9fe8c4284669a7cddbc08f, type: 2}
+    - target: {fileID: 2978002104457005869, guid: 2600f8db4d9bf244993ff9113ce1bc58,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 394449855975065746, guid: 2600f8db4d9bf244993ff9113ce1bc58, type: 3}
     - {fileID: 5307383569334155446, guid: 2600f8db4d9bf244993ff9113ce1bc58, type: 3}
@@ -23151,6 +23176,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 408221815}
     m_Modifications:
+    - target: {fileID: 7495408074670322854, guid: 9e5a947f876234e42a8b4ece7f9d8895,
+        type: 3}
+      propertyPath: m_Name
+      value: Wood Pallet 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3252919974703830484, guid: 9e5a947f876234e42a8b4ece7f9d8895,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -23206,11 +23236,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90.00001
       objectReference: {fileID: 0}
-    - target: {fileID: 7495408074670322854, guid: 9e5a947f876234e42a8b4ece7f9d8895,
-        type: 3}
-      propertyPath: m_Name
-      value: Wood Pallet 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e5a947f876234e42a8b4ece7f9d8895, type: 3}
 --- !u!4 &1117257469 stripped
@@ -23226,6 +23251,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 600952583}
     m_Modifications:
+    - target: {fileID: 4129536643578577423, guid: f360dc03073153b4aacd2329c52dfb79,
+        type: 3}
+      propertyPath: m_Name
+      value: Plank_003 (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 9177453316531641065, guid: f360dc03073153b4aacd2329c52dfb79,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -23281,11 +23311,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -5.8040004
       objectReference: {fileID: 0}
-    - target: {fileID: 4129536643578577423, guid: f360dc03073153b4aacd2329c52dfb79,
-        type: 3}
-      propertyPath: m_Name
-      value: Plank_003 (2)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f360dc03073153b4aacd2329c52dfb79, type: 3}
 --- !u!4 &1127892218 stripped
@@ -23315,6 +23340,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 46921121}
     m_Modifications:
+    - target: {fileID: 4129536643578577423, guid: babbd985e33f66748a9014faed169e96,
+        type: 3}
+      propertyPath: m_Name
+      value: Plank_004 (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 9177453316531641065, guid: babbd985e33f66748a9014faed169e96,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -23369,11 +23399,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4129536643578577423, guid: babbd985e33f66748a9014faed169e96,
-        type: 3}
-      propertyPath: m_Name
-      value: Plank_004 (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: babbd985e33f66748a9014faed169e96, type: 3}
@@ -25520,6 +25545,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2080372292}
     m_Modifications:
+    - target: {fileID: 4129536643578577423, guid: 68d3410a2b8d08c40b099b278c097998,
+        type: 3}
+      propertyPath: m_Name
+      value: Plank_002
+      objectReference: {fileID: 0}
     - target: {fileID: 9177453316531641065, guid: 68d3410a2b8d08c40b099b278c097998,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -25590,11 +25620,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.025000025
       objectReference: {fileID: 0}
-    - target: {fileID: 4129536643578577423, guid: 68d3410a2b8d08c40b099b278c097998,
-        type: 3}
-      propertyPath: m_Name
-      value: Plank_002
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68d3410a2b8d08c40b099b278c097998, type: 3}
 --- !u!4 &1253008048 stripped
@@ -25610,6 +25635,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 871079116}
     m_Modifications:
+    - target: {fileID: 4129536643578577423, guid: f360dc03073153b4aacd2329c52dfb79,
+        type: 3}
+      propertyPath: m_Name
+      value: Plank_003
+      objectReference: {fileID: 0}
     - target: {fileID: 9177453316531641065, guid: f360dc03073153b4aacd2329c52dfb79,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -25664,11 +25694,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4129536643578577423, guid: f360dc03073153b4aacd2329c52dfb79,
-        type: 3}
-      propertyPath: m_Name
-      value: Plank_003
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f360dc03073153b4aacd2329c52dfb79, type: 3}
@@ -25830,6 +25855,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2080372292}
     m_Modifications:
+    - target: {fileID: 4129536643578577423, guid: 1bbf3cc2809346d4ba4f6a329726a940,
+        type: 3}
+      propertyPath: m_Name
+      value: Plank_001
+      objectReference: {fileID: 0}
     - target: {fileID: 9177453316531641065, guid: 1bbf3cc2809346d4ba4f6a329726a940,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -25899,11 +25929,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.025
-      objectReference: {fileID: 0}
-    - target: {fileID: 4129536643578577423, guid: 1bbf3cc2809346d4ba4f6a329726a940,
-        type: 3}
-      propertyPath: m_Name
-      value: Plank_001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bbf3cc2809346d4ba4f6a329726a940, type: 3}
@@ -26483,6 +26508,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2080372292}
     m_Modifications:
+    - target: {fileID: 4129536643578577423, guid: f360dc03073153b4aacd2329c52dfb79,
+        type: 3}
+      propertyPath: m_Name
+      value: Plank_003
+      objectReference: {fileID: 0}
     - target: {fileID: 9177453316531641065, guid: f360dc03073153b4aacd2329c52dfb79,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -26552,11 +26582,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.025
-      objectReference: {fileID: 0}
-    - target: {fileID: 4129536643578577423, guid: f360dc03073153b4aacd2329c52dfb79,
-        type: 3}
-      propertyPath: m_Name
-      value: Plank_003
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f360dc03073153b4aacd2329c52dfb79, type: 3}
@@ -28850,6 +28875,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2080372292}
     m_Modifications:
+    - target: {fileID: 4129536643578577423, guid: f360dc03073153b4aacd2329c52dfb79,
+        type: 3}
+      propertyPath: m_Name
+      value: Plank_003
+      objectReference: {fileID: 0}
     - target: {fileID: 9177453316531641065, guid: f360dc03073153b4aacd2329c52dfb79,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28919,11 +28949,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.024999999
-      objectReference: {fileID: 0}
-    - target: {fileID: 4129536643578577423, guid: f360dc03073153b4aacd2329c52dfb79,
-        type: 3}
-      propertyPath: m_Name
-      value: Plank_003
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f360dc03073153b4aacd2329c52dfb79, type: 3}
@@ -29418,6 +29443,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 600952583}
     m_Modifications:
+    - target: {fileID: 4129536643578577423, guid: babbd985e33f66748a9014faed169e96,
+        type: 3}
+      propertyPath: m_Name
+      value: Plank_004 (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 9177453316531641065, guid: babbd985e33f66748a9014faed169e96,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -29472,11 +29502,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -5.8040004
-      objectReference: {fileID: 0}
-    - target: {fileID: 4129536643578577423, guid: babbd985e33f66748a9014faed169e96,
-        type: 3}
-      propertyPath: m_Name
-      value: Plank_004 (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: babbd985e33f66748a9014faed169e96, type: 3}
@@ -30478,6 +30503,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 150854064}
     m_Modifications:
+    - target: {fileID: 410606690975815009, guid: d4791a716981b404599a7678702edb99,
+        type: 3}
+      propertyPath: m_Name
+      value: Dialogue Trigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 410606690975815009, guid: d4791a716981b404599a7678702edb99,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2206463112928194082, guid: d4791a716981b404599a7678702edb99,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -30532,16 +30567,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 410606690975815009, guid: d4791a716981b404599a7678702edb99,
-        type: 3}
-      propertyPath: m_Name
-      value: Dialogue Trigger
-      objectReference: {fileID: 0}
-    - target: {fileID: 410606690975815009, guid: d4791a716981b404599a7678702edb99,
-        type: 3}
-      propertyPath: m_Layer
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 902517948967185286, guid: d4791a716981b404599a7678702edb99,
         type: 3}
@@ -30988,6 +31013,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2080372292}
     m_Modifications:
+    - target: {fileID: 4129536643578577423, guid: babbd985e33f66748a9014faed169e96,
+        type: 3}
+      propertyPath: m_Name
+      value: Plank_004 (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 9177453316531641065, guid: babbd985e33f66748a9014faed169e96,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -31057,11 +31087,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.025000002
-      objectReference: {fileID: 0}
-    - target: {fileID: 4129536643578577423, guid: babbd985e33f66748a9014faed169e96,
-        type: 3}
-      propertyPath: m_Name
-      value: Plank_004 (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: babbd985e33f66748a9014faed169e96, type: 3}
@@ -31278,6 +31303,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 46921121}
     m_Modifications:
+    - target: {fileID: 7495408074670322854, guid: 9e5a947f876234e42a8b4ece7f9d8895,
+        type: 3}
+      propertyPath: m_Name
+      value: Wood Pallet 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3252919974703830484, guid: 9e5a947f876234e42a8b4ece7f9d8895,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -31333,11 +31363,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90.02801
       objectReference: {fileID: 0}
-    - target: {fileID: 7495408074670322854, guid: 9e5a947f876234e42a8b4ece7f9d8895,
-        type: 3}
-      propertyPath: m_Name
-      value: Wood Pallet 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e5a947f876234e42a8b4ece7f9d8895, type: 3}
 --- !u!4 &1515601585 stripped
@@ -31353,6 +31378,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 600952583}
     m_Modifications:
+    - target: {fileID: 7495408074670322854, guid: 9e5a947f876234e42a8b4ece7f9d8895,
+        type: 3}
+      propertyPath: m_Name
+      value: Wood Pallet 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3252919974703830484, guid: 9e5a947f876234e42a8b4ece7f9d8895,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -31407,11 +31437,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90.413
-      objectReference: {fileID: 0}
-    - target: {fileID: 7495408074670322854, guid: 9e5a947f876234e42a8b4ece7f9d8895,
-        type: 3}
-      propertyPath: m_Name
-      value: Wood Pallet 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e5a947f876234e42a8b4ece7f9d8895, type: 3}
@@ -32007,6 +32032,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 871079116}
     m_Modifications:
+    - target: {fileID: 4129536643578577423, guid: 1bbf3cc2809346d4ba4f6a329726a940,
+        type: 3}
+      propertyPath: m_Name
+      value: Plank_001
+      objectReference: {fileID: 0}
     - target: {fileID: 9177453316531641065, guid: 1bbf3cc2809346d4ba4f6a329726a940,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -32062,11 +32092,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90.00001
       objectReference: {fileID: 0}
-    - target: {fileID: 4129536643578577423, guid: 1bbf3cc2809346d4ba4f6a329726a940,
-        type: 3}
-      propertyPath: m_Name
-      value: Plank_001
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bbf3cc2809346d4ba4f6a329726a940, type: 3}
 --- !u!4 &1564378894 stripped
@@ -32082,6 +32107,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2080372292}
     m_Modifications:
+    - target: {fileID: 4129536643578577423, guid: babbd985e33f66748a9014faed169e96,
+        type: 3}
+      propertyPath: m_Name
+      value: Plank_004
+      objectReference: {fileID: 0}
     - target: {fileID: 9177453316531641065, guid: babbd985e33f66748a9014faed169e96,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -32151,11 +32181,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.025
-      objectReference: {fileID: 0}
-    - target: {fileID: 4129536643578577423, guid: babbd985e33f66748a9014faed169e96,
-        type: 3}
-      propertyPath: m_Name
-      value: Plank_004
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: babbd985e33f66748a9014faed169e96, type: 3}
@@ -33066,6 +33091,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 600952583}
     m_Modifications:
+    - target: {fileID: 7495408074670322854, guid: 9e5a947f876234e42a8b4ece7f9d8895,
+        type: 3}
+      propertyPath: m_Name
+      value: Wood Pallet 1 (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 3252919974703830484, guid: 9e5a947f876234e42a8b4ece7f9d8895,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -33120,11 +33150,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90.00001
-      objectReference: {fileID: 0}
-    - target: {fileID: 7495408074670322854, guid: 9e5a947f876234e42a8b4ece7f9d8895,
-        type: 3}
-      propertyPath: m_Name
-      value: Wood Pallet 1 (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e5a947f876234e42a8b4ece7f9d8895, type: 3}
@@ -33346,6 +33371,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 600952583}
     m_Modifications:
+    - target: {fileID: 4129536643578577423, guid: 68d3410a2b8d08c40b099b278c097998,
+        type: 3}
+      propertyPath: m_Name
+      value: Plank_002 (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 9177453316531641065, guid: 68d3410a2b8d08c40b099b278c097998,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -33400,11 +33430,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -5.8040004
-      objectReference: {fileID: 0}
-    - target: {fileID: 4129536643578577423, guid: 68d3410a2b8d08c40b099b278c097998,
-        type: 3}
-      propertyPath: m_Name
-      value: Plank_002 (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68d3410a2b8d08c40b099b278c097998, type: 3}
@@ -35326,6 +35351,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2080372292}
     m_Modifications:
+    - target: {fileID: 4129536643578577423, guid: f360dc03073153b4aacd2329c52dfb79,
+        type: 3}
+      propertyPath: m_Name
+      value: Plank_003 (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 9177453316531641065, guid: f360dc03073153b4aacd2329c52dfb79,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -35395,11 +35425,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.025
-      objectReference: {fileID: 0}
-    - target: {fileID: 4129536643578577423, guid: f360dc03073153b4aacd2329c52dfb79,
-        type: 3}
-      propertyPath: m_Name
-      value: Plank_003 (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f360dc03073153b4aacd2329c52dfb79, type: 3}
@@ -38069,6 +38094,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 871079116}
     m_Modifications:
+    - target: {fileID: 7495408074670322854, guid: 9e5a947f876234e42a8b4ece7f9d8895,
+        type: 3}
+      propertyPath: m_Name
+      value: Wood Pallet 1 (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 3252919974703830484, guid: 9e5a947f876234e42a8b4ece7f9d8895,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -38123,11 +38153,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90.00001
-      objectReference: {fileID: 0}
-    - target: {fileID: 7495408074670322854, guid: 9e5a947f876234e42a8b4ece7f9d8895,
-        type: 3}
-      propertyPath: m_Name
-      value: Wood Pallet 1 (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e5a947f876234e42a8b4ece7f9d8895, type: 3}
@@ -39562,6 +39587,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1927966382}
   m_PrefabAsset: {fileID: 0}
+--- !u!23 &1932559714 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8470234755527610435, guid: 2600f8db4d9bf244993ff9113ce1bc58,
+    type: 3}
+  m_PrefabInstance: {fileID: 1046401443}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1932702093
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39569,6 +39600,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2080372292}
     m_Modifications:
+    - target: {fileID: 4129536643578577423, guid: babbd985e33f66748a9014faed169e96,
+        type: 3}
+      propertyPath: m_Name
+      value: Plank_004
+      objectReference: {fileID: 0}
     - target: {fileID: 9177453316531641065, guid: babbd985e33f66748a9014faed169e96,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -39638,11 +39674,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.025000004
-      objectReference: {fileID: 0}
-    - target: {fileID: 4129536643578577423, guid: babbd985e33f66748a9014faed169e96,
-        type: 3}
-      propertyPath: m_Name
-      value: Plank_004
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: babbd985e33f66748a9014faed169e96, type: 3}
@@ -40787,6 +40818,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 871079116}
     m_Modifications:
+    - target: {fileID: 7495408074670322854, guid: 9e5a947f876234e42a8b4ece7f9d8895,
+        type: 3}
+      propertyPath: m_Name
+      value: Wood Pallet 1 (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 3252919974703830484, guid: 9e5a947f876234e42a8b4ece7f9d8895,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -40841,11 +40877,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90.00001
-      objectReference: {fileID: 0}
-    - target: {fileID: 7495408074670322854, guid: 9e5a947f876234e42a8b4ece7f9d8895,
-        type: 3}
-      propertyPath: m_Name
-      value: Wood Pallet 1 (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e5a947f876234e42a8b4ece7f9d8895, type: 3}
@@ -41275,6 +41306,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2080372292}
     m_Modifications:
+    - target: {fileID: 4129536643578577423, guid: f360dc03073153b4aacd2329c52dfb79,
+        type: 3}
+      propertyPath: m_Name
+      value: Plank_003 (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 9177453316531641065, guid: f360dc03073153b4aacd2329c52dfb79,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -41344,11 +41380,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 0.025000002
-      objectReference: {fileID: 0}
-    - target: {fileID: 4129536643578577423, guid: f360dc03073153b4aacd2329c52dfb79,
-        type: 3}
-      propertyPath: m_Name
-      value: Plank_003 (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f360dc03073153b4aacd2329c52dfb79, type: 3}
@@ -42286,6 +42317,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2089208343}
   - component: {fileID: 2089208344}
+  - component: {fileID: 2089208345}
   m_Layer: 8
   m_Name: Scene Settings
   m_TagString: Untagged
@@ -42324,6 +42356,24 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   priority: 0
+--- !u!114 &2089208345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089208342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b13a7c02f28dc834e98a3f09794b8925, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unCorruptSkybox: {fileID: 2100000, guid: bea6bd1589e224815b2d82729e50a916, type: 2}
+  corruptSkybox: {fileID: 2100000, guid: 45e10e188090c4ab2a8010f4bb6c4864, type: 2}
+  colBright: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 0.5019608}
+  colDark: {r: 0, g: 0, b: 0, a: 1}
+  transitionTime: 0.5
+  progress: 0
 --- !u!1001 &2089489418
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42436,6 +42486,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2080372292}
     m_Modifications:
+    - target: {fileID: 4129536643578577423, guid: 68d3410a2b8d08c40b099b278c097998,
+        type: 3}
+      propertyPath: m_Name
+      value: Plank_002 (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 9177453316531641065, guid: 68d3410a2b8d08c40b099b278c097998,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -42505,11 +42560,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.025000002
-      objectReference: {fileID: 0}
-    - target: {fileID: 4129536643578577423, guid: 68d3410a2b8d08c40b099b278c097998,
-        type: 3}
-      propertyPath: m_Name
-      value: Plank_002 (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68d3410a2b8d08c40b099b278c097998, type: 3}
@@ -42616,6 +42666,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2080372292}
     m_Modifications:
+    - target: {fileID: 4129536643578577423, guid: babbd985e33f66748a9014faed169e96,
+        type: 3}
+      propertyPath: m_Name
+      value: Plank_004 (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 9177453316531641065, guid: babbd985e33f66748a9014faed169e96,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -42685,11 +42740,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.025000025
-      objectReference: {fileID: 0}
-    - target: {fileID: 4129536643578577423, guid: babbd985e33f66748a9014faed169e96,
-        type: 3}
-      propertyPath: m_Name
-      value: Plank_004 (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: babbd985e33f66748a9014faed169e96, type: 3}
@@ -43572,6 +43622,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 46921121}
     m_Modifications:
+    - target: {fileID: 7495408074670322854, guid: 9e5a947f876234e42a8b4ece7f9d8895,
+        type: 3}
+      propertyPath: m_Name
+      value: Wood Pallet 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3252919974703830484, guid: 9e5a947f876234e42a8b4ece7f9d8895,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -43626,11 +43681,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90.00001
-      objectReference: {fileID: 0}
-    - target: {fileID: 7495408074670322854, guid: 9e5a947f876234e42a8b4ece7f9d8895,
-        type: 3}
-      propertyPath: m_Name
-      value: Wood Pallet 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e5a947f876234e42a8b4ece7f9d8895, type: 3}

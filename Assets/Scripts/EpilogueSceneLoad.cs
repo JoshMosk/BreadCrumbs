@@ -41,11 +41,11 @@ public class EpilogueSceneLoad : MonoBehaviour
 
 		if (sceneLoadEnabled == true)
 		{
-			progress += Time.deltaTime / transitionTime;
+			progress -= Time.deltaTime / transitionTime;
 		}
 		else
 		{
-			progress -= Time.deltaTime / transitionTime;
+			progress += Time.deltaTime / transitionTime;
 		}
 
 		if(progress > 1)
@@ -60,7 +60,7 @@ public class EpilogueSceneLoad : MonoBehaviour
         //if (playerFadeEffect != null)
 		playerFadeEffect.material.SetFloat("_DissolveSlider", progress);
 
-		if (progress == 1.0f)
+		if (progress == 0.0f)
 		{
             if (loadStarted == false)
             {

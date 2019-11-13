@@ -5,11 +5,14 @@ using UnityEngine;
 public class SkyboxTransition : MonoBehaviour
 {
 	//need to grab the two skyboxes then lerp thing
-	Material unCorruptSkybox;
-	Material corruptSkybox;
+	public Material unCorruptSkybox;
+	public Material corruptSkybox;
+
+	public Color colBright;
+	public Color colDark;
 
 	public float transitionTime = 0.5f;
-	float progress;
+	[SerializeField]float progress;
 
 	CorruptPlayer isCorrupt;
 
@@ -20,7 +23,16 @@ public class SkyboxTransition : MonoBehaviour
 
 	private void Update()
 	{
-		if(isCorrupt.m_isCorrupt)
+		if(Input.GetKeyDown(KeyCode.T))
+		{
+			RenderSettings.skybox = unCorruptSkybox;
+		}
+		if (Input.GetKeyDown(KeyCode.Y))
+		{
+			RenderSettings.skybox = corruptSkybox;
+		}
+
+		if (isCorrupt.m_isCorrupt == true)
 		{
 			progress += Time.deltaTime / transitionTime;
 		}
@@ -39,6 +51,10 @@ public class SkyboxTransition : MonoBehaviour
 		}
 
 		RenderSettings.skybox.Lerp(unCorruptSkybox, corruptSkybox, progress);
+
+		//JM:StartHere, need to have colour lerp to colDark, swap tex, colour lerp to colBright 
+
+		//RenderSettings.skybox.color = 
 	}
 
 }

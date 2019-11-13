@@ -8,19 +8,29 @@ public class HeadInMesh : MonoBehaviour
     public Renderer mat;
 
     public float transitionTime = 0.2f;
-    float progress;
+    float progress = 1.0f;
 
     bool inWall;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        inWall = true;
-    }
+	private void OnCollisionEnter(Collision collision)
+	{
+		inWall = true;
+	}
 
-    private void OnTriggerExit(Collider other)
-    {
-        inWall = false;
-    }
+	private void OnCollisionExit(Collision collision)
+	{
+		inWall = false;
+	}
+
+	//private void OnTriggerEnter(Collider other)
+ //   {
+ //       inWall = true;
+ //   }
+
+ //   private void OnTriggerExit(Collider other)
+ //   {
+ //       inWall = false;
+ //   }
 
     private void Start()
     {
@@ -32,11 +42,11 @@ public class HeadInMesh : MonoBehaviour
     {
         if (inWall)
         {
-            progress += Time.deltaTime / transitionTime;
+            progress -= Time.deltaTime / transitionTime;
         }
         else
         {
-            progress -= Time.deltaTime / transitionTime;
+            progress += Time.deltaTime / transitionTime;
         }
 
         if(progress > 1.0f)
