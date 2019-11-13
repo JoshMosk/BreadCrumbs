@@ -92,6 +92,6 @@ public class IKHeadMove : MonoBehaviour {
         Gizmos.DrawWireSphere(lookObject.transform.position, .1f);
 
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(macroTarget.transform.position + macroTarget.GetComponent<PointOfInterest>().offset, microSphere * 2);
+        //Gizmos.DrawWireSphere(macroTarget.transform.position + macroTarget.GetComponent<PointOfInterest>().offset, microSphere * 2);
     }
 }
