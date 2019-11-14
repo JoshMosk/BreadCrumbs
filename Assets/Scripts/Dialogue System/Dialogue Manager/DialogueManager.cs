@@ -229,8 +229,8 @@ public class DialogueManager : MonoBehaviour {
             if (currentNode.nodeData["event"] == "Child2On") child2.ChildCorrect();
             else if (currentNode.nodeData["event"] == "Child2Off") child2.ChildIncorrect();
 
-            if (currentNode.nodeData["event"] == "Child2On") child3.ChildCorrect();
-            else if (currentNode.nodeData["event"] == "Child2Off") child3.ChildIncorrect();
+            if (currentNode.nodeData["event"] == "Child3On") child3.ChildCorrect();
+            else if (currentNode.nodeData["event"] == "Child3Off") child3.ChildIncorrect();
 
             FindNextNode();
 
@@ -353,10 +353,22 @@ public class DialogueManager : MonoBehaviour {
 
     void ShowMultipleChoice(int optionCount) {
         isMultipleChoice = true;
-        if (optionNumbers >= 1) option1Button.gameObject.SetActive(true);
-        if (optionNumbers >= 2) option2Button.gameObject.SetActive(true);
-        if (optionNumbers >= 3) option3Button.gameObject.SetActive(true);
-        if (optionNumbers >= 4) option4Button.gameObject.SetActive(true);
+        
+
+        if (optionNumbers == 2) {
+            option1Button.gameObject.SetActive(true);
+            option2Button.gameObject.SetActive(false);
+            option3Button.gameObject.SetActive(true);
+            option4Button.gameObject.SetActive(false);
+        } else {
+            option1Button.gameObject.SetActive(true);
+            option2Button.gameObject.SetActive(true);
+            option3Button.gameObject.SetActive(true);
+            option4Button.gameObject.SetActive(true);
+        }
+
+
+
         indicatorArrow.SetActive(true);
 
     }
