@@ -351,8 +351,13 @@ public class DialogueManager : MonoBehaviour {
         }
 
         if (soundDi.Count != 0) {
-            aSource.clip = soundDi[Random.Range(0, soundDi.Count)] as AudioClip;
-            aSource.Play();
+
+            if (Random.Range(1, 5) == 3) {
+                aSource.clip = soundDi[Random.Range(0, soundDi.Count)] as AudioClip;
+                aSource.Play();
+            }
+
+            
         }
 
     }

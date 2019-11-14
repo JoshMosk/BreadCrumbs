@@ -210,6 +210,7 @@ public class Node {
                 dataList.Add("Suprised");
                 dataList.Add("Angry");
                 dataList.Add("Worried");
+                dataList.Add("Thinking");
                 dataList.Sort();
                 dataList.Insert(0, "Neutral");
 
