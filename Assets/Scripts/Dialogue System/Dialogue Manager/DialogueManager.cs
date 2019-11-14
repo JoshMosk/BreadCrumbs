@@ -388,7 +388,7 @@ public class DialogueManager : MonoBehaviour {
         if (currentEnumerator != null) StopCoroutine(currentEnumerator);
 
         if (optionNumbers == 2) {
-            if (index == 3) index = 2;
+            if (index == 3) selectedOption = 2;
         } else {
             selectedOption = index;
         }
