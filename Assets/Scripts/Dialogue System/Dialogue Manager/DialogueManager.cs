@@ -64,6 +64,10 @@ public class DialogueManager : MonoBehaviour {
     public Area1ChildCorrect child2;
     public Area1ChildCorrect child3;
 
+    public RadialMenu radialMenu;
+
+    public int optionNumbers;
+
     private void Start() {
 
         // Set up the multiple choice buttons
@@ -237,17 +241,26 @@ public class DialogueManager : MonoBehaviour {
             canSkip = false;
             currentEnumerator = StartCoroutine(TypeText((string)currentNode.nodeData["speaker"], (string)currentNode.nodeData["dialogue"], (string)currentNode.nodeData["emotion"]));
 
-            int optionNumbers = 0;
+            optionNumbers = 0;
             if (currentNode.nodeData["option1"].Length != 0) optionNumbers++;
             if (currentNode.nodeData["option2"].Length != 0) optionNumbers++;
             if (currentNode.nodeData["option3"].Length != 0) optionNumbers++;
             if (currentNode.nodeData["option4"].Length != 0) optionNumbers++;
             ShowMultipleChoice(optionNumbers);
 
-            option1Button.GetComponentInChildren<Text>().text = (string)currentNode.nodeData["option1"];
-            option2Button.GetComponentInChildren<Text>().text = (string)currentNode.nodeData["option2"];
-            option3Button.GetComponentInChildren<Text>().text = (string)currentNode.nodeData["option3"];
-            option4Button.GetComponentInChildren<Text>().text = (string)currentNode.nodeData["option4"];
+            if (optionNumbers == 2) radialMenu.SetBinaryOption(true);
+            else radialMenu.SetBinaryOption(false);
+
+            if (optionNumbers == 2) {
+                option1Button.GetComponentInChildren<Text>().text = (string)currentNode.nodeData["option1"];
+                option3Button.GetComponentInChildren<Text>().text = (string)currentNode.nodeData["option2"];
+            }
+            else {
+                option1Button.GetComponentInChildren<Text>().text = (string)currentNode.nodeData["option1"];
+                option2Button.GetComponentInChildren<Text>().text = (string)currentNode.nodeData["option2"];
+                option3Button.GetComponentInChildren<Text>().text = (string)currentNode.nodeData["option3"];
+                option4Button.GetComponentInChildren<Text>().text = (string)currentNode.nodeData["option4"];
+            }
 
         } else if (currentNode.nodeType == Node.NodeType.SetBooleanNode) {
             instance.SetBlackboardVariable((string)currentNode.nodeData["blackboard"], (string)currentNode.nodeData["variable"], Node.BoolFromString(currentNode.nodeData["value"]));
@@ -340,10 +353,10 @@ public class DialogueManager : MonoBehaviour {
 
     void ShowMultipleChoice(int optionCount) {
         isMultipleChoice = true;
-        if (optionCount >= 1) option1Button.gameObject.SetActive(true);
-        if (optionCount >= 2) option2Button.gameObject.SetActive(true);
-        if (optionCount >= 3) option3Button.gameObject.SetActive(true);
-        if (optionCount >= 4) option4Button.gameObject.SetActive(true);
+        if (optionNumbers >= 1) option1Button.gameObject.SetActive(true);
+        if (optionNumbers >= 2) option2Button.gameObject.SetActive(true);
+        if (optionNumbers >= 3) option3Button.gameObject.SetActive(true);
+        if (optionNumbers >= 4) option4Button.gameObject.SetActive(true);
         indicatorArrow.SetActive(true);
 
     }
@@ -361,7 +374,14 @@ public class DialogueManager : MonoBehaviour {
     void SelectOption(int index) {
         isTyping = false;
         if (currentEnumerator != null) StopCoroutine(currentEnumerator);
-        selectedOption = index;
+
+        if (optionNumbers == 2) {
+            if (index == 3) index = 2;
+        } else {
+            selectedOption = index;
+        }
+
+        
         canSkip = true;
         HideMultipleChoice();
         FindNextNode();
