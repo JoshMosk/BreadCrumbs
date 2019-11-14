@@ -23,7 +23,7 @@ public class RadialMenu : MonoBehaviour
     private RadialSection highlightedSection = null;
 
     private float degreeIncrement = 90.0f;
-    bool isBinary;
+    bool m_isBinary;
 
     private void Awake()
     {
@@ -32,7 +32,7 @@ public class RadialMenu : MonoBehaviour
 
     private void Start()
     {
-        dialogue = GameObject.FindObjectOfType<DialogueManager>();
+		dialogue = DialogueManager.instance;
         m_input = GetComponent<IInput>();
     }
 
@@ -54,8 +54,8 @@ public class RadialMenu : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.P))
         {
-            isBinary = !isBinary;
-            SetBinaryOption(isBinary);
+            m_isBinary = !m_isBinary;
+            SetBinaryOption(m_isBinary);
         }
 
         SetTouchPos(m_input.TouchPadPos);       //get touch pad pos
@@ -71,9 +71,12 @@ public class RadialMenu : MonoBehaviour
 
         if (m_input.NPCInteractDown && DialogueManager.instance.isMultipleChoice)        //if input is down and mchoice is active in convo
         {
-            if (dialogue.cooldownTimerNextNode <= 0.0f)      //if cooldown is done
+
+			Debug.Log("CLICK LLLLL");
+			if (dialogue.cooldownTimerNextNode <= 0.0f)      //if cooldown is done
             {
-                dialogue.cooldownTimerNextNode = 1.0f;      //reset cooldown
+				Debug.Log("CLICK HHH");
+				dialogue.cooldownTimerNextNode = 0.5f;      //reset cooldown
                 ActivateHighlightedSections();      //press button
             }
         }
@@ -136,7 +139,7 @@ public class RadialMenu : MonoBehaviour
 
         //if we want to have yes or no i thing it needs to be done here
 
-        if (isBinary)
+        if (m_isBinary)
         {
             if (index == 2)
                 index = 0;
@@ -163,6 +166,7 @@ public class RadialMenu : MonoBehaviour
 
     public void SetBinaryOption(bool isBinary)        //sets the dialogue to either act as 4 option or yes and no
     {
+		m_isBinary = isBinary;
         //need to set degree increment to be 2
         //need to set objects for option 1 and 3 off
         // or do I?
@@ -175,8 +179,8 @@ public class RadialMenu : MonoBehaviour
             degreeIncrement = 90.0f;
         }
 
-
-        radialSections[1].button.gameObject.SetActive(!isBinary);
+		Debug.Log("SET BINARY");
+		radialSections[1].button.gameObject.SetActive(!isBinary);
         radialSections[3].button.gameObject.SetActive(!isBinary);
     }
 }

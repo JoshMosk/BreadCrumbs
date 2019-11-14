@@ -114,13 +114,19 @@ public class DialogueManager : MonoBehaviour {
 
             // Determine if the user can go to the next dialogue in the conversation
             if (m_input.NPCInteractDown || Input.GetKeyDown(KeyCode.Tab)) {
-                if (cooldownTimerNextNode <= 0f) {
-                    cooldownTimerNextNode = .5f;
 
-                     if (isTyping) isTyping = false;
-                     else if (canSkip) FindNextNode();
-                    
-                }
+				if (!isMultipleChoice)
+				{
+
+					if (cooldownTimerNextNode <= 0f)
+					{
+						cooldownTimerNextNode = .5f;
+
+						if (isTyping) isTyping = false;
+						else if (canSkip) FindNextNode();
+
+					}
+				}
             }
 
         } else canvGroup.alpha = 0f;
@@ -240,8 +246,8 @@ public class DialogueManager : MonoBehaviour {
         } else if (currentNode.nodeType == Node.NodeType.MultipleChoiceNode) {
             canSkip = false;
             currentEnumerator = StartCoroutine(TypeText((string)currentNode.nodeData["speaker"], (string)currentNode.nodeData["dialogue"], (string)currentNode.nodeData["emotion"]));
-
-            optionNumbers = 0;
+			Debug.Log("LETS MAKE A MULTIPLE CHOICE THING");
+			optionNumbers = 0;
             if (currentNode.nodeData["option1"].Length != 0) optionNumbers++;
             if (currentNode.nodeData["option2"].Length != 0) optionNumbers++;
             if (currentNode.nodeData["option3"].Length != 0) optionNumbers++;
@@ -352,7 +358,9 @@ public class DialogueManager : MonoBehaviour {
     }
 
     void ShowMultipleChoice(int optionCount) {
-        isMultipleChoice = true;
+		Debug.Log("SHOW ALL");
+
+		isMultipleChoice = true;
         
 
         if (optionNumbers == 2) {
@@ -374,7 +382,9 @@ public class DialogueManager : MonoBehaviour {
     }
 
     void HideMultipleChoice() {
-        isMultipleChoice = false;
+		Debug.Log("HIDE ALL");
+
+		isMultipleChoice = false;
         option1Button.gameObject.SetActive(false);
         option2Button.gameObject.SetActive(false);
         option3Button.gameObject.SetActive(false);
@@ -384,6 +394,9 @@ public class DialogueManager : MonoBehaviour {
     }
 
     void SelectOption(int index) {
+
+		Debug.Log("HEY SOMEONE CLICKED ME!!! OUCH");
+
         isTyping = false;
         if (currentEnumerator != null) StopCoroutine(currentEnumerator);
 
