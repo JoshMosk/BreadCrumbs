@@ -12,7 +12,9 @@ public class SkyboxTransition : MonoBehaviour
 	public Color colDark;
 
 	public float transitionTime = 0.5f;
-	[SerializeField]float progress;
+
+	[SerializeField]float uncorruptProgress;
+	[SerializeField] float corruptProgress;
 
 	CorruptPlayer isCorrupt;
 
@@ -34,23 +36,32 @@ public class SkyboxTransition : MonoBehaviour
 
 		if (isCorrupt.m_isCorrupt == true)
 		{
-			progress += Time.deltaTime / transitionTime;
+			corruptProgress += Time.deltaTime / transitionTime;
+			uncorruptProgress -= Time.deltaTime / transitionTime;
 		}
 		else
 		{
-			progress -= Time.deltaTime / transitionTime;
+			corruptProgress -= Time.deltaTime / transitionTime;
+			uncorruptProgress += Time.deltaTime / transitionTime;
 		}
 
-		if(progress > 1)
+		if(corruptProgress > 1)
 		{
-			progress = 1;
+			corruptProgress = 1;
+			uncorruptProgress = -1;
 		}
-		else if(progress < 0)
+		else if(corruptProgress < -1)
 		{
-			progress = 0;
+			corruptProgress = -1;
+			uncorruptProgress = 1;
 		}
 
-		RenderSettings.skybox.Lerp(unCorruptSkybox, corruptSkybox, progress);
+		if(RenderSettings.skybox != corruptSkybox && corruptProgress < 0)//if mat is diff and in neg then swap
+		{
+			RenderSettings.skybox = corruptSkybox;
+		}
+
+		//RenderSettings.skybox.Lerp(unCorruptSkybox, corruptSkybox, progress);
 
 		//JM:StartHere, need to have colour lerp to colDark, swap tex, colour lerp to colBright 
 

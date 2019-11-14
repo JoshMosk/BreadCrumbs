@@ -175,6 +175,7 @@ public class RadialMenu : MonoBehaviour
             degreeIncrement = 90.0f;
         }
 
+
         radialSections[1].button.gameObject.SetActive(!isBinary);
         radialSections[3].button.gameObject.SetActive(!isBinary);
     }
