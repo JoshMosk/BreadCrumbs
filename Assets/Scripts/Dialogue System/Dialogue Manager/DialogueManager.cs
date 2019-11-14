@@ -94,8 +94,8 @@ public class DialogueManager : MonoBehaviour {
         cooldownTimer -= Time.deltaTime;
         cooldownTimerNextNode -= Time.deltaTime;
 
-        if (inConversation) transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(0.01124641f, 0.01124641f, 0.01124641f), 2f * Time.deltaTime);
-        else transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(0, 0, 0), 2f * Time.deltaTime);
+        if (inConversation) transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(0.01124641f, 0.01124641f, 0.01124641f), 1f / Time.deltaTime);
+        else transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(0, 0, 0), 1f / Time.deltaTime);
 
         if (isWorldSpace) {
             transform.LookAt(Camera.main.transform, Vector3.up);
@@ -115,7 +115,7 @@ public class DialogueManager : MonoBehaviour {
             // Determine if the user can go to the next dialogue in the conversation
             if (m_input.NPCInteractDown || Input.GetKeyDown(KeyCode.Tab)) {
                 if (cooldownTimerNextNode <= 0f) {
-                    cooldownTimerNextNode = 1f;
+                    cooldownTimerNextNode = .5f;
 
                      if (isTyping) isTyping = false;
                      else if (canSkip) FindNextNode();
@@ -286,7 +286,7 @@ public class DialogueManager : MonoBehaviour {
 
 
         } else if (currentNode.nodeType == Node.NodeType.EndNode) {
-            cooldownTimer = 1f;
+            cooldownTimer = .5f;
             inConversation = false;
             DialolgueIcon.instance.SetVisible(true);
 
