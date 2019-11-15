@@ -26,6 +26,8 @@ public class EpiloguePlayerPosReset : MonoBehaviour
 		}
 
 		player.transform.position = this.transform.position;
+
+		DialogueManager.instance.LoadEpilogue();
 	}
 
     void Update()
