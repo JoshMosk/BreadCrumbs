@@ -71,6 +71,11 @@ public class DialogueManager : MonoBehaviour {
 
     private void Start() {
 
+
+        LoadStuff();
+
+
+
         // Set up the multiple choice buttons
         option1Button.onClick.AddListener(delegate { SelectOption(1); });
         option2Button.onClick.AddListener(delegate { SelectOption(2); });
@@ -88,6 +93,24 @@ public class DialogueManager : MonoBehaviour {
         }
 
         dialogueClips = null;
+    }
+
+    public void LoadStuff() {
+        List<Node> nodes = new List<Node>();
+        List<JSONConnectionDictionary> JSONConnectDict = new List<JSONConnectionDictionary>();
+
+        DirectoryInfo dir = new DirectoryInfo(Application.streamingAssetsPath);
+        FileInfo[] info = dir.GetFiles("*.*");
+        foreach (FileInfo f in info) {
+
+            if (f.Name.EndsWith(".json")) {
+                JSONList thisData = JsonUtility.FromJson<JSONList>(File.ReadAllText(Application.streamingAssetsPath + "/" + f.Name));
+                nodes.AddRange(thisData.dataList);
+                JSONConnectDict.AddRange(thisData.connectionList);
+            }
+        }
+
+        loadedData = new JSONList { dataList = nodes, connectionList = JSONConnectDict };
     }
 
     private void Update() {
@@ -165,28 +188,14 @@ public class DialogueManager : MonoBehaviour {
 
     public void StartConversation(string sentConversationID) {
 
+        Debug.Log("Convo ID: " + sentConversationID);
+
         DialolgueIcon.instance.SetVisible(false);
 
         if (currentEnumerator != null) StopCoroutine(currentEnumerator);
 
         // Load in the conversation data
         conversationID = sentConversationID;
-
-        List<Node> nodes = new List<Node>();
-        List<JSONConnectionDictionary> JSONConnectDict = new List<JSONConnectionDictionary>();
-
-        DirectoryInfo dir = new DirectoryInfo(Application.streamingAssetsPath);
-        FileInfo[] info = dir.GetFiles("*.*");
-        foreach (FileInfo f in info) {
-
-            if (f.Name.EndsWith(".json")) {
-                JSONList thisData = JsonUtility.FromJson<JSONList>(File.ReadAllText(Application.streamingAssetsPath + "/" + f.Name));
-                nodes.AddRange(thisData.dataList);
-                JSONConnectDict.AddRange(thisData.connectionList);
-            }
-        }
-
-        loadedData = new JSONList {dataList = nodes, connectionList = JSONConnectDict};
 
         // Loop through each node in the file to find the conversation
         foreach (Node currentDict in loadedData.dataList) {
@@ -432,6 +441,10 @@ public class DialogueManager : MonoBehaviour {
         RectTransformUtility.ScreenPointToLocalPointInRectangle(parentCanvas.transform as RectTransform, screenPos, parentCanvas.worldCamera, out movePos);
         //Convert the local point to world point
         return parentCanvas.transform.TransformPoint(movePos);
+    }
+
+    public void LoadEpilogue() {
+        LoadStuff();
     }
 
 }
