@@ -84,7 +84,7 @@ PrefabInstance:
     - target: {fileID: 8617329140067586730, guid: 57a9414e73a37d04b952681f00b91957,
         type: 3}
       propertyPath: m_Name
-      value: Lamp Post_EndArea (8)
+      value: Lamp Post_EndArea Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5002777923048168412, guid: 57a9414e73a37d04b952681f00b91957,
         type: 3}
@@ -141,15 +141,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1609411489249147556, guid: 57a9414e73a37d04b952681f00b91957,
+    - target: {fileID: 7677130839161809782, guid: 57a9414e73a37d04b952681f00b91957,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2035926722716258101, guid: 57a9414e73a37d04b952681f00b91957,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8056817074939870629, guid: 57a9414e73a37d04b952681f00b91957,
         type: 3}
@@ -157,6 +152,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7712460544512005167, guid: 57a9414e73a37d04b952681f00b91957,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2436091035121358558, guid: 57a9414e73a37d04b952681f00b91957,
         type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -186,7 +186,12 @@ PrefabInstance:
       propertyPath: m_Shadows.m_NearPlane
       value: 0.07
       objectReference: {fileID: 0}
-    - target: {fileID: 2436091035121358558, guid: 57a9414e73a37d04b952681f00b91957,
+    - target: {fileID: 1609411489249147556, guid: 57a9414e73a37d04b952681f00b91957,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035926722716258101, guid: 57a9414e73a37d04b952681f00b91957,
         type: 3}
       propertyPath: m_IsActive
       value: 0
