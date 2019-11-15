@@ -9085,6 +9085,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 932089430473900881, guid: 79e57326b118e08418e62b1aacfecc50,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 932089430473900881, guid: 79e57326b118e08418e62b1aacfecc50,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6194064795542774243, guid: 79e57326b118e08418e62b1aacfecc50,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9695,6 +9705,22 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 499.99997
       objectReference: {fileID: 0}
+    - target: {fileID: 6194064795460127167, guid: 79e57326b118e08418e62b1aacfecc50,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: e4c940b02fbc4494c9501433c3505f6b, type: 2}
+    - target: {fileID: 6194064795460127167, guid: 79e57326b118e08418e62b1aacfecc50,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6194064795460127167, guid: 79e57326b118e08418e62b1aacfecc50,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3ff272fa0bd8c0b498c8d294f2795bc1,
+        type: 3}
     - target: {fileID: 6194064795706249008, guid: 79e57326b118e08418e62b1aacfecc50,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -9740,32 +9766,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: -160
       objectReference: {fileID: 0}
-    - target: {fileID: 932089430473900881, guid: 79e57326b118e08418e62b1aacfecc50,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 932089430473900881, guid: 79e57326b118e08418e62b1aacfecc50,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6194064795460127167, guid: 79e57326b118e08418e62b1aacfecc50,
-        type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: e4c940b02fbc4494c9501433c3505f6b, type: 2}
-    - target: {fileID: 6194064795460127167, guid: 79e57326b118e08418e62b1aacfecc50,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6194064795460127167, guid: 79e57326b118e08418e62b1aacfecc50,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 3ff272fa0bd8c0b498c8d294f2795bc1,
-        type: 3}
     - target: {fileID: 6194064795460127166, guid: 79e57326b118e08418e62b1aacfecc50,
         type: 3}
       propertyPath: m_BlocksRaycasts
@@ -32622,7 +32622,7 @@ GameObject:
   - component: {fileID: 996822377}
   - component: {fileID: 996822376}
   - component: {fileID: 996822375}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34095,7 +34095,7 @@ PrefabInstance:
     - target: {fileID: 394449855127430561, guid: 2600f8db4d9bf244993ff9113ce1bc58,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.70710576
+      value: -0.000000014901161
       objectReference: {fileID: 0}
     - target: {fileID: 394449855127430561, guid: 2600f8db4d9bf244993ff9113ce1bc58,
         type: 3}
@@ -34105,7 +34105,7 @@ PrefabInstance:
     - target: {fileID: 394449855127430561, guid: 2600f8db4d9bf244993ff9113ce1bc58,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.70710784
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 394449855127430561, guid: 2600f8db4d9bf244993ff9113ce1bc58,
         type: 3}
@@ -34120,7 +34120,7 @@ PrefabInstance:
     - target: {fileID: 394449855127430561, guid: 2600f8db4d9bf244993ff9113ce1bc58,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 90.00001
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 394449855127430561, guid: 2600f8db4d9bf244993ff9113ce1bc58,
         type: 3}
@@ -44070,6 +44070,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Portal_Particle 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7431809896265829578, guid: 5fd7208c458785145b8a353cff80bce8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7431809896265829579, guid: 5fd7208c458785145b8a353cff80bce8,
         type: 3}
@@ -68541,8 +68546,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!135 &2122379389
-SphereCollider:
+--- !u!65 &2122379389
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -68552,7 +68557,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.16
+  m_Size: {x: 0.52, y: 2.33, z: 2.81}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2122379390
 MonoBehaviour:
@@ -68579,7 +68584,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2122379388}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.33, y: 0, z: -8.8}
+  m_LocalPosition: {x: 10.366, y: 0.51, z: -9.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -68849,7 +68854,7 @@ GameObject:
   - component: {fileID: 2136005074}
   - component: {fileID: 2136005073}
   - component: {fileID: 2136005076}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Puzzle4(shadow)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
