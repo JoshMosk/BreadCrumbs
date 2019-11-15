@@ -59,6 +59,7 @@ public class DialogueManager : MonoBehaviour {
     public AudioClip[] dialogueClips;
     public Dictionary<string, AudioClip> audidict = new Dictionary<string, AudioClip>();
     public AudioSource aSource;
+    public AudioSource clickSource;
 
     public Area1ChildCorrect child1;
     public Area1ChildCorrect child2;
@@ -241,9 +242,13 @@ public class DialogueManager : MonoBehaviour {
             FindNextNode();
 
         } else if (currentNode.nodeType == Node.NodeType.DialogueNode) {
+            clickSource.Play();
+
             currentEnumerator = StartCoroutine(TypeText((string)currentNode.nodeData["speaker"], (string)currentNode.nodeData["dialogue"], (string)currentNode.nodeData["emotion"]));
 
         } else if (currentNode.nodeType == Node.NodeType.MultipleChoiceNode) {
+            clickSource.Play();
+
             canSkip = false;
             currentEnumerator = StartCoroutine(TypeText((string)currentNode.nodeData["speaker"], (string)currentNode.nodeData["dialogue"], (string)currentNode.nodeData["emotion"]));
 			optionNumbers = 0;
