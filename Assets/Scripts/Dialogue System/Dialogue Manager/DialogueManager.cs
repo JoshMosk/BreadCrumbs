@@ -363,7 +363,7 @@ public class DialogueManager : MonoBehaviour {
     }
 
     void ShowMultipleChoice(int optionCount) {
-		Debug.Log("SHOW ALL");
+
 
 		isMultipleChoice = true;
         
@@ -387,7 +387,7 @@ public class DialogueManager : MonoBehaviour {
     }
 
     void HideMultipleChoice() {
-		Debug.Log("HIDE ALL");
+
 
 		isMultipleChoice = false;
         option1Button.gameObject.SetActive(false);
@@ -400,7 +400,7 @@ public class DialogueManager : MonoBehaviour {
 
     void SelectOption(int index) {
 
-		Debug.Log("HEY SOMEONE CLICKED ME!!! OUCH");
+
 
         isTyping = false;
         if (currentEnumerator != null) StopCoroutine(currentEnumerator);

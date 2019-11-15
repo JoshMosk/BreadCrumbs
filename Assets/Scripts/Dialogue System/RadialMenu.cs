@@ -72,10 +72,8 @@ public class RadialMenu : MonoBehaviour
         if (m_input.NPCInteractDown && DialogueManager.instance.isMultipleChoice)        //if input is down and mchoice is active in convo
         {
 
-			Debug.Log("CLICK LLLLL");
 			if (dialogue.cooldownTimerNextNode <= 0.0f)      //if cooldown is done
             {
-				Debug.Log("CLICK HHH");
 				dialogue.cooldownTimerNextNode = 0.5f;      //reset cooldown
                 ActivateHighlightedSections();      //press button
             }
