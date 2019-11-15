@@ -401,7 +401,7 @@ public class DialogueManager : MonoBehaviour {
 
     void SelectOption(int index) {
 
-		Debug.Log("HEY SOMEONE CLICKED ME!!! OUCH");
+
 
         isTyping = false;
         if (currentEnumerator != null) StopCoroutine(currentEnumerator);
