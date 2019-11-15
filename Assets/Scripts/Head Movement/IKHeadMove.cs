@@ -51,7 +51,7 @@ public class IKHeadMove : MonoBehaviour {
 
         } else if (macroLookTimer <= 0f) {
             GetClosestCharacter(Physics.OverlapSphere(transform.position, 100f), 100f);
-            macroTarget = pointsOfInterest[Random.Range(0, pointsOfInterest.Count)].gameObject.transform;
+            if (pointsOfInterest.Count != 0) macroTarget = pointsOfInterest[Random.Range(0, pointsOfInterest.Count)].gameObject.transform;
             macroLookTimer = Random.Range(macroSmall, macroBig);
         }
 

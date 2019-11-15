@@ -246,7 +246,6 @@ public class DialogueManager : MonoBehaviour {
         } else if (currentNode.nodeType == Node.NodeType.MultipleChoiceNode) {
             canSkip = false;
             currentEnumerator = StartCoroutine(TypeText((string)currentNode.nodeData["speaker"], (string)currentNode.nodeData["dialogue"], (string)currentNode.nodeData["emotion"]));
-			Debug.Log("LETS MAKE A MULTIPLE CHOICE THING");
 			optionNumbers = 0;
             if (currentNode.nodeData["option1"].Length != 0) optionNumbers++;
             if (currentNode.nodeData["option2"].Length != 0) optionNumbers++;
@@ -301,14 +300,16 @@ public class DialogueManager : MonoBehaviour {
 
     IEnumerator TypeText(string characterName, string bodyString, string emotionString) {
 
+        if (characterName.Contains("NPC") || characterName.Contains("Shadow Creature")) {
+            characterName = "Shadow Creature";
+        }
+
         PlaySound(characterName, emotionString);
 
 		isTyping = true;
         //bodyTextBox.text = bodyString;
 
-        if (characterName.Contains("NPC") || characterName.Contains("Shadow Creature")) {
-            characterName = "Shadow Creature";
-        }
+        
 
         speakerTextBox.text = characterName;
 
@@ -343,6 +344,11 @@ public class DialogueManager : MonoBehaviour {
 
     void PlaySound(string characterN, string emotion) {
 
+        if (characterN == "Girl") characterN = "Fire Woman";
+        else if (characterN == "Blue Flame") characterN = "Fire Children";
+        else if (characterN == "Red Flame") characterN = "Fire Children";
+
+
         List<AudioClip> soundDi = new List<AudioClip>();
         foreach (string keys in audidict.Keys) {
             if (keys.Contains(characterN) && keys.Contains(emotion)) {
@@ -363,10 +369,7 @@ public class DialogueManager : MonoBehaviour {
     }
 
     void ShowMultipleChoice(int optionCount) {
-
-
 		isMultipleChoice = true;
-        
 
         if (optionNumbers == 2) {
             option1Button.gameObject.SetActive(true);
@@ -387,8 +390,6 @@ public class DialogueManager : MonoBehaviour {
     }
 
     void HideMultipleChoice() {
-
-
 		isMultipleChoice = false;
         option1Button.gameObject.SetActive(false);
         option2Button.gameObject.SetActive(false);
@@ -411,7 +412,6 @@ public class DialogueManager : MonoBehaviour {
             selectedOption = index;
         }
 
-        
         canSkip = true;
         HideMultipleChoice();
         FindNextNode();
