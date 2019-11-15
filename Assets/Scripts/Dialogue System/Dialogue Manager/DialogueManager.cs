@@ -169,7 +169,6 @@ public class DialogueManager : MonoBehaviour {
         if (currentEnumerator != null) StopCoroutine(currentEnumerator);
 
         // Load in the conversation data
-        inConversation = true;
         conversationID = sentConversationID;
 
         List<Node> nodes = new List<Node>();
@@ -192,6 +191,7 @@ public class DialogueManager : MonoBehaviour {
         foreach (Node currentDict in loadedData.dataList) {
 
             if (conversationID == currentDict.uniqueIDString) {
+                inConversation = true;
                 currentNode = currentDict;
                 selectedOption = 1;
                 FindNextNode();
