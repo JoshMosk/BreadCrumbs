@@ -69,10 +69,14 @@ public class DialogueManager : MonoBehaviour {
 
     public int optionNumbers;
 
+    DirectoryInfo dir;
+
+    public string[] allTheJSON;
+
     private void Start() {
 
-
-        LoadStuff();
+        dir = new DirectoryInfo(Application.streamingAssetsPath);
+        LoadShit();
 
 
 
@@ -95,22 +99,22 @@ public class DialogueManager : MonoBehaviour {
         dialogueClips = null;
     }
 
-    public void LoadStuff() {
+    public void LoadShit() {
         List<Node> nodes = new List<Node>();
         List<JSONConnectionDictionary> JSONConnectDict = new List<JSONConnectionDictionary>();
+        if (allTheJSON.Length != 0) {
+            foreach (string fle in allTheJSON) {
 
-        DirectoryInfo dir = new DirectoryInfo(Application.streamingAssetsPath);
-        FileInfo[] info = dir.GetFiles("*.*");
-        foreach (FileInfo f in info) {
-
-            if (f.Name.EndsWith(".json")) {
-                JSONList thisData = JsonUtility.FromJson<JSONList>(File.ReadAllText(Application.streamingAssetsPath + "/" + f.Name));
+                JSONList thisData = JsonUtility.FromJson<JSONList>(File.ReadAllText(Application.streamingAssetsPath + "/" + fle + ".json"));
                 nodes.AddRange(thisData.dataList);
                 JSONConnectDict.AddRange(thisData.connectionList);
             }
-        }
 
-        loadedData = new JSONList { dataList = nodes, connectionList = JSONConnectDict };
+            loadedData = new JSONList { dataList = nodes, connectionList = JSONConnectDict };
+        } else {
+            Debug.LogError("It's been a while since we've looked at our lemon tree. Where are the JSON files thnx");
+        }
+        
     }
 
     private void Update() {
@@ -444,7 +448,7 @@ public class DialogueManager : MonoBehaviour {
     }
 
     public void LoadEpilogue() {
-        LoadStuff();
+        LoadShit();
     }
 
 }
