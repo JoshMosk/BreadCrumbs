@@ -21,18 +21,22 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: GrannysRoomWindow
-  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: a7b54cf8a1aaca443ad5a5065dd2d3e9,
+    type: 3}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2050
-  stringTagMap:
-    RenderType: Opaque
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Cubemap_AFA86726:
+        m_Texture: {fileID: 8900000, guid: e2d63737d6a2cff46a20c150053a3f59, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -84,6 +88,9 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
+    - Color_C6D0A027: {r: 0.7735849, g: 0.581437, b: 0.5218049, a: 0}
+    - Vector2_1ACB2F46: {r: 1, g: 1, b: 0, a: 0}
+    - Vector2_1FD754EF: {r: 0, g: 0.14, b: 0, a: 0}
     - _BaseColor: {r: 0.9528302, g: 0.87985283, b: 0.4809096, a: 1}
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 1.5476298, g: 1.3404183, b: 0.64971256, a: 1}
