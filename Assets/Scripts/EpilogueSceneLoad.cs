@@ -10,7 +10,9 @@ public class EpilogueSceneLoad : MonoBehaviour
 	public PuzzleComplete puzzle3Complete;
 	public PuzzleComplete puzzle4Complete;
 
-	Renderer playerFadeEffect;
+	MeshRenderer portalMesh;
+
+	public Renderer playerFadeEffect;
 	bool sceneLoadEnabled;
 
 	public float transitionTime = 1.5f;
@@ -20,6 +22,8 @@ public class EpilogueSceneLoad : MonoBehaviour
 	private void Start()
 	{
         StartCoroutine(SetPlayerFade());
+
+		portalMesh.enabled = false;
 	}
 
 	private void OnTriggerEnter(Collider other)
@@ -38,8 +42,16 @@ public class EpilogueSceneLoad : MonoBehaviour
 	private void Update()
 	{
 		//when triggered start anim, once anim complete load scene, then un anim once loaded
+		if (portalMesh.enabled == false)
+		{
+			if (puzzle1Complete.m_puzzleComplete == true || puzzle2Complete.m_puzzleComplete == true || puzzle3Complete.m_puzzleComplete == true || puzzle4Complete.m_puzzleComplete == true)
+			{
+				portalMesh.enabled = true;
+			}
+		}
 
-		if (sceneLoadEnabled == true)
+
+			if (sceneLoadEnabled == true)
 		{
 			progress -= Time.deltaTime / transitionTime;
 		}
