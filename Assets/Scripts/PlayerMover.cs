@@ -7,7 +7,14 @@ namespace MajorVRProj
     [RequireComponent(typeof(NavMeshAgent))]
     public class PlayerMover : MonoBehaviour
     {
-        [SerializeField]
+		public static PlayerMover instance;
+		void Awake()
+		{
+			if (instance != null) return;
+			instance = this;
+		}
+
+		[SerializeField]
         IInput input;
         NavMeshAgent agent;
 
