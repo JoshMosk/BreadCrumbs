@@ -5,7 +5,7 @@ using UnityEngine;
 public class SkyboxTransition : MonoBehaviour
 {
 	//need to grab the two skyboxes then lerp thing
-	public Material unCorruptSkybox;
+	public Material uncorruptSkybox;
 	public Material corruptSkybox;
 
 	public Color colBright;
@@ -13,8 +13,8 @@ public class SkyboxTransition : MonoBehaviour
 
 	public float transitionTime = 0.5f;
 
-	[SerializeField]float uncorruptProgress;
-	[SerializeField] float corruptProgress;
+	[SerializeField] float uncorruptProgress;
+	[SerializeField] float corruptProgress;     //corrupt progress = 1 when fully corrupt
 
 	CorruptPlayer isCorrupt;
 
@@ -25,9 +25,9 @@ public class SkyboxTransition : MonoBehaviour
 
 	private void Update()
 	{
-		if(Input.GetKeyDown(KeyCode.T))
+		if (Input.GetKeyDown(KeyCode.T))
 		{
-			RenderSettings.skybox = unCorruptSkybox;
+			RenderSettings.skybox = uncorruptSkybox;
 		}
 		if (Input.GetKeyDown(KeyCode.Y))
 		{
@@ -45,27 +45,41 @@ public class SkyboxTransition : MonoBehaviour
 			uncorruptProgress += Time.deltaTime / transitionTime;
 		}
 
-		if(corruptProgress > 1)
+		if (corruptProgress > 1)
 		{
 			corruptProgress = 1;
 			uncorruptProgress = -1;
 		}
-		else if(corruptProgress < -1)
+		else if (corruptProgress < -1)
 		{
 			corruptProgress = -1;
 			uncorruptProgress = 1;
 		}
 
-		if(RenderSettings.skybox != corruptSkybox && corruptProgress < 0)//if mat is diff and in neg then swap
+		if (corruptProgress < 0)//if mat is diff and in neg then swap
 		{
-			RenderSettings.skybox = corruptSkybox;
+			if (RenderSettings.skybox != corruptSkybox)
+			{
+				RenderSettings.skybox = corruptSkybox;
+			}
+			RenderSettings.skybox.color = Color.Lerp(colBright, colDark, uncorruptProgress);
 		}
-
-		//RenderSettings.skybox.Lerp(unCorruptSkybox, corruptSkybox, progress);
-
-		//JM:StartHere, need to have colour lerp to colDark, swap tex, colour lerp to colBright 
-
-		//RenderSettings.skybox.color = 
+		else
+		{
+			if (RenderSettings.skybox != uncorruptSkybox)
+			{
+				RenderSettings.skybox = uncorruptSkybox;
+			}
+			RenderSettings.skybox.color = Color.Lerp(colBright, colDark, corruptProgress);
+		}
 	}
 
+
+	//RenderSettings.skybox.Lerp(unCorruptSkybox, corruptSkybox, progress);
+
+	//JM:StartHere, need to have colour lerp to colDark, swap tex, colour lerp to colBright 
+
+	//RenderSettings.skybox.color = 
 }
+
+
