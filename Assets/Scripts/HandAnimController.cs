@@ -19,7 +19,7 @@ public class HandAnimController : MonoBehaviour
 
 		if (m_inputSources == SteamVR_Input_Sources.RightHand)
 		{
-			FindObjectOfType<MajorVRProj.PlayerMover>().HandAnim = this;
+			FindObjectOfType<PlayerMover>().HandAnim = this;
 		}
 	}
 
@@ -53,7 +53,7 @@ public class HandAnimController : MonoBehaviour
 	{
 		if (m_inputSources == SteamVR_Input_Sources.RightHand)
 		{
-			FindObjectOfType<MajorVRProj.PlayerMover>().HandAnim = this;
+			FindObjectOfType<PlayerMover>().HandAnim = this;
 		}
 	}
 }

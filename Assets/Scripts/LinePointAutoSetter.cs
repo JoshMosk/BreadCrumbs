@@ -12,6 +12,6 @@ public class LinePointAutoSetter : MonoBehaviour
 
 	public void DoTheThing()
 	{
-		FindObjectOfType<MajorVRProj.PlayerMover>().m_rayPoint = this.transform;
+		FindObjectOfType<PlayerMover>().m_rayPoint = this.transform;
 	}
 }

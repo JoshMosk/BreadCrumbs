@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-namespace MajorVRProj
-{
     [RequireComponent(typeof(NavMeshAgent))]
     public class PlayerMover : MonoBehaviour
     {
@@ -129,4 +127,3 @@ namespace MajorVRProj
 			}
         }
     }
-}

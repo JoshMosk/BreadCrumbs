@@ -19,6 +19,11 @@ public class DialogueTrigger : MonoBehaviour {
     private void Update() {
         if (!autoStart) {
             if (dialogue.m_input.NPCInteractUp || Input.GetKeyUp(KeyCode.Tab)) {
+
+                float distanceToCharacter = Vector3.Distance(transform.position, PlayerMover.instance.gameObject.transform.position);
+                if (distanceToCharacter < 5f) canActivate = true;
+                else canActivate = false;
+
                 if (dialogue.cooldownTimer < 0 && canActivate && !dialogue.inConversation) {
                     dialogue.speakerObject = this.transform;
                     dialogue.StartConversation(conversationID);

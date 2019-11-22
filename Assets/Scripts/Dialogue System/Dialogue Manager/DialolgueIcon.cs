@@ -36,8 +36,8 @@ public class DialolgueIcon : MonoBehaviour {
         }
 
         if (closestCharacter != null) {
-            if (distanceToCharacter < 5f) closestCharacter.canActivate = true;
-            else closestCharacter.canActivate = false;
+           // if (distanceToCharacter < 5f) closestCharacter.canActivate = true;
+           // else closestCharacter.canActivate = false;
 
             bubbleCanvas.transform.localScale = CalculateDistance();
             bubbleCanvas.transform.LookAt(Camera.main.transform, Vector3.up);
@@ -56,11 +56,15 @@ public class DialolgueIcon : MonoBehaviour {
             bubbleCanvas.transform.position = new Vector3(closestObject.transform.position.x, closestObject.transform.position.y + iconHeight, closestObject.transform.position.z);
 
             if (previousClosestCharacter != closestCharacter) {
-                previousClosestCharacter.canActivate = false;
+          //      previousClosestCharacter.canActivate = false;
                 previousClosestCharacter = closestCharacter;
             }
 
-        } else bubbleCanvas.transform.localScale = new Vector3(0, 0, 0);
+        } else {
+         //   closestCharacter.canActivate = false;
+         //   previousClosestCharacter.canActivate = false;
+            bubbleCanvas.transform.localScale = new Vector3(0, 0, 0);
+        }
     }
 
     private DialogueTrigger GetClosestCharacter(Vector3 pos, float radius) {

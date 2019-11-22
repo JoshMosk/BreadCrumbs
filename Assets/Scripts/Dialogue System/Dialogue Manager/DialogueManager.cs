@@ -10,6 +10,7 @@ public class DialogueManager : MonoBehaviour {
     void Awake() {
         if (instance != null) return;
         instance = this;
+        LoadShit();
     }
 
     [Header("Conversation")]
@@ -73,7 +74,10 @@ public class DialogueManager : MonoBehaviour {
 
     public string[] allTheJSON;
 
+
     private void Start() {
+
+        DontDestroyOnLoad(this.gameObject);
 
         dir = new DirectoryInfo(Application.streamingAssetsPath);
         LoadShit();
@@ -192,7 +196,7 @@ public class DialogueManager : MonoBehaviour {
 
     public void StartConversation(string sentConversationID) {
 
-        Debug.Log("Convo ID: " + sentConversationID);
+        LoadShit();
 
         DialolgueIcon.instance.SetVisible(false);
 
@@ -204,7 +208,12 @@ public class DialogueManager : MonoBehaviour {
         // Loop through each node in the file to find the conversation
         foreach (Node currentDict in loadedData.dataList) {
 
+
+            Debug.Log("Cyrdiyrdoyrdoyd: " + conversationID);
+            Debug.Log("Ctffffff  " + currentDict.uniqueIDString);
+
             if (conversationID == currentDict.uniqueIDString) {
+
                 inConversation = true;
                 currentNode = currentDict;
                 selectedOption = 1;
@@ -222,6 +231,7 @@ public class DialogueManager : MonoBehaviour {
 
                 foreach (Node currentDict in loadedData.dataList) {
                     if (currentDict.nodeID == currentLink.inPointID) {
+
                         selectedOption = 1;
                         currentNode = currentDict;
                         ProcessNode();
@@ -255,12 +265,12 @@ public class DialogueManager : MonoBehaviour {
             FindNextNode();
 
         } else if (currentNode.nodeType == Node.NodeType.DialogueNode) {
-            clickSource.Play();
+           // clickSource.Play();
 
             currentEnumerator = StartCoroutine(TypeText((string)currentNode.nodeData["speaker"], (string)currentNode.nodeData["dialogue"], (string)currentNode.nodeData["emotion"]));
 
         } else if (currentNode.nodeType == Node.NodeType.MultipleChoiceNode) {
-            clickSource.Play();
+          //  clickSource.Play();
 
             canSkip = false;
             currentEnumerator = StartCoroutine(TypeText((string)currentNode.nodeData["speaker"], (string)currentNode.nodeData["dialogue"], (string)currentNode.nodeData["emotion"]));
@@ -377,8 +387,8 @@ public class DialogueManager : MonoBehaviour {
         if (soundDi.Count != 0) {
 
             if (Random.Range(1, 5) == 3) {
-                aSource.clip = soundDi[Random.Range(0, soundDi.Count)] as AudioClip;
-                aSource.Play();
+            //    aSource.clip = soundDi[Random.Range(0, soundDi.Count)] as AudioClip;
+            //    aSource.Play();
             }
 
             
