@@ -51,6 +51,6 @@ public class LightTransition : MonoBehaviour
 		}
 
         m_light.color = Color.Lerp(m_uncorruptCol, m_corruptCol, m_progress);
-        m_light.intensity = Mathf.Lerp(m_light.intensity, m_corruptIntensity, m_progress);
+        m_light.intensity = Mathf.Lerp(m_uncorruptIntensity, m_corruptIntensity, m_progress);
     }
 }
