@@ -208,10 +208,6 @@ public class DialogueManager : MonoBehaviour {
         // Loop through each node in the file to find the conversation
         foreach (Node currentDict in loadedData.dataList) {
 
-
-            Debug.Log("Cyrdiyrdoyrdoyd: " + conversationID);
-            Debug.Log("Ctffffff  " + currentDict.uniqueIDString);
-
             if (conversationID == currentDict.uniqueIDString) {
 
                 inConversation = true;
