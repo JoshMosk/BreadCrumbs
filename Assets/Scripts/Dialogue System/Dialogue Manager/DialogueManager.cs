@@ -136,7 +136,7 @@ public class DialogueManager : MonoBehaviour {
         if (talkingAm > 1f) talkingAm = 1f;
         else if (talkingAm < 0f) talkingAm = 0f;
 
-        animL.SetFloat("isTalking", talkingAm);
+        animL.SetFloat("Talking", talkingAm);
         
 
         cooldownTimer -= Time.deltaTime;
@@ -277,12 +277,12 @@ public class DialogueManager : MonoBehaviour {
             FindNextNode();
 
         } else if (currentNode.nodeType == Node.NodeType.DialogueNode) {
-           // clickSource.Play();
+            clickSource.Play();
 
             currentEnumerator = StartCoroutine(TypeText((string)currentNode.nodeData["speaker"], (string)currentNode.nodeData["dialogue"], (string)currentNode.nodeData["emotion"]));
 
         } else if (currentNode.nodeType == Node.NodeType.MultipleChoiceNode) {
-          //  clickSource.Play();
+            clickSource.Play();
 
             canSkip = false;
             currentEnumerator = StartCoroutine(TypeText((string)currentNode.nodeData["speaker"], (string)currentNode.nodeData["dialogue"], (string)currentNode.nodeData["emotion"]));
@@ -404,8 +404,8 @@ public class DialogueManager : MonoBehaviour {
         if (soundDi.Count != 0) {
 
             if (Random.Range(1, 5) == 3) {
-            //    aSource.clip = soundDi[Random.Range(0, soundDi.Count)] as AudioClip;
-            //    aSource.Play();
+                aSource.clip = soundDi[Random.Range(0, soundDi.Count)] as AudioClip;
+                aSource.Play();
             }
 
             

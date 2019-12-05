@@ -54,6 +54,6 @@ public class MusicManager : MonoBehaviour
 		}
 
 		uncorruptSource.volume = Mathf.Lerp(uncorruptVolume, 0, progress);
-		uncorruptSource.volume = Mathf.Lerp(0, uncorruptVolume, progress);
+		corruptSource.volume = Mathf.Lerp(0, corruptVolume, progress);
 	}
 }
