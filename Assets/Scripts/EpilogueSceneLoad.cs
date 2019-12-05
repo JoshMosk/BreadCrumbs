@@ -11,6 +11,7 @@ public class EpilogueSceneLoad : MonoBehaviour
 	public PuzzleComplete puzzle4Complete;
 
 	public MeshRenderer portalMesh;
+	public GameObject particle;
 
 	public Renderer playerFadeEffect;
 	bool sceneLoadEnabled;
@@ -24,6 +25,7 @@ public class EpilogueSceneLoad : MonoBehaviour
         StartCoroutine(SetPlayerFade());
 
 		portalMesh.enabled = false;
+		particle.SetActive(false);
 	}
 
 	private void OnTriggerEnter(Collider other)
@@ -47,6 +49,7 @@ public class EpilogueSceneLoad : MonoBehaviour
 			if (puzzle1Complete.m_puzzleComplete == true || puzzle2Complete.m_puzzleComplete == true || puzzle3Complete.m_puzzleComplete == true || puzzle4Complete.m_puzzleComplete == true)
 			{
 				portalMesh.enabled = true;
+				particle.SetActive(true);
 			}
 		}
 
