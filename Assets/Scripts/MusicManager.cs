@@ -4,17 +4,24 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
+	//need two audio source 
+	//progress
+	//trans time
+	//max vol
+	//ref to corr
+
+
 	public AudioSource uncorruptSource;
 	public AudioSource corruptSource;
-
-	CorruptPlayer isCorrupt;
-
-	public float transitionTime = 1f;
 
 	public float uncorruptVolume;
 	public float corruptVolume;
 
+	public float transitionTime = 1f;
+
 	float progress;
+
+	CorruptPlayer isCorrupt;
 
 	private void Start()
 	{
@@ -23,6 +30,11 @@ public class MusicManager : MonoBehaviour
 
 	private void Update()
 	{
+		//profress
+		//if corr
+		//check 0-1
+		//apply
+
 		if(isCorrupt.m_isCorrupt)
 		{
 			progress += Time.deltaTime / transitionTime;
@@ -41,7 +53,7 @@ public class MusicManager : MonoBehaviour
 			progress = 0;
 		}
 
-		uncorruptSource.volume = Mathf.Lerp(uncorruptVolume, 0f, progress);
-		corruptSource.volume = Mathf.Lerp(0f, corruptVolume, progress);
+		uncorruptSource.volume = Mathf.Lerp(uncorruptVolume, 0, progress);
+		uncorruptSource.volume = Mathf.Lerp(0, uncorruptVolume, progress);
 	}
 }
