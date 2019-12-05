@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 112000000, guid: 2a2b452ba15f5e0418ef038a5a6b4e73,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2027,7 +2027,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: a913c2f8a8dfe934f97893479d5296dc, type: 2}
+  sharedProfile: {fileID: 0}
   isGlobal: 1
   blendDistance: 0
   weight: 1
@@ -3756,6 +3756,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 340276411025701943, guid: 4f887ff0cde41644eafb1960d7d40d47,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.483
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 127648259408144613, guid: 4f887ff0cde41644eafb1960d7d40d47, type: 3}
