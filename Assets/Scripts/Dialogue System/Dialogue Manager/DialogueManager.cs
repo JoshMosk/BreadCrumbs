@@ -74,6 +74,13 @@ public class DialogueManager : MonoBehaviour {
 
     public string[] allTheJSON;
 
+    public GameObject lylahMesh;
+    public Animator animL;
+
+
+    public float talkingAm;
+    public bool isDesiredTalking = false;
+
 
     private void Start() {
 
@@ -82,7 +89,7 @@ public class DialogueManager : MonoBehaviour {
         dir = new DirectoryInfo(Application.streamingAssetsPath);
         LoadShit();
 
-
+        animL = lylahMesh.GetComponent<Animator>();
 
         // Set up the multiple choice buttons
         option1Button.onClick.AddListener(delegate { SelectOption(1); });
@@ -122,6 +129,15 @@ public class DialogueManager : MonoBehaviour {
     }
 
     private void Update() {
+
+        if (isDesiredTalking) talkingAm += 1f * Time.deltaTime;
+        else talkingAm -= 1f * Time.deltaTime;
+
+        if (talkingAm > 1f) talkingAm = 1f;
+        else if (talkingAm < 0f) talkingAm = 0f;
+
+        animL.SetFloat("isTalking", talkingAm);
+        
 
         cooldownTimer -= Time.deltaTime;
         cooldownTimerNextNode -= Time.deltaTime;
@@ -318,7 +334,7 @@ public class DialogueManager : MonoBehaviour {
             cooldownTimer = .5f;
             inConversation = false;
             DialolgueIcon.instance.SetVisible(true);
-
+            isDesiredTalking = false;
         }
     }
 
@@ -333,7 +349,8 @@ public class DialogueManager : MonoBehaviour {
 		isTyping = true;
         //bodyTextBox.text = bodyString;
 
-        
+        if (characterName == "Lylah") isDesiredTalking = true;
+        else isDesiredTalking = false;
 
         speakerTextBox.text = characterName;
 
@@ -371,6 +388,10 @@ public class DialogueManager : MonoBehaviour {
         if (characterN == "Girl") characterN = "Fire Woman";
         else if (characterN == "Blue Flame") characterN = "Fire Children";
         else if (characterN == "Red Flame") characterN = "Fire Children";
+        else if (characterN == "Graffiti Child 1") characterN = "Child";
+        else if (characterN == "Graffiti Child 2") characterN = "Child";
+        else if (characterN == "Graffiti Child 3") characterN = "Child";
+
 
 
         List<AudioClip> soundDi = new List<AudioClip>();
