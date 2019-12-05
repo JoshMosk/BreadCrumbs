@@ -53,7 +53,7 @@ namespace MajorVRProj
 
         [SerializeField] ParticleSystem cityCorruptParticle;
 
-        void Awake()
+		void Awake()
         {
             input = GetComponent<IInput>();
 			

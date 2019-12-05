@@ -10,7 +10,7 @@ public class EpilogueSceneLoad : MonoBehaviour
 	public PuzzleComplete puzzle3Complete;
 	public PuzzleComplete puzzle4Complete;
 
-	MeshRenderer portalMesh;
+	public MeshRenderer portalMesh;
 
 	public Renderer playerFadeEffect;
 	bool sceneLoadEnabled;

@@ -2705,7 +2705,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 860992263}
+    m_TransformParent: {fileID: 2054254498}
     m_Modifications:
     - target: {fileID: 4867614250175023453, guid: 763264513d044844a96a671ae469677d,
         type: 3}
@@ -2750,7 +2750,7 @@ PrefabInstance:
     - target: {fileID: 4867614250175023452, guid: 763264513d044844a96a671ae469677d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4867614250175023452, guid: 763264513d044844a96a671ae469677d,
         type: 3}
@@ -7423,7 +7423,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 860992263}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 124.955, y: 31.899994, z: -345.818}
 --- !u!114 &204077151
 MonoBehaviour:
@@ -18870,7 +18870,7 @@ GameObject:
   - component: {fileID: 594608700}
   - component: {fileID: 594608702}
   - component: {fileID: 594608701}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Terrain_New
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29295,6 +29295,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 860992263}
+  - component: {fileID: 860992264}
   m_Layer: 0
   m_Name: '---------- PIPELINE ----------------'
   m_TagString: Untagged
@@ -29313,12 +29314,30 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 73980316}
   - {fileID: 204077150}
   - {fileID: 1310142809}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &860992264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860992262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b13a7c02f28dc834e98a3f09794b8925, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uncorruptSkybox: {fileID: 2100000, guid: bea6bd1589e224815b2d82729e50a916, type: 2}
+  corruptSkybox: {fileID: 2100000, guid: 45e10e188090c4ab2a8010f4bb6c4864, type: 2}
+  colBright: {r: 1, g: 1, b: 1, a: 0}
+  colDark: {r: 1, g: 1, b: 1, a: 0}
+  transitionTime: 0.5
+  uncorruptProgress: 0
+  corruptProgress: 0
 --- !u!1001 &861099687
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35926,7 +35945,7 @@ PrefabInstance:
     - target: {fileID: 394449855127430562, guid: 2600f8db4d9bf244993ff9113ce1bc58,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 15009434, guid: 2600f8db4d9bf244993ff9113ce1bc58, type: 3}
       propertyPath: m_RootOrder
@@ -36431,6 +36450,11 @@ PrefabInstance:
     - target: {fileID: 1518582165400979122, guid: 2600f8db4d9bf244993ff9113ce1bc58,
         type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1518582165400979122, guid: 2600f8db4d9bf244993ff9113ce1bc58,
+        type: 3}
+      propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6194064795521069547, guid: 2600f8db4d9bf244993ff9113ce1bc58,
@@ -37002,6 +37026,11 @@ PrefabInstance:
       propertyPath: clickSource
       value: 
       objectReference: {fileID: 1732375917}
+    - target: {fileID: 8470234755527610435, guid: 2600f8db4d9bf244993ff9113ce1bc58,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 394449855975065746, guid: 2600f8db4d9bf244993ff9113ce1bc58, type: 3}
     - {fileID: 5307383569334155446, guid: 2600f8db4d9bf244993ff9113ce1bc58, type: 3}
@@ -45346,7 +45375,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 860992263}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1310142810
 MonoBehaviour:
@@ -65770,6 +65799,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: A1 Shadow NPC
       objectReference: {fileID: 0}
+    - target: {fileID: 6866252603894630771, guid: 58a4416e9e206f244beaba090b7e62c7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6866252603894630770, guid: 58a4416e9e206f244beaba090b7e62c7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -71532,6 +71566,7 @@ Transform:
   - {fileID: 1161082732}
   - {fileID: 501944472}
   - {fileID: 1163218580}
+  - {fileID: 73980316}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -74039,6 +74074,7 @@ MonoBehaviour:
   puzzle2Complete: {fileID: 1772931441}
   puzzle3Complete: {fileID: 255446223}
   puzzle4Complete: {fileID: 2136005073}
+  portalMesh: {fileID: 0}
   playerFadeEffect: {fileID: 0}
   transitionTime: 1.5
 --- !u!4 &2122379391
