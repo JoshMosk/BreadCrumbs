@@ -103,11 +103,13 @@ public class DialogueManager : MonoBehaviour {
 
         rectt = panelObject.gameObject.GetComponent<RectTransform>();
 
+
         foreach (AudioClip aud in dialogueClips) {
             audidict[aud.name] = aud;
         }
 
-        dialogueClips = null;
+
+      //  dialogueClips = null;
     }
 
     public void LoadShit() {
@@ -136,7 +138,7 @@ public class DialogueManager : MonoBehaviour {
         if (talkingAm > 1f) talkingAm = 1f;
         else if (talkingAm < 0f) talkingAm = 0f;
 
-        animL.SetFloat("Talking", talkingAm);
+      //  animL.SetFloat("Talking", talkingAm);
         
 
         cooldownTimer -= Time.deltaTime;
@@ -385,6 +387,11 @@ public class DialogueManager : MonoBehaviour {
 
     void PlaySound(string characterN, string emotion) {
 
+        audidict = new Dictionary<string, AudioClip>();
+        foreach (AudioClip aud in dialogueClips) {
+            audidict[aud.name] = aud;
+        }
+
         if (characterN == "Girl") characterN = "Fire Woman";
         else if (characterN == "Blue Flame") characterN = "Fire Children";
         else if (characterN == "Red Flame") characterN = "Fire Children";
@@ -392,21 +399,26 @@ public class DialogueManager : MonoBehaviour {
         else if (characterN == "Graffiti Child 2") characterN = "Child";
         else if (characterN == "Graffiti Child 3") characterN = "Child";
 
-
+        Debug.Log(characterN + emotion);
 
         List<AudioClip> soundDi = new List<AudioClip>();
         foreach (string keys in audidict.Keys) {
-            if (keys.Contains(characterN) && keys.Contains(emotion)) {
+            string keyStr = keys;
+
+
+            if (keyStr.Contains(characterN) && keyStr.Contains(emotion)) {
                 soundDi.Add(audidict[keys]);
             }
         }
 
+        Debug.Log(soundDi.Count);
+
         if (soundDi.Count != 0) {
 
-            if (Random.Range(1, 5) == 3) {
+           // if (Random.Range(1, 5) == 3) {
                 aSource.clip = soundDi[Random.Range(0, soundDi.Count)] as AudioClip;
                 aSource.Play();
-            }
+         //   }
 
             
         }
