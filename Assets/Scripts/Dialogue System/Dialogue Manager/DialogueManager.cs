@@ -399,6 +399,9 @@ public class DialogueManager : MonoBehaviour {
         else if (characterN == "Graffiti Child 2") characterN = "Child";
         else if (characterN == "Graffiti Child 3") characterN = "Child";
 
+        if (emotion == "Confused") emotion = "Thinking";
+
+
         Debug.Log(characterN + emotion);
 
         List<AudioClip> soundDi = new List<AudioClip>();
